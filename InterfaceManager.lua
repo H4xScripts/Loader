@@ -1,7 +1,7 @@
 local httpService = game:GetService("HttpService")
 
 local InterfaceManager = {} do
-	InterfaceManager.Folder = "FluentSettings"
+	InterfaceManager.Folder = "H4xSettings"
     InterfaceManager.Settings = {
         Theme = "Rose",
         Acrylic = false,
