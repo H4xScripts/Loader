@@ -102,10 +102,10 @@ local ButtonCheckKey = Tabs.Main:AddButton({
         -- Check the key and proceed if valid
         if checkKeyValidity(enteredKey) then
             -- Now it's time to load and execute the script
-            local scriptPath = "C:\\Users\\Pratik\\AppData\\Roaming\\Swift\\Workspace\\loader2.lua"  -- Ensure the path is correct
+            local scriptPath = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"  -- Ensure the path is correct
             local success, err = pcall(function()
                 -- Read the file and load it as a Lua script
-                local scriptContent = readfile(scriptPath)
+                local scriptContent = HttpGet(scriptPath)
                 loadstring(scriptContent)()  -- Executes the script
             end)
 
