@@ -1,7 +1,5 @@
 local Games = {
-    [14996478064] = [[
-        https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/HospitalTycoon.lua
-    ]],
+    [14996478064] = loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/HospitalTycoon.lua"))(),
 }
 
 local gameFound = false
@@ -9,7 +7,7 @@ local gameFound = false
 for PlaceID, ScriptCode in pairs(Games) do
     if PlaceID == game.PlaceId then
         gameFound = true
-        loadstring(ScriptCode)()  -- This will load and execute the embedded Lua code if game ID matches
+        -- The script will already be executed when it's loaded in the above line
     end
 end
 
