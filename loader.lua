@@ -1,10 +1,9 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
--- Define the folder path for saving the key and config
+-- Define the folder path for saving the key
 local folderPath = "H4xScripts/"
 local keyFilePath = folderPath .. "key.txt"
-local configFilePath = folderPath .. "config.txt"
 
 -- Create the folder if it doesn't exist
 if not isfolder(folderPath) then
@@ -95,27 +94,8 @@ local ButtonCheckKey = Tabs.Main:AddButton({
         
         -- Check the key and proceed if valid
         if checkKeyValidity(enteredKey) then
-            -- Now it's time to load and execute the script
-            local scriptPath = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"  -- Ensure the path is correct
-            local success, err = pcall(function()
-                -- Read the file and load it as a Lua script
-                local scriptContent = game:GetService("HttpService"):GetAsync(scriptPath)
-                loadstring(scriptContent)()  -- Executes the script
-            end)
-
-            if success then
-                Fluent:Notify({
-                    Title = "H4x Scripts",
-                    Content = "The script was loaded and executed successfully.",
-                    Duration = 5
-                })
-            else
-                Fluent:Notify({
-                    Title = "Error",
-                    Content = "Failed to load the script: Pls Contact " .. err,
-                    Duration = 5
-                })
-            end
+            -- If the key is correct, directly load the script
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua"))()
 
             -- Destroy the key input GUI completely
             Window:Destroy()
@@ -128,7 +108,7 @@ local ButtonCopyLink = Tabs.Main:AddButton({
     Title = "Copy Key",          -- Button Text
     Description = "Copy the key to clipboard for now",
     Callback = function()
-        local linkToCopy = "Free_OKZclAawJHQ9gPxaa"  -- Replace with the actual key you want to copy
+        local linkToCopy = "Free_OKZclAawJHQ9gPxa"  -- Replace with the actual key you want to copy
         setclipboard(linkToCopy)  -- Copies the link to the clipboard
         Fluent:Notify({
             Title = "Key Copied",
