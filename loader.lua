@@ -39,20 +39,17 @@ local savedKey = ""
 
 -- Check if the saved key file exists
 if pcall(function() savedKey = readfile(keyFilePath) end) then
-    -- Set the input field to the saved key if it exists
     if savedKey ~= "" then
-        Input:SetValue(savedKey)  -- Show the saved key in the input field
+        Input:SetValue(savedKey)
     end
 end
 
 -- Function to handle key validation
 local function checkKeyValidity(enteredKey)
-    local validKey = "Free_OKZclAawJHQ9gPxa"  -- Replace with your actual valid key for checking
-    -- Remove leading and trailing spaces from the entered key
+    local validKey = "Free_OKZclAawJHQ9gPxa"
     enteredKey = enteredKey:match("^%s*(.-)%s*$")
     validKey = validKey:match("^%s*(.-)%s*$")
 
-    -- Ensure the entered key is not empty
     if enteredKey == "" then
         Fluent:Notify({
             Title = "Error",
@@ -62,22 +59,17 @@ local function checkKeyValidity(enteredKey)
         return false
     end
 
-    -- Check if the key is valid (case-insensitive)
     if string.lower(enteredKey) == string.lower(validKey) then
-        -- If the key is valid, save it and set it as the value in the input field
-        Input:SetValue(validKey)  -- Shows the saved valid key in the input field
-        -- Save the correct key to the file inside the folder
+        Input:SetValue(validKey)  
         writefile(keyFilePath, validKey)
         return true
     else
-        -- If the key is invalid, reset the input field and show placeholder
         Fluent:Notify({
             Title = "Key Invalid",
             Content = "The entered key is invalid.",
             Duration = 5
         })
-        Input:SetValue("")  -- Clears the input field
-        -- Delete the saved key file if the key is invalid
+        Input:SetValue("")  
         if pcall(function() delfile(keyFilePath) end) then
             print("Deleted invalid saved key file.")
         end
@@ -87,27 +79,30 @@ end
 
 -- Create a Button to Check the Key
 local ButtonCheckKey = Tabs.Main:AddButton({
-    Title = "Check Key",           -- Button Text
+    Title = "Check Key",           
     Description = "Check if the key is valid.",
     Callback = function()
         local enteredKey = Input.Value
-        
+
         -- Check the key and proceed if valid
         if checkKeyValidity(enteredKey) then
-            -- If the key is correct, directly load the script
-local success, err = pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
-end)
+            -- Hide the window immediately
+            Window:Destroy()
 
-if not success then
-    print("Error loading loader2.lua: " .. err)
-    Fluent:Notify({
-        Title = "Error",
-        Content = "Failed to load loader2.lua: " .. err,
-        Duration = 5
-    })
-end
+            -- Load and execute the script in the background
+            local success, err = pcall(function()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
+            end)
 
+            -- Handle success/failure of loading the script
+            if not success then
+                print("Error loading loader2.lua: " .. err)
+                Fluent:Notify({
+                    Title = "Error",
+                    Content = "Failed to load loader2.lua: " .. err,
+                    Duration = 5
+                })
+            end
 
             if success then
                 Fluent:Notify({
@@ -122,20 +117,17 @@ end
                     Duration = 5
                 })
             end
-
-            -- Destroy the key input GUI completely
-            Window:Destroy()
         end
     end
 })
 
 -- Create a Button to Copy Link
 local ButtonCopyLink = Tabs.Main:AddButton({
-    Title = "Copy Key",          -- Button Text
+    Title = "Copy Key",          
     Description = "Copy the key to clipboard for now",
     Callback = function()
-        local linkToCopy = "Free_OKZclAawJHQ9gPxa"  -- Replace with the actual key you want to copy
-        setclipboard(linkToCopy)  -- Copies the link to the clipboard
+        local linkToCopy = "Free_OKZclAawJHQ9gPxa"  
+        setclipboard(linkToCopy)
         Fluent:Notify({
             Title = "Key Copied",
             Content = "The Key has been copied to clipboard.",
@@ -151,4 +143,3 @@ Tabs.Update:AddParagraph({
     Title = "Update v0.1",
     Content = "Testing.\nTest\nLOL"
 })
-
