@@ -1,7 +1,6 @@
 local Games = {
     [14996478064] = [[
-        print("Success! The script has loaded successfully.")
-        -- You can add more code here that you want to run for this game.
+        https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/HospitalTycoon.lua
     ]],
 }
 
