@@ -11,7 +11,6 @@ if not isfolder(folderPath) then
     makefolder(folderPath)
 end
 
-
 local Window = Fluent:CreateWindow({
     Title = "H4xScripts",  
     SubTitle = "Hub",
@@ -22,25 +21,20 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
-
 local Tabs = {
     Update = Window:AddTab({ Title = "Update", Icon = "plus" }),
     Main = Window:AddTab({ Title = "Key", Icon = "key" }),
-   
 }
-
 
 local Input = Tabs.Main:AddInput("Input", {
     Title = "Put Key",           
     Default = "",                 
     Placeholder = "Enter the Key",  
-    Numeric = false,             
-    Finished = false,           
+    Numeric = false,              
+    Finished = false,             
     Callback = function(Value)
-       
     end
 })
-
 
 local savedKey = ""
 
@@ -105,7 +99,7 @@ local ButtonCheckKey = Tabs.Main:AddButton({
             local scriptPath = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"  -- Ensure the path is correct
             local success, err = pcall(function()
                 -- Read the file and load it as a Lua script
-                local scriptContent = HttpGet(scriptPath)
+                local scriptContent = game:GetService("HttpService"):GetAsync(scriptPath)
                 loadstring(scriptContent)()  -- Executes the script
             end)
 
@@ -134,7 +128,7 @@ local ButtonCopyLink = Tabs.Main:AddButton({
     Title = "Copy Key",          -- Button Text
     Description = "Copy the key to clipboard for now",
     Callback = function()
-        local linkToCopy = "Free_OKZclAawJHQ9gPxa"  -- Replace with the actual key you want to copy
+        local linkToCopy = "Free_OKZclAawJHQ9gPxaa"  -- Replace with the actual key you want to copy
         setclipboard(linkToCopy)  -- Copies the link to the clipboard
         Fluent:Notify({
             Title = "Key Copied",
@@ -146,7 +140,6 @@ local ButtonCopyLink = Tabs.Main:AddButton({
 
 -- Display the window and start the UI
 Window:SelectTab(1)
-
 
 Tabs.Update:AddParagraph({
     Title = "Update v0.1",
