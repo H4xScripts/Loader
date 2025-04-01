@@ -95,9 +95,19 @@ local ButtonCheckKey = Tabs.Main:AddButton({
         -- Check the key and proceed if valid
         if checkKeyValidity(enteredKey) then
             -- If the key is correct, directly load the script
-            local success, err = pcall(function()
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
-            end)
+local success, err = pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
+end)
+
+if not success then
+    print("Error loading loader2.lua: " .. err)
+    Fluent:Notify({
+        Title = "Error",
+        Content = "Failed to load loader2.lua: " .. err,
+        Duration = 5
+    })
+end
+
 
             if success then
                 Fluent:Notify({
