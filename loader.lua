@@ -95,7 +95,7 @@ local ButtonCheckKey = Tabs.Main:AddButton({
         -- Check the key and proceed if valid
         if checkKeyValidity(enteredKey) then
             -- If the key is correct, directly load the script
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
 
             -- Destroy the key input GUI completely
             Window:Destroy()
