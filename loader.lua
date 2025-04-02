@@ -1,4 +1,5 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
 -- Define the folder path for saving the key
@@ -12,7 +13,7 @@ end
 
 local Window = Fluent:CreateWindow({
     Title = "H4xScripts",  
-    SubTitle = "Hub",
+    SubTitle = "Universal Key",
     TabWidth = 160,
     Size = UDim2.fromOffset(500, 270),
     Acrylic = true,
@@ -22,124 +23,84 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     Update = Window:AddTab({ Title = "Update", Icon = "plus" }),
-    Main = Window:AddTab({ Title = "Key", Icon = "key" }),
+    Games = Window:AddTab({ Title = "Games", Icon = "plus" }),
+    Main = Window:AddTab({ Title = "Univsersal-KeySystem", Icon = "key" }),
 }
+
+Window:SelectTab(Tabs.Main) -- Ensure "Key" tab is selected first
 
 local Input = Tabs.Main:AddInput("Input", {
     Title = "Put Key",           
     Default = "",                 
     Placeholder = "Enter the Key",  
-    Numeric = false,              
-    Finished = false,             
-    Callback = function(Value)
-    end
+    Numeric = false,             
+    Finished = false,           
+    Callback = function(Value) end
 })
 
 local savedKey = ""
-
--- Check if the saved key file exists
-if pcall(function() savedKey = readfile(keyFilePath) end) then
-    if savedKey ~= "" then
-        Input:SetValue(savedKey)
-    end
+if pcall(function() savedKey = readfile(keyFilePath) end) and savedKey ~= "" then
+    Input:SetValue(savedKey)  -- Set saved key if it exists
 end
 
--- Function to handle key validation
 local function checkKeyValidity(enteredKey)
     local validKey = "Free_OKZclAawJHQ9gPxa"
     enteredKey = enteredKey:match("^%s*(.-)%s*$")
     validKey = validKey:match("^%s*(.-)%s*$")
 
     if enteredKey == "" then
-        Fluent:Notify({
-            Title = "Error",
-            Content = "Please enter a key.",
-            Duration = 5
-        })
+        Fluent:Notify({ Title = "Error", Content = "Please enter a key.", Duration = 5 })
         return false
     end
-
+    
     if string.lower(enteredKey) == string.lower(validKey) then
-        Input:SetValue(validKey)  
+        Input:SetValue(validKey)
         writefile(keyFilePath, validKey)
         return true
     else
-        Fluent:Notify({
-            Title = "Key Invalid",
-            Content = "The entered key is invalid.",
-            Duration = 5
-        })
-        Input:SetValue("")  
-        if pcall(function() delfile(keyFilePath) end) then
-            print("Deleted invalid saved key file.")
-        end
+        Fluent:Notify({ Title = "Key Invalid", Content = "The entered key is invalid.", Duration = 5 })
+        Input:SetValue("")  -- Clear input field
+        pcall(function() delfile(keyFilePath) end)
         return false
     end
 end
 
--- Create a Button to Check the Key
-local ButtonCheckKey = Tabs.Main:AddButton({
-    Title = "Check Key",           
+Tabs.Main:AddButton({
+    Title = "Check Key",
     Description = "Check if the key is valid.",
     Callback = function()
         local enteredKey = Input.Value
-
-        -- Check the key and proceed if valid
         if checkKeyValidity(enteredKey) then
-            -- Hide the window immediately
-            Window:Destroy()
-
-            -- Load and execute the script in the background
+            Window:Destroy()  -- Hide the key UI immediately
+            
             local success, err = pcall(function()
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
             end)
-
-            -- Handle success/failure of loading the script
-            if not success then
-                print("Error loading loader2.lua: " .. err)
-                Fluent:Notify({
-                    Title = "Error",
-                    Content = "Failed to load loader2.lua: " .. err,
-                    Duration = 5
-                })
-            end
-
+            
             if success then
-                Fluent:Notify({
-                    Title = "Script Loaded",
-                    Content = "loader2.lua was loaded successfully.",
-                    Duration = 5
-                })
+                Fluent:Notify({ Title = "Script Loaded", Content = "loader2.lua was loaded successfully.", Duration = 5 })
             else
-                Fluent:Notify({
-                    Title = "Error",
-                    Content = "Failed to load loader2.lua. Error: " .. err,
-                    Duration = 5
-                })
+                Fluent:Notify({ Title = "Error", Content = "Failed to load script: " .. err, Duration = 5 })
             end
         end
     end
 })
 
--- Create a Button to Copy Link
-local ButtonCopyLink = Tabs.Main:AddButton({
-    Title = "Copy Key",          
-    Description = "Copy the key to clipboard for now",
+Tabs.Main:AddButton({
+    Title = "Copy Key",
+    Description = "Copy the key to clipboard.",
     Callback = function()
-        local linkToCopy = "Free_OKZclAawJHQ9gPxa"  
-        setclipboard(linkToCopy)
-        Fluent:Notify({
-            Title = "Key Copied",
-            Content = "The Key has been copied to clipboard.",
-            Duration = 5
-        })
+        setclipboard("Free_OKZclAawJHQ9gPxa")
+        Fluent:Notify({ Title = "Key Copied", Content = "The key has been copied to clipboard.", Duration = 5 })
     end
 })
 
--- Display the window and start the UI
-Window:SelectTab(1)
-
 Tabs.Update:AddParagraph({
     Title = "Update v0.1",
-    Content = "Testing.\nTest\nLOL"
+    Content = "🔰Hospital Tycoon🔰\n - ✅Auto Collect\n - ✅Auto Purchase\n - ✅Fixed Auto Purchase"
+})
+
+Tabs.Games:AddParagraph({
+    Title = "New Games Added",
+    Content = "+ Hospital Tycoon"
 })
