@@ -78,7 +78,7 @@ Tabs.Main:AddButton({
             end)
             
             if success then
-                Fluent:Notify({ Title = "Script Loaded", Content = "loader2.lua was loaded successfully.", Duration = 5 })
+                Fluent:Notify({ Title = "Script Loaded", Content = "checker.lua was loaded successfully.", Duration = 5 })
             else
                 Fluent:Notify({ Title = "Error", Content = "Failed to load script: " .. err, Duration = 5 })
             end
