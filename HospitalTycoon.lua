@@ -21,10 +21,13 @@ local Toggle = Tabs.Main:AddToggle("Auto Collect Cash", {
     Callback = function(Value)
         autoCollectEnabled = Value
         if autoCollectEnabled then
+
             spawn(function()
                 while autoCollectEnabled do
                     wait(1.5)
                     game:GetService("ReplicatedStorage"):WaitForChild("RemoteCalls"):WaitForChild("GameSpecific"):WaitForChild("Main"):WaitForChild("CollectIncome"):InvokeServer()
+
+
                 end
             end)
         end
@@ -117,6 +120,7 @@ function AutoBuy()
     end
 end
 
+wait(13)
 
 Fluent:Notify({
         Title = "H4xScripts",
