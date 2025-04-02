@@ -8,29 +8,12 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.LeftControl
 })
-
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "locate" }),
 }
-
 Window:SelectTab(1)
 
 local autoCollectEnabled = false
-local playerTycoon
-
--- Detect the player's tycoon by checking for SpawnLocation
-for _, tycoon in pairs(workspace.Important.Tycoons:GetChildren()) do
-    if tycoon:FindFirstChild("Important") and tycoon.Important:FindFirstChild("SpawnLocation") then
-        -- This is the player's tycoon
-        playerTycoon = tycoon
-        print("Found player's tycoon: " .. tycoon.Name)
-        break
-    end
-end
-
-if not playerTycoon then
-    warn("Player's Tycoon not found!")
-end
 
 local Toggle = Tabs.Main:AddToggle("Auto Collect Cash", {
     Title = "Auto Collect Cash",
@@ -48,19 +31,27 @@ local Toggle = Tabs.Main:AddToggle("Auto Collect Cash", {
     end
 })
 
-local Toggle = Tabs.Main:AddToggle("Auto Purchase", {
+local Toggle = Tabs.Main:AddToggle("Auto Build", {
     Title = "Auto Purchase",
     Default = false,
     Callback = function(Value)
         _G.AutoPurchase = Value
         if Value then
-            print("[AutoPurchase] Started!")
             AutoBuy()
-        else
-            print("[AutoPurchase] Stopped!")
         end
     end
 })
+
+
+function FindMyTycoon()
+    for _, tycoon in pairs(workspace.Important.Tycoons:GetChildren()) do
+        if tycoon:FindFirstChild("Important") and tycoon.Important:FindFirstChild("SpawnLocation") then
+            return tycoon
+        end
+    end
+    return nil
+end
+
 
 function ConvertPrice(priceText)
     priceText = priceText:lower():gsub("[^%d%.kmbt]", "")
@@ -81,56 +72,55 @@ function ConvertPrice(priceText)
     return tonumber(priceText) and tonumber(priceText) * multiplier or nil
 end
 
+
 function AutoBuy()
     while _G.AutoPurchase do
-        if playerTycoon then
-            local buttonsFolder = playerTycoon.Important.Buttons
-            local buyablesFolder = playerTycoon.Important.Buyables
-            local playerCash = game:GetService("Players").LocalPlayer.DataSave.Common.General.Stats.Cash.Value
-            local highestBought = 0
-            for _, boughtButton in pairs(buyablesFolder:GetChildren()) do
-                local buttonID = tonumber(boughtButton.Name)
-                if buttonID and buttonID > highestBought then
-                    highestBought = buttonID
-                end
-            end
-            local nextButtonID = highestBought + 1
-            local nextButton = buttonsFolder:FindFirstChild(tostring(nextButtonID))
-            if nextButton then
-                local priceLabel = nextButton:FindFirstChild("Display")
-                    and nextButton.Display:FindFirstChild("BillboardGui")
-                    and nextButton.Display.BillboardGui:FindFirstChild("Objects")
-                    and nextButton.Display.BillboardGui.Objects:FindFirstChild("Objects")
-                    and nextButton.Display.BillboardGui.Objects.Objects:FindFirstChild("Objects")
-                    and nextButton.Display.BillboardGui.Objects.Objects.Objects:FindFirstChild("TextLabel")
-                if priceLabel and priceLabel:IsA("TextLabel") then
-                    local buttonPrice = ConvertPrice(priceLabel.Text)
-                    if buttonPrice then
-                        print("[AutoPurchase] Next Button: " .. nextButtonID .. " | Price: " .. buttonPrice .. " | Your Cash: " .. playerCash)
-                        if playerCash >= buttonPrice then
-                            local args = { nextButtonID }
-                            game:GetService("ReplicatedStorage"):WaitForChild("RemoteCalls")
-                                :WaitForChild("GameSpecific"):WaitForChild("Buttons")
-                                :WaitForChild("DefaultBuy"):InvokeServer(unpack(args))
-                            print("[AutoPurchase] Bought Button: " .. nextButtonID)
-                        else
-                            print("[AutoPurchase] Not enough cash to buy " .. nextButtonID .. ". Waiting for more cash...")
-                            repeat
-                                wait(1)
-                                playerCash = game:GetService("Players").LocalPlayer.DataSave.Common.General.Stats.Cash.Value
-                            until playerCash >= buttonPrice
-                            print("[AutoPurchase] Enough cash to buy Button: " .. nextButtonID)
-                        end
-                    else
-                        print("[AutoPurchase] Could not read price for button " .. nextButtonID .. ". Price text: " .. priceLabel.Text)
-                    end
-                else
-                    print("[AutoPurchase] PriceLabel missing for button " .. nextButtonID)
-                end
-            else
-                print("[AutoPurchase] No more buttons to buy!")
+        local tycoon = FindMyTycoon()
+        local buttonsFolder = tycoon.Important.Buttons
+        local buyablesFolder = tycoon.Important.Buyables
+        local playerCash = game:GetService("Players").LocalPlayer.DataSave.Common.General.Stats.Cash.Value
+        local highestBought = 0
+        for _, boughtButton in pairs(buyablesFolder:GetChildren()) do
+            local buttonID = tonumber(boughtButton.Name)
+            if buttonID and buttonID > highestBought then
+                highestBought = buttonID
             end
         end
-        wait(1)
+        local nextButtonID = highestBought + 1
+        local nextButton = buttonsFolder:FindFirstChild(tostring(nextButtonID))
+        if nextButton then
+            local priceLabel = nextButton:FindFirstChild("Display")
+                and nextButton.Display:FindFirstChild("BillboardGui")
+                and nextButton.Display.BillboardGui:FindFirstChild("Objects")
+                and nextButton.Display.BillboardGui.Objects:FindFirstChild("Objects")
+                and nextButton.Display.BillboardGui.Objects.Objects:FindFirstChild("Objects")
+                and nextButton.Display.BillboardGui.Objects.Objects.Objects:FindFirstChild("TextLabel")
+            if priceLabel and priceLabel:IsA("TextLabel") then
+                local buttonPrice = ConvertPrice(priceLabel.Text)
+                if buttonPrice then
+                    if playerCash >= buttonPrice then
+                        local args = { nextButtonID }
+                        game:GetService("ReplicatedStorage"):WaitForChild("RemoteCalls")
+                            :WaitForChild("GameSpecific"):WaitForChild("Buttons")
+                            :WaitForChild("DefaultBuy"):InvokeServer(unpack(args))
+                    else
+                        repeat
+                            wait(1)
+                            playerCash = game:GetService("Players").LocalPlayer.DataSave.Common.General.Stats.Cash.Value
+                        until playerCash >= buttonPrice
+                    end
+                end
+            end
+        else
+            wait(1)
+        end
     end
 end
+
+
+Fluent:Notify({
+        Title = "H4xScripts",
+        Content = "If you want to more features added in this script ",
+        SubContent = "Pls contact us on discord", -- Optional
+        Duration = 10 -- Set to nil to make the notification not disappear
+})
