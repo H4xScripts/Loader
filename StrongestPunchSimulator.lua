@@ -13,15 +13,18 @@ local Tabs = {
     Main = Window:AddTab({Title = "Main", Icon = "locate"})
 }
 
+-- Services
 local Players = game:GetService("Players")
 local RS = game:GetService("ReplicatedStorage")
 local Workspace = game:GetService("Workspace")
 local TeleportService = game:GetService("TeleportService")
 
+-- Player
 local localPlayer = Players.LocalPlayer
 local Character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 local HRP = Character:WaitForChild("HumanoidRootPart")
 
+-- Variables
 local AutoPunch = false
 local autofarming = false
 local instantFarm = false
@@ -29,27 +32,28 @@ local orbDelay = 0.5
 local currentWorld = localPlayer.leaderstats.WORLD.Value
 local activeOrbThread = nil
 
--- Local saving of InstantFarm state
-local savedState = {}
-local function loadInstantFarmState()
-    if pcall(function() return readfile("InstantFarmState.txt") end) then
-        return readfile("InstantFarmState.txt") == "true"
-    else
-        return false -- Default to false if no saved state found
+-- State saving/loading
+local function SaveState()
+    writefile("H4xScripts_State.txt", tostring(instantFarm))
+end
+
+local function LoadState()
+    if pcall(function() return readfile("H4xScripts_State.txt") end) then
+        return readfile("H4xScripts_State.txt") == "true"
     end
+    return false
 end
 
-local function saveInstantFarmState(state)
-    writefile("StrongestPunchSimulator.txt", tostring(state))
-end
+-- Load saved state
+instantFarm = LoadState()
 
-instantFarm = loadInstantFarmState()  -- Load saved state
-
+-- Character handling
 localPlayer.CharacterAdded:Connect(function(char)
     Character = char
     HRP = char:WaitForChild("HumanoidRootPart")
 end)
 
+-- Auto Punch
 local function AutoPunchToggle(state)
     AutoPunch = state
     if AutoPunch then
@@ -63,6 +67,7 @@ local function AutoPunchToggle(state)
     end
 end
 
+-- Auto Orbs
 local function AutoOrbsToggle(state)
     autofarming = state
     if activeOrbThread then
@@ -101,40 +106,30 @@ local function AutoOrbsToggle(state)
     end
 end
 
+-- Instant Collect + Rejoin
 local function InstantCollectAndRejoin()
-    -- Step 1: Warp until we hit max world
+    -- Warp to max world
     local lastWorld = localPlayer.leaderstats.WORLD.Value
-    local attempts = 0
-    local maxAttempts = 30  -- Safety limit
-
-    while attempts < maxAttempts do
+    for i = 1, 30 do
         local args = {
             [1] = {
                 [1] = "WarpPlrToOtherMap",
                 [2] = "Next"
             }
         }
-        game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+        RS:WaitForChild("RemoteEvent"):FireServer(unpack(args))
         task.wait(0.4)
-
+        
         local currentWorld = localPlayer.leaderstats.WORLD.Value
-        if currentWorld == lastWorld then
-            break
-        end
-
+        if currentWorld == lastWorld then break end
         lastWorld = currentWorld
-        attempts += 1
     end
 
-    -- Step 2: INSTANTLY collect all orbs in current world
+    -- Collect orbs
     local worldFolder = Workspace.Map.Stages.Boosts:FindFirstChild(tostring(lastWorld))
     if worldFolder then
-        local orbParts = {}
         for _, orb in pairs(worldFolder:GetChildren()) do
-            table.insert(orbParts, orb:FindFirstChildWhichIsA("BasePart"))
-        end
-
-        for _, part in ipairs(orbParts) do
+            local part = orb:FindFirstChildWhichIsA("BasePart")
             if part and HRP then
                 firetouchinterest(HRP, part, 0)
                 firetouchinterest(HRP, part, 1)
@@ -142,11 +137,14 @@ local function InstantCollectAndRejoin()
         end
     end
 
-    -- Step 3: Set up auto-reload & rejoin
-    queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/StrongestPunchSimulator.lua'))()")
+    -- Prepare auto-rejoin
+    queue_on_teleport([[
+        loadstring(game:HttpGet("YOUR_SCRIPT_URL_HERE"))()
+    ]])
     TeleportService:Teleport(game.PlaceId, localPlayer)
 end
 
+-- World change monitor
 task.spawn(function()
     local lastWorld = currentWorld
     while true do
@@ -163,6 +161,7 @@ task.spawn(function()
     end
 end)
 
+-- UI Elements
 Tabs.Main:AddToggle("AutoPunch", {
     Title = "Auto Punch",
     Default = false,
@@ -188,50 +187,23 @@ Tabs.Main:AddSlider("OrbDelay", {
     end
 })
 
-Tabs.Main:AddToggle("InstantFarm", {
+local instantToggle = Tabs.Main:AddToggle("InstantFarm", {
     Title = "INSTANT COLLECT + REJOIN",
-    Description = "If u wanna stop Try when its changing world",
+    Description = "Automatically restarts when rejoining",
     Default = instantFarm,
     Callback = function(state)
         instantFarm = state
-        if instantFarm then
-            task.spawn(function()
-                InstantCollectAndRejoin()
-            end)
-        end
-        saveInstantFarmState(state)  -- Save state when toggled
-    end
-})
-
-
-local nextWorldRunning = false  -- Flag to control the loop
-
-Tabs.Main:AddToggle("AutoNextWorld", {
-    Title = "Auto Next World",
-    Default = false,
-    Callback = function(state)
+        SaveState()
         if state then
-            -- If the toggle is turned on, start the loop
-            if not nextWorldRunning then
-                nextWorldRunning = true
-                spawn(function()
-                    while nextWorldRunning do  -- Check the flag to control the loop
-                        task.wait(0.8)
-                        local args = {
-                            [1] = {
-                                [1] = "WarpPlrToOtherMap",
-                                [2] = "Next"
-                            }
-                        }
-                        game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
-                    end
-                end)
-            end
-        else
-            -- If the toggle is turned off, stop the loop
-            nextWorldRunning = false
+            task.spawn(InstantCollectAndRejoin)
         end
     end
 })
 
-
+-- Auto-run if saved state was true
+if instantFarm then
+    task.spawn(function()
+        task.wait(2) -- Wait for everything to initialize
+        instantToggle:Set(true)
+    end)
+end
