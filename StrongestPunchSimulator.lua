@@ -143,7 +143,7 @@ local function InstantCollectAndRejoin()
     end
 
     -- Step 3: Set up auto-reload & rejoin
-    queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader.lua'))()")
+    queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/StrongestPunchSimulator.lua'))()")
     TeleportService:Teleport(game.PlaceId, localPlayer)
 end
 
