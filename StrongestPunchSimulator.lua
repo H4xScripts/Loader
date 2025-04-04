@@ -1,3 +1,5 @@
+repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local Window = Fluent:CreateWindow({
     Title = "H4xScripts",
@@ -13,47 +15,55 @@ local Tabs = {
     Main = Window:AddTab({Title = "Main", Icon = "locate"})
 }
 
--- Services
 local Players = game:GetService("Players")
 local RS = game:GetService("ReplicatedStorage")
 local Workspace = game:GetService("Workspace")
-local TeleportService = game:GetService("TeleportService")
 
--- Player
 local localPlayer = Players.LocalPlayer
 local Character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 local HRP = Character:WaitForChild("HumanoidRootPart")
 
--- Variables
 local AutoPunch = false
 local autofarming = false
 local instantFarm = false
 local orbDelay = 0.5
 local currentWorld = localPlayer.leaderstats.WORLD.Value
 local activeOrbThread = nil
+local nextWorldRunning = false
 
--- State saving/loading
-local function SaveState()
-    writefile("H4xScripts_State.txt", tostring(instantFarm))
-end
-
-local function LoadState()
-    if pcall(function() return readfile("H4xScripts_State.txt") end) then
-        return readfile("H4xScripts_State.txt") == "true"
+local function InitializeFileSystem()
+    if not isfolder("H4xScripts") then
+        makefolder("H4xScripts")
     end
-    return false
+    
+    if not isfile("H4xScripts/StrongestPunchSimulator.txt") then
+        writefile("H4xScripts/StrongestPunchSimulator.txt", "false")
+    end
 end
 
--- Load saved state
-instantFarm = LoadState()
+local function SaveAutoOrbState(state)
+    pcall(function()
+        writefile("H4xScripts/StrongestPunchSimulator.txt", tostring(state))
+    end)
+end
 
--- Character handling
+local function LoadAutoOrbState()
+    InitializeFileSystem()
+    
+    local success, result = pcall(function()
+        return readfile("H4xScripts/StrongestPunchSimulator.txt") == "true"
+    end)
+    
+    return success and result or false
+end
+
+instantFarm = LoadAutoOrbState()
+
 localPlayer.CharacterAdded:Connect(function(char)
     Character = char
     HRP = char:WaitForChild("HumanoidRootPart")
 end)
 
--- Auto Punch
 local function AutoPunchToggle(state)
     AutoPunch = state
     if AutoPunch then
@@ -67,7 +77,6 @@ local function AutoPunchToggle(state)
     end
 end
 
--- Auto Orbs
 local function AutoOrbsToggle(state)
     autofarming = state
     if activeOrbThread then
@@ -106,30 +115,37 @@ local function AutoOrbsToggle(state)
     end
 end
 
--- Instant Collect + Rejoin
 local function InstantCollectAndRejoin()
-    -- Warp to max world
     local lastWorld = localPlayer.leaderstats.WORLD.Value
-    for i = 1, 30 do
+    for i = 1, 25 do
         local args = {
             [1] = {
                 [1] = "WarpPlrToOtherMap",
                 [2] = "Next"
             }
         }
-        RS:WaitForChild("RemoteEvent"):FireServer(unpack(args))
-        task.wait(0.4)
+        game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+        task.wait(0.3)
         
         local currentWorld = localPlayer.leaderstats.WORLD.Value
         if currentWorld == lastWorld then break end
         lastWorld = currentWorld
     end
 
-    -- Collect orbs
     local worldFolder = Workspace.Map.Stages.Boosts:FindFirstChild(tostring(lastWorld))
     if worldFolder then
         for _, orb in pairs(worldFolder:GetChildren()) do
-            local part = orb:FindFirstChildWhichIsA("BasePart")
+            local part = orb:FindFirstChildWhichIsA("BasePart") or orb.PrimaryPart
+            if part and HRP then
+                firetouchinterest(HRP, part, 0)
+                firetouchinterest(HRP, part, 1)
+            end
+        end
+        
+        task.wait(1.2)
+        
+        for _, orb in pairs(worldFolder:GetChildren()) do
+            local part = orb:FindFirstChildWhichIsA("BasePart") or orb.PrimaryPart
             if part and HRP then
                 firetouchinterest(HRP, part, 0)
                 firetouchinterest(HRP, part, 1)
@@ -137,14 +153,31 @@ local function InstantCollectAndRejoin()
         end
     end
 
-    -- Prepare auto-rejoin
-    queue_on_teleport([[
-        loadstring(game:HttpGet("YOUR_SCRIPT_URL_HERE"))()
-    ]])
-    TeleportService:Teleport(game.PlaceId, localPlayer)
+    local TeleportService = game:GetService("TeleportService")
+    task.wait(0.3)
+    
+    local success = pcall(function()
+        TeleportService:Teleport(game.PlaceId)
+    end)
+    
+    if not success then
+        task.wait(0.1)
+        pcall(function()
+            TeleportService:TeleportToPlaceInstance(
+                game.PlaceId,
+                tostring(math.random(1, 999999999)),
+                localPlayer
+            )
+        end)
+    end
+    
+    task.wait(0.1)
+    pcall(function()
+        game:GetService("ReplicatedStorage").RemoteEvent:FireServer({[1] = "Reset"})
+        TeleportService:Teleport(game.PlaceId)
+    end)
 end
 
--- World change monitor
 task.spawn(function()
     local lastWorld = currentWorld
     while true do
@@ -161,7 +194,24 @@ task.spawn(function()
     end
 end)
 
--- UI Elements
+local function AutoNextWorldToggle(state)
+    nextWorldRunning = state
+    if state then
+        task.spawn(function()
+            while nextWorldRunning do
+                local args = {
+                    [1] = {
+                        [1] = "WarpPlrToOtherMap",
+                        [2] = "Next"
+                    }
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+                task.wait(0.8)
+            end
+        end)
+    end
+end
+
 Tabs.Main:AddToggle("AutoPunch", {
     Title = "Auto Punch",
     Default = false,
@@ -188,22 +238,74 @@ Tabs.Main:AddSlider("OrbDelay", {
 })
 
 local instantToggle = Tabs.Main:AddToggle("InstantFarm", {
-    Title = "INSTANT COLLECT + REJOIN",
-    Description = "Automatically restarts when rejoining",
+    Title = "INSTANT COLLECT",
+    Description = "Collects all orbs in current world",
     Default = instantFarm,
     Callback = function(state)
         instantFarm = state
-        SaveState()
+        SaveAutoOrbState(state)
         if state then
             task.spawn(InstantCollectAndRejoin)
         end
     end
 })
 
--- Auto-run if saved state was true
+Tabs.Main:AddToggle("AutoNextWorld", {
+    Title = "Auto Next World",
+    Default = false,
+    Callback = AutoNextWorldToggle
+})
+
 if instantFarm then
     task.spawn(function()
-        task.wait(2) -- Wait for everything to initialize
-        instantToggle:Set(true)
+        task.wait(1)
+        if instantToggle then
+            pcall(function() instantToggle:Set(true) end)
+        end
     end)
 end
+
+local autoUpgradeActive = false
+local upgradeThread = nil
+
+local Toggle = Tabs.Main:AddToggle("AutoUpgradePet", {
+    Title = "Auto Upgrade Pet", 
+    Default = false,
+    Callback = function(state)
+        autoUpgradeActive = state
+        
+        if upgradeThread then
+            coroutine.close(upgradeThread)
+            upgradeThread = nil
+        end
+        
+        if state then
+            upgradeThread = task.spawn(function()
+                while autoUpgradeActive do
+                    local args = {
+                        [1] = {
+                            [1] = "UpgradeCurrentPet"
+                        }
+                    }
+                    
+                    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+                    
+                    for _ = 1, 2 do
+                        if not autoUpgradeActive then break end
+                        task.wait(0.5)
+                    end
+                end
+            end)
+        end
+    end
+})
+
+print([[
+
+██╗░░██╗░░██╗██╗██╗░░██╗    ░██████╗░█████╗░██████╗░██╗██████╗░████████╗░██████╗
+██║░░██║░██╔╝██║╚██╗██╔╝    ██╔════╝██╔══██╗██╔══██╗██║██╔══██╗╚══██╔══╝██╔════╝
+███████║██╔╝░██║░╚███╔╝░    ╚█████╗░██║░░╚═╝██████╔╝██║██████╔╝░░░██║░░░╚█████╗░
+██╔══██║███████║░██╔██╗░    ░╚═══██╗██║░░██╗██╔══██╗██║██╔═══╝░░░░██║░░░░╚═══██╗
+██║░░██║╚════██║██╔╝╚██╗    ██████╔╝╚█████╔╝██║░░██║██║██║░░░░░░░░██║░░░██████╔╝
+╚═╝░░╚═╝░░░░░╚═╝╚═╝░░╚═╝    ╚═════╝░░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░░░░░░░╚═╝░░░╚═════╝░
+]])
