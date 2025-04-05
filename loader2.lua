@@ -1,6 +1,7 @@
 local Games = {
     [14996478064] = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/HospitalTycoon.lua",
     [6875469709] = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/StrongestPunchSimulator.lua",
+    [17589670912] = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/FindTheAuras.lua",
 }
 
 local gameFound = false
