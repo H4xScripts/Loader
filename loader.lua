@@ -43,7 +43,7 @@ if pcall(function() savedKey = readfile(keyFilePath) end) and savedKey ~= "" the
 end
 
 local function checkKeyValidity(enteredKey)
-    local validKey = "Free_OKZclAawJHQ9gPxa"
+    local validKey = "SajanSucks"
     enteredKey = enteredKey:match("^%s*(.-)%s*$")
     validKey = validKey:match("^%s*(.-)%s*$")
 
