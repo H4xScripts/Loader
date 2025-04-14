@@ -1,8 +1,9 @@
 local Games = {
-    [14996478064] = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/HospitalTycoon.lua",
-    [6875469709] = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/StrongestPunchSimulator.lua",
-    [7215881810] = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/NoLimitStrongestPunchSimulator.lua",
-    [17589670912] = "https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/FindTheAuras.lua",
+    [14996478064] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Hospital%20Tycoon.lua",
+    [6875469709] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/StrongestPunchSimulator.lua",
+    [7215881810] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/NoLimitStrongestPunchSimulator.lua",
+    [17589670912] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Find%20The%20Auras",
+    [126884695634066] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Grow%20a%20Garden.lua"
 }
 
 local gameFound = false
