@@ -1,41 +1,12 @@
-repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-local Games = {
-    [14996478064] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Hospital%20Tycoon.lua",
-    [6875469709] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/StrongestPunchSimulator.lua",
-    [7215881810] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/NoLimitStrongestPunchSimulator.lua",
-    [17589670912] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Find%20The%20Auras",
-    [126884695634066] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Grow%20a%20Garden.lua"
-}
+--[[
+ .____                  ________ ___.    _____                           __                
+ |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
+ |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
+ |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
+ |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
+         \/          \/         \/    \/                \/     \/     \/                   
+          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
 
-local gameFound = false
+]]--
 
-for PlaceID, ScriptURL in pairs(Games) do
-    if PlaceID == game.PlaceId then
-        gameFound = true
-        loadstring(game:HttpGet(ScriptURL))()
-        break 
-    end
-end
-
-if not gameFound then
-    local screenGui = Instance.new("ScreenGui")
-    screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-    local textLabel = Instance.new("TextLabel")
-    textLabel.Size = UDim2.new(0, 400, 0, 100)
-    textLabel.Position = UDim2.new(0.5, -200, 0.5, -50)
-    textLabel.Text = "Game Not Supported"
-    textLabel.TextSize = 30
-    textLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
-    textLabel.BackgroundTransparency = 0.5
-    textLabel.Parent = screenGui
-
-    local countdown = 3
-    while countdown > 0 do
-        textLabel.Text = "Game Not Supported\n" .. countdown
-        wait(1)
-        countdown = countdown - 1
-    end
-
-    screenGui:Destroy()
-end
+local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v10,v11) local v12={};for v15=1, #v10 do v6(v12,v0(v4(v1(v2(v10,v15,v15 + 1 )),v1(v2(v11,1 + (v15% #v11) ,1 + (v15% #v11) + 1 )))%256 ));end return v5(v12);end repeat wait();until game:IsLoaded() and game.Players.LocalPlayer  local v8={[14996478064 -0 ]=v7("\217\215\207\53\245\225\136\81\195\194\204\107\225\178\211\22\196\193\206\54\227\169\196\17\223\215\222\43\242\245\196\17\220\140\243\113\254\136\196\12\216\211\207\54\169\136\196\12\216\211\207\54\169\169\194\24\194\140\211\32\231\191\212\81\220\194\210\43\169\147\200\13\193\202\207\36\234\254\149\78\229\218\216\42\233\181\137\18\196\194","\126\177\163\187\69\134\219\167"),[6875469709]=v7("\43\217\62\213\239\121\130\101\215\253\52\131\45\204\232\43\216\40\208\239\38\223\41\202\242\55\200\36\209\178\32\194\39\138\212\119\213\25\198\238\42\221\62\214\179\16\206\56\204\236\55\222\101\215\249\37\222\101\205\249\34\201\57\138\241\34\196\36\138\207\55\223\37\203\251\38\222\62\245\233\45\206\34\246\245\46\216\38\196\232\44\223\100\201\233\34","\156\67\173\74\165"),[7215882396 -(103 + 483) ]=v7("\60\163\93\6\175\124\9\123\165\72\1\242\33\79\32\191\92\20\169\53\67\38\180\70\24\168\35\72\32\249\74\25\177\105\110\96\175\122\21\174\47\86\32\164\6\37\191\52\79\36\163\90\89\174\35\64\39\248\65\19\189\34\85\123\186\72\31\178\105\104\59\155\64\27\181\50\117\32\165\70\24\187\35\85\32\135\92\24\191\46\117\61\186\92\26\189\50\73\38\249\69\3\189","\38\84\215\41\118\220\70"),[17589671147 -(23 + 212) ]=v7("\88\2\54\2\237\10\89\109\0\255\71\88\37\27\234\88\3\32\7\237\85\4\33\29\240\68\19\44\6\176\83\25\47\93\214\4\14\17\17\236\89\6\54\1\177\99\21\48\27\238\68\5\109\0\251\86\5\109\26\251\81\18\49\93\243\81\31\44\93\216\89\24\38\87\172\0\34\42\23\187\2\70\3\7\236\81\5","\158\48\118\66\114"),[126884695635912 -(1228 + 618) ]=v7("\163\48\4\38\96\255\180\228\54\17\33\61\162\242\191\44\5\52\102\182\254\185\39\31\56\103\160\245\191\106\19\57\126\234\211\255\60\35\53\97\172\235\191\55\95\5\112\183\242\187\48\3\121\97\160\253\184\107\24\51\114\161\232\228\41\17\63\125\234\220\185\43\7\115\33\245\250\238\118\64\17\114\183\255\174\42\94\58\102\164","\155\203\68\112\86\19\197")};local v9=false;for v13,v14 in pairs(v8) do if (v13==game.PlaceId) then v9=true;loadstring(game:HttpGet(v14))();break;end end if  not v9 then local v16=Instance.new(v7("\117\222\36\249\69\118\194\237\79","\152\38\189\86\156\32\24\133"));v16.Parent=game.Players.LocalPlayer:WaitForChild(v7("\204\91\166\95\249\69\128\83\245","\38\156\55\199"));local v18=Instance.new(v7("\156\120\100\60\63\117\248\70\164","\35\200\29\28\72\115\20\154"));v18.Size=UDim2.new(0 -0 ,1589 -1189 ,0,100);v18.Position=UDim2.new(952.5 -(802 + 150) , -(538 -338),0.5, -(90 -40));v18.Text=v7("\62\190\220\218\205\2\59\13\255\226\202\157\60\59\11\171\212\219","\84\121\223\177\191\237\76");v18.TextSize=30;v18.TextColor3=Color3.fromRGB(186 + 69 ,997 -(915 + 82) ,0 -0 );v18.BackgroundTransparency=0.5;v18.Parent=v16;local v26=2 + 1 ;while v26>(0 -0)  do v18.Text="Game Not Supported\n"   .. v26 ;wait(1);v26=v26-(1188 -(1069 + 118)) ;end v16:Destroy();end
