@@ -2,11 +2,11 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
--- Define the folder path for saving the key
+
 local folderPath = "H4xScripts/"
 local keyFilePath = folderPath .. "key.txt"
 
--- Create the folder if it doesn't exist
+
 if not isfolder(folderPath) then
     makefolder(folderPath)
 end
@@ -26,7 +26,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Univsersal-KeySystem", Icon = "key" }),
 }
 
-Window:SelectTab(Tabs.Main) -- Ensure "Key" tab is selected first
+Window:SelectTab(Tabs.Main) 
 
 local Input = Tabs.Main:AddInput("Input", {
     Title = "Put Key",           
@@ -39,11 +39,11 @@ local Input = Tabs.Main:AddInput("Input", {
 
 local savedKey = ""
 if pcall(function() savedKey = readfile(keyFilePath) end) and savedKey ~= "" then
-    Input:SetValue(savedKey)  -- Set saved key if it exists
+    Input:SetValue(savedKey) 
 end
 
 local function checkKeyValidity(enteredKey)
-    local validKey = "SajanSucks"
+    local validKey = "NoKeySystem"
     enteredKey = enteredKey:match("^%s*(.-)%s*$")
     validKey = validKey:match("^%s*(.-)%s*$")
 
@@ -58,7 +58,7 @@ local function checkKeyValidity(enteredKey)
         return true
     else
         Fluent:Notify({ Title = "Key Invalid", Content = "The entered key is invalid.", Duration = 5 })
-        Input:SetValue("")  -- Clear input field
+        Input:SetValue("")
         pcall(function() delfile(keyFilePath) end)
         return false
     end
@@ -70,7 +70,7 @@ Tabs.Main:AddButton({
     Callback = function()
         local enteredKey = Input.Value
         if checkKeyValidity(enteredKey) then
-            Window:Destroy()  -- Hide the key UI immediately
+            Window:Destroy() 
             
             local success, err = pcall(function()
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/H4xScripts/Loader/refs/heads/main/loader2.lua"))()
@@ -93,8 +93,11 @@ Tabs.Main:AddButton({
         Fluent:Notify({ Title = "Key Copied", Content = "The key has been copied to clipboard.", Duration = 5 })
     end
 })
-
 Tabs.Games:AddParagraph({
     Title = "New Games Added",
-    Content = " + Hospital Tycoon\n + Legends Of Speed ⚡\n + Strongest Punch Simulator \n + Find The Auras"
+    Content = " + Grow a Garden🍅\n + Find The Auras [570]"
+})
+Tabs.Games:AddParagraph({
+    Title = "New Games Added",
+    Content = " + Hospital Tycoon\n + Strongest Punch Simulator \n + NO LIMIT STRONGEST PUNCH SIMULATOR"
 })
