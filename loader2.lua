@@ -1,3 +1,4 @@
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 local Games = {
     [14996478064] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Hospital%20Tycoon.lua",
     [6875469709] = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/StrongestPunchSimulator.lua",
@@ -11,14 +12,12 @@ local gameFound = false
 for PlaceID, ScriptURL in pairs(Games) do
     if PlaceID == game.PlaceId then
         gameFound = true
-        -- Only load the script if the game ID matches
         loadstring(game:HttpGet(ScriptURL))()
-        break  -- Exit the loop after loading the correct script
+        break 
     end
 end
 
 if not gameFound then
-    -- Create a GUI to show "Game Not Supported"
     local screenGui = Instance.new("ScreenGui")
     screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
@@ -38,6 +37,5 @@ if not gameFound then
         countdown = countdown - 1
     end
 
-    -- Destroy the GUI after countdown
     screenGui:Destroy()
 end
