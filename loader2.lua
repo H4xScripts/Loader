@@ -84,14 +84,12 @@ Tabs.Key:AddButton({
 })
 
 Tabs.Key:AddButton({
-    Title = "Discord ",
+    Title = "Discord",
     Description = "Free key in Dc + 24h KeySystem too Max 48",
     Callback = function()
-        if InputKey and InputKey ~= "" then
-            pcall(function()
-                setclipboard(InputKey)
-            end)
-        end
+        pcall(function()
+            setclipboard("https://discord.gg/AHKgTA7NEd")
+        end)
     end
 })
 Tabs.Key:AddButton({
