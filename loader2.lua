@@ -274,7 +274,7 @@ local gameLoaders = {
         name = "Dig To The Earth's Core",
         loader = "https://api.luarmor.net/files/v3/loaders/c5e7ecc0f71e8e18b15b82749d6f871a.lua"
     },
-    ["81440632616906"] = {
+    ["17589670912"] = {
         name = "Find The Auras [570]",
         loader = "https://api.luarmor.net/files/v3/loaders/04ff6b592db39be535c4502a4cc86e81.lua"
     }
