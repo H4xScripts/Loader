@@ -61,6 +61,9 @@ Tabs.Key:AddButton({
     Title = "Submit Key",
     Description = "Click 3-6 times if script doesn’t load",
     Callback = function()
+        -- Trim spaces from the key
+        InputKey = InputKey and InputKey:match("^%s*(.-)%s*$") or ""
+
         if InputKey == "Free_Key" then
             local url = Games[game.PlaceId]
             if url then
@@ -79,6 +82,7 @@ Tabs.Key:AddButton({
         end
     end
 })
+
 Tabs.Key:AddButton({
     Title = "Discord ",
     Description = "Free key in Dc",
