@@ -85,7 +85,7 @@ Tabs.Key:AddButton({
 
 Tabs.Key:AddButton({
     Title = "Discord ",
-    Description = "Free key in Dc",
+    Description = "Free key in Dc + 24h KeySystem too Max 48",
     Callback = function()
         if InputKey and InputKey ~= "" then
             pcall(function()
