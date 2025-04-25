@@ -69,7 +69,7 @@ Tabs.Key:AddButton({
             if url then
                 loadstring(game:HttpGet(url))()
             else
-                Fluent:Notify({Title = "Unsupported", Content = "Game not in Free_Key list", Duration = 5})
+                Fluent:Notify({Title = "H4xScripts", Content = "This game is not supported yet", Duration = 5})
             end
         else
             script_key = InputKey
@@ -77,7 +77,7 @@ Tabs.Key:AddButton({
             if info then
                 loadstring(game:HttpGet(info.loader))()
             else
-                Fluent:Notify({Title = "Unsupported", Content = "Game not in Luarmor list", Duration = 5})
+                Fluent:Notify({Title = "Unsupported", Content = "This game is not supported yet", Duration = 5})
             end
         end
     end
