@@ -1,1 +1,2704 @@
-([[This file was protected with MoonSec V3]]):gsub('.+', (function(a) _rgXWAwXfjTGM = a; end)); return(function(p,...)local h;local j;local a;local l;local d;local c;local e=24915;local t=0;local n={};while t<921 do t=t+1;while t<0x210 and e%0x2c70<0x1638 do t=t+1 e=(e-971)%20543 local f=t+e if(e%0x167e)<0xb3f then e=(e*0x332)%0x9669 while t<0x356 and e%0x3cf8<0x1e7c do t=t+1 e=(e-620)%23189 local d=t+e if(e%0x499a)>0x24cd then e=(e+0x345)%0x50f local e=22772 if not n[e]then n[e]=0x1 a=getfenv and getfenv();end elseif e%2~=0 then e=(e*0xe9)%0x1102 local e=67850 if not n[e]then n[e]=0x1 h=tonumber;end else e=(e*0x10f)%0x8c6b t=t+1 local e=55509 if not n[e]then n[e]=0x1 a=(not a)and _ENV or a;end end end elseif e%2~=0 then e=(e-0x38f)%0x163e while t<0x159 and e%0x3c86<0x1e43 do t=t+1 e=(e+549)%38340 local a=t+e if(e%0x28e6)>=0x1473 then e=(e-0x350)%0xad6b local e=10309 if not n[e]then n[e]=0x1 end elseif e%2~=0 then e=(e*0x199)%0x2c96 local e=87896 if not n[e]then n[e]=0x1 j={};end else e=(e*0x2a1)%0x6902 t=t+1 local e=12875 if not n[e]then n[e]=0x1 end end end else e=(e+0x34f)%0x28bc t=t+1 while t<0x3df and e%0x3a40<0x1d20 do t=t+1 e=(e-568)%44621 local f=t+e if(e%0x42ec)>0x2176 then e=(e-0x87)%0x89bd local e=93292 if not n[e]then n[e]=0x1 d=function(n)local e=0x01 local function t(t)e=e+t return n:sub(e-t,e-0x01)end while true do local n=t(0x01)if(n=="\5")then break end local e=c.byte(t(0x01))local e=t(e)if n=="\2"then e=j.ByPoizvU(e)elseif n=="\3"then e=e~="\0"elseif n=="\6"then a[e]=function(t,e)return p(8,nil,p,e,t)end elseif n=="\4"then e=a[e]elseif n=="\0"then e=a[e][t(c.byte(t(0x01)))];end local t=t(0x08)j[t]=e end end end elseif e%2~=0 then e=(e*0xf3)%0x372f local e=77487 if not n[e]then n[e]=0x1 c=string;end else e=(e+0x27f)%0x99d t=t+1 local e=32649 if not n[e]then n[e]=0x1 l="\4\8\116\111\110\117\109\98\101\114\66\121\80\111\105\122\118\85\0\6\115\116\114\105\110\103\4\99\104\97\114\118\100\119\110\77\109\83\103\0\6\115\116\114\105\110\103\3\115\117\98\76\88\67\74\111\104\105\97\0\6\115\116\114\105\110\103\4\98\121\116\101\116\101\65\73\95\81\86\107\0\5\116\97\98\108\101\6\99\111\110\99\97\116\113\115\109\109\68\65\116\67\0\5\116\97\98\108\101\6\105\110\115\101\114\116\65\109\105\99\100\73\99\72\5";end end end end end e=(e-499)%29763 end d(l);local e={};for t=0x0,0xff do local n=j.vdwnMmSg(t);e[t]=n;e[n]=t;end local function f(t)return e[t];end local c=(function(p,d)local l,n=0x01,0x10 local t={{},{},{}}local a=-0x01 local e=0x01 local c=p while true do t[0x03][j.LXCJohia(d,e,(function()e=l+e return e-0x01 end)())]=(function()a=a+0x01 return a end)()if a==(0x0f)then a=""n=0x000 break end end local a=#d while e<a+0x01 do t[0x02][n]=j.LXCJohia(d,e,(function()e=l+e return e-0x01 end)())n=n+0x01 if n%0x02==0x00 then n=0x00 j.AmicdIcH(t[0x01],(f((((t[0x03][t[0x02][0x00]]or 0x00)*0x10)+(t[0x03][t[0x02][0x01]]or 0x00)+c)%0x100)));c=p+c;end end return j.qsmmDAtC(t[0x01])end);d(c(81,"j:VTv%(KC#<rX ,>r:(TT,>T<gvr>X V#T:C>%KCTK>rr%>V<6K,K%:K<<KX>rX,( TVKKV%Pv>K#vVv ,C%T#:(#:>X<XC<TC,X<>C(:C,:K%:VX,<T >C>(X:rX ##%h:(Xr%<>  X% XVKT%*UJ< %rV> (CK%#,(#vTC:K%v/%,:#(v:>TXVCr:>r>(XvKX #>,(#(K<VK CrCvV><rvKr:#XX(<X#K#%#gvrT<(T#,l<%TC>Kr>v><X%rT#,C XCvV  #C%vV (K#,x#V(,: X<K#V<:,Xr(r:(< KrHVr:V: V<,%,brrX<#v< C#T%K:TXV(CrT(Tv%,,#,(%V ,KKX:r> Kr%%#(vKV( #C#TT:X VKpnKr%CKTr,KVC CrK((:(/##C(TAv#CKT>:<T7rrr# v#>rX###V#>V#Vv:><<9,,<.KXV< CCXT(>  #C#:C %KCvC  V> >X:KVV:>>rT(V>rX (>:TXC:VXV<:%:cpX>C3vCX#Kr%r> <T>%<%CvTC,(rC%>tVrTK:T<,#(r CCC((:<XC#VT%,TrK(<:(r:(:rr( v#>C<r%v4% r#CVT>(#bT>!C#r>X<X#:T,,C<K%(t ,C#rv<,:KC >C>(>VVX>X:T :TX(K(>X TCKXVK:%K>>,K#s:,> < V  C#r>(<CCTTK,##Vv(T)Xr#T:v,TK,V,, TK,%XKC%(Vp(Xvv,:Vr KrrX(<vrTVX,# vC,KKrvve<v:,>X><T( d <(v,>> <(%X(Kv%K:V CCVv:,6#u%:> vr>#  #rK=V<<>K%*<,<CC oCn%,:mX9CCT,JrCrT<>(rrvvrT(Vv:,,rvK>:>, K:v% :K#,K#(K(Vv><#VvKQ>r>(rV:r>:rX<<#%KV  X<VV  Xr{(%:Tv>>, ,Cr(>><rCK#TTr#KgTvCTTv::r,K:VTf>rTv%,><#%>V  %:%X(<V%pG:r:<KTr,lrT%( ##:T><K%(TC,v :KKVKrT#T:rX%<v rC<(C:X, <CvC,(<vvr><rC6>r,# %TT# VKCVK /#TV%>TvT>: (rKT>V%#>%<VrX#CXXCKK%#o#>VK%Vr <<QvKR<<%>X<rC T,:%r<((V,X%KTTv,#T= >XVK:vX>Crvv>V3<3v,Vz(v:T>v<oCW:,X%KNvK><<V%K#CvKV# CrT%%V(<%K,T( ((:XXKr%XbK :<#T#Wr#vv%>:rCn1<>#iT : X>%#V,,VKrT>>KTv,TXCKCT%,(# (>lT VK<d:(C:K>C<KC,v:X>CVV>> r2TT#>"));d(c(144,"31lG(Tw,-tO9?_rL,>rw?GG(OlEt,rr,L(?((TO_lXwG__T,?wT(?,Gt,,O(1TLCTG?1G?O?llw1=(T1r,(??G&lG1OT-%LlTt?r((twLT,L_l,w?G(,OO?7Gw1G-(LlTt?rG,(T1_-1}(wG_-T-t?Glt1rO,,_(wtwN_(O_11t(L-iT_?((9TG-Oi>l,T?(TT?(1G-?l1l(t?,G_TT(9_lTO(f1-(r1Tl??GTO?LOttL-TT_-lw9T?(G,Lw,TrGw(?L(l,G1L-L0lTw?L(O?Ol,G(O(-,r1Tt_(1?9,21-tLO,T9(lOTl?1wtL(-1?lG9?w11-OlOl(t-,(_LTG?(GlttVr,,L,wO_/G1O_pG-_oT=K,TT(91llt? T1wLTTr_.G1OG19twNGT(rtl,OTlLO(O(1wLTTr_BG1OG19,wLGwl9((?9(G(,GO(1TLewl?tGr9(4.-w_G(_r1Gl?(lrGwO--(rLwG_((lOt1r-,_l(_9GG19tGG-1L(1w-Tw8_lGtOrl(-(LLwr_9(T?t5?,LO(1wLGTT??GTOGl(wL_9(99G(GOLll,9O>1(r_T1_(G-(T1w-?LLwLrlltO-lrt1L(,?r?(-wT"));jWdrZpMpDggWbbw=function(e)e((-j.ZlBpDTit+(function()local t,e=j.xkOrBfVl,j.ucDOGLzF;(function(t,e)t(t(t,e and e),e(e,e))end)(function(a,n)if t>j.JrUoTBOu then return n end t=t+j.ucDOGLzF e=(e+j.QYpvVJzL)%j.UMOrPODt if(e%j.VpUFDpGj)>j.iDMXp_cR then return a(n(a,n),a(n and a,a))else return n end return n end,function(n,a)if t>j.tXPfJZsT then return a end t=t+j.ucDOGLzF e=(e-j.voifcqVJ)%j.wufbJiAA if(e%j.pbAMboof)<j.IbmSCvEp then return n(a(n,n),a(n,n and a))else return n end return a end)return e;end)()))end;wbbWggDpMpZrdWj={j.wzpamSmu,j.PfCMqRtn};local e=(-j.nudLKnsp+(function()local n,t=j.xkOrBfVl,j.ucDOGLzF;(function(t,e)e(t(e,t),e(e,t)and e(t,e))end)(function(a,e)if n>j.xXtfKwFI then return e end n=n+j.ucDOGLzF t=(t+j.UvWqbblc)%j.HuvVdXy_ if(t%j.gllVylag)<j.TVoADuh_ then return e(e(a,e),a(a,a)and e(e,a))else return e end return e end,function(e,a)if n>j.ZRFHWqqD then return e end n=n+j.ucDOGLzF t=(t*j.QEDimjVW)%j.YgCgRRlP if(t%j.BBJvzzbJ)>=j.yFmqrIqv then t=(t+j.keDtuFBV)%j.s_xJjVWg return e else return e(e(a,e),e(e,e))end return a(e(a,e),a(a,e and e))end)return t;end)())local de=(getfenv)or(function()return _ENV end);local f=j.VcbDldtC or j.vsTyGUot;local l=j.CqfuPeap;local ee=j.ucDOGLzF;local d=j.kXxtdIcz;local a=j.WrcMFHtP;local function ae(u,...)local o=c(e,"g,peOj-^./c#taFMMeF.jta>O^epptc4,O.-/.,..tMt^ecF,^.#eOcap#.MrM.-FtpcaejetjM#c,pO/,t#.^F/jcaOOMteeecMaMjjt#Op#.pj//,(.WMc-taaj/t.e.cap,/j,_.pFM/MMj-jM-e-Mpett#et#.pd/O,ej#ap-/#jOac-SO^/De-ea,.js,j-#-e/#,p-//p/^.F#^,#^OOa-,,t-,j/e,^^#Ft.jt,pc/#pMcOUt^#Me^MaF.9FjO^c-Oj/Mep.a,tOMMpaeOt#.ptc{,p,S/j,t.ttF-MFt#^ej/t,=.OM-MO.eMajMa.p/t-pacppL.a:GaMj/tOe.ct,Fetc#pe/.uc^jFFj#e^ca,t/+8O^-^eMa.pF,#MeacO,..tMFF#.#MF-cF,jec-Oe#OpU/j,-F^-.ttOV#Op-,a#e,c/j{t^/at-#FjO^thia#p,/./-catjltOe.ctpn.OO^^MM.-Oa.Ot#Fc#O#tpp/^Mp,./-eF#O.#teHcp.Fp,/^,e.e4p^eFajctOp.#c,a/F,^..Fa^pa/j-#MO/,e/,M.-tFEjpeMFjj-tce,cFp.^FMa^tM/jae.cMp//Ol.^tFFa#-aFt-Ctcea#epMP^.jFt-qaOO-O-tjOO#jpO/j,t.,#dOMaa-jpFcL,O..OtpOOj-.*FOepFp./t,n.p/O,O..M.-Mcc,e.^eEc/p^.#*#.pF.p-tMOMt,M^/aph.at^.eFjj-a4O##MpMc#a#j,t^eF#Op,/jWt^tM--#a/Ott{e##,pH/.Sa^.F#c.a-.aapOj#^jpcMMa^Ope^,,Y-^Mp-/Fc,jtep-^.FcjjMO-eafptt,O^/#p^#,pe-/xt^-F-OO/Fep/cM,.t,.-FaMjta,e.app,#jFa^.aa.pM/O.aaOacMS/cap=.,F..eMjtMO^#Op./tuFB..a,p^/M-^WeM#cpO/.Qt^F^xal..a^j#aFO/tOetK#.eMi-Oa.#ppMc-Sa^aMe-t^#M.-{aOO.#cc^Oc#,p,c.3a-.M,--aaj.pMcj,O..Mt-F.tFa^eaM#^e-/t,L.OM-F^.-M^^e/_Oj^.,ec,p-.tk,^Fjet/e.ctpW/p/M,M..Maa#^^tneOc.,cT-capjOK0O-aFFjatjO-#,pFc.t..^Mj^a/.OaaOMOctpjce4^.^MF-OcpOMteMM.ju?^^*^-.t/ee#Fp/#t/#,^.(MO-.act#jaFWee#/ec#p,/.^Maa#jOtkeOc.,c,OcO0a.eM/j,FX#Mj,cO,..tMFHcj_Mee-capptj7j^#Me/ea/OMtOeect,/.toe^-F/-OaW^/#/e,aOO^##H2^.,.M^-aatj;tOct7a.pB<-a^MMj-Oa.Ot#FaMea#/e.d^.aFt-zaOO-e-taO-#rF%..,;.,#oOjFajFt,O^-.,^-ja#O.F/tMOM#Op./t^ca#jtaFectO,jctMO.#MM-eFpj-aMaMjttOe.ct,FItc,pe.^Kc^jMA-.a,O##F/p.O-c^/jFO#tt.F^pc^pq.tl1^OF-a^-/FtBtc#e/t,.#xK^AFOj.pF#/p..a/M,a.OM.-taFt#-FajOjtte,.pp//t,E^MMpt^^actp&/OG-a .a6#ptFF-eatMt#/epj.,#/jo-p.FM-jaOO.##epc._a.D#_^&F,jMaO%p-.7^/j,ae.fp-,Fij,tRe,#.p,/#fFeOMjjaF/_Ot-e##OaO/MD#.pFM,.atjptee.c,pp/C,,ecOMtaeOc.,t.F^#,F.jMj^tF,O^taO-#NpMc#^^M/jta1OO#-#jO^capF^/,p..<,^Ot^OatFO-ca,#/,-M{FjOt.etcFtHO}#OpO/#a-eM#e-#aVO##je.cjaa/Ova-FFtjat#Ic#te///,F.axe^cccjFt/Ot^#pt/aNc.FM,^-M,,cttO/c/.cMt^bFOj.ttO*a.-./Me..OM.-taFat-Oa/j^^.epc/p_.a#t.^Fj-#.tj>t-e^#H,j.^qt^,FO,OaMOjtOptj.M/.MUe^-tMjjt^M.cpMeNe.,F.jta)Ope.tMejctpj/F4#-tMj^OFEOap#c^,L.OM.-c--M^-#FOpct^e.cO,//c-#>.jwtOe.cc/^eOcj,e.M#.^/Mj-WatOjtmek/att/OMa^jF,-e.OO,#pFQc^C#.FM/^OFt:ttOOecapM/Ft#.tct-tFeO/tk/M,F.OM.-taFF^-Fa^etcM7a#^At.F&--Ot#Oje##jpD/OY.^c^^}a-FMOjaatO.#j/e0c^.Ft-5apa,eOtaOj^F.Mb-^OF.jttF#ajcaOe/#c.#,O^_FOj.tc#.j,teMx/.p^OtMO^tFa,t#jOjtcOhc.a#/##tjeMe-ca,cMpt/Oq.^tFFF,^/F,j#tapM#Me/ccWM.j-eacO.#te},^.tMF-/FpOMjMajOO#.pt/F/-,a/ao/F^jFttOx#Op-,-#-,///DjFe-#t.et#dpp,pc/pp.tFp^/M--#F!pe#te,c.,O^#1?^jFejt#,OM/,/e-^^.Ft-SapFO-Oa.O.#MMc-ea^.FM,^#c-jet/O.#he,/p,/.#M,^pa^j^tcOOc/p-cTtF^^M^-//Mep#apF#jp1./t/-eMejFF_j^teecc^pejeFO.,FFjj/jpj#Fe./a,F.-Mj-#F,,a#^Oa#jeO//a^.FMj-cF#,#t.e/c/pwceae.jFa-/Fp,^tMeM#/pc.MUjOpMO^,a,#ep./.Wt.>j^a(eatpt^eactpb/OR-M/.^k^^cOMaeeOc.,t.F.O,#.,M.^,Fcj^.Opl.3e..^s#.FM/^OFtjMpMcM,O..Mt-FjMM,^OtOjct#eO#/,#c7F/.pFF-#eM#.pO/.lt^F^Y,A.OMOeMa,jOpe/MT.^tMr-pj^Fj-a..pMt/e^ct,,.a-eMjO.#te6cp^tMO/ckFjpMpe/#,,FtOe-^#Mj/p+/Oa#Meja^,t/,BI^-,/-r}e^^t+epaj,t.//#bt.rMO-.aFjltOe.ctpx^O^^#tMe-Fa.Ott0epp^/j,a/^Lp-,Fqj,tT#MOOcO,..tMFM.^awe^.aa(ta/Oe#apFjJ>M^a<jpIatOatFej,p.OM.-tF}jOt.etMXp-/.rt.ZMO-.at.FyOe##2pI/O4.Mh-/aOeaOMt.eOc.,t.F^t,j/eM^^^FFjOeecM,..tvf^p^EMj^tFtpFajO.#tp#/F^eFMj.ttOr#pc^ej#au#cj,e..Fa-//o#epF/.1t.AMpF,^FM.jaaFsP/Mpa#j^F^9..O,-t-tcc.,jF/e,E^.Ft-uaptOpOatp#cMep/a,./iFjOaO-#.ptc},O..Mt^.pOj#ajOo#Op./c.ap-/M,O^jM-jMaj#pcO#t..ta/aO,#./pt^eMctpU/Or-Dc-a6-^ZFj-te^4a,t/PoO^--/Mcp.MjjMa/M.#epjc.t.OaM.pOa#j#tMOJctp#c^,pOOct-cFej,tcMv..p,/M7e.eMc-L/)Oct^eF- _h/^s#.Oa*j/tF_4cKe,cc,#/^t-pttc-ea,Oc^v<.c,,M.ele^cF9,ytcO^#FFk^tMM-jaOpOF^jF.mej#-ejj%,e.tMO-jF-5.ttOp#e,c/.Cj.,M#pceM#.pO/.Rt^F-#k#^FMpjatMjOpe/aW.^tMC-pj/F,-.taOF#/pjcO^#M,-)aOO.#c#.eatOeO*e.OF.jta;Ope.tMejctpj/FD#-#d,-pF.j,a?etc/.^,p-tFijOt-#ajet^ec/e,/.#M#-eM.-cajOF##e#.O,/..Mt^,FFejatjGtp/p(O^.Ft-8aOO.#teTc^e/.t+z^OF-Mee/aapetje^c#Ft/-a#O/M,e.a/,//Oep^jFa.Fa.O-#MeAc/O..Fep^.F#j/MaaMjatOe.ct,F,jc#pj/^Maj,FFjjtcO.#jp.=^.pFt-9aOO-e#t/j,/Me/c^,t.,MaaeO/#.ptcs,ppe/,,,^aj#aeOz#Op./c/)p^/eXMjattt#O^#9pO/.ocpb/^Ma^OM^-taFO/tppM<#..MR-Oa.Ocetatj%t8,^/a,F/-Ma-#F,#Mj,cO,..tMFQF^aM,eta#pUt,ec.X,M-eaaOFt,e^ctOc/eApc^,t/pa/^.#cjFaj,^#cMtc-FcM^^eatjftOe-j-#apa#eQM.af--#F,--e^#.,t/1bO^-^zkJ-/aMjjttO^#.pO//,c^fMj^tFt##ezc_,O..Mc,p^a7etMO-#Op./t8FZ#cm,/.{Fat#O.#?pO/.<cM^/c>,^,M.ja#jOFtOea#b^MM.-Oa.Ot#F#.O.#,ea/a,F/e-eaMO.#te8cp/OMOctM#^Mmp-aF.-?aecepe..Mt^LFptOepc#p,/,De^-FMjaa-Oa#MeOcp#ep^/.Ut.1MpM#j^jetMe.ctpw/p/Y,..aS#ptF^jjajO,^%/e,O^.Ft-7apMejpt-pM#ep^^.,.-/qTjFFcjy#^eF,^/pMt^vFOj-^ea^jctjO2#.,^/jSOFejat.et#Tpp,^cjpa^,+c.3M/-te##jp?/OL.^c-az#j.FMjjttO,#O/pnO^.Ft-8aOO.Mt^kc^pp.tf4^OF-Fe-tF^-e#Oea#tp./j^e,cj.ttO*#p#jeM#/a./Ov,.cFa,ta,ROtMe##p,M/,Kc^^cO-ea,j/.pF..tpp./f#^McIOct/O.#/p.//p_.j#OjeF,-/.OOt##FZcO,c.#Me-/aaj_pM#e,O..Mt-F-jFa^paMOaamO=#s,/.M7j-^Fa-FF-Oa##e,5M.MMO-.atOFOOa#O,#.e,cc,^-/Z--aFp-PtaOA,M/-:O^.FtjF^.FFj/apOt,#ceAT^OF.jcO^F^jta/MO#Opj/F2Me._9-M/OOMt,OO-O,/OtR#^/q,t#O##zpO/.vcM^/^)c^-FajM#MOjt.etcj,F.#Q#a/OateO^c.,t/wYpFF/pMj^,Fc-paeOt-tljcc,^..Nj^.F,j#tFce,^..Mt^7j^tapFOe#tp./t,G.p^c,j.,Fa-Fa/O^p^cpht.zMO--jeM-jatajO#/,t/a,pMe-Fa.OttLep,a#ee.c,pp.,=.-aF<#MejcO,..tMF,-^aMa-/O^#Fptcd,O.-cVf^^/M.-tO,#Op#cc,i.OM.-c-,F/^O#eOt#/eFc,,^/tG,.pM^a,e.ctpT#p>.^tMX-^F*Ott%eOc-#eeec-pN.jwp^tO#t,eDcO,..c/#&/./Mjaeje#.ptc1,p0e/j,.-.MF-Ma.ja#MOO.ap-/poMFej#t.et# ppeM#Op-/,Qc^^jet#e.ctp:/pcp,M/ewt^,MpteOec.,t/1opa-OcaM-aMj,c.F,p-tpHj/,#^t/cae^j#.ptc},pF-jcF#^/M/-j/F,p/-MD/Maa/MMaetMJ^0FOjOt#T--MFe/M,e.^#p-ca#Optbe^#OaF.^y^^/cMj#t/O/#je^-^a,.O#a,pO#t,e7cO,..cc.7a/OCOaeOO#.ptcw,^.FMt^zFOj-^Ha^O/t.et,e/-M.-tF}jpp,t/,,^ae/-aa/.t#tejttep/,pa.FFa.M^MM--Oa.Ot#FatOjtOe=/a^#M,-ZaOO.#ct.e/tnpjX,^OF#^pa<OO#.pc,McaejjDM/.#M,-O/O,j^t,.^.eQ^Mze.-M,-tFOj^p^/aSt.}MO--.OFa-ja,cMpO/O5.^tFFHt.3MetpeOc.,t/zcO-tj#c,a^Oa#te8cO,-*F/j,j.,jMFOOO#.pt/F^pF-^j,t^aFM^jF.j^tFMc-FMpOt+he/M#jt^c#ep#/.Tt.CMpsp^MM--jtajOpe/c .^tM*-p-MFM->a^OF,M/tyO^.FtjFjOF#jetjOO/tpt/jp,.,Ipaeja#.ptcG,pF-jcF//SM,-eF/jtt#Op-O4O/,,-^/MOp-/c,F^.pt-jp^..-#Fej{tOe.cc#/ej/F,j..A#a#jetXeOc.,c,/c#,,/paa-tO#MjeQcO,..cjFap^,se-/Fc,-.c9F-.,^jj,^^j#O-.F.jtttOe^FF^j#,^.#MMpcFpje#ce.cMptj-MM^MM,p^F,je#/eccMaMO/Mte#M_--a^Op#/eJ/aajpc-ea^O.#teTcp##ee4e.GF.jtarOpjKtjO^c#pF//,O.tMj-MFp#^e;/t,X.OM-M{.*F/jMajpa#t//st.)MO^-atj;tOe##Opu/O*.^c-tMa-aFOj/acOM,M/O*O^.FtjFjaFFjtee#,,..t=*^pjMMM^pFtj,tFO.^j,Jc/,O^aj#aeO=#Op./c/,,ac!E..eFtt#Oe#TpO/.Wcp-./1c^OMe-je##ap!/Oh.^c.jV.^tFtjat#eatOpac^,cOMMF^#F#jFeec/,..tlm^pjFMM-.M,##ewcB,O..Mc,^/,MctMOj#Op./tuFb.^#Me-.j-t.et#dpO/.st^uee-#F/j=tOe.cc#tet#Ip_.e0c^,M,-/taOMtO/ei/^.Ft-0apF/j,a.Od,#/Ou_^OF.jc^-aajaaje/##eZMM^#FOj.tteFepcM,M/pMa/c)e.eFt-,et#2pO/.ej.?MO-.FFMMtOe.ctp./O&.^tM-PMa.Ott_e.c.,a/h:j^.M8-jaOO.#teOcO,/.t O^/F.jtaSOa#.pacHp-e^Mt^nFO-fttOh#OO.ap,Q.OM.-tFI-,t.Op,/pO/.Bt./MO-/atjHtOet#,pA/OH..jM*-ja.jJtjeOc.,t/aXO^/Ft^p.eO.#te cM,..tb(^c/ejta)OOtjptc,,O./Mt^OF/j.ttOKt,p./a,W/-c^-tFrjOajet#opO/F^j.kMO-.8OjQtje.ctpX/.Ya^tMJ-OS;Ott,eOc.Oj/>mj^.Ft-yaOO.#tjjcO,c.tsJ^OFtjtahOc#.pMc8,O..Mt^EM-^OttOO#OeO/t,N.O,..+FYj.t.OH#Gp//.,F/7MO-aatjctOe.ctp4/.<..pME-Oa.Ott5eOca,t/-(O^FFt-qaOO.e{eQc.,./pmX^-F.jtj^OO##ptce,O.tMt.&M,j.tFOm#-p./M,z#Oh/-tFpjOttet#/pO/.p,._M^-.atjGtje.atp//O>#^tMe-OaFOta>j,c.,F/5Gj^.FM-BaOja#teecO,/.trV^Ok.-Oa7O^#.pMcBpp..Mt/,FOjattOp#Op./t,l..M.-MFbj/t.eF#8eO/F?t.pMO-MatjetOe.tep</jJ.^FMD-ja.OttFeOc/,t/OqO^.Ft-3M,O.#aeRc^,..tim^O_ejta,OO#FptcT,O..jp^4Fjj.a,OU#Op./t^t.OM.-tF,jOt.et#0-^/.Ut.Yw-t,atj,tOjOctp>/Op..^M)-ja.OatJOOc.,t/c9O^/Ft-,aOOc#te=#c,..FLU^OF.jta Octjptcn,O/jMt^,FOjcttOO#/p./t,*/,M.-aFljOFeet#ppO//rt.:MO-.,Fj7t-e.cap}/-L.^td#-Oa#OttpeOc.,t/-.F^.FF-SFNO.#aeoc^,./!rj^OF.jtatOO#/ptcO,/..Mt^iM,j.taOQ#O/O/t,b.OM/-tFIjOt.j^#yp-/.GM.LMO-.Mt--tOecctpp/O,M^tMu-ta.OMtwe.c.,t/u?O/jFt-eaOO/#teOcO,.cj>!^/F.-,anOO#.Otc-,O.aMt^jFOj#ttjp#ap.ce,+.-M.-tF ^OFOet#^pO/M}t/FMO-.jnj5t/e.#epS/-?.^t/p-OaFOttweOc#,tti3t^.Mp-WajO.tjeSaOpj.tJ-^OM/jtaFOO#.OccI,#..Ma^uFOj.ttOO#Oeb/t,?.OMt-t,lj.t.OO#ne_/.,#.Sw-^,atj/tOetctp?/Op..FMz-aa.jjtxO/c.pFa^}O.pFt^#aOO.#tOp#j,./^Er^#F.jtaBj-t#ptct,O.FMt^3FO-caeOQt,p.#2,s.OM.^FMpjOa-ett.pO/.Ut._s/-.F-jBtFe.#cpx#O,j^tM#-OacOtaeeOt.jp/w,q^.FF-QFFO.attecOpj.t4j^OM#jtFpj-#.eccy,-..Mt^z5O^jttOF#Oe-/tpF.OM..jFK-et.et#1pO/.1t/.MO^.atjetOe.ctp0c#+..aMW-.a.OttUeOct,t//LO./Ft-paOj.M^e2ct,.c/?S^aF..tMoOOtKpt#-,O/cMt^2F.j.ajOw#Op./a,r/-J,-tFcjOFOet#WpO#.,c.wMF-.F-jDa,e.#Fee/O,e^tM#-Oa.Ottmetc.p-/d4-^.FF-!FOjj#te/cOp*.tAc^OM./^aQOt#.e,c5,a..Mt/FFOjMttO.#Op//tpl#MM.^pFz-at.Oe#Ke-O^:t.^MO^patjQtOeFcMpl/t!.^tM_-ja.jetWeOac,t/r{O^FFt-DaOO.FFe}cO,./eTf^OF.jtMcOO#.ptc-,O..Mt^_,-j.ttO8#jp./t,6.Opp-tFqjOt/et#dpO/.eF.0MO-.atj:tOe.ctOc/O(.^tMD-Oa.Ott2FOc.pe/VX-^.Fa-kaO#O#te:cO,/.tl7^OF/-qa0OO#.pMcQ,O..Mt^eM^j.ttOf#pcOVO#tu#.M,p^aM.^ZFe,etee,#/Fp/t,O.Ojet#e.ctp%/pcjpe.cd,^.Fjteeac.,t/lhp,F.jMj-tFpj/a_ea,..tmI^OM-jtaLOOtca#cB,O..MM^{FOj.aF/j#Op//t,p.OM.-tF0.et.et#dp-/.AF.%Mc,eatjYtOeFctp,/O8/^tMO-/a.Ott5ecc.,a/hY.^aFt->aOje#te,cOpce#>B^OF.-JaIOO#.eFMj,O./Mt^pFOj.ttO{Fep./t,r.-M.-FF4jc^eet#!pOcOGt.,MO-/atjOt/e.ctpTcyH.^aML^-paOttEeOc/,t/h)O^.3j-BaOO.#FeucO,..t-t^OF.jta,OO#.ptcQ,F..Mt^7F^-OttOT#Op-e^c/pt/j O^/M-^_a/j.a,/#,O.kMO-.aca/--a^OFteeMcc^MMO-Oa.Ot#F#-A#/,/e,j^.Ft-HapFjjOt/O-tdp//cp,.,Z.-/a#-,aOOe#c.#,_^xFOj.tca#Oaa0pM#.pu/Fkj^jFtj#a/O.#aec#O,a/t,jaMj/tOe.ct,Fetc#pe/.Nc^jFFj#e^cF,t/5NO^--tM/^FF,jtee#^,..tNv^p.eMj^.aa-Otje^#aeK/M,-.jM,^OF-j,#MOe,e/OM.-tFxjp-eajj.#aOOcj,^/a,_^MM---taOa#//^>t^tMo-Oa-Me-aa-c.,t/NmO#pFt-?aOjc-#eucO,./IA4^OF.-p^#OO#.ptcO,O./Mt^,FOjta,Ox#Op.c4,5.jM.^(FjjOt.et#/pO//Et/pce-.atjNt.e.ctp&/Oj.^tMk-Oa/OttpeOcF.j/kHO^.Mj-_ajO.#te7c.,a.tB9^OM,jta,OO#te,cr,O..na^fFjj.aFFM#Op./t,/.OM.-tF-#at.et#BeO/.ua.7MO-.FsjjtOe.ctex/OA/^t5p,ea.Ottveac.,t/L_Ot.Ft-1aOO/#tepcO,Fe^)_^OF.-aabOj#.pac+,..aMt^0FO-/ttO,#OecM,,&.OM.-FF jOt.OFjMpO//>t..MO-.atj--Me.cap9c/Q.^aMf-ja.jxtjeOc.,tcj}O^/Ft-Oa/O.#teTt,,..a7;.-/^jta,OO#FptcH,O/cec^SF-j.aOOu#Op./t,j.OMc-tF,jOtceta7ej/.KF.1M--.FejTtOOjctp,/OYc^tMp-OaFjttsejc.e//P_j^.Ft-0a.Oa#teQcOej.t ,^OFt-,aTOO#.-pc},j..;F,MFOj/ttO,#Op./t,-FaM.-aF%^#t.ea#QpO/.,b.jMO-.at^^tOe/ctepOeu.^aM:-ca.Ott7O-j^,t/p}O^/Ft-9aOO.-aeoc-,..ak=^OF.jteaOO#/ptcW,O.cMt^-Oaj.taO)a#p./a,u.OM.^)FjjOt.eta^pO//lt.OM/-.atjZMce.capTc-#^^tM,-OFpOttBeOcF.j/zAj^.p,-EajO.#te&c.,a.tm*^O,ajta,OOtca#cR,j..T-^4FOj.Ft^-#Op//t,,.OMa-tF-#at.ea# j//.Ia.9MO-.F>jjtOe.ctjj/Ob/^tbp,ea.Oat6ecc.,t/3,-MjFt-paOjp#teBcOe.ce?D^-F.jFaPO/#.ptct,O.cMt^,FOj.ttOft;p./a,s.OM.-FF?jctaet#,pOtFGt.,MO-/atjOt/e.ctp3tcR.^aMz^-paOtt,eOc#,t/}?O^.,j-_a-O.#teUcO,..tp/^OF#jta,OO#.ptc_e...MF^KF^j.ttOz#O/O/t,v.OM/-tFHjOt.Op#;pO/.dM.jMO-.atOFOOF,OF#j/^,^^tMY-Oa-t-jaa-OD/-pacc,M/Oa^^)Fjjtt.c^,#.tqB^OF-FMO#O^#Fptc8,O.-c>3^^/M.-tOT#^eO/t,7.OM-F.O.+IOMaej-t,et#O}/^,-catj=tOe/ctpy/O3#.OMX-Oa.Oce.taOMtOe-c^pjFt-8aOO.t4e+cO,..t,#^OF.jta(OO#.ptt ,t..Mt^qFOj.taOq#Oa./t,i.OMc-tF,jOt.c.#?pO/.Da.rMO-.atjetOe.ctpe/t&.^tM2-pjNFj-^atOF#MeaR^^#Ft-_aOO-OMc#c^pO.tE8^OF-a.e.M}eMteO-#,ptcOM/-,j.ttOE#Opa/t,&.OGc#cFSjOt.eF#XpO/.pt.eMO-.atj0tOe#ctO /ji.^tM8-Oa.OatleOca,t/)AO^cFt-,aOO.a,eKcO,..aIZ^OF.jtFOOO#.pt#pte..Mt^oF^j.ttOPaOjF/t,r.OM.-tF-jOtFcj#TpO/.,j.UMj-.atjTt.eactpC/O,,^tM,-OFcM#t{eOc.p</Y_O^.FFijaOO/#te,cO,..tWbpOF.jtazO-#.pac?p-e^Mt^EFOj#ttON#Oj.p^,f.OM.^pFHj/t.ett#pO/.)t.IMO-.at^Qtte.ctp8/O(.^FM0^-,/OttpeOc/,t/{2O^.;^-}aOO.#Fe;c-,./p-/^OF.jtFeOO#/ptcD,O.td,^bFOj.aMOU#jp.cF#M.OM/-tFOjOt.et#-p^/.>F.JMO-.aaj;tje.ctOc/OD.^tMQ-Oa.Ott_FOc.,a/}A-^.Fa-9aO#O#te{cO,/.t+K^OF.-^a(OO#.pMct,O..Mt-F-,M/-,a#OacMeM#/pc.M+jFejat.et#Tpp,/c,p..amF^/Fj-Oe##/p{/Oh.^c^p{^.&F/jca,eM#,e.c,,#.F-eF,O.#teBcp#Mpjc.7#..M/^Oacj#t,O-ct.#OO^3FOj.tcatjtaAOY#^Mpj#tM^jFt-M/FjKtapa#pp,/^AFeFMpjaF>3M##pa#I9M.MMa.j#Mjca^OF.a}t-tpO^eM^^cFj-3a.e^c#_t/a,-.^m--/Fc-rt/O^caF//-R/^FMO^pF-Oa#p,pcM,F/O-MMtjOt.etcFc.pa#ep..a#t^/Mp,.tFjpteeMcM,j/-#..7FM,OtMO,tOFOce,,//-eaMO.#te=cp/OMOctM#^M)p-aF.->aece,/..Mt^=FpM.-/Fpjep#c,,f.OM.-cjaF#-#aF#epc/.yt.2MpME^/M.-Oa,cMp./O5.^tFFa#^#FF-.taOctO/lYO^.Ft-taOO.#tOpaO,..tU4^.F.jtaxj-t^ptc,,O.aMt^nFOj.tMOK#Op./F,+.jM.-tM#jOt.et#&pO/.ItczMa-.atj9tOe.cMp=/O,,^tMp-Oa.OttOeOa.ej/6:-^.M--Ga#O.Ft.^cO,c.tD/^OM+jt_UO-#.pFc:,j..MF^b,O^,ttOp#Oee/t,-.OM..OFdjOt.eF#>pj/.%t.pMO-.atj,tOe.ctpm#,5.^tM_-^F)Ott%eOc-/eeec-p).jGp^tO#t,e3cO,..c/^,^.TMjaeOa#.ptcm,pE//,,.^aMF-/ajjOp#c,,P.OM.-c..F/-Ma##epF/.Et.+MpF^jjaaj^tpp,cI,,.T^MMj-Oa.Ot#F#,eM#Mep6^.eFt-JaOO-e./.jA/Mpec-,,.t9O^^O^tMptc;,O.-.j,p.eMc-MF#j-^tej#-pc/#,peOM^jMaej/tceFcj,.M^-Fatj0tOe-eO#aetc.,jMe-ta.Ott_epO/#je^c#:a.^M/a^jO#telcO,-p-/a,-.eMj^-F.jFt/Op#t.#Z/^mFOj.tctpj^awe/ccp,.M<,..M,-#aF#eO-/.8t.=MpF^^jMa,.a/jjt^etjt,p./#.^,M.jjt#jy#teaj.aMjp#O-#FOj,a-e/cMeO//,c.MjFaJOO#.ptck,Ot.et^pFOj.ttO<#Op.cOjs.^ej-tFCjOt-##O/a,Ftc/p^O.>.^MF^-ea,OO^Oetc#a0.jZ-^#MOjttaOF^Np./app./M^-acc,5cFO^#jpFjOFt.jne-^F^jFtOMOc/pc/OtO.cM,^ea/jt^t,./#C,^I-MF#jOt.etcFt#pM#p,a/.,4-MFMjaFjcMew/O0.^tFFFej,a/je#vee//1./^M.-Ma^jet,eOeec#,..t_%^p.FMj^OF^jFaOcp,O..Mt^AFOj.#t^M#^ep/t,%.OM-F,-Oa,,t#jj-tce##p.eMF-.atj(tpaMOet-e,ctpO.en,^sOMaFeOc.,t.F.e,,//#O^,FM,}a#Oc##pF/#t..#GppOatj#tjO^#-FecOtO^aqO-/F^jtp#cc,E.OM.-cjMtajjtMpac-WM.M7-^cF,jea.t^OOctpx/OP-M//,M/^eFjO^a^j,tpp^/a^#le-:aOO.#ccce/#jpt//ytet)O^e/.-pt,Oy#,p+/,,.^act-#a/-,p#c,,q.OM.-c.#F/-jFO#epc/.Kt.;Mpnt^eFj-Oa.cMpc/O*.^tFFMF^jFpj/ace#tDpac-^cFt-3aOO/#teWcO,#/-rY^OF.jc-^Fmj,teeMc^p^/j,aFOj.ttO%#cp./t,{.OOp-tFljOt.et#4pO#.pe.PMO-.atj?tje.ctp//OQ/^tM,-Oa.OttLeac.,t/ !j^.Ft-zaOOM#te=cO,..tif^OF.^ea;OO#.pac2,O..Mt^^FOj.ttOeaFp./t,w.p/O,O..M.-Mcc,e.^pa#h,aj-7..jFj-ca/OMt-M-cc,j/.t^^pF/-;taOM^Mec-#a#.twe-/Fwjja-O#^#.Mi#^OF.jttFFOj#t,e.##eBcpla.-MetMOj#Op./tZFF-/.,j^jj^taet#mpO/-c^,j/j>,aMjttOe.ct,FeOc#,,..M^^MFe--a,OttO/e!t^.Ft-haptO-Oa.O./epjc.^^MpjtaTOO#-aee^#cpjcQ,.^^Mj-OOA#Op./tpO.OM.-tF3-Mt.et#SpO/.rt.7Mc,eatjRtOetctp,/OV/^tMO-/a.Ottye.c.,a/?f.^aFt-uaOj1#te,cO,.c^&C^OF.jaa?OO#.Ota-,O..Mt^7FOjattO},^p./t,H.jM.-aF_j.taet#wpOc#5t.,MO^c.#jItOe.cFpo/OA..Fpa-Oa/OttOeOc.,t#V,c^.Fa-IajO.tpe&#-p..t_e^OF/jtavOO#.e#cY,...Ma^!FOj.FtO,#Opt/t,O.OMM-tMpjFt.O,#Bp^/.dt.}MO^/atjetOe#ctpj/Oi.p-Mr-ja.OMtZeOc.,tMa%O^.Ft->aOOc#teCK^,..t}u^jF.jaa=OOpOptc<,O./Mt^uFOj.e-O}#Op./tp#.OM.-tFLjOt.et#}p./.ft.2MO-.atjyFcFjctpn/Oda^tM,-OF-OttOe/c.,t/x9/^.Fa-%a.Oa#te;cOp-.tT,^OF.^^aHOO#.pacA,O..,tF/FOj.ttO(#OeO/t,(c,M.-FFhjOt.OI#YjO/tBt.pMO^,atj^tO-.t,p{/-T..pMH--a.^tt-eOcc,tc/EO^#Ft/7aaO.#FeAcj,.//yG^OM^jtawOO#cptc,,O..-.^dFOj.taOb#Op./tp#.OM.-tFpjOt.et#-.a/.Ct.UD/-.aajktOe.#;pj/O5.^tRj-Oa/OttHOMc.,t/s ^^.Ft-LaO-e#te,cO,c.t6v^OX./pazOj#.pacxpc..3tc#FOj.ttj-#Op//tppeeM.-tFN^5t.et#>pc/#xt.,MO-.atj,tOecctpRt-T.^tM;-^a.Ott4eOac,t/d)O^.Ft->aOO.MtePcO,..FuV^jF.-pe/OO#.pt#a,O./Mt^rFOjta,O&#Op.#/,Q.jM.^fFjjOt.eta-pO//;t.:bM-.aFj)tje.ctp_#O.,^tMp-OacOttteOc.p//&{.^.Ft-wa.O.Fte#cO,t.tB/^OMajtvnO##.eic?,c..?M^d,Oj/ttOO#OO,/t,e.Op.^jF9j.t.ea#=eF/.6t/pMO-catjOtOe/ctpb2o1.^tMS-ja.OttyjOaF,t/pZO^/Ft-paO-F-eeic-,.#-P4^jF.-,a7O.#aptch,O#pMt^,FOjta,Ov#Op.Fk,>.jM.-tM#jOtcet#OpO/.nt.vOt-.aMjbtOe.ctpZ/O,O^tMp-OacOtt,eOc.p_/s7-^.M,-QaOO.#tOccO,#.tf_^OF.jtaDOa#.pFcX,-..Ma^6FO^jttOp#Op./t,5.Owc.pFij-t.Oa#4pO/.,FajMO-cat-OtOe.ctepM(6.^MMW^ea.OttnO-#j,t/O4O.tFt-<aOOttMezc-,.tMry^jF.-F^MOO#Fpt#t,O..Mt^-F^j.aeOP#jp./a,f.-M.-t,pjOt.et#ppO/.=t.3p--.atjEt^e.ctp /OO.^tM--OacOtt^eOcF.j/8hc^.pc-bajO.#temc.,a.t>T^Op-jta,OO#te,c ,O..-j^?Fjj.aFFM#Oek/t,O.OM.-tG>Fjt.OO#kpt/.p^.0I-.,atj/tOOtctpJ/O9./,Mv-ta.OFt)ejc.p3eOWO^cFt/-aOO/#teOc/,..th(aaF.jaaP-OFFptcp,O./Mt^pFO^F^/Os#-p.Ft,m.jM.^FF2j.taet#YpOF.Ct.,MO-.M^j!t-e.cap&/OK./t-/-OacOttpeO#O,t/l,j^.Md-DaOO.tKe%aOpp.tVO^OM,jta^OOF.e/c_,...hp^HFMj.Mtjt#Opt/tp/.OM#-t,)-ct.Os#wpj/.,t.+MO^jatjptOetctp,/O9t.,MC-Oa.#jtsejc.ett-ZO^cFt-,aOOc#tj-O#,..FGmt.F.jaa{jt#.e1cj,O..MttOFOj/ttOO#/p./t,0F,M.-aF0jOFeet#ppO//Bt.hMO..jjjNt-e.cFp3c0*.^tMe-OatOtt eOct,ttd,M^.M;-WaaO.tee3aOpM.tXO^OFFjtFaOOF.eFc<,...,j^nF^j.Mtj-#Opt/t,,.O:M-tF!-et.eF#Wp./.Da.KM.-aatjEtOc,ctp,/OH./^M<--a.OatZeOc.et_,yO^cFt-paOjO#teVtB,./&5b^OF.-}aP^OtpptcO,O/,Mt^^FO..a-Oo#.p.cp,d/^M./tFpjOttett/pO/#*tchMa-.F,j4tje.#-pA/c,t^tMj-OeMOtt,eOc/,t/O_/^.Ft-be#O.#aeG#--a.tPj^OMzjtaBOOt.-^cN,...Ma^EF/j.tt-p#Opc/t,O.OM/-tFNt{t.et#Vpj/.(t.:MO-/atjftOe##/pE/OK.^c-^M/^tMO-/acO,/-ee/#p,/e-maOO.#teOcO,..t!D.MF.jta OO#.ptc)eO/fMt^rFOj.ttO,#Op.Ot,w.OM.-FFojjt.et,tpO/.Gt.,MO-.atjPtMe.ctpU/^p-^tME-Oa-F.-.atOtteMF-^a#.OMa^#aMjMa-et^cp^/#a^jaa.OMaMOSc,U#/-X,/O^eMBj.ttO!#pcjeacj,M/,Me.eMa-FaeO/p^cj=t.yMO--jFMe-tajO-#ap#/apO.a(^^cOMtceOc.,t.F.4FG/.F^-#FFj/aOOt,#/p>0^OF.jcj.F,-_tte/,^.aMt^;FOj--taaj-t^/M,j.OM.-taFa,jMaMjpp^c,+t.8MO--jaFj-ta,jp#ap/c.^Ml/-Oa.Ot#F#.eatee./att./Qpp.aF-paeOM#Mpjc-t./GMMpOFpj#t/Op,^/6Mt^XFOj-OeFej-a}ej#pptM#^/F8jOt.ecj^#aOZcep4/,+t^pMej/aFOOpR/Oy.^tMt-Oa.Otap-Oc.,t/EdM^.Ft-NF--y#te,cO,/.to0^OF.-#a7OO#.pFcQ,j..Mt^cFOj.ttO1#Op./te8.tM.-tFyjOt.eM#WpOc/lt.pMO-.atjOtO-.##pB/-x..,Mr-.a.^t,^eOcc,t/^XO^FFt/ F/O.#Fe7c-,./OdncO2jjtapOOtpptc/,O..,e^;FOj.tFOy#jp./tpa.OM.-tF,jOt.et#{pO/.mt.?MO-.atjNt-e.ctpb/OjF^tM1-Oa.OttAeOc.../;nO^.Fa- aOO.#ae,cO,..tne^FF.jta_OpOMt.e/c#p^.M=M^aNjttO?#Op.cp,_.OM.-tpcjOt.et#_pO/.vtc69c-.atjitOe.capr/O,c^tM,-Oa/Ott)eOc.pc/:KO^.Fa->aOO.#teMcO,..t;5^OF.jtaCja#.ptcq,j..Mt^%FOjMttOm#Op#/t,s.OM.-MF,jOt.etcFp^/aLt.hMOatea#pe&/acMp-/Oo.^t-ea.Oc#jpF/#cc,t/v2O^.Ft-0aO..#FeRcO,..tu2^Oj./tapOO#.ptcl,O..FtcMFjj.ttOs#Op./t,H.OM.-tFdjct.et#>pOFeit.pMO-.atjxtOe.tOpW/^1.^aM>-Oa.OtaeeOct,t/,)O^.Ft-:F#O.#MeNc-,..FK%^OFajtapOO#.ptce,O..,^^rFOj.taOE#Op./FOe.OM.-tF2-Mt.ea#KpO/.ft.lMO/,atjptOe.ctpy/O;.c#MQ-ja.OFtde-c.OpeaRO^/Ft-taOO/#teecO,t/,<I^OF.-.aUOj#.pt##,O./Mt^,FOj.ttOsaap./F,6.OM.-tFZjct#et#epO/.1t.,MO-catjqFFe.ctpH/OS.^tM:-OScOtt3eOcc,t/=zO^.VF-+ajO.#MeRcj,./RHj^OF.jtL,OO#/ptckpM..Ma^WFOj.ttOy#Oj,/t,p.OM.-tFHjOt.-##:pj/.}F.{M--.+pMatOe/ctj,/O4/^tMO-Oatj,tzeOc.Oa/w j^.Ft-OaOO/#teTcO,..thF.-F.-ea(^j#.pac>,j..C)^jFOj.tt^,#Op//t,y/MM.-aF>j^t.et#HpOcj;t.pMO-.atjwtOOc##pu/^%..eM -Oa.jFt,eOct,t/^CO^.Ft-<a/O.#aePc.,..FmI/cMOjta,OOaOptc,,O.cMt^OF/j.ttO<aBp./a,{..Ma-tFXjOM/et#,pOcc-,.6Mj-.aajdtOe.#F^j/ONc^tMj-Oa.Ott9e.c.,M/_7O^.Ft-vF-/a#teOcO,M.tIf^OFtaOa+O-#.jtcS,j..Mt//FOjFttO,#Op./t,JF/M.^eFHj.t.et#UpOcj!t..MO-tatj6tOe.#apD/ah.^MMZ-Oa.OttceO#p,t/<hO^.Ft-kFeO.t^e;c/,..t+;^OF/jtatOO#aptcu,O..:^^lFaj.a.OZ#-p./t-#.O&u-tF.jOa,et#h-./.,j.KM/-.atjHtOO#ctp./O,_^tM/-OM.j-tDetc.pO/:Bc^.Ft^caOOM#te^cOpE.t(o..F.jaaROc#.eec_,.ptMt^pFO^/ttO,#Op.#j,Q.jM.-FFwjOt.ett/pO/.Qt.pMO-.atj7eWe.ctp?/jd.^tM*-jaaOttXeOc#p^/4:O^.Fcm,-/F^jjtcO^#.pO//,cF#-ja&OO#.pcea##pp/M,z^tM,^pOe#Fp./t,>.pce,p^aMt-,a-OatOe,qM.#MO-.atOFOLc9j.c^p#cF,//O7t^MOMaeeOc.,t.F.)FT/.F^-#FFj/aOOt#MFM/MJa/j#F^.Mv-0ptc0,O..?/^wFOj.aFFM#Op//t,p.OM.-tMpc/t.eF#8p./.}t.&MO/^atj,tOecctpp/O&Fp^MB-ja.jOt&ejc.,a/nK.^aFt-DaOjK#te,cOpce#7P^jF.jaaYOO#.eFMj,O.cMt^OFOj.ttOx-Op./a,>.-M.-aFP--^^et#,pO/#it.HMO^ce,jrt-e.#,p{/Of.^t,/-Oa#Ott2eOc.,t/Kp-^.Fa-}a^O.#aeCcO.O.t8G^OF/jtamOO#/e.c(,O..MM^cFOj.tteFj##MOpcap.c+MM^aFtt#Om#6pO/.Xca//#t^aFjGtOe.ctpy/OM.##Me-Oa.Ott e^cF,t/)oO^-/lM^-/F.jteec/,..tHW^p^MMM-.aa##e,c?,O..Mcd#.#H,-pOe#/p./t,W.pceG,^aMttcet#DpO/.Yt.PeOc.aMjctOe.ct,F,e.,3/.eFFOatteactcc,t/qQO^.Ft-&at..#MejcO,..tMF,t^a(e-MOj#.ptc=,j..Mt^6F^-pttOz#Op-eect,a.M{#^eMe-,F/#9pO/.Ht.-MO-.atju Fe.ctpB/O&.^tMw.OFOOtt0eOc.,t/,)O^.M,-_ajO.#aewcO,..t>M^OF.jta,OO#.ptcXp#..Mt^;FOj.ttOx#OeO/t,H.OM/-tFYjOt.-c#IpO/.pt#^MO-/atjBtOeMctep/^;.^MMR--a.Ott6O-c/,t/OUO^tFt-8aOO.tce=cj,./+A;^-F.jtF.OO#/ptck,O..Mt^)Fjj.taON#Op./t,6.O,j-tF,jOt/et#ApO/.p^.{Mj-.atj7tOe.#pt#/OA/^tM#-Oa/Ott,eOctp,/bEO^.M^-2ajO.tTejcO,..tpa^OF/jtaQjM#.pacW,O..Mt^?FOjtttO,#Op//t,N.O,F,/Fzjjt.-/#Gpj/.,j.bM.-aatjwtO-jctp,/O4./^Mo-ja.OFtzeOc.ppM/xO^/Ft^-aOO/#tebcO,t/,vR^OF.^pa3Oj#.pt##,O./Mt^eFOj.ttO6tMp./F,6.-M.-tF9^OMFet#ppO/c>t.,MO^.,^jrtje.capr/-N..FOj-Oa/OtteeOc.,tcp-0^.FF-qaMO.#te4#-pO.tfe^OF#jta_OO#tO_cC,j..p/^uFjj.aFFM#Opa/t,j.OM.-tF-j^t.Op#3pO/.Ya.oM--.at.ptOe.ctpe/OL.^tM2/-a.OttzeOc.,t/?+O.pFt-jaOOc#te-cO,F.MlQ^/F.^FaYOj#.pac},..aMt^2FO^cttO,#Optc,,U.OM./OFnjjt.jtF-pO/MBt.-MO-Fat^-^,e.#epf#tR.^aM4-Fa.jKtjeOc.,t#.fO^/Ft-s-cO.tee6cj,..tdl^OeFjta^OO#/ptcC,O.t_,^HFOj.M/Ok#jp.cF#M.OMM-tFtjOt.etad#j/.,e.DM#-.FOjha-Obctp./O1#^tMf-Oa.jct)e#c.,F/9%j^.MWBOaOO/#tOccO,/.tzfF_F.jtaIOj#.ptcC,jaaMa^kFO-cjVOY#Op.##,_.OM.^pMzjOt.etaMpO//0t.fMO-tF,j&tOe.a#p8/j{.^tOc-Oa.OttNeOc.,t/nOt^.Fa->aOO.#tedcOp-.tzJ^OF.jta,OOa.-pcw,O..Mt^IFtj.aF/a#Op//t-^.OM.-tMp-Ft.eF#>Oe/.+t.uMc-#atjetOOPctp,/O1/^tMu.Fa.OttPejc.,t/HTO.^Ft-paOOc#te,cOpc/a1z^-F.cpaoOO#.eFcc,O.#MtcOFOj.tt- tep./M,W.^M.FOFJ--ttet#OpO#ODt.;MO..M-j t.e.#kp(c^{..FM^-OaaOtMOeOc.,t#dec^.M,-za/O.MjeE#-tO.tl-^O,tjta6OOa.OKcR,c..up^U7^j.ttOM#OpM/t,9.OM.-tMpjct.OO#w^#/.!t.>N-^aatj/tO^/ctpT/O,c.tMN-Fa.jOtCeOc.phcaiO._Ft.IaOO/#tekta,./.T*^/F.jta{OOFfptca,O/eMt^&FOj.a-Ostzp./F,x.-M.-tFcjOtMet##pOcOdt.sHt-.FejSaEe.#^p_/.ct^tM.-OMpOtt,eOc./-/h{t^.MO-AaOO.tpeecOp5.tnc^OF/jta-OO#.j-c;,O..MF^{FOj.tt-c#Op./t,O.OM.-tFu^Ft.et#4pt/.it.UMO/patj(tOe#ctp9/Ol.c-Md-Oa.jet;eOc.,t#cDO^.Ft-,aOO.#terj^,./j!5^tF.jta;OOteptcc,O..Mt^vFOj.atOr#ap./F,h.-M.-tFFjOt.et#/pO/.At.*wM-.atj?t-e.ctp(/O,(^tMr-Oa.OttfeOctpc/hBO^.OE-,ajO.tFaMcO,..t-c^OF.jtM!^F#.ptcS,O..qO^xM-jattOL#Opt/t,z.Ohc^MF&jOt.c-#VpO/.pt/eMO-.atj!tO^tctepc/;.^tMra^a.Ott5eOtO,t/2zO^/Ft-VaOjca/emcO,.Fp)b^OF.-F^MOO#.pttF,O..Mt/-/,j.ttO!FMp./a,{cFM.^NFjjOt.etF#pO//vt.OM/-.atjQU%e.capw/O^O^tMv-Oa/OttoeO#ct#/2uO^.O^-KaOO.at-McO,..tm%^OP,jtFp-,#.pFcz^/..Mt^TFO^pttO(#Opc/t,p.Ooc..FNjjt./^#CpO/.pt./MO-/atj,tOj,ctepc,P.^MMR-aa.OttUeO#p,t/,XO^#Ft-paOjc-#eVc-,.F^6B^OF.^tYMOO#cptcp,Oc,Mt.pF/j.a9O?,pp./t,E.O}t-tFpjOttet#ppOcc<a.IM^-.e^j2tOe.ttpM/Oh#^tMe-OM,Otapejc.p,/B^j^.Ft-)aO-p#teecO,a.tNp^OFFjMarO.#.pMc},j..Ma^HFO.pttOZ#Op//t,K.OM.FFFQj/t.O?#hpO/.Ut/pMO-aatj,tOe/ctp0c#i..,MJ--a.OttGO-#c,t/-SO^/Ft-6aOjctpebc#,./th=^OF.jtF/OO#aptc^,O./Mt^_eFj.apO+#Op.cB,E.OeO-tF^jOt.et#ppOt.,t._M#-.j.j6ace.atpc/OkM^tj#-OMeOta?Opc.pp/Aje^.Me-RaOj##te^cO,..thp^O,.jMaUO##.c.c4O-..pt^pFOjMttc##O.?/tp;#MM.^pFY^jt.Oe#KpOaO!t.^MO-.atjptO-.tpp</#+.M.M>.pa.^ta,eOcM,tM#lO#^Ft^>ajO.tpe%#e,./euY^O}Ojta^OO#.ptcp,O#.yt^(F#j.O.Ohp#p.tt,^.OMM-tO#jOp^ett)jM/.,p.qeM-.Fej_a-ajctp^/OOa^tMm-OFcjtt;etc.^e/31O^.MF-OaOj,#t^NcO,..t,p.tF.--a2ct#.ptcYOO./Mt^cFOcOttOt#OpcO,,n.FM.^^F+jOt.eFjjpOce?t.,MO-.atjp-/e.#.pd/-0.^tM0-ca#OttaeOc.,t/,<O.RFt-HMFO.#te8ca,..t4d^O,pjtaQOOtTptc{,O..p-^YFOj.aeO)#Op./tec.OM.-tF}jOt.et#oOF/.bt.r5>-.atjvtO-pctpD/O9#^tM_-Oa.^-tAeOc.p,/!{O^.Ft.caOO.#tepcO,..t,ppeF.-caTj/#.ptc(eOppMt^FFO--ttja#Op.c#,_/pM.-aFRjjt.OFttpOc-mta#MO-.at^9tce.#cpYcpS.F/M%-OMpOttFeOcc,t/pyO^FMc-LFpO.e#eEcj,..aHB^.FajtauOOe^ptc,,O.tP,^BFOj.OpOh#jp.cF#M.OY--teajOt.ettpc//.,#.TOM-.atjuFOeMctpM/O,^^tpa-OFcjat7Ojc.jO/YAO^.Ft^,aOjc#te,cO,..tds.OF.-#a=j-#.ptcm,OcpMt^FFOj.ttOp#Op./F,C/pM.-aF_j-t.OFjMpOc^ktaaMO-.at-pFee.#tpfFMX.^tMZ.Oa#OtaAeO#.,ttaoO.cFa-KF-O.FOe:cO,..t5e^OM.jtFpOO#.ptc!p^..0#^uFOj.tFO7#OeO/t,M.OM/-tFpjOF.Oj#2eO/.(M.NeY-.FFMMtOOcct^#/Oi.^t,waca.jFt5O-c.e-/mRO.OFt^qaOjc#tepcOpc/OdB.jF.#^avOO#.Ot#.,O//Mt.,FO^pttOztjp.ca,6.cM.^aFqjOatettppOce5t.hMO-.aFj6a-e.cap</-{.^t.--OF#Ott>eOc.,t/l-#^.?{-4aOO.#te;cOe;.t,j^OMajta?OO#FOOcup-..//^VFjj.taOT#.pa/t, .O/j-tF,jOttO,#0pO/.t..EMj-.atjOtOOFctep/O%.^t,-,,a.-ptKM(c.,a/A^p^.Mo-jaOO.#tFtcO,/.tGR+cF.^9abOj#.ptc<,cM,Mt.,FOMattO,#Op./t,O./M.-tFfM/t.ea#*OOtFRt/-MO^/at##tOO.F^p%ce .F^MU^ca.jF,jeO#F,t/.{O^.Ft^pekO.aeerM,,..t7J.-M^jtF.OOt;ptcK,O.t,/^qMcj...Oy#jp.cF#M.O,p-tjajOt.et#-p^/.p^.6Ma-.aajAt-e.ctOc/Ok.^tMM-Oa.OttEjFc.,t/(,-^.Ft-NaOjp#tOccO,c.t,#^OFF-jaxjF#.aac*,j..Ma^hF.jattOH#Oa//t,,.OMt^,FljOt.Me#Dpj/.pt#-MO.Oat-#tOOMctO-e#)./.Mz,/a.OatR^-c.p9/j7O^.Ft,jaOO/#teOc/,..tn;p#F.jaa!OOOFpt#e,O./Mt^5FOjta,OU#Op.j.,<.jM.^F.MjOFOettjpO/.utcy.j-.M.jLFBe.t/p&c-x/^tia-OFHOttkeOc.p-/Yp3^.FF-IajO.t%aOcOpF.tc/^OF/jtMPOt#.OpcCpp..pp^LFO^jttj.#Op./t,..Op.-aFu-tt.^,#>e-/.,p..MO^/at,jtOe/ctp0/Ort.,Mi-Oa.,,t_ejc.ett-_O/,Ft^,aOtO#te-4a,.cj{Be/F.jaa:OO#.eTcj,O..MtejFOj/ttOO#/p./t,HOtM.-aFH--,aett/pOF,vt.7MO..,,jJaFe.#tpVt/4.^tMF-OM,Ota/eOtp,tcleM^.hO-0IeO.ajePaOct.t,.^OOOjte^OOF.epc3pt..-F^ jcj.Mtjj#OO;/te#.Oee-t,9^,t.jO#+^//.Oc.&MO^jat-/tOe.ctpp/Oe../MA^aa.^.tGOQc.Ot/-(O/,Ft--aOcF#tO?aM,.cO)5F/F.^jas^OjFpt#.,OFpMtFFFOj.F^ONtcp.#O,R.-M.^FMjjOaMet,.pO/.st/T%e-.Mej7,be.tpp_#Op0^tX^-OFFOteceOc.p#/9,a^.Ft->a.O.Fte.cOe,.tej^Op-jt>7tM#.OjcROF..jt^W,Ot^ttj/#Oj#/t-e.Op.^MFh-at.c##y/c/.mt.^MO^Mat-/tOecctp-cR8..aMiO#a.Oat?ejc.p_/jhO^.FtO^aOO/#tj6ct,.cO4v.#F.^3a_OO,.pt#c,O..Mt^pFO-ca/O&tMp.Ij,2.OM..tM-jOFOettkpOta;t/pH.-.M/j>F/e.ctp+/Ouc^tm#-OMeOtaaeO#.e-/w,F^.Od- FMO.FteacOep.t-e^Oejjtad--#.OOc pF..Ma^=M-*^ttj.#O.e/t,P.O,./MF9-tt.jO#;ea/.,F/-MO.pat^^tOe.ctpK/jK./OME^Fa.OFtGjO#M,tc/uO/UFt-eaOOFtpeV#a,.^#Ku^jF.jaaVO.#aptc3,O^^Mt^,FOjta,O1#Op..a,C.jM..t,-jOF,ett.pOM,kt.=-/-.MjjGaae.ctp*#O,X^t9c-OFMOtpOeOc.e-/_pY^.Ft-TatO.FtepcOeO.tej^Oepjt  OM#.O.cdeO..&.^o,O^ettjt#O.//tje.OR..eF_^mt.O^#ue-/.et/eMO.Oatt/tO#-ctjIcai./.M4Fea.j.tr-Oee,tctlOc/FtaFaOOF#Me5t,,./.Q3^jF.-Ra*OOFpptcv,O/cMt^JFOj.M-OY#Op.cM,v.OM.-t9cjOt.ett,pO/.Gt.B,F-.atjWaee.ctpncO.-^t:t-OFjOtaaeO#cpF/up,^.j.-naOO.#teMcOep.t,a^OFcjta-j-#.Ojckec./Ma^YFOj.a6Oj#Op./te-.jM/-tJEjtt.j^#deF/.Oe.bk-,-at-atO-Fctpo/O&.^aM%.pa.OatYeOc.,tc.IO/eFt^FaOOc#te-#p,.c.+D.,F/jaa6jM#.eGcj,O..Mt^aFjj/tt-P#tp.#.,T/MM.ceFD--X/ettFpO/c;t.9MO-.Mej}FYe.tcpD/-w..pj/-OMOOtFjejc/,t/uUO^tM,-1aOO.F,e,cj,./FcM^Ovjjt,FOO#.pttE-j..,/^ 9,j.pFO:t-O,/tpF.OOJ-tF6jOt.jZ#DO,/.8F.XM--.ytj^tOjjctjj/OAM^tLp^-a.-ct?-Oc.,t/ pO.MFt^FaO--#t/pcOpc/c)z/eF.-Oa OO#.eFMj,Oc.Mtt^FOj.ttjpOpp.#a,S.tM.-tF(--F)etappOFMYt.HMO-.F,jBFpe.tFpf/-v..tr.-OMjOttjeOt-,tt5,O^.&/-9aFO.tOeraO,M.t,a^Oetjt,?OOF.O,cie,..Ot^Evaj.at^##OOj/tp,.O,e-tUntpt.jc#(O,/..^.2,O-Mat-FtOj-ct^p/O0F^MM>.Oa.jpt}ejc.,a/x<OcpFt-TaO-O#tescO,.cFJ9/pF.^taYOj#.ptp!,OceMt^&FOj.ttO-,ap.#i,=#jM/-aFrjOt.OU#jpO/.:t#,Mj-/atj--Me.#Mpm#Mm/^aMZ-ja.jitjeOc.,t##}j^/Ft-Oa/O.#teHaj,/.a%;/OMUjtF#OOtMpt#O,O..-^^WW,j.ttO6#-p.tt,/.O,j-teOjOe.etFmep/.p/.Yj^-.pRjUtOO-cte#/Opj^tMp-Oa.jFt<O/c.e^/S*O^.>t-.aO-e#tO^cOet.t9A,-F.^/alOO#.pMc;OO/.Mt.aFO.attOF#Oj.#O,!c,M..tF2.,t.Op#epO#-Ht.jMO-/atj-tOe.a-p2/Os..FM<-Oa.OtFceOc.,t/F*O^.Ft-2MFO.#te<#j,..tm7^O,pjta;OOt^ptcw,O..p-^%FOj.a/O6#Op./tec.OM.-tFcjOt.ettxja/.p/.7b,-.McjWtOOMcte#/Opj^tMp-OM.-.t2j_c.ee/Tp.^.Ft^.aO--#teBcO,#.te /sF.^cas^/#.OFchOO/tMt.FFO^.tt#O#OpF/M,oceM.^fFJjjt.ea#&pOtp_t.wMO^-atjCtOO.FjpE#p_../M0.ea.OttaeOtO,tcF?O^cFt.ZF-O.a/eL##,.#Lnq^OMjjtFMOO#.ptce,O#.0F^nTej.z,O9M#p.tt,j.O,^-tLPjO,/et#-p^/.pt.(M#-.aaj?tje.ctOc/Ou.^tMF-Oa.Otai-ac.e#/6,,^.ft-daO-j#tOacOe^.tHp^OB.^ea -p#.OecXp...Mt^/FO^.ttOZ#Opc/tO_/FM..tFvc.t.jO#JjO/Fxtc&MOt#at/OtOe.tFpR#pv./tMi-ja.OtOxeOc.,t/xVO^.Ft-*OTO.#teYcj,..tzV^O");local t=j.xkOrBfVl;j.rAtQwlsB(function()j.LwQijuDJ()t=t+j.ucDOGLzF end)local function e(e,n)if n then return t end;t=e+t;end local n,t,r=p(j.xkOrBfVl,p,e,o,j.teAI_QVk);local function c()local n,t=j.teAI_QVk(o,e(j.ucDOGLzF,j.kXxtdIcz),e(j.AXScSTfc,j.EkvLcIzi)+j.WrcMFHtP);e(j.WrcMFHtP);return(t*j.OVtEERhB)+n;end;local s=true;local s=j.xkOrBfVl local function _()local a=t();local e=t();local d=j.ucDOGLzF;local a=(n(e,j.ucDOGLzF,j.GcTsHmJC)*(j.WrcMFHtP^j.YBHab_fU))+a;local t=n(e,j.XXoKKpvu,j.fBQcnEMb);local e=((-j.ucDOGLzF)^n(e,j.YBHab_fU));if(t==j.xkOrBfVl)then if(a==s)then return e*j.xkOrBfVl;else t=j.ucDOGLzF;d=j.xkOrBfVl;end;elseif(t==j.tiLGRYxq)then return(a==j.xkOrBfVl)and(e*(j.ucDOGLzF/j.xkOrBfVl))or(e*(j.xkOrBfVl/j.xkOrBfVl));end;return j.beDedCLq(e,t-j.z_UymAJI)*(d+(a/(j.WrcMFHtP^j.pghEvOJz)));end;local k=t;local function b(t)local n;if(not t)then t=k();if(t==j.xkOrBfVl)then return'';end;end;n=j.LXCJohia(o,e(j.ucDOGLzF,j.kXxtdIcz),e(j.AXScSTfc,j.EkvLcIzi)+t-j.ucDOGLzF);e(t)local e=""for t=(j.ucDOGLzF+s),#n do e=e..j.LXCJohia(n,t,t)end return e;end;local s=#j.wzpamSmu(h('\49.\48'))~=j.ucDOGLzF local e=t;local function ae(...)return{...},j.OKKCc_bK('#',...)end local function te()local p={};local e={};local o={};local h={o,p,nil,e};local e=t()local f={}for a=j.ucDOGLzF,e do local n=r();local t;if(n==j.ucDOGLzF)then t=(r()~=#{});elseif(n==j.WrcMFHtP)then local e=_();if s and j.xLraJgTy(j.wzpamSmu(e),'.(\48+)$')then e=j.IXnaTllX(e);end t=e;elseif(n==j.kXxtdIcz)then t=b();end;f[a]=t;end;for e=j.ucDOGLzF,t()do p[e-(#{j.ucDOGLzF})]=te();end;for h=j.ucDOGLzF,t()do local e=r();if(n(e,j.ucDOGLzF,j.ucDOGLzF)==j.xkOrBfVl)then local p=n(e,j.WrcMFHtP,j.kXxtdIcz);local r=n(e,j.CqfuPeap,j.EkvLcIzi);local e={c(),c(),nil,nil};if(p==j.xkOrBfVl)then e[d]=c();e[l]=c();elseif(p==#{j.ucDOGLzF})then e[d]=t();elseif(p==u[j.WrcMFHtP])then e[d]=t()-(j.WrcMFHtP^j.XdUDSKKZ)elseif(p==u[j.kXxtdIcz])then e[d]=t()-(j.WrcMFHtP^j.XdUDSKKZ)e[l]=c();end;if(n(r,j.ucDOGLzF,j.ucDOGLzF)==j.ucDOGLzF)then e[a]=f[e[a]]end if(n(r,j.WrcMFHtP,j.WrcMFHtP)==j.ucDOGLzF)then e[d]=f[e[d]]end if(n(r,j.kXxtdIcz,j.kXxtdIcz)==j.ucDOGLzF)then e[l]=f[e[l]]end o[h]=e;end end;h[j.kXxtdIcz]=r();return h;end;local function ne(n,t,e)local a=t;local a=e;return h(j.xLraJgTy(j.xLraJgTy(({j.rAtQwlsB(n)})[j.WrcMFHtP],t),e))end local function b(g,h,r)local function te(...)local c,z,_,te,s,t,o,k,y,m,u,n;local e=j.xkOrBfVl;while-j.ucDOGLzF<e do if e>=j.kXxtdIcz then if e>j.CqfuPeap then if j.ucDOGLzF<e then for t=j.pZQQK_Ba,j.pghEvOJz do if j.AXScSTfc~=e then e=-j.WrcMFHtP;break;end;n=p(j.iByDPrau);break;end;else n=p(j.iByDPrau);end else if e<j.CqfuPeap then k={};y={...};else m=j.OKKCc_bK('#',...)-j.ucDOGLzF;u={};end end else if e<j.ucDOGLzF then c=p(j.EkvLcIzi,j.pDKKbZnZ,j.ucDOGLzF,j._URkSRdj,g);z=p(j.EkvLcIzi,j.GcTsHmJC,j.WrcMFHtP,j.b_lXzKJm,g);else if e~=j.ucDOGLzF then t=-j.bQIEmqjp;o=-j.ucDOGLzF;else _=p(j.EkvLcIzi,j.aTvFpyjF,j.kXxtdIcz,j.kXxtdIcz,g);s=ae te=j.xkOrBfVl;end end end e=e+j.ucDOGLzF;end;for e=j.xkOrBfVl,m do if(e>=_)then k[e-_]=y[e+j.ucDOGLzF];else n[e]=y[e+j.ucDOGLzF];end;end;local _=m-_+j.ucDOGLzF local e;local p;local function m(...)while true do end end while true do if t<-j.KtUxRTQi then t=t+j.cfAglVkt end e=c[t];p=e[ee];if p<=j.GIQtYyrJ then if p<=j.lpOSQptH then if p>=22 then if p>32 then if p>=39 then if 42<=p then if 43<=p then if 42<p then repeat if 43<p then if(n[e[a]]<n[e[l]])then t=e[d];else t=t+1;end;break;end;r[e[d]]=n[e[a]];until true;else if(n[e[a]]<n[e[l]])then t=e[d];else t=t+1;end;end else local c,l,r,j,f,p;local t=0;while t>-1 do if t<=3 then if t<=1 then if 0<t then l=a;else c=e;end else if-2<=t then repeat if t~=3 then r=d;break;end;j=n;until true;else j=n;end end else if 5<t then if t>=5 then for e=33,71 do if t>6 then t=-2;break;end;n[p]=f;break;end;else t=-2;end else if t>0 then repeat if t<5 then f=j[c[r]];break;end;p=c[l];until true;else p=c[l];end end end t=t+1 end end else if p<=39 then if(n[e[a]]==n[e[l]])then t=t+1;else t=e[d];end;else if 39<p then repeat if p~=40 then local l,r,f,c,j,p;local t=0;while t>-1 do if 3<t then if t>5 then if t~=2 then repeat if t>6 then t=-2;break;end;n[p]=j;until true;else n[p]=j;end else if t==5 then p=l[r];else j=c[l[f]];end end else if t<=1 then if 0~=t then r=a;else l=e;end else if-1<=t then repeat if t<3 then f=d;break;end;c=n;until true;else c=n;end end end t=t+1 end break;end;local p;for j=0,3 do if j>1 then if j<3 then n[e[a]][n[e[d]]]=n[e[l]];t=t+1;e=c[t];else n[e[a]][n[e[d]]]=n[e[l]];end else if-4<=j then repeat if j<1 then n[e[a]]=n[e[d]];t=t+1;e=c[t];break;end;p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];until true;else p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];end end end until true;else local p;for j=0,3 do if j>1 then if j<3 then n[e[a]][n[e[d]]]=n[e[l]];t=t+1;e=c[t];else n[e[a]][n[e[d]]]=n[e[l]];end else if-4<=j then repeat if j<1 then n[e[a]]=n[e[d]];t=t+1;e=c[t];break;end;p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];until true;else p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];end end end end end end else if 36<=p then if p>=37 then if 35<=p then for j=40,66 do if p<38 then for p=0,6 do if p<=2 then if p>0 then if-3<=p then for l=14,59 do if p~=2 then n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else n[e[a]]={};t=t+1;e=c[t];end else if 5>p then if 4>p then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];else n(e[a],e[d]);t=t+1;e=c[t];end else if p>=3 then for l=42,76 do if 6~=p then n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;n[e[a]]=#n[e[d]];break;end;else n[e[a]]=#n[e[d]];end end end end break;end;n[e[a]]=n[e[d]]+n[e[l]];break;end;else for p=0,6 do if p<=2 then if p>0 then if-3<=p then for l=14,59 do if p~=2 then n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else n[e[a]]={};t=t+1;e=c[t];end else if 5>p then if 4>p then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];else n(e[a],e[d]);t=t+1;e=c[t];end else if p>=3 then for l=42,76 do if 6~=p then n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;n[e[a]]=#n[e[d]];break;end;else n[e[a]]=#n[e[d]];end end end end end else local e=e[a];do return n[e],n[e+1]end end else if p<=33 then local j;for p=0,6 do if 3>p then if 0<p then if p~=-1 then for r=42,93 do if 2~=p then j=e[a]n[j]=n[j](f(n,j+1,e[d]))t=t+1;e=c[t];break;end;n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end else n[e[a]]=h[e[d]];t=t+1;e=c[t];end else if p>=5 then if p==6 then n[e[a]]=h[e[d]];else h[e[d]]=n[e[a]];t=t+1;e=c[t];end else if 3~=p then n[e[a]]=h[e[d]];t=t+1;e=c[t];else j=e[a]n[j](n[j+1])t=t+1;e=c[t];end end end end else if p~=31 then for t=14,72 do if p<35 then local t=e[a]n[t](f(n,t+1,e[d]))break;end;local e=e[a];o=e+_-1;for t=e,o do local e=k[t-e];n[t]=e;end;break;end;else local t=e[a]n[t](f(n,t+1,e[d]))end end end end else if 26<p then if p>29 then if p<=30 then for p=0,4 do if 1<p then if 2>=p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else if 3<p then n[e[a]]=n[e[d]][e[l]];else n[e[a]]=r[e[d]];t=t+1;e=c[t];end end else if p~=-3 then repeat if 0<p then n[e[a]]={};t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]]={};t=t+1;e=c[t];end end end else if p~=28 then for j=44,78 do if p>31 then local j;for p=0,6 do if p>2 then if p>4 then if p<6 then j=e[a]n[j]=n[j](n[j+1])t=t+1;e=c[t];else n[e[a]][e[d]]=n[e[l]];end else if p~=4 then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];else n(e[a],e[d]);t=t+1;e=c[t];end end else if 0>=p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else if 2==p then n[e[a]]=r[e[d]];t=t+1;e=c[t];else n[e[a]]={};t=t+1;e=c[t];end end end end break;end;local p,u,k,b,j;for h=0,6 do if h<3 then if 0<h then if h>1 then n(e[a],e[d]);t=t+1;e=c[t];else p=e[a];u=n[e[d]];n[p+1]=u;n[p]=u[e[l]];t=t+1;e=c[t];end else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else if h<5 then if h~=2 then repeat if 4~=h then p=e[a]k,b=s(n[p](f(n,p+1,e[d])))o=b+p-1 j=0;for e=p,o do j=j+1;n[e]=k[j];end;t=t+1;e=c[t];break;end;p=e[a]n[p]=n[p](f(n,p+1,o))t=t+1;e=c[t];until true;else p=e[a]k,b=s(n[p](f(n,p+1,e[d])))o=b+p-1 j=0;for e=p,o do j=j+1;n[e]=k[j];end;t=t+1;e=c[t];end else if 3<h then repeat if 5~=h then p=e[a];u=n[e[d]];n[p+1]=u;n[p]=u[e[l]];break;end;p=e[a]n[p]=n[p]()t=t+1;e=c[t];until true;else p=e[a]n[p]=n[p]()t=t+1;e=c[t];end end end end break;end;else local j;for p=0,6 do if p>2 then if p>4 then if p<6 then j=e[a]n[j]=n[j](n[j+1])t=t+1;e=c[t];else n[e[a]][e[d]]=n[e[l]];end else if p~=4 then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];else n(e[a],e[d]);t=t+1;e=c[t];end end else if 0>=p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else if 2==p then n[e[a]]=r[e[d]];t=t+1;e=c[t];else n[e[a]]={};t=t+1;e=c[t];end end end end end end else if 27<p then if p>28 then for p=0,2 do if 0<p then if-2~=p then repeat if 1<p then if n[e[a]]then t=t+1;else t=e[d];end;break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];until true;else if n[e[a]]then t=t+1;else t=e[d];end;end else n[e[a]]={};t=t+1;e=c[t];end end else n[e[a]]=(e[d]~=0);end else n[e[a]]=h[e[d]];end end else if p>=24 then if p>24 then if 26>p then do return n[e[a]]end else n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];end else for p=0,6 do if 2>=p then if 1<=p then if p>-3 then for j=39,78 do if p~=1 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else n[e[a]]={};t=t+1;e=c[t];end else if p<=4 then if 1<p then repeat if p~=4 then n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end else if 6==p then n[e[a]][e[d]]=e[l];else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end end else if p>20 then for j=33,55 do if p>22 then if n[e[a]]then t=t+1;else t=e[d];end;break;end;local p,o,s,j,f;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a]o={n[p]()};s=e[l];j=0;for e=p,s do j=j+1;n[e]=o[j];end t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];f=n[e[d]];n[p+1]=f;n[p]=f[e[l]];t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];break;end;else local p,o,s,j,f;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a]o={n[p]()};s=e[l];j=0;for e=p,s do j=j+1;n[e]=o[j];end t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];f=n[e[d]];n[p+1]=f;n[p]=f[e[l]];t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];end end end end else if 10>=p then if p>4 then if p>=8 then if 9>p then local t=e[a];local a=n[e[d]];n[t+1]=a;n[t]=a[e[l]];else if 8<=p then for f=28,59 do if 9<p then local j,f,p;for r=0,1 do if 0==r then j=e[a]f={n[j](n[j+1])};p=0;for e=j,e[l]do p=p+1;n[e]=f[p];end t=t+1;e=c[t];else if not n[e[a]]then t=t+1;else t=e[d];end;end end break;end;local e=e[a];local t=n[e];for e=e+1,o do j.AmicdIcH(t,n[e])end;break;end;else local e=e[a];local t=n[e];for e=e+1,o do j.AmicdIcH(t,n[e])end;end end else if 5>=p then t=e[d];else if 6~=p then local e=e[a];do return f(n,e,o)end;else local p,j;n[e[a]]=r[e[d]];t=t+1;e=c[t];n(e[a],e[d]);t=t+1;e=c[t];p=e[a]n[p](n[p+1])t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];end end end else if 2>p then if-2<p then repeat if p~=1 then local a=e[a];local l=n[a+2];local c=n[a]+l;n[a]=c;if(l>0)then if(c<=n[a+1])then t=e[d];n[a+3]=c;end elseif(c>=n[a+1])then t=e[d];n[a+3]=c;end break;end;local p,r;for j=0,6 do if j>=3 then if 4>=j then if j==4 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else if 4<=j then repeat if 6~=j then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;p=e[a]n[p](f(n,p+1,e[d]))until true;else p=e[a]n[p](f(n,p+1,e[d]))end end else if j<1 then p=e[a];r=n[e[d]];n[p+1]=r;n[p]=r[e[l]];t=t+1;e=c[t];else if j~=-1 then for p=28,68 do if 2>j then n[e[a]]={};t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end until true;else local a=e[a];local l=n[a+2];local c=n[a]+l;n[a]=c;if(l>0)then if(c<=n[a+1])then t=e[d];n[a+3]=c;end elseif(c>=n[a+1])then t=e[d];n[a+3]=c;end end else if 2<p then if p==4 then n[e[a]]=#n[e[d]];else local o=z[e[d]];local f;local p={};f=j.lJyhUhFe({},{__index=function(t,e)local e=p[e];return e[1][e[2]];end,__newindex=function(n,e,t)local e=p[e]e[1][e[2]]=t;end;});for a=1,e[l]do t=t+1;local e=c[t];if e[ee]==42 then p[a-1]={n,e[d]};else p[a-1]={h,e[d]};end;u[#u+1]=p;end;n[e[a]]=b(o,f,r);end else local t=e[a];do return n[t](f(n,t+1,e[d]))end;end end end else if 15<p then if p>18 then if p>=20 then if 18~=p then for c=46,97 do if p~=20 then local c=n[e[l]];if c then t=t+1;else n[e[a]]=c;t=e[d];end;break;end;n[e[a]]=#n[e[d]];break;end;else n[e[a]]=#n[e[d]];end else local e=e[a]local a,t=s(n[e]())o=t+e-1 local t=0;for e=e,o do t=t+1;n[e]=a[t];end;end else if 16<p then if p~=13 then for c=13,58 do if p>17 then if(e[a]<n[e[l]])then t=t+1;else t=e[d];end;break;end;n[e[a]][e[d]]=n[e[l]];break;end;else n[e[a]][e[d]]=n[e[l]];end else if not n[e[a]]then t=t+1;else t=e[d];end;end end else if p<13 then if 10<=p then repeat if p~=12 then local t=e[a]local d={n[t](n[t+1])};local a=0;for e=t,e[l]do a=a+1;n[e]=d[a];end break;end;local p,r;for j=0,6 do if j<=2 then if 0<j then if 0<=j then for h=30,61 do if j>1 then p=e[a];r=n[e[d]];n[p+1]=r;n[p]=r[e[l]];t=t+1;e=c[t];break;end;p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];break;end;else p=e[a];r=n[e[d]];n[p+1]=r;n[p]=r[e[l]];t=t+1;e=c[t];end else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end else if 5>j then if 2<j then for p=40,93 do if j<4 then n[e[a]]={};t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else if j~=5 then p=e[a]n[p](f(n,p+1,e[d]))else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end until true;else local p,r;for j=0,6 do if j<=2 then if 0<j then if 0<=j then for h=30,61 do if j>1 then p=e[a];r=n[e[d]];n[p+1]=r;n[p]=r[e[l]];t=t+1;e=c[t];break;end;p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];break;end;else p=e[a];r=n[e[d]];n[p+1]=r;n[p]=r[e[l]];t=t+1;e=c[t];end else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end else if 5>j then if 2<j then for p=40,93 do if j<4 then n[e[a]]={};t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else if j~=5 then p=e[a]n[p](f(n,p+1,e[d]))else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end end else if 13>=p then local j;for p=0,4 do if 2<=p then if 3>p then n(e[a],e[d]);t=t+1;e=c[t];else if p==3 then j=e[a]n[j]=n[j](f(n,j+1,e[d]))t=t+1;e=c[t];else if(n[e[a]]~=e[l])then t=t+1;else t=e[d];end;end end else if-4<p then repeat if p~=0 then n(e[a],e[d]);t=t+1;e=c[t];break;end;n[e[a]]=n[e[d]];t=t+1;e=c[t];until true;else n[e[a]]=n[e[d]];t=t+1;e=c[t];end end end else if 14==p then local t=e[a]local a,e=s(n[t](f(n,t+1,e[d])))o=e+t-1 local e=0;for t=t,o do e=e+1;n[t]=a[e];end;else local j;for p=0,6 do if p>2 then if p<=4 then if 3~=p then n[e[a]]=r[e[d]];t=t+1;e=c[t];else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end else if 4<=p then for j=18,75 do if p~=6 then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];break;end;n[e[a]]=r[e[d]];break;end;else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end end else if 0<p then if-1~=p then for l=28,86 do if p>1 then n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else j=e[a]n[j](n[j+1])t=t+1;e=c[t];end end end end end end end end end else if 67<=p then if p<=77 then if p>=72 then if p>=75 then if 75<p then if 75<=p then for j=33,97 do if p~=76 then for p=0,6 do if p>2 then if 5<=p then if 3~=p then for j=17,87 do if 5~=p then n[e[a]]=r[e[d]];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]]=r[e[d]];end else if p>-1 then repeat if 4~=p then n[e[a]]={};t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]]={};t=t+1;e=c[t];end end else if p<1 then n[e[a]]={};t=t+1;e=c[t];else if p>=-3 then repeat if 1<p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];until true;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end break;end;if(n[e[a]]==e[l])then t=t+1;else t=e[d];end;break;end;else for p=0,6 do if p>2 then if 5<=p then if 3~=p then for j=17,87 do if 5~=p then n[e[a]]=r[e[d]];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]]=r[e[d]];end else if p>-1 then repeat if 4~=p then n[e[a]]={};t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]]={};t=t+1;e=c[t];end end else if p<1 then n[e[a]]={};t=t+1;e=c[t];else if p>=-3 then repeat if 1<p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];until true;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end end else local p;n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];n[e[a]][n[e[d]]]=n[e[l]];t=t+1;e=c[t];do return end;end else if 72<p then if p>=70 then repeat if p~=73 then local p;n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];do return n[p](f(n,p+1,e[d]))end;t=t+1;e=c[t];p=e[a];do return f(n,p,o)end;t=t+1;e=c[t];do return end;break;end;local t=e[a];local a=n[t];for e=t+1,e[d]do j.AmicdIcH(a,n[e])end;until true;else local p;n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];do return n[p](f(n,p+1,e[d]))end;t=t+1;e=c[t];p=e[a];do return f(n,p,o)end;t=t+1;e=c[t];do return end;end else local d,l,p;for f=0,1 do if f>=-3 then repeat if f<1 then d=e[a];o=d+_-1;for e=d,o do l=k[e-d];n[e]=l;end;t=t+1;e=c[t];break;end;d=e[a];p=n[d];for e=d+1,o do j.AmicdIcH(p,n[e])end;until true;else d=e[a];o=d+_-1;for e=d,o do l=k[e-d];n[e]=l;end;t=t+1;e=c[t];end end end end else if 69<=p then if p<=69 then local t=e[a]n[t](f(n,t+1,e[d]))else if p~=67 then repeat if 71~=p then local t=e[a];local a=n[e[d]];n[t+1]=a;n[t]=a[e[l]];break;end;local f,j;for p=0,6 do if 3<=p then if 5<=p then if 1<=p then repeat if 5<p then n[e[a]]=n[e[d]][e[l]];break;end;f=e[d];j=n[f]for e=f+1,e[l]do j=j..n[e];end;n[e[a]]=j;t=t+1;e=c[t];until true;else f=e[d];j=n[f]for e=f+1,e[l]do j=j..n[e];end;n[e[a]]=j;t=t+1;e=c[t];end else if p~=1 then for l=49,66 do if p~=3 then n(e[a],e[d]);t=t+1;e=c[t];break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else n(e[a],e[d]);t=t+1;e=c[t];end end else if p>=1 then if-2~=p then for l=13,59 do if 1~=p then n(e[a],e[d]);t=t+1;e=c[t];break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else n(e[a],e[d]);t=t+1;e=c[t];end else n(e[a],e[d]);t=t+1;e=c[t];end end end until true;else local f,j;for p=0,6 do if 3<=p then if 5<=p then if 1<=p then repeat if 5<p then n[e[a]]=n[e[d]][e[l]];break;end;f=e[d];j=n[f]for e=f+1,e[l]do j=j..n[e];end;n[e[a]]=j;t=t+1;e=c[t];until true;else f=e[d];j=n[f]for e=f+1,e[l]do j=j..n[e];end;n[e[a]]=j;t=t+1;e=c[t];end else if p~=1 then for l=49,66 do if p~=3 then n(e[a],e[d]);t=t+1;e=c[t];break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else n(e[a],e[d]);t=t+1;e=c[t];end end else if p>=1 then if-2~=p then for l=13,59 do if 1~=p then n(e[a],e[d]);t=t+1;e=c[t];break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else n(e[a],e[d]);t=t+1;e=c[t];end else n(e[a],e[d]);t=t+1;e=c[t];end end end end end else if p~=63 then for j=36,76 do if 68>p then n[e[a]]=n[e[d]]-n[e[l]];break;end;local f,j;for p=0,4 do if p>1 then if 3<=p then if p<4 then n[e[a]]=n[e[d]][n[e[l]]];t=t+1;e=c[t];else f=e[d];j=n[f]for e=f+1,e[l]do j=j..n[e];end;n[e[a]]=j;end else n[e[a]]=n[e[d]]%e[l];t=t+1;e=c[t];end else if p>-1 then for j=10,97 do if p~=0 then n[e[a]]=n[e[d]]+n[e[l]];t=t+1;e=c[t];break;end;n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;else n[e[a]]=h[e[d]];t=t+1;e=c[t];end end end break;end;else local f,j;for p=0,4 do if p>1 then if 3<=p then if p<4 then n[e[a]]=n[e[d]][n[e[l]]];t=t+1;e=c[t];else f=e[d];j=n[f]for e=f+1,e[l]do j=j..n[e];end;n[e[a]]=j;end else n[e[a]]=n[e[d]]%e[l];t=t+1;e=c[t];end else if p>-1 then for j=10,97 do if p~=0 then n[e[a]]=n[e[d]]+n[e[l]];t=t+1;e=c[t];break;end;n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;else n[e[a]]=h[e[d]];t=t+1;e=c[t];end end end end end end else if p<=83 then if 80>=p then if p<79 then local p,j;n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];p=e[a]n[p](n[p+1])t=t+1;e=c[t];do return end;else if p>78 then for c=33,76 do if 79~=p then local e=e[a]n[e]=n[e]()break;end;local c=n[e[l]];if c then t=t+1;else n[e[a]]=c;t=e[d];end;break;end;else local c=n[e[l]];if c then t=t+1;else n[e[a]]=c;t=e[d];end;end end else if p<82 then local p;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n(e[a],e[d]);t=t+1;e=c[t];p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n(e[a],e[d]);else if 81<p then for t=40,70 do if p~=83 then local t=e[a];do return n[t](f(n,t+1,e[d]))end;break;end;local f,h,o,p,j,r,c;local t=0;while t>-1 do if 2<t then if t>4 then if t>=3 then repeat if 6>t then n[r]=c;break;end;t=-2;until true;else t=-2;end else if 3<t then c=n[j];for e=1+j,p[o]do c=c..n[e];end;else r=p[f];end end else if t>=1 then if t<2 then p=e;else j=p[h];end else f=a;h=d;o=l;end end t=t+1 end break;end;else local t=e[a];do return n[t](f(n,t+1,e[d]))end;end end end else if 86<p then if 88<=p then if p~=87 then for j=28,52 do if 88~=p then local j;for p=0,4 do if 2>p then if-3<=p then repeat if p~=1 then n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];until true;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else if p>=3 then if-1<p then for j=41,92 do if 3~=p then if(n[e[a]]==n[e[l]])then t=t+1;else t=e[d];end;break;end;n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;else if(n[e[a]]==n[e[l]])then t=t+1;else t=e[d];end;end else j=e[a]n[j]=n[j]()t=t+1;e=c[t];end end end break;end;local l;n[e[a]]=h[e[d]];t=t+1;e=c[t];l=e[a]n[l](n[l+1])t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];l=e[a]n[l](n[l+1])t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];r[e[d]]=n[e[a]];break;end;else local j;for p=0,4 do if 2>p then if-3<=p then repeat if p~=1 then n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];until true;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else if p>=3 then if-1<p then for j=41,92 do if 3~=p then if(n[e[a]]==n[e[l]])then t=t+1;else t=e[d];end;break;end;n[e[a]]=h[e[d]];t=t+1;e=c[t];break;end;else if(n[e[a]]==n[e[l]])then t=t+1;else t=e[d];end;end else j=e[a]n[j]=n[j]()t=t+1;e=c[t];end end end end else local p;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];p=e[a]n[p](f(n,p+1,e[d]))t=t+1;e=c[t];do return end;end else if p>=85 then if p~=85 then h[e[d]]=n[e[a]];else local l,f,c,j,p;local t=0;while t>-1 do if t<=2 then if 1>t then l=e;else if t>=-1 then for e=13,78 do if t~=1 then c=d;break;end;f=a;break;end;else c=d;end end else if 5>t then if t~=3 then p=l[f];else j=l[c];end else if t>=2 then repeat if 5<t then t=-2;break;end;n(p,j);until true;else t=-2;end end end t=t+1 end end else local e=e[a];local t=n[e];for e=e+1,o do j.AmicdIcH(t,n[e])end;end end end end else if p>=56 then if 60<p then if p>63 then if 64<p then if 62~=p then repeat if p>65 then n[e[a]]=n[e[d]]-n[e[l]];break;end;local l;for p=0,1 do if-4<p then repeat if p<1 then n(e[a],e[d]);t=t+1;e=c[t];break;end;l=e[a]n[l]=n[l](f(n,l+1,e[d]))until true;else n(e[a],e[d]);t=t+1;e=c[t];end end until true;else n[e[a]]=n[e[d]]-n[e[l]];end else local a=e[a]local d={n[a](n[a+1])};local t=0;for e=a,e[l]do t=t+1;n[e]=d[t];end end else if p>61 then if p>61 then repeat if p~=62 then local p,h;for j=0,6 do if j<3 then if j<1 then p=e[a];h=n[e[d]];n[p+1]=h;n[p]=h[e[l]];t=t+1;e=c[t];else if-2~=j then for l=46,92 do if j~=1 then p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];end end else if 5>j then if 0<j then repeat if 3~=j then p=e[a];h=n[e[d]];n[p+1]=h;n[p]=h[e[l]];t=t+1;e=c[t];break;end;n[e[a]]=r[e[d]];t=t+1;e=c[t];until true;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else if j~=4 then repeat if j~=5 then p=e[a]n[p]=n[p](f(n,p+1,e[d]))break;end;n(e[a],e[d]);t=t+1;e=c[t];until true;else n(e[a],e[d]);t=t+1;e=c[t];end end end end break;end;local p;for j=0,4 do if 2<=j then if 2<j then if j~=1 then for l=28,74 do if j~=3 then if n[e[a]]then t=t+1;else t=e[d];end;break;end;p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];break;end;else p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];end else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end else if-4~=j then for l=39,79 do if j<1 then n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;p=e[a]n[p]=n[p]()t=t+1;e=c[t];break;end;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end end end until true;else local p;for j=0,4 do if 2<=j then if 2<j then if j~=1 then for l=28,74 do if j~=3 then if n[e[a]]then t=t+1;else t=e[d];end;break;end;p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];break;end;else p=e[a]n[p]=n[p](n[p+1])t=t+1;e=c[t];end else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end else if-4~=j then for l=39,79 do if j<1 then n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;p=e[a]n[p]=n[p]()t=t+1;e=c[t];break;end;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end end end end else local f,p,j;n[e[a]]=r[e[d]];t=t+1;e=c[t];f=e[a];p=n[e[d]];n[f+1]=p;n[f]=p[e[l]];t=t+1;e=c[t];n(e[a],e[d]);t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n(e[a],e[d]);t=t+1;e=c[t];p=e[d];j=n[p]for e=p+1,e[l]do j=j..n[e];end;n[e[a]]=j;end end else if p>=58 then if 59>p then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];r[e[d]]=n[e[a]];t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];r[e[d]]=n[e[a]];t=t+1;e=c[t];n[e[a]]=(e[d]~=0);t=t+1;e=c[t];r[e[d]]=n[e[a]];else if p>58 then for j=20,67 do if 59<p then n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];break;end;n[e[a]][e[d]]=n[e[l]];break;end;else n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];end end else if 55<p then repeat if p~=57 then local a=e[a];local c=n[a]local l=n[a+2];if(l>0)then if(c>n[a+1])then t=e[d];else n[a+3]=c;end elseif(c<n[a+1])then t=e[d];else n[a+3]=c;end break;end;local p,r;for j=0,5 do if 2>=j then if 1<=j then if j~=-3 then for h=25,94 do if j~=2 then p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];break;end;p=e[a];r=n[e[d]];n[p+1]=r;n[p]=r[e[l]];t=t+1;e=c[t];break;end;else p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];end else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end else if j>3 then if 4~=j then n[e[a]][e[d]]=e[l];else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else n[e[a]]={};t=t+1;e=c[t];end end end until true;else local a=e[a];local c=n[a]local l=n[a+2];if(l>0)then if(c>n[a+1])then t=e[d];else n[a+3]=c;end elseif(c<n[a+1])then t=e[d];else n[a+3]=c;end end end end else if p>49 then if p<=52 then if 50<p then if 47~=p then for j=19,59 do if 52~=p then local p,j;for r=0,4 do if 2>r then if r>=-1 then for f=13,80 do if r<1 then p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];end else if 3<=r then if r>=-1 then for p=41,85 do if r>3 then if not n[e[a]]then t=t+1;else t=e[d];end;break;end;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];break;end;else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end else p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];end end end break;end;local j,r;for p=0,6 do if 2<p then if 5>p then if 4==p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else if p~=1 then for r=48,75 do if 6~=p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;j=e[a]n[j](f(n,j+1,e[d]))break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end else if p>0 then if p==2 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else n[e[a]]={};t=t+1;e=c[t];end else j=e[a];r=n[e[d]];n[j+1]=r;n[j]=r[e[l]];t=t+1;e=c[t];end end end break;end;else local j,r;for p=0,6 do if 2<p then if 5>p then if 4==p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else if p~=1 then for r=48,75 do if 6~=p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;j=e[a]n[j](f(n,j+1,e[d]))break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end else if p>0 then if p==2 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else n[e[a]]={};t=t+1;e=c[t];end else j=e[a];r=n[e[d]];n[j+1]=r;n[j]=r[e[l]];t=t+1;e=c[t];end end end end else n[e[a]]=h[e[d]];end else if p>53 then if p>=50 then repeat if 54~=p then local o,b,j,u,r,s,k,p;o=e[a];b=n[e[d]];n[o+1]=b;n[o]=b[e[l]];t=t+1;e=c[t];p=0;while p>-1 do if 3<=p then if 4<p then if p~=2 then repeat if 6>p then n(k,s);break;end;p=-2;until true;else p=-2;end else if p>0 then repeat if 3<p then k=j[u];break;end;s=j[r];until true;else s=j[r];end end else if p>=1 then if-3<p then for e=35,93 do if p~=2 then u=a;break;end;r=d;break;end;else r=d;end else j=e;end end p=p+1 end t=t+1;e=c[t];p=0;while p>-1 do if p<3 then if p>0 then if p>-1 then repeat if p>1 then r=d;break;end;u=a;until true;else r=d;end else j=e;end else if p<=4 then if p>=2 then repeat if 3~=p then k=j[u];break;end;s=j[r];until true;else s=j[r];end else if 5~=p then p=-2;else n(k,s);end end end p=p+1 end t=t+1;e=c[t];o=e[a]n[o]=n[o](f(n,o+1,e[d]))t=t+1;e=c[t];h[e[d]]=n[e[a]];t=t+1;e=c[t];n[e[a]]=(e[d]~=0);t=t+1;e=c[t];h[e[d]]=n[e[a]];break;end;n[e[a]]=n[e[d]][e[l]];until true;else local o,b,j,u,r,s,k,p;o=e[a];b=n[e[d]];n[o+1]=b;n[o]=b[e[l]];t=t+1;e=c[t];p=0;while p>-1 do if 3<=p then if 4<p then if p~=2 then repeat if 6>p then n(k,s);break;end;p=-2;until true;else p=-2;end else if p>0 then repeat if 3<p then k=j[u];break;end;s=j[r];until true;else s=j[r];end end else if p>=1 then if-3<p then for e=35,93 do if p~=2 then u=a;break;end;r=d;break;end;else r=d;end else j=e;end end p=p+1 end t=t+1;e=c[t];p=0;while p>-1 do if p<3 then if p>0 then if p>-1 then repeat if p>1 then r=d;break;end;u=a;until true;else r=d;end else j=e;end else if p<=4 then if p>=2 then repeat if 3~=p then k=j[u];break;end;s=j[r];until true;else s=j[r];end else if 5~=p then p=-2;else n(k,s);end end end p=p+1 end t=t+1;e=c[t];o=e[a]n[o]=n[o](f(n,o+1,e[d]))t=t+1;e=c[t];h[e[d]]=n[e[a]];t=t+1;e=c[t];n[e[a]]=(e[d]~=0);t=t+1;e=c[t];h[e[d]]=n[e[a]];end else local j,p;for f=0,1 do if-2<f then for r=33,75 do if 0<f then j=e[d];p=n[j]for e=j+1,e[l]do p=p..n[e];end;n[e[a]]=p;break;end;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];break;end;else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end end end end else if 47>p then if 45~=p then local t=e[a];local a=n[t];for e=t+1,e[d]do j.AmicdIcH(a,n[e])end;else local e=e[a]n[e](n[e+1])end else if p<48 then local e=e[a]n[e]=n[e](n[e+1])else if 45<=p then for f=20,64 do if 48<p then local o=z[e[d]];local f;local p={};f=j.lJyhUhFe({},{__index=function(t,e)local e=p[e];return e[1][e[2]];end,__newindex=function(n,e,t)local e=p[e]e[1][e[2]]=t;end;});for a=1,e[l]do t=t+1;local e=c[t];if e[ee]==42 then p[a-1]={n,e[d]};else p[a-1]={h,e[d]};end;u[#u+1]=p;end;n[e[a]]=b(o,f,r);break;end;local p,j;n[e[a]]=r[e[d]];t=t+1;e=c[t];n(e[a],e[d]);t=t+1;e=c[t];p=e[a]n[p](n[p+1])t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];break;end;else local p,j;n[e[a]]=r[e[d]];t=t+1;e=c[t];n(e[a],e[d]);t=t+1;e=c[t];p=e[a]n[p](n[p+1])t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];end end end end end end end else if p<135 then if p>111 then if p>=123 then if p>=129 then if 132>p then if p>129 then if p~=127 then for f=19,92 do if 130~=p then n[e[a]]=n[e[d]][n[e[l]]];break;end;local p,f;for l=0,5 do if l>2 then if 3<l then if l~=2 then repeat if 4<l then p=e[a];f=n[p];for e=p+1,e[d]do j.AmicdIcH(f,n[e])end;break;end;n(e[a],e[d]);t=t+1;e=c[t];until true;else p=e[a];f=n[p];for e=p+1,e[d]do j.AmicdIcH(f,n[e])end;end else n(e[a],e[d]);t=t+1;e=c[t];end else if l<1 then n[e[a]]=n[e[d]];t=t+1;e=c[t];else if l>-3 then repeat if 2~=l then n[e[a]]();t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]]();t=t+1;e=c[t];end end end end break;end;else local p,f;for l=0,5 do if l>2 then if 3<l then if l~=2 then repeat if 4<l then p=e[a];f=n[p];for e=p+1,e[d]do j.AmicdIcH(f,n[e])end;break;end;n(e[a],e[d]);t=t+1;e=c[t];until true;else p=e[a];f=n[p];for e=p+1,e[d]do j.AmicdIcH(f,n[e])end;end else n(e[a],e[d]);t=t+1;e=c[t];end else if l<1 then n[e[a]]=n[e[d]];t=t+1;e=c[t];else if l>-3 then repeat if 2~=l then n[e[a]]();t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]]();t=t+1;e=c[t];end end end end end else n[e[a]]=r[e[d]];end else if p>=133 then if 132<p then for j=39,63 do if 134~=p then local p,_,u,g,h,k,z,j,m,y,b;n[e[a]]=r[e[d]];t=t+1;e=c[t];p=e[a];_=n[e[d]];n[p+1]=_;n[p]=_[e[l]];t=t+1;e=c[t];j=0;while j>-1 do if j<3 then if 0>=j then u=e;else if-3~=j then for e=15,81 do if 1<j then h=d;break;end;g=a;break;end;else h=d;end end else if 4>=j then if j>-1 then for e=10,52 do if j>3 then z=u[g];break;end;k=u[h];break;end;else k=u[h];end else if 3~=j then for e=17,88 do if j<6 then n(z,k);break;end;j=-2;break;end;else n(z,k);end end end j=j+1 end t=t+1;e=c[t];n[e[a]]=(e[d]~=0);t=t+1;e=c[t];p=e[a]m,y=s(n[p](f(n,p+1,e[d])))o=y+p-1 b=0;for e=p,o do b=b+1;n[e]=m[b];end;t=t+1;e=c[t];p=e[a]n[p]=n[p](f(n,p+1,o))t=t+1;e=c[t];p=e[a]n[p]=n[p]()break;end;r[e[d]]=n[e[a]];break;end;else r[e[d]]=n[e[a]];end else for l=0,1 do if-4<l then for p=19,80 do if 1~=l then n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;if n[e[a]]then t=t+1;else t=e[d];end;break;end;else n[e[a]]=r[e[d]];t=t+1;e=c[t];end end end end else if 125<p then if 126>=p then local p;for j=0,3 do if 2>j then if 1>j then n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];else n(e[a],e[d]);t=t+1;e=c[t];end else if j~=3 then p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];else if n[e[a]]then t=t+1;else t=e[d];end;end end end else if 125<p then repeat if 128~=p then n[e[a]][n[e[d]]]=n[e[l]];break;end;local c=e[a];local a={};for e=1,#u do local e=u[e];for t=0,#e do local e=e[t];local d=e[1];local t=e[2];if d==n and t>=c then a[t]=d[t];e[1]=a;end;end;end;until true;else n[e[a]][n[e[d]]]=n[e[l]];end end else if 124>p then local e=e[a]n[e]=n[e]()else if p>121 then for j=36,55 do if p>124 then local p,k,u,h;for j=0,4 do if 2<=j then if j>=3 then if 1~=j then repeat if 3~=j then if not n[e[a]]then t=t+1;else t=e[d];end;break;end;p=e[a]n[p]=n[p](f(n,p+1,o))t=t+1;e=c[t];until true;else if not n[e[a]]then t=t+1;else t=e[d];end;end else p=e[a]k,u=s(n[p]())o=u+p-1 h=0;for e=p,o do h=h+1;n[e]=k[h];end;t=t+1;e=c[t];end else if 1==j then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];else n[e[a]]=r[e[d]];t=t+1;e=c[t];end end end break;end;if(e[a]<n[e[l]])then t=t+1;else t=e[d];end;break;end;else local p,k,u,h;for j=0,4 do if 2<=j then if j>=3 then if 1~=j then repeat if 3~=j then if not n[e[a]]then t=t+1;else t=e[d];end;break;end;p=e[a]n[p]=n[p](f(n,p+1,o))t=t+1;e=c[t];until true;else if not n[e[a]]then t=t+1;else t=e[d];end;end else p=e[a]k,u=s(n[p]())o=u+p-1 h=0;for e=p,o do h=h+1;n[e]=k[h];end;t=t+1;e=c[t];end else if 1==j then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];else n[e[a]]=r[e[d]];t=t+1;e=c[t];end end end end end end end else if p>=117 then if 119>=p then if 118<=p then if 114<=p then repeat if 118~=p then for e=e[a],e[d]do n[e]=nil;end;break;end;local p;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=n[e[d]][n[e[l]]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];p=e[a]n[p]=n[p]()until true;else local p;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=n[e[d]][n[e[l]]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];p=e[a]n[p]=n[p]()end else n[e[a]]=(not n[e[d]]);end else if 120<p then if 120<=p then repeat if 122>p then local p,j;p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];p=e[a]n[p](f(n,p+1,e[d]))break;end;for e=e[a],e[d]do n[e]=nil;end;until true;else for e=e[a],e[d]do n[e]=nil;end;end else local a=e[a];local c=n[a]local l=n[a+2];if(l>0)then if(c>n[a+1])then t=e[d];else n[a+3]=c;end elseif(c<n[a+1])then t=e[d];else n[a+3]=c;end end end else if p<=113 then if 110<=p then for j=36,88 do if p>112 then local p,j;p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];if not n[e[a]]then t=t+1;else t=e[d];end;break;end;local t=e[a]n[t]=n[t](f(n,t+1,e[d]))break;end;else local t=e[a]n[t]=n[t](f(n,t+1,e[d]))end else if 115<=p then if p~=114 then repeat if 115<p then local t=e[a]n[t]=n[t](f(n,t+1,e[d]))break;end;n[e[a]]=(not n[e[d]]);until true;else n[e[a]]=(not n[e[d]]);end else n[e[a]][n[e[d]]]=n[e[l]];end end end end else if p<=100 then if p>=95 then if 97<p then if 98<p then if 96~=p then repeat if p~=99 then local e=e[a]n[e]=n[e](n[e+1])break;end;n[e[a]]();until true;else local e=e[a]n[e]=n[e](n[e+1])end else n[e[a]]=n[e[d]]%e[l];end else if 96<=p then if p~=97 then local z,s,h,r,z,p,k,_,b,j,u,f,o;n[e[a]]={};t=t+1;e=c[t];p=0;while p>-1 do if 3>p then if 0<p then if-1<p then repeat if 1<p then h=d;break;end;s=a;until true;else h=d;end else j=e;end else if 5<=p then if 6==p then p=-2;else n(f,r);end else if-1<=p then repeat if 3~=p then f=j[s];break;end;r=j[h];until true;else r=j[h];end end end p=p+1 end t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];p=0;while p>-1 do if p<=2 then if 0>=p then j=e;else if p>1 then h=d;else s=a;end end else if 5>p then if p~=-1 then for e=42,74 do if p>3 then f=j[s];break;end;r=j[h];break;end;else r=j[h];end else if 1<p then repeat if p>5 then p=-2;break;end;n(f,r);until true;else n(f,r);end end end p=p+1 end t=t+1;e=c[t];p=0;while p>-1 do if p>=3 then if p>=5 then if 5<p then p=-2;else n[f]=o;end else if 2<p then for e=28,93 do if p~=3 then o=n[u];for e=1+u,j[b]do o=o..n[e];end;break;end;f=j[k];break;end;else f=j[k];end end else if 0<p then if 1~=p then u=j[_];else j=e;end else k=a;_=d;b=l;end end p=p+1 end t=t+1;e=c[t];n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];else h[e[d]]=n[e[a]];end else n[e[a]]();end end else if 91>=p then if 89<=p then for t=20,57 do if p>90 then n[e[a]]=n[e[d]][n[e[l]]];break;end;n[e[a]]={};break;end;else n[e[a]]={};end else if 92<p then if p>93 then do return end;else for l=0,1 do if-4<l then repeat if l~=1 then n(e[a],e[d]);t=t+1;e=c[t];break;end;n[e[a]]=r[e[d]];until true;else n[e[a]]=r[e[d]];end end end else local l,p,j;for f=0,2 do if f<1 then n(e[a],e[d]);t=t+1;e=c[t];else if f~=2 then n(e[a],e[d]);t=t+1;e=c[t];else l=e[a];p=n[l]j=n[l+2];if(j>0)then if(p>n[l+1])then t=e[d];else n[l+3]=p;end elseif(p<n[l+1])then t=e[d];else n[l+3]=p;end end end end end end end else if p<=105 then if p<103 then if p==101 then local l;n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];l=e[a]n[l]=n[l](f(n,l+1,e[d]))else do return n[e[a]]end end else if p>103 then if p~=100 then for c=42,67 do if 105>p then n[e[a]]={};break;end;if n[e[a]]then t=t+1;else t=e[d];end;break;end;else n[e[a]]={};end else for l=0,2 do if l>=1 then if-1<=l then for p=21,89 do if l~=1 then if not n[e[a]]then t=t+1;else t=e[d];end;break;end;for e=e[a],e[d]do n[e]=nil;end;t=t+1;e=c[t];break;end;else for e=e[a],e[d]do n[e]=nil;end;t=t+1;e=c[t];end else n[e[a]]=(e[d]~=0);t=t+1;e=c[t];end end end end else if p>=109 then if p>109 then if p>109 then for j=31,59 do if 111~=p then local p,j;for f=0,1 do if f>-4 then repeat if f<1 then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];break;end;p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];until true;else p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];end end break;end;local p;for j=0,3 do if 2>j then if 1==j then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else if 2<j then if not n[e[a]]then t=t+1;else t=e[d];end;else p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];end end end break;end;else local p,j;for f=0,1 do if f>-4 then repeat if f<1 then n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];break;end;p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];until true;else p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];end end end else local e=e[a]n[e]=n[e](f(n,e+1,o))end else if 107<=p then if p~=107 then do return end;else local u,j,s,o,r,h,k,p;for p=0,4 do if p<=1 then if-1~=p then repeat if p>0 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]]={};t=t+1;e=c[t];end else if p>2 then if p~=0 then for l=48,71 do if p<4 then u=e[a]n[u]=n[u](f(n,u+1,e[d]))t=t+1;e=c[t];break;end;p=0;while p>-1 do if p>3 then if 5>=p then if 2~=p then repeat if p~=4 then k=j[s];break;end;h=r[j[o]];until true;else h=r[j[o]];end else if 5<=p then repeat if p>6 then p=-2;break;end;n[k]=h;until true;else p=-2;end end else if p<=1 then if p>=-1 then repeat if p>0 then s=a;break;end;j=e;until true;else s=a;end else if p<3 then o=d;else r=n;end end end p=p+1 end break;end;else p=0;while p>-1 do if p>3 then if 5>=p then if 2~=p then repeat if p~=4 then k=j[s];break;end;h=r[j[o]];until true;else h=r[j[o]];end else if 5<=p then repeat if p>6 then p=-2;break;end;n[k]=h;until true;else p=-2;end end else if p<=1 then if p>=-1 then repeat if p>0 then s=a;break;end;j=e;until true;else s=a;end else if p<3 then o=d;else r=n;end end end p=p+1 end end else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end else n[e[a]]=n[e[d]][e[l]];end end end end end else if 157>p then if p>145 then if 151<=p then if p>=154 then if p>=155 then if 154~=p then repeat if p~=155 then local e=e[a];do return f(n,e,o)end;break;end;local p,r;for j=0,5 do if j<=2 then if 1<=j then if-2<j then repeat if j<2 then p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];break;end;p=e[a];r=n[e[d]];n[p+1]=r;n[p]=r[e[l]];t=t+1;e=c[t];until true;else p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];end else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end else if j>=4 then if 0<=j then repeat if 5>j then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];until true;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end else n[e[a]]={};t=t+1;e=c[t];end end end until true;else local e=e[a];do return f(n,e,o)end;end else local j,f;for p=0,5 do if p<=2 then if p>=1 then if p>-3 then repeat if 1~=p then n[e[a]]=r[e[d]];t=t+1;e=c[t];break;end;n[e[a]]();t=t+1;e=c[t];until true;else n[e[a]]();t=t+1;e=c[t];end else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end else if 4>p then j=e[a];f=n[e[d]];n[j+1]=f;n[j]=f[e[l]];t=t+1;e=c[t];else if p~=3 then for l=47,85 do if p>4 then if not n[e[a]]then t=t+1;else t=e[d];end;break;end;j=e[a]n[j]=n[j](n[j+1])t=t+1;e=c[t];break;end;else if not n[e[a]]then t=t+1;else t=e[d];end;end end end end end else if p<152 then local t=e[a]local d={n[t]()};local a=e[l];local e=0;for t=t,a do e=e+1;n[t]=d[e];end else if 149<p then repeat if 152<p then n[e[a]]=b(z[e[d]],nil,r);break;end;local e=e[a];o=e+_-1;for t=e,o do local e=k[t-e];n[t]=e;end;until true;else local e=e[a];o=e+_-1;for t=e,o do local e=k[t-e];n[t]=e;end;end end end else if 148<=p then if p<=148 then for p=0,6 do if p<3 then if p<1 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else if p~=-1 then repeat if p>1 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];until true;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end else if 4>=p then if 4~=p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else n[e[a]]={};t=t+1;e=c[t];end else if 4~=p then for j=12,98 do if p>5 then n[e[a]][e[d]]=e[l];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end else if p~=147 then for j=39,85 do if p~=150 then local p,j;for h=0,6 do if 2>=h then if h<1 then p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];else if h>0 then repeat if 1<h then p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];break;end;n(e[a],e[d]);t=t+1;e=c[t];until true;else n(e[a],e[d]);t=t+1;e=c[t];end end else if h>=5 then if 1~=h then repeat if 5~=h then p=e[a]n[p]=n[p](f(n,p+1,e[d]))break;end;n(e[a],e[d]);t=t+1;e=c[t];until true;else n(e[a],e[d]);t=t+1;e=c[t];end else if-1<h then repeat if h>3 then p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];break;end;n[e[a]]=r[e[d]];t=t+1;e=c[t];until true;else p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];end end end end break;end;n[e[a]]=(e[d]~=0);break;end;else n[e[a]]=(e[d]~=0);end end else if p>=142 then repeat if 146~=p then local p;n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];p=e[a]n[p]=n[p](f(n,p+1,e[d]))break;end;local e=e[a];do return n[e],n[e+1]end until true;else local e=e[a];do return n[e],n[e+1]end end end end else if p<=139 then if 137>p then if p~=136 then for p=0,6 do if 2<p then if 4<p then if p<6 then n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];else n[e[a]]=h[e[d]];end else if p>1 then for j=10,52 do if 3<p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end else if 0>=p then n[e[a]]=n[e[d]][n[e[l]]];t=t+1;e=c[t];else if p~=-1 then for j=38,73 do if 1<p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end end end end else local p;n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];do return n[p](f(n,p+1,e[d]))end;t=t+1;e=c[t];p=e[a];do return f(n,p,o)end;t=t+1;e=c[t];do return end;end else if p>137 then if 138==p then if(n[e[a]]<n[e[l]])then t=e[d];else t=t+1;end;else n[e[a]][e[d]]=e[l];end else local p;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];n[e[a]][e[d]]=e[l];t=t+1;e=c[t];p=e[a]n[p](f(n,p+1,e[d]))t=t+1;e=c[t];do return end;end end else if p<143 then if p<141 then n[e[a]]=n[e[d]]+n[e[l]];else if p>=137 then repeat if 141<p then local j;for p=0,6 do if p>=3 then if 5>p then if p~=0 then repeat if 3<p then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];until true;else n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];end else if 5<p then n[e[a]][e[d]]=e[l];else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end else if p>0 then if 2>p then n(e[a],e[d]);t=t+1;e=c[t];else j=e[a]n[j]=n[j](f(n,j+1,e[d]))t=t+1;e=c[t];end else n(e[a],e[d]);t=t+1;e=c[t];end end end break;end;n[e[a]][e[d]]=e[l];until true;else n[e[a]][e[d]]=e[l];end end else if p<=143 then if(n[e[a]]==n[e[l]])then t=t+1;else t=e[d];end;else if 143<p then repeat if p<145 then local p;n[e[a]]=h[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];n[e[a]]=h[e[d]];t=t+1;e=c[t];p=e[a];do return n[p](f(n,p+1,e[d]))end;t=t+1;e=c[t];p=e[a];do return f(n,p,o)end;t=t+1;e=c[t];do return end;break;end;local j;for p=0,2 do if 1<=p then if-2~=p then for l=10,97 do if p>1 then j=e[a]n[j](n[j+1])break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else n(e[a],e[d]);t=t+1;e=c[t];end else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end end until true;else local j;for p=0,2 do if 1<=p then if-2~=p then for l=10,97 do if p>1 then j=e[a]n[j](n[j+1])break;end;n(e[a],e[d]);t=t+1;e=c[t];break;end;else n(e[a],e[d]);t=t+1;e=c[t];end else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end end end end end end end else if 167<p then if p<174 then if p>=171 then if p<172 then if not n[e[a]]then t=t+1;else t=e[d];end;else if 171<p then repeat if 172<p then if(n[e[a]]==e[l])then t=t+1;else t=e[d];end;break;end;local j,f,o,s,h,p,u,k,b;for p=0,6 do if 3<=p then if p<=4 then if p>=-1 then repeat if p~=3 then p=0;while p>-1 do if p<3 then if 0>=p then j=e;else if 2~=p then f=a;else o=d;end end else if p>4 then if p~=3 then repeat if p~=6 then n(h,s);break;end;p=-2;until true;else p=-2;end else if 2<p then repeat if p~=4 then s=j[o];break;end;h=j[f];until true;else h=j[f];end end end p=p+1 end t=t+1;e=c[t];break;end;p=0;while p>-1 do if p>2 then if 4<p then if 6>p then n(h,s);else p=-2;end else if p>=0 then repeat if 4>p then s=j[o];break;end;h=j[f];until true;else h=j[f];end end else if p>0 then if p>-1 then repeat if 2>p then f=a;break;end;o=d;until true;else o=d;end else j=e;end end p=p+1 end t=t+1;e=c[t];until true;else p=0;while p>-1 do if p<3 then if 0>=p then j=e;else if 2~=p then f=a;else o=d;end end else if p>4 then if p~=3 then repeat if p~=6 then n(h,s);break;end;p=-2;until true;else p=-2;end else if 2<p then repeat if p~=4 then s=j[o];break;end;h=j[f];until true;else h=j[f];end end end p=p+1 end t=t+1;e=c[t];end else if 5~=p then u=e[a];k=n[u]b=n[u+2];if(b>0)then if(k>n[u+1])then t=e[d];else n[u+3]=k;end elseif(k<n[u+1])then t=e[d];else n[u+3]=k;end else p=0;while p>-1 do if 3>p then if p<1 then j=e;else if p~=-3 then for e=12,93 do if 2~=p then f=a;break;end;o=d;break;end;else f=a;end end else if 4<p then if 3~=p then repeat if 5<p then p=-2;break;end;n(h,s);until true;else p=-2;end else if 3<p then h=j[f];else s=j[o];end end end p=p+1 end t=t+1;e=c[t];end end else if p<=0 then n[e[a]]=r[e[d]];t=t+1;e=c[t];else if p==2 then n[e[a]]={};t=t+1;e=c[t];else n[e[a]]=n[e[d]][e[l]];t=t+1;e=c[t];end end end end until true;else if(n[e[a]]==e[l])then t=t+1;else t=e[d];end;end end else if p>=169 then if 170==p then local t=e[a]local a,e=s(n[t](f(n,t+1,e[d])))o=e+t-1 local e=0;for t=t,o do e=e+1;n[t]=a[e];end;else local j,r;for p=0,6 do if p>2 then if 5<=p then if p<6 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];else j=e[a]n[j](f(n,j+1,e[d]))end else if p>=2 then repeat if p~=4 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];until true;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end else if 1>p then j=e[a];r=n[e[d]];n[j+1]=r;n[j]=r[e[l]];t=t+1;e=c[t];else if p>0 then repeat if p>1 then n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;n[e[a]]={};t=t+1;e=c[t];until true;else n[e[a]][e[d]]=e[l];t=t+1;e=c[t];end end end end end else local h,o,f,p,j,r,c;local t=0;while t>-1 do if 3>t then if t<=0 then h=a;o=d;f=l;else if t~=-1 then repeat if 2~=t then p=e;break;end;j=p[o];until true;else p=e;end end else if 4<t then if t~=4 then for e=43,65 do if t<6 then n[r]=c;break;end;t=-2;break;end;else n[r]=c;end else if 0<=t then repeat if 3<t then c=n[j];for e=1+j,p[f]do c=c..n[e];end;break;end;r=p[h];until true;else c=n[j];for e=1+j,p[f]do c=c..n[e];end;end end end t=t+1 end end end else if 177>p then if p>=175 then if 175<p then local e=e[a]n[e](n[e+1])else n[e[a]]=r[e[d]];end else local j,r,h,u,o,p,k,s;for p=0,3 do if 2<=p then if 0<=p then repeat if p>2 then s=n[e[l]];if s then t=t+1;else n[e[a]]=s;t=e[d];end;break;end;k=e[a]n[k]=n[k](f(n,k+1,e[d]))t=t+1;e=c[t];until true;else s=n[e[l]];if s then t=t+1;else n[e[a]]=s;t=e[d];end;end else if p>=-4 then for l=32,55 do if 0~=p then n[e[a]]=(e[d]~=0);t=t+1;e=c[t];break;end;p=0;while p>-1 do if 3<=p then if 4<p then if p>3 then repeat if p~=6 then n(o,u);break;end;p=-2;until true;else p=-2;end else if-1<p then for e=40,74 do if p<4 then u=j[h];break;end;o=j[r];break;end;else o=j[r];end end else if p<=0 then j=e;else if p>=-2 then for e=33,71 do if p~=2 then r=a;break;end;h=d;break;end;else h=d;end end end p=p+1 end t=t+1;e=c[t];break;end;else p=0;while p>-1 do if 3<=p then if 4<p then if p>3 then repeat if p~=6 then n(o,u);break;end;p=-2;until true;else p=-2;end else if-1<p then for e=40,74 do if p<4 then u=j[h];break;end;o=j[r];break;end;else o=j[r];end end else if p<=0 then j=e;else if p>=-2 then for e=33,71 do if p~=2 then r=a;break;end;h=d;break;end;else h=d;end end end p=p+1 end t=t+1;e=c[t];end end end end else if 178<=p then if p~=179 then local e=e[a]n[e]=n[e](f(n,e+1,o))else local l,h,r,j,f,p;n[e[a]]=n[e[d]];t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];l=e[a]n[l]=n[l](n[l+1])t=t+1;e=c[t];n[e[a]]=n[e[d]];t=t+1;e=c[t];do return n[e[a]]end t=t+1;e=c[t];l=e[a];h={};for e=1,#u do r=u[e];for e=0,#r do j=r[e];f=j[1];p=j[2];if f==n and p>=l then h[p]=f[p];j[1]=h;end;end;end;t=t+1;e=c[t];t=e[d];end else local e=e[a]local a,t=s(n[e]())o=t+e-1 local t=0;for e=e,o do t=t+1;n[e]=a[t];end;end end end else if p>161 then if p<=164 then if 163<=p then if 162~=p then for c=47,55 do if 163~=p then local a=e[a];local l=n[a+2];local c=n[a]+l;n[a]=c;if(l>0)then if(c<=n[a+1])then t=e[d];n[a+3]=c;end elseif(c>=n[a+1])then t=e[d];n[a+3]=c;end break;end;n[e[a]]=n[e[d]]%e[l];break;end;else n[e[a]]=n[e[d]]%e[l];end else for p=0,2 do if 0<p then if p>-2 then for j=12,86 do if 1~=p then n[e[a]][e[d]]=e[l];break;end;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];break;end;else n[e[a]][e[d]]=e[l];end else n[e[a]]={};t=t+1;e=c[t];end end end else if p>=166 then if 167==p then if(n[e[a]]~=e[l])then t=t+1;else t=e[d];end;else local p,j;n[e[a]][e[d]]=e[l];t=t+1;e=c[t];p=e[a]n[p]=n[p](f(n,p+1,e[d]))t=t+1;e=c[t];n[e[a]]=r[e[d]];t=t+1;e=c[t];n[e[a]][e[d]]=n[e[l]];t=t+1;e=c[t];p=e[a];j=n[e[d]];n[p+1]=j;n[p]=j[e[l]];t=t+1;e=c[t];n[e[a]]={};t=t+1;e=c[t];n[e[a]][e[d]]=e[l];end else n[e[a]]=b(z[e[d]],nil,r);end end else if 158>=p then if 154~=p then for j=34,96 do if 158>p then local j,s,h,f,o,p;for p=0,4 do if 2>p then if p~=-3 then repeat if p<1 then p=0;while p>-1 do if p<3 then if p>0 then if p==1 then s=a;else h=d;end else j=e;end else if p<5 then if p~=-1 then repeat if p~=3 then o=j[s];break;end;f=j[h];until true;else f=j[h];end else if 6~=p then n(o,f);else p=-2;end end end p=p+1 end t=t+1;e=c[t];break;end;p=0;while p>-1 do if p>=3 then if 5<=p then if p>2 then for e=45,88 do if 5~=p then p=-2;break;end;n(o,f);break;end;else n(o,f);end else if p>=-1 then repeat if p>3 then o=j[s];break;end;f=j[h];until true;else f=j[h];end end else if 0<p then if p>=-1 then repeat if p~=2 then s=a;break;end;h=d;until true;else h=d;end else j=e;end end p=p+1 end t=t+1;e=c[t];until true;else p=0;while p>-1 do if p<3 then if p>0 then if p==1 then s=a;else h=d;end else j=e;end else if p<5 then if p~=-1 then repeat if p~=3 then o=j[s];break;end;f=j[h];until true;else f=j[h];end else if 6~=p then n(o,f);else p=-2;end end end p=p+1 end t=t+1;e=c[t];end else if 2<p then if 3~=p then n[e[a]][e[d]]=e[l];else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else p=0;while p>-1 do if 3>p then if p>=1 then if-1~=p then for e=27,61 do if p~=1 then h=d;break;end;s=a;break;end;else s=a;end else j=e;end else if 5>p then if p>-1 then repeat if 4>p then f=j[h];break;end;o=j[s];until true;else o=j[s];end else if 3<p then for e=43,84 do if p>5 then p=-2;break;end;n(o,f);break;end;else n(o,f);end end end p=p+1 end t=t+1;e=c[t];end end end break;end;local l,c,f,j,p;local t=0;while t>-1 do if t<3 then if 0<t then if-2~=t then for e=47,92 do if t>1 then f=d;break;end;c=a;break;end;else c=a;end else l=e;end else if t>=5 then if t~=5 then t=-2;else n(p,j);end else if 2<t then for e=13,83 do if t~=4 then j=l[f];break;end;p=l[c];break;end;else p=l[c];end end end t=t+1 end break;end;else local j,s,h,f,o,p;for p=0,4 do if 2>p then if p~=-3 then repeat if p<1 then p=0;while p>-1 do if p<3 then if p>0 then if p==1 then s=a;else h=d;end else j=e;end else if p<5 then if p~=-1 then repeat if p~=3 then o=j[s];break;end;f=j[h];until true;else f=j[h];end else if 6~=p then n(o,f);else p=-2;end end end p=p+1 end t=t+1;e=c[t];break;end;p=0;while p>-1 do if p>=3 then if 5<=p then if p>2 then for e=45,88 do if 5~=p then p=-2;break;end;n(o,f);break;end;else n(o,f);end else if p>=-1 then repeat if p>3 then o=j[s];break;end;f=j[h];until true;else f=j[h];end end else if 0<p then if p>=-1 then repeat if p~=2 then s=a;break;end;h=d;until true;else h=d;end else j=e;end end p=p+1 end t=t+1;e=c[t];until true;else p=0;while p>-1 do if p<3 then if p>0 then if p==1 then s=a;else h=d;end else j=e;end else if p<5 then if p~=-1 then repeat if p~=3 then o=j[s];break;end;f=j[h];until true;else f=j[h];end else if 6~=p then n(o,f);else p=-2;end end end p=p+1 end t=t+1;e=c[t];end else if 2<p then if 3~=p then n[e[a]][e[d]]=e[l];else n[e[a]]=r[e[d]];t=t+1;e=c[t];end else p=0;while p>-1 do if 3>p then if p>=1 then if-1~=p then for e=27,61 do if p~=1 then h=d;break;end;s=a;break;end;else s=a;end else j=e;end else if 5>p then if p>-1 then repeat if 4>p then f=j[h];break;end;o=j[s];until true;else o=j[s];end else if 3<p then for e=43,84 do if p>5 then p=-2;break;end;n(o,f);break;end;else n(o,f);end end end p=p+1 end t=t+1;e=c[t];end end end end else if p<160 then local t=e[a]local a={n[t]()};local d=e[l];local e=0;for t=t,d do e=e+1;n[t]=a[e];end else if p~=161 then if(n[e[a]]~=e[l])then t=t+1;else t=e[d];end;else t=e[d];end end end end end end end end t=1+t;end;end;return te end;local d=0xff;local p={};local c=(1);local a='';(function(t)local n=t local l=0x00 local e=0x00 n={(function(c)if l>0x22 then return c end l=l+1 e=(e+0x90c-c)%0x20 return(e%0x03==0x2 and(function(n)if not t[n]then e=e+0x01 t[n]=(0x24);end return true end)'KayML'and n[0x1](0x172+c))or(e%0x03==0x1 and(function(n)if not t[n]then e=e+0x01 t[n]=(0xa7);a='\37';d={function()d()end};a=a..'\100\43';end return true end)'BflqE'and n[0x3](c+0x7e))or(e%0x03==0x0 and(function(n)if not t[n]then e=e+0x01 t[n]=(0x87);end return true end)'yYlZF'and n[0x2](c+0x3df))or c end),(function(a)if l>0x22 then return a end l=l+1 e=(e+0x1159-a)%0x2d return(e%0x03==0x2 and(function(n)if not t[n]then e=e+0x01 t[n]=(0x27);end return true end)'ROvum'and n[0x3](0xf3+a))or(e%0x03==0x1 and(function(n)if not t[n]then e=e+0x01 t[n]=(0x7c);end return true end)'gRwDR'and n[0x2](a+0x35b))or(e%0x03==0x0 and(function(n)if not t[n]then e=e+0x01 t[n]=(0x1a);end return true end)'iRjYm'and n[0x1](a+0x1ca))or a end),(function(r)if l>0x21 then return r end l=l+1 e=(e+0x1115-r)%0x23 return(e%0x03==0x1 and(function(n)if not t[n]then e=e+0x01 t[n]=(0x0);p[c]=de();c=c+d;end return true end)'SCPLm'and n[0x2](0x135+r))or(e%0x03==0x0 and(function(n)if not t[n]then e=e+0x01 t[n]=(0xea);a={a..'\58 a',a};p[c]=te();c=c+((not j.CMWVtwyG)and 1 or 0);a[1]='\58'..a[1];d[2]=0xff;end return true end)'EbuXf'and n[0x1](r+0x31b))or(e%0x03==0x2 and(function(n)if not t[n]then e=e+0x01 t[n]=(0x14);d[2]=(d[2]*(ne(function()p()end,f(a))-ne(d[1],f(a))))+1;p[c]={};d=d[2];c=c+d;end return true end)'ksZqX'and n[0x3](r+0xf8))or r end)}n[0x1](0x1d9c)end){};local e=b(f(p));p[2]={};p[1]=e(p[1])jWdrZpMpDggWbbw=nil;e=b(f(p))return e(...);end return ae((function()local t={}local e=0x01;local n;if j.CMWVtwyG then n=j.CMWVtwyG(ae)else n=''end if j.xLraJgTy(n,j.VE_BvSgZ)then e=e+0;else e=e+1;end t[e]=0x02;t[t[e]+0x01]=0x03;return t;end)(),...)end)((function(t,e,n,a,d,c)local c;if t<4 then if 2>t then if 0==t then do return e(1),e(4,d,a,n,e),e(5,d,a,n)end;else do return function(n,e,t)if t then local e=(n/2^(e-1))%2^((t-1)-(e-1)+1);return e-e%1;else local e=2^(e-1);return(n%(e+e)>=e)and 1 or 0;end;end;end;end else if 1~=t then repeat if 3>t then do return 16777216,65536,256 end;break;end;do return e(1),e(4,d,a,n,e),e(5,d,a,n)end;until true;else do return e(1),e(4,d,a,n,e),e(5,d,a,n)end;end end else if t>5 then if t<=6 then do return d[n]end;else if t>=5 then for e=47,76 do if t~=8 then do return setmetatable({},{['__\99\97\108\108']=function(e,a,d,n,t)if t then return e[t]elseif n then return e else e[a]=d end end})end break;end;do return n(t,nil,n);end break;end;else do return setmetatable({},{['__\99\97\108\108']=function(e,a,n,d,t)if t then return e[t]elseif d then return e else e[a]=n end end})end end end else if 3<=t then repeat if 5~=t then local t=a;local a,d,c=d(2);do return function()local n,e,l,p=e(n,t(t,t),t(t,t)+3);t(4);return(p*a)+(l*d)+(e*c)+n;end;end;break;end;local t=a;do return function()local e=e(n,t(t,t),t(t,t));t(1);return e;end;end;until true;else local t=a;local l,d,a=d(2);do return function()local n,c,p,e=e(n,t(t,t),t(t,t)+3);t(4);return(e*l)+(p*d)+(c*a)+n;end;end;end end end end),...)
+local MarketplaceService = game:GetService("MarketplaceService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+local RunService = game:GetService("RunService")
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+local PlayerMouse = Player:GetMouse()
+
+local redzlib = {
+	Themes = {
+		Darker = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(25, 25, 25)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(32.5, 32.5, 32.5)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(25, 25, 25))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+			["Color Stroke"] = Color3.fromRGB(40, 40, 40),
+			["Color Theme"] = Color3.fromRGB(88, 101, 242),
+			["Color Text"] = Color3.fromRGB(243, 243, 243),
+			["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
+		},
+		Dark = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(40, 40, 40)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(47.5, 47.5, 47.5)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(40, 40, 40))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(45, 45, 45),
+			["Color Stroke"] = Color3.fromRGB(65, 65, 65),
+			["Color Theme"] = Color3.fromRGB(65, 150, 255),
+			["Color Text"] = Color3.fromRGB(245, 245, 245),
+			["Color Dark Text"] = Color3.fromRGB(190, 190, 190)
+		},
+		Purple = {
+			["Color Hub 1"] = ColorSequence.new({
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(27.5, 25, 30)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(32.5, 32.5, 32.5)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(27.5, 25, 30))
+			}),
+			["Color Hub 2"] = Color3.fromRGB(30, 30, 30),
+			["Color Stroke"] = Color3.fromRGB(40, 40, 40),
+			["Color Theme"] = Color3.fromRGB(150, 0, 255),
+			["Color Text"] = Color3.fromRGB(240, 240, 240),
+			["Color Dark Text"] = Color3.fromRGB(180, 180, 180)
+		}
+	},
+	Info = {
+		Version = "1.1.0"
+	},
+	Save = {
+		UISize = {450, 280},
+		TabSize = 160,
+		Theme = "Darker"
+	},
+	Settings = {},
+	Connection = {},
+	Instances = {},
+	Elements = {},
+	Options = {},
+	Flags = {},
+	Tabs = {},
+	Icons = (function()
+	  -- This file was @generated by Tarmac. It is not intended for manual editing.
+		return {
+			["accessibility"] = "rbxassetid://10709751939",
+			["activity"] = "rbxassetid://10709752035",
+			["airvent"] = "rbxassetid://10709752131",
+			["airplay"] = "rbxassetid://10709752254",
+			["alarmcheck"] = "rbxassetid://10709752405",
+			["alarmclock"] = "rbxassetid://10709752630",
+			["alarmclockoff"] = "rbxassetid://10709752508",
+			["alarmminus"] = "rbxassetid://10709752732",
+			["alarmplus"] = "rbxassetid://10709752825",
+			["album"] = "rbxassetid://10709752906",
+			["alertcircle"] = "rbxassetid://10709752996",
+			["alertoctagon"] = "rbxassetid://10709753064",
+			["alerttriangle"] = "rbxassetid://10709753149",
+			["aligncenter"] = "rbxassetid://10709753570",
+			["aligncenterhorizontal"] = "rbxassetid://10709753272",
+			["aligncentervertical"] = "rbxassetid://10709753421",
+			["alignendhorizontal"] = "rbxassetid://10709753692",
+			["alignendvertical"] = "rbxassetid://10709753808",
+			["alignhorizontaldistributecenter"] = "rbxassetid://10747779791",
+			["alignhorizontaldistributeend"] = "rbxassetid://10747784534",
+			["alignhorizontaldistributestart"] = "rbxassetid://10709754118",
+			["alignhorizontaljustifycenter"] = "rbxassetid://10709754204",
+			["alignhorizontaljustifyend"] = "rbxassetid://10709754317",
+			["alignhorizontaljustifystart"] = "rbxassetid://10709754436",
+			["alignhorizontalspacearound"] = "rbxassetid://10709754590",
+			["alignhorizontalspacebetween"] = "rbxassetid://10709754749",
+			["alignjustify"] = "rbxassetid://10709759610",
+			["alignleft"] = "rbxassetid://10709759764",
+			["alignright"] = "rbxassetid://10709759895",
+			["alignstarthorizontal"] = "rbxassetid://10709760051",
+			["alignstartvertical"] = "rbxassetid://10709760244",
+			["alignverticaldistributecenter"] = "rbxassetid://10709760351",
+			["alignverticaldistributeend"] = "rbxassetid://10709760434",
+			["alignverticaldistributestart"] = "rbxassetid://10709760612",
+			["alignverticaljustifycenter"] = "rbxassetid://10709760814",
+			["alignverticaljustifyend"] = "rbxassetid://10709761003",
+			["alignverticaljustifystart"] = "rbxassetid://10709761176",
+			["alignverticalspacearound"] = "rbxassetid://10709761324",
+			["alignverticalspacebetween"] = "rbxassetid://10709761434",
+			["anchor"] = "rbxassetid://10709761530",
+			["angry"] = "rbxassetid://10709761629",
+			["annoyed"] = "rbxassetid://10709761722",
+			["aperture"] = "rbxassetid://10709761813",
+			["apple"] = "rbxassetid://10709761889",
+			["archive"] = "rbxassetid://10709762233",
+			["archiverestore"] = "rbxassetid://10709762058",
+			["armchair"] = "rbxassetid://10709762327",
+			["arrowbigdown"] = "rbxassetid://10747796644",
+			["arrowbigleft"] = "rbxassetid://10709762574",
+			["arrowbigright"] = "rbxassetid://10709762727",
+			["arrowbigup"] = "rbxassetid://10709762879",
+			["arrowdown"] = "rbxassetid://10709767827",
+			["arrowdowncircle"] = "rbxassetid://10709763034",
+			["arrowdownleft"] = "rbxassetid://10709767656",
+			["arrowdownright"] = "rbxassetid://10709767750",
+			["arrowleft"] = "rbxassetid://10709768114",
+			["arrowleftcircle"] = "rbxassetid://10709767936",
+			["arrowleftright"] = "rbxassetid://10709768019",
+			["arrowright"] = "rbxassetid://10709768347",
+			["arrowrightcircle"] = "rbxassetid://10709768226",
+			["arrowup"] = "rbxassetid://10709768939",
+			["arrowupcircle"] = "rbxassetid://10709768432",
+			["arrowupdown"] = "rbxassetid://10709768538",
+			["arrowupleft"] = "rbxassetid://10709768661",
+			["arrowupright"] = "rbxassetid://10709768787",
+			["asterisk"] = "rbxassetid://10709769095",
+			["atsign"] = "rbxassetid://10709769286",
+			["award"] = "rbxassetid://10709769406",
+			["axe"] = "rbxassetid://10709769508",
+			["axis3d"] = "rbxassetid://10709769598",
+			["baby"] = "rbxassetid://10709769732",
+			["backpack"] = "rbxassetid://10709769841",
+			["baggageclaim"] = "rbxassetid://10709769935",
+			["banana"] = "rbxassetid://10709770005",
+			["banknote"] = "rbxassetid://10709770178",
+			["barchart"] = "rbxassetid://10709773755",
+			["barchart2"] = "rbxassetid://10709770317",
+			["barchart3"] = "rbxassetid://10709770431",
+			["barchart4"] = "rbxassetid://10709770560",
+			["barcharthorizontal"] = "rbxassetid://10709773669",
+			["barcode"] = "rbxassetid://10747360675",
+			["baseline"] = "rbxassetid://10709773863",
+			["bath"] = "rbxassetid://10709773963",
+			["battery"] = "rbxassetid://10709774640",
+			["batterycharging"] = "rbxassetid://10709774068",
+			["batteryfull"] = "rbxassetid://10709774206",
+			["batterylow"] = "rbxassetid://10709774370",
+			["batterymedium"] = "rbxassetid://10709774513",
+			["beaker"] = "rbxassetid://10709774756",
+			["bed"] = "rbxassetid://10709775036",
+			["beddouble"] = "rbxassetid://10709774864",
+			["bedsingle"] = "rbxassetid://10709774968",
+			["beer"] = "rbxassetid://10709775167",
+			["bell"] = "rbxassetid://10709775704",
+			["bellminus"] = "rbxassetid://10709775241",
+			["belloff"] = "rbxassetid://10709775320",
+			["bellplus"] = "rbxassetid://10709775448",
+			["bellring"] = "rbxassetid://10709775560",
+			["bike"] = "rbxassetid://10709775894",
+			["binary"] = "rbxassetid://10709776050",
+			["bitcoin"] = "rbxassetid://10709776126",
+			["bluetooth"] = "rbxassetid://10709776655",
+			["bluetoothconnected"] = "rbxassetid://10709776240",
+			["bluetoothoff"] = "rbxassetid://10709776344",
+			["bluetoothsearching"] = "rbxassetid://10709776501",
+			["bold"] = "rbxassetid://10747813908",
+			["bomb"] = "rbxassetid://10709781460",
+			["bone"] = "rbxassetid://10709781605",
+			["book"] = "rbxassetid://10709781824",
+			["bookopen"] = "rbxassetid://10709781717",
+			["bookmark"] = "rbxassetid://10709782154",
+			["bookmarkminus"] = "rbxassetid://10709781919",
+			["bookmarkplus"] = "rbxassetid://10709782044",
+			["bot"] = "rbxassetid://10709782230",
+			["box"] = "rbxassetid://10709782497",
+			["boxselect"] = "rbxassetid://10709782342",
+			["boxes"] = "rbxassetid://10709782582",
+			["briefcase"] = "rbxassetid://10709782662",
+			["brush"] = "rbxassetid://10709782758",
+			["bug"] = "rbxassetid://10709782845",
+			["building"] = "rbxassetid://10709783051",
+			["building2"] = "rbxassetid://10709782939",
+			["bus"] = "rbxassetid://10709783137",
+			["cake"] = "rbxassetid://10709783217",
+			["calculator"] = "rbxassetid://10709783311",
+			["calendar"] = "rbxassetid://10709789505",
+			["calendarcheck"] = "rbxassetid://10709783474",
+			["calendarcheck2"] = "rbxassetid://10709783392",
+			["calendarclock"] = "rbxassetid://10709783577",
+			["calendardays"] = "rbxassetid://10709783673",
+			["calendarheart"] = "rbxassetid://10709783835",
+			["calendarminus"] = "rbxassetid://10709783959",
+			["calendaroff"] = "rbxassetid://10709788784",
+			["calendarplus"] = "rbxassetid://10709788937",
+			["calendarrange"] = "rbxassetid://10709789053",
+			["calendarsearch"] = "rbxassetid://10709789200",
+			["calendarx"] = "rbxassetid://10709789407",
+			["calendarx2"] = "rbxassetid://10709789329",
+			["camera"] = "rbxassetid://10709789686",
+			["cameraoff"] = "rbxassetid://10747822677",
+			["car"] = "rbxassetid://10709789810",
+			["carrot"] = "rbxassetid://10709789960",
+			["cast"] = "rbxassetid://10709790097",
+			["charge"] = "rbxassetid://10709790202",
+			["check"] = "rbxassetid://10709790644",
+			["checkcircle"] = "rbxassetid://10709790387",
+			["checkcircle2"] = "rbxassetid://10709790298",
+			["checksquare"] = "rbxassetid://10709790537",
+			["chefhat"] = "rbxassetid://10709790757",
+			["cherry"] = "rbxassetid://10709790875",
+			["chevrondown"] = "rbxassetid://10709790948",
+			["chevronfirst"] = "rbxassetid://10709791015",
+			["chevronlast"] = "rbxassetid://10709791130",
+			["chevronleft"] = "rbxassetid://10709791281",
+			["chevronright"] = "rbxassetid://10709791437",
+			["chevronup"] = "rbxassetid://10709791523",
+			["chevronsdown"] = "rbxassetid://10709796864",
+			["chevronsdownup"] = "rbxassetid://10709791632",
+			["chevronsleft"] = "rbxassetid://10709797151",
+			["chevronsleftright"] = "rbxassetid://10709797006",
+			["chevronsright"] = "rbxassetid://10709797382",
+			["chevronsrightleft"] = "rbxassetid://10709797274",
+			["chevronsup"] = "rbxassetid://10709797622",
+			["chevronsupdown"] = "rbxassetid://10709797508",
+			["chrome"] = "rbxassetid://10709797725",
+			["circle"] = "rbxassetid://10709798174",
+			["circledot"] = "rbxassetid://10709797837",
+			["circleellipsis"] = "rbxassetid://10709797985",
+			["circleslashed"] = "rbxassetid://10709798100",
+			["citrus"] = "rbxassetid://10709798276",
+			["clapperboard"] = "rbxassetid://10709798350",
+			["clipboard"] = "rbxassetid://10709799288",
+			["clipboardcheck"] = "rbxassetid://10709798443",
+			["clipboardcopy"] = "rbxassetid://10709798574",
+			["clipboardedit"] = "rbxassetid://10709798682",
+			["clipboardlist"] = "rbxassetid://10709798792",
+			["clipboardsignature"] = "rbxassetid://10709798890",
+			["clipboardtype"] = "rbxassetid://10709798999",
+			["clipboardx"] = "rbxassetid://10709799124",
+			["clock"] = "rbxassetid://10709805144",
+			["clock1"] = "rbxassetid://10709799535",
+			["clock10"] = "rbxassetid://10709799718",
+			["clock11"] = "rbxassetid://10709799818",
+			["clock12"] = "rbxassetid://10709799962",
+			["clock2"] = "rbxassetid://10709803876",
+			["clock3"] = "rbxassetid://10709803989",
+			["clock4"] = "rbxassetid://10709804164",
+			["clock5"] = "rbxassetid://10709804291",
+			["clock6"] = "rbxassetid://10709804435",
+			["clock7"] = "rbxassetid://10709804599",
+			["clock8"] = "rbxassetid://10709804784",
+			["clock9"] = "rbxassetid://10709804996",
+			["cloud"] = "rbxassetid://10709806740",
+			["cloudcog"] = "rbxassetid://10709805262",
+			["clouddrizzle"] = "rbxassetid://10709805371",
+			["cloudfog"] = "rbxassetid://10709805477",
+			["cloudhail"] = "rbxassetid://10709805596",
+			["cloudlightning"] = "rbxassetid://10709805727",
+			["cloudmoon"] = "rbxassetid://10709805942",
+			["cloudmoonrain"] = "rbxassetid://10709805838",
+			["cloudoff"] = "rbxassetid://10709806060",
+			["cloudrain"] = "rbxassetid://10709806277",
+			["cloudrainwind"] = "rbxassetid://10709806166",
+			["cloudsnow"] = "rbxassetid://10709806374",
+			["cloudsun"] = "rbxassetid://10709806631",
+			["cloudsunrain"] = "rbxassetid://10709806475",
+			["cloudy"] = "rbxassetid://10709806859",
+			["clover"] = "rbxassetid://10709806995",
+			["code"] = "rbxassetid://10709810463",
+			["code2"] = "rbxassetid://10709807111",
+			["codepen"] = "rbxassetid://10709810534",
+			["codesandbox"] = "rbxassetid://10709810676",
+			["coffee"] = "rbxassetid://10709810814",
+			["cog"] = "rbxassetid://10709810948",
+			["coins"] = "rbxassetid://10709811110",
+			["columns"] = "rbxassetid://10709811261",
+			["command"] = "rbxassetid://10709811365",
+			["compass"] = "rbxassetid://10709811445",
+			["component"] = "rbxassetid://10709811595",
+			["conciergebell"] = "rbxassetid://10709811706",
+			["connection"] = "rbxassetid://10747361219",
+			["contact"] = "rbxassetid://10709811834",
+			["contrast"] = "rbxassetid://10709811939",
+			["cookie"] = "rbxassetid://10709812067",
+			["copy"] = "rbxassetid://10709812159",
+			["copyleft"] = "rbxassetid://10709812251",
+			["copyright"] = "rbxassetid://10709812311",
+			["cornerdownleft"] = "rbxassetid://10709812396",
+			["cornerdownright"] = "rbxassetid://10709812485",
+			["cornerleftdown"] = "rbxassetid://10709812632",
+			["cornerleftup"] = "rbxassetid://10709812784",
+			["cornerrightdown"] = "rbxassetid://10709812939",
+			["cornerrightup"] = "rbxassetid://10709813094",
+			["cornerupleft"] = "rbxassetid://10709813185",
+			["cornerupright"] = "rbxassetid://10709813281",
+			["cpu"] = "rbxassetid://10709813383",
+			["croissant"] = "rbxassetid://10709818125",
+			["crop"] = "rbxassetid://10709818245",
+			["cross"] = "rbxassetid://10709818399",
+			["crosshair"] = "rbxassetid://10709818534",
+			["crown"] = "rbxassetid://10709818626",
+			["cupsoda"] = "rbxassetid://10709818763",
+			["curlybraces"] = "rbxassetid://10709818847",
+			["currency"] = "rbxassetid://10709818931",
+			["database"] = "rbxassetid://10709818996",
+			["delete"] = "rbxassetid://10709819059",
+			["diamond"] = "rbxassetid://10709819149",
+			["dice1"] = "rbxassetid://10709819266",
+			["dice2"] = "rbxassetid://10709819361",
+			["dice3"] = "rbxassetid://10709819508",
+			["dice4"] = "rbxassetid://10709819670",
+			["dice5"] = "rbxassetid://10709819801",
+			["dice6"] = "rbxassetid://10709819896",
+			["dices"] = "rbxassetid://10723343321",
+			["diff"] = "rbxassetid://10723343416",
+			["disc"] = "rbxassetid://10723343537",
+			["divide"] = "rbxassetid://10723343805",
+			["dividecircle"] = "rbxassetid://10723343636",
+			["dividesquare"] = "rbxassetid://10723343737",
+			["dollarsign"] = "rbxassetid://10723343958",
+			["download"] = "rbxassetid://10723344270",
+			["downloadcloud"] = "rbxassetid://10723344088",
+			["droplet"] = "rbxassetid://10723344432",
+			["droplets"] = "rbxassetid://10734883356",
+			["drumstick"] = "rbxassetid://10723344737",
+			["edit"] = "rbxassetid://10734883598",
+			["edit2"] = "rbxassetid://10723344885",
+			["edit3"] = "rbxassetid://10723345088",
+			["egg"] = "rbxassetid://10723345518",
+			["eggfried"] = "rbxassetid://10723345347",
+			["electricity"] = "rbxassetid://10723345749",
+			["electricityoff"] = "rbxassetid://10723345643",
+			["equal"] = "rbxassetid://10723345990",
+			["equalnot"] = "rbxassetid://10723345866",
+			["eraser"] = "rbxassetid://10723346158",
+			["euro"] = "rbxassetid://10723346372",
+			["expand"] = "rbxassetid://10723346553",
+			["externallink"] = "rbxassetid://10723346684",
+			["eye"] = "rbxassetid://10723346959",
+			["eyeoff"] = "rbxassetid://10723346871",
+			["factory"] = "rbxassetid://10723347051",
+			["fan"] = "rbxassetid://10723354359",
+			["fastforward"] = "rbxassetid://10723354521",
+			["feather"] = "rbxassetid://10723354671",
+			["figma"] = "rbxassetid://10723354801",
+			["file"] = "rbxassetid://10723374641",
+			["filearchive"] = "rbxassetid://10723354921",
+			["fileaudio"] = "rbxassetid://10723355148",
+			["fileaudio2"] = "rbxassetid://10723355026",
+			["fileaxis3d"] = "rbxassetid://10723355272",
+			["filebadge"] = "rbxassetid://10723355622",
+			["filebadge2"] = "rbxassetid://10723355451",
+			["filebarchart"] = "rbxassetid://10723355887",
+			["filebarchart2"] = "rbxassetid://10723355746",
+			["filebox"] = "rbxassetid://10723355989",
+			["filecheck"] = "rbxassetid://10723356210",
+			["filecheck2"] = "rbxassetid://10723356100",
+			["fileclock"] = "rbxassetid://10723356329",
+			["filecode"] = "rbxassetid://10723356507",
+			["filecog"] = "rbxassetid://10723356830",
+			["filecog2"] = "rbxassetid://10723356676",
+			["filediff"] = "rbxassetid://10723357039",
+			["filedigit"] = "rbxassetid://10723357151",
+			["filedown"] = "rbxassetid://10723357322",
+			["fileedit"] = "rbxassetid://10723357495",
+			["fileheart"] = "rbxassetid://10723357637",
+			["fileimage"] = "rbxassetid://10723357790",
+			["fileinput"] = "rbxassetid://10723357933",
+			["filejson"] = "rbxassetid://10723364435",
+			["filejson2"] = "rbxassetid://10723364361",
+			["filekey"] = "rbxassetid://10723364605",
+			["filekey2"] = "rbxassetid://10723364515",
+			["filelinechart"] = "rbxassetid://10723364725",
+			["filelock"] = "rbxassetid://10723364957",
+			["filelock2"] = "rbxassetid://10723364861",
+			["fileminus"] = "rbxassetid://10723365254",
+			["fileminus2"] = "rbxassetid://10723365086",
+			["fileoutput"] = "rbxassetid://10723365457",
+			["filepiechart"] = "rbxassetid://10723365598",
+			["fileplus"] = "rbxassetid://10723365877",
+			["fileplus2"] = "rbxassetid://10723365766",
+			["filequestion"] = "rbxassetid://10723365987",
+			["filescan"] = "rbxassetid://10723366167",
+			["filesearch"] = "rbxassetid://10723366550",
+			["filesearch2"] = "rbxassetid://10723366340",
+			["filesignature"] = "rbxassetid://10723366741",
+			["filespreadsheet"] = "rbxassetid://10723366962",
+			["filesymlink"] = "rbxassetid://10723367098",
+			["fileterminal"] = "rbxassetid://10723367244",
+			["filetext"] = "rbxassetid://10723367380",
+			["filetype"] = "rbxassetid://10723367606",
+			["filetype2"] = "rbxassetid://10723367509",
+			["fileup"] = "rbxassetid://10723367734",
+			["filevideo"] = "rbxassetid://10723373884",
+			["filevideo2"] = "rbxassetid://10723367834",
+			["filevolume"] = "rbxassetid://10723374172",
+			["filevolume2"] = "rbxassetid://10723374030",
+			["filewarning"] = "rbxassetid://10723374276",
+			["filex"] = "rbxassetid://10723374544",
+			["filex2"] = "rbxassetid://10723374378",
+			["files"] = "rbxassetid://10723374759",
+			["film"] = "rbxassetid://10723374981",
+			["filter"] = "rbxassetid://10723375128",
+			["fingerprint"] = "rbxassetid://10723375250",
+			["flag"] = "rbxassetid://10723375890",
+			["flagoff"] = "rbxassetid://10723375443",
+			["flagtriangleleft"] = "rbxassetid://10723375608",
+			["flagtriangleright"] = "rbxassetid://10723375727",
+			["flame"] = "rbxassetid://10723376114",
+			["flashlight"] = "rbxassetid://10723376471",
+			["flashlightoff"] = "rbxassetid://10723376365",
+			["flaskconical"] = "rbxassetid://10734883986",
+			["flaskround"] = "rbxassetid://10723376614",
+			["fliphorizontal"] = "rbxassetid://10723376884",
+			["fliphorizontal2"] = "rbxassetid://10723376745",
+			["flipvertical"] = "rbxassetid://10723377138",
+			["flipvertical2"] = "rbxassetid://10723377026",
+			["flower"] = "rbxassetid://10747830374",
+			["flower2"] = "rbxassetid://10723377305",
+			["focus"] = "rbxassetid://10723377537",
+			["folder"] = "rbxassetid://10723387563",
+			["folderarchive"] = "rbxassetid://10723384478",
+			["foldercheck"] = "rbxassetid://10723384605",
+			["folderclock"] = "rbxassetid://10723384731",
+			["folderclosed"] = "rbxassetid://10723384893",
+			["foldercog"] = "rbxassetid://10723385213",
+			["foldercog2"] = "rbxassetid://10723385036",
+			["folderdown"] = "rbxassetid://10723385338",
+			["folderedit"] = "rbxassetid://10723385445",
+			["folderheart"] = "rbxassetid://10723385545",
+			["folderinput"] = "rbxassetid://10723385721",
+			["folderkey"] = "rbxassetid://10723385848",
+			["folderlock"] = "rbxassetid://10723386005",
+			["folderminus"] = "rbxassetid://10723386127",
+			["folderopen"] = "rbxassetid://10723386277",
+			["folderoutput"] = "rbxassetid://10723386386",
+			["folderplus"] = "rbxassetid://10723386531",
+			["foldersearch"] = "rbxassetid://10723386787",
+			["foldersearch2"] = "rbxassetid://10723386674",
+			["foldersymlink"] = "rbxassetid://10723386930",
+			["foldertree"] = "rbxassetid://10723387085",
+			["folderup"] = "rbxassetid://10723387265",
+			["folderx"] = "rbxassetid://10723387448",
+			["folders"] = "rbxassetid://10723387721",
+			["forminput"] = "rbxassetid://10723387841",
+			["forward"] = "rbxassetid://10723388016",
+			["frame"] = "rbxassetid://10723394389",
+			["framer"] = "rbxassetid://10723394565",
+			["frown"] = "rbxassetid://10723394681",
+			["fuel"] = "rbxassetid://10723394846",
+			["functionsquare"] = "rbxassetid://10723395041",
+			["gamepad"] = "rbxassetid://10723395457",
+			["gamepad2"] = "rbxassetid://10723395215",
+			["gauge"] = "rbxassetid://10723395708",
+			["gavel"] = "rbxassetid://10723395896",
+			["gem"] = "rbxassetid://10723396000",
+			["ghost"] = "rbxassetid://10723396107",
+			["gift"] = "rbxassetid://10723396402",
+			["giftcard"] = "rbxassetid://10723396225",
+			["gitbranch"] = "rbxassetid://10723396676",
+			["gitbranchplus"] = "rbxassetid://10723396542",
+			["gitcommit"] = "rbxassetid://10723396812",
+			["gitcompare"] = "rbxassetid://10723396954",
+			["gitfork"] = "rbxassetid://10723397049",
+			["gitmerge"] = "rbxassetid://10723397165",
+			["gitpullrequest"] = "rbxassetid://10723397431",
+			["gitpullrequestclosed"] = "rbxassetid://10723397268",
+			["gitpullrequestdraft"] = "rbxassetid://10734884302",
+			["glass"] = "rbxassetid://10723397788",
+			["glass2"] = "rbxassetid://10723397529",
+			["glasswater"] = "rbxassetid://10723397678",
+			["glasses"] = "rbxassetid://10723397895",
+			["globe"] = "rbxassetid://10723404337",
+			["globe2"] = "rbxassetid://10723398002",
+			["grab"] = "rbxassetid://10723404472",
+			["graduationcap"] = "rbxassetid://10723404691",
+			["grape"] = "rbxassetid://10723404822",
+			["grid"] = "rbxassetid://10723404936",
+			["griphorizontal"] = "rbxassetid://10723405089",
+			["gripvertical"] = "rbxassetid://10723405236",
+			["hammer"] = "rbxassetid://10723405360",
+			["hand"] = "rbxassetid://10723405649",
+			["handmetal"] = "rbxassetid://10723405508",
+			["harddrive"] = "rbxassetid://10723405749",
+			["hardhat"] = "rbxassetid://10723405859",
+			["hash"] = "rbxassetid://10723405975",
+			["haze"] = "rbxassetid://10723406078",
+			["headphones"] = "rbxassetid://10723406165",
+			["heart"] = "rbxassetid://10723406885",
+			["heartcrack"] = "rbxassetid://10723406299",
+			["hearthandshake"] = "rbxassetid://10723406480",
+			["heartoff"] = "rbxassetid://10723406662",
+			["heartpulse"] = "rbxassetid://10723406795",
+			["helpcircle"] = "rbxassetid://10723406988",
+			["hexagon"] = "rbxassetid://10723407092",
+			["highlighter"] = "rbxassetid://10723407192",
+			["history"] = "rbxassetid://10723407335",
+			["home"] = "rbxassetid://10723407389",
+			["hourglass"] = "rbxassetid://10723407498",
+			["icecream"] = "rbxassetid://10723414308",
+			["image"] = "rbxassetid://10723415040",
+			["imageminus"] = "rbxassetid://10723414487",
+			["imageoff"] = "rbxassetid://10723414677",
+			["imageplus"] = "rbxassetid://10723414827",
+			["import"] = "rbxassetid://10723415205",
+			["inbox"] = "rbxassetid://10723415335",
+			["indent"] = "rbxassetid://10723415494",
+			["indianrupee"] = "rbxassetid://10723415642",
+			["infinity"] = "rbxassetid://10723415766",
+			["info"] = "rbxassetid://10723415903",
+			["inspect"] = "rbxassetid://10723416057",
+			["italic"] = "rbxassetid://10723416195",
+			["japaneseyen"] = "rbxassetid://10723416363",
+			["joystick"] = "rbxassetid://10723416527",
+			["key"] = "rbxassetid://10723416652",
+			["keyboard"] = "rbxassetid://10723416765",
+			["lamp"] = "rbxassetid://10723417513",
+			["lampceiling"] = "rbxassetid://10723416922",
+			["lampdesk"] = "rbxassetid://10723417016",
+			["lampfloor"] = "rbxassetid://10723417131",
+			["lampwalldown"] = "rbxassetid://10723417240",
+			["lampwallup"] = "rbxassetid://10723417356",
+			["landmark"] = "rbxassetid://10723417608",
+			["languages"] = "rbxassetid://10723417703",
+			["laptop"] = "rbxassetid://10723423881",
+			["laptop2"] = "rbxassetid://10723417797",
+			["lasso"] = "rbxassetid://10723424235",
+			["lassoselect"] = "rbxassetid://10723424058",
+			["laugh"] = "rbxassetid://10723424372",
+			["layers"] = "rbxassetid://10723424505",
+			["layout"] = "rbxassetid://10723425376",
+			["layoutdashboard"] = "rbxassetid://10723424646",
+			["layoutgrid"] = "rbxassetid://10723424838",
+			["layoutlist"] = "rbxassetid://10723424963",
+			["layouttemplate"] = "rbxassetid://10723425187",
+			["leaf"] = "rbxassetid://10723425539",
+			["library"] = "rbxassetid://10723425615",
+			["lifebuoy"] = "rbxassetid://10723425685",
+			["lightbulb"] = "rbxassetid://10723425852",
+			["lightbulboff"] = "rbxassetid://10723425762",
+			["linechart"] = "rbxassetid://10723426393",
+			["link"] = "rbxassetid://10723426722",
+			["link2"] = "rbxassetid://10723426595",
+			["link2off"] = "rbxassetid://10723426513",
+			["list"] = "rbxassetid://10723433811",
+			["listchecks"] = "rbxassetid://10734884548",
+			["listend"] = "rbxassetid://10723426886",
+			["listminus"] = "rbxassetid://10723426986",
+			["listmusic"] = "rbxassetid://10723427081",
+			["listordered"] = "rbxassetid://10723427199",
+			["listplus"] = "rbxassetid://10723427334",
+			["liststart"] = "rbxassetid://10723427494",
+			["listvideo"] = "rbxassetid://10723427619",
+			["listx"] = "rbxassetid://10723433655",
+			["loader"] = "rbxassetid://10723434070",
+			["loader2"] = "rbxassetid://10723433935",
+			["locate"] = "rbxassetid://10723434557",
+			["locatefixed"] = "rbxassetid://10723434236",
+			["locateoff"] = "rbxassetid://10723434379",
+			["lock"] = "rbxassetid://10723434711",
+			["login"] = "rbxassetid://10723434830",
+			["logout"] = "rbxassetid://10723434906",
+			["luggage"] = "rbxassetid://10723434993",
+			["magnet"] = "rbxassetid://10723435069",
+			["mail"] = "rbxassetid://10734885430",
+			["mailcheck"] = "rbxassetid://10723435182",
+			["mailminus"] = "rbxassetid://10723435261",
+			["mailopen"] = "rbxassetid://10723435342",
+			["mailplus"] = "rbxassetid://10723435443",
+			["mailquestion"] = "rbxassetid://10723435515",
+			["mailsearch"] = "rbxassetid://10734884739",
+			["mailwarning"] = "rbxassetid://10734885015",
+			["mailx"] = "rbxassetid://10734885247",
+			["mails"] = "rbxassetid://10734885614",
+			["map"] = "rbxassetid://10734886202",
+			["mappin"] = "rbxassetid://10734886004",
+			["mappinoff"] = "rbxassetid://10734885803",
+			["maximize"] = "rbxassetid://10734886735",
+			["maximize2"] = "rbxassetid://10734886496",
+			["medal"] = "rbxassetid://10734887072",
+			["megaphone"] = "rbxassetid://10734887454",
+			["megaphoneoff"] = "rbxassetid://10734887311",
+			["meh"] = "rbxassetid://10734887603",
+			["menu"] = "rbxassetid://10734887784",
+			["messagecircle"] = "rbxassetid://10734888000",
+			["messagesquare"] = "rbxassetid://10734888228",
+			["mic"] = "rbxassetid://10734888864",
+			["mic2"] = "rbxassetid://10734888430",
+			["micoff"] = "rbxassetid://10734888646",
+			["microscope"] = "rbxassetid://10734889106",
+			["microwave"] = "rbxassetid://10734895076",
+			["milestone"] = "rbxassetid://10734895310",
+			["minimize"] = "rbxassetid://10734895698",
+			["minimize2"] = "rbxassetid://10734895530",
+			["minus"] = "rbxassetid://10734896206",
+			["minuscircle"] = "rbxassetid://10734895856",
+			["minussquare"] = "rbxassetid://10734896029",
+			["monitor"] = "rbxassetid://10734896881",
+			["monitoroff"] = "rbxassetid://10734896360",
+			["monitorspeaker"] = "rbxassetid://10734896512",
+			["moon"] = "rbxassetid://10734897102",
+			["morehorizontal"] = "rbxassetid://10734897250",
+			["morevertical"] = "rbxassetid://10734897387",
+			["mountain"] = "rbxassetid://10734897956",
+			["mountainsnow"] = "rbxassetid://10734897665",
+			["mouse"] = "rbxassetid://10734898592",
+			["mousepointer"] = "rbxassetid://10734898476",
+			["mousepointer2"] = "rbxassetid://10734898194",
+			["mousepointerclick"] = "rbxassetid://10734898355",
+			["move"] = "rbxassetid://10734900011",
+			["move3d"] = "rbxassetid://10734898756",
+			["movediagonal"] = "rbxassetid://10734899164",
+			["movediagonal2"] = "rbxassetid://10734898934",
+			["movehorizontal"] = "rbxassetid://10734899414",
+			["movevertical"] = "rbxassetid://10734899821",
+			["music"] = "rbxassetid://10734905958",
+			["music2"] = "rbxassetid://10734900215",
+			["music3"] = "rbxassetid://10734905665",
+			["music4"] = "rbxassetid://10734905823",
+			["navigation"] = "rbxassetid://10734906744",
+			["navigation2"] = "rbxassetid://10734906332",
+			["navigation2off"] = "rbxassetid://10734906144",
+			["navigationoff"] = "rbxassetid://10734906580",
+			["network"] = "rbxassetid://10734906975",
+			["newspaper"] = "rbxassetid://10734907168",
+			["octagon"] = "rbxassetid://10734907361",
+			["option"] = "rbxassetid://10734907649",
+			["outdent"] = "rbxassetid://10734907933",
+			["package"] = "rbxassetid://10734909540",
+			["package2"] = "rbxassetid://10734908151",
+			["packagecheck"] = "rbxassetid://10734908384",
+			["packageminus"] = "rbxassetid://10734908626",
+			["packageopen"] = "rbxassetid://10734908793",
+			["packageplus"] = "rbxassetid://10734909016",
+			["packagesearch"] = "rbxassetid://10734909196",
+			["packagex"] = "rbxassetid://10734909375",
+			["paintbucket"] = "rbxassetid://10734909847",
+			["paintbrush"] = "rbxassetid://10734910187",
+			["paintbrush2"] = "rbxassetid://10734910030",
+			["palette"] = "rbxassetid://10734910430",
+			["palmtree"] = "rbxassetid://10734910680",
+			["paperclip"] = "rbxassetid://10734910927",
+			["partypopper"] = "rbxassetid://10734918735",
+			["pause"] = "rbxassetid://10734919336",
+			["pausecircle"] = "rbxassetid://10735024209",
+			["pauseoctagon"] = "rbxassetid://10734919143",
+			["pentool"] = "rbxassetid://10734919503",
+			["pencil"] = "rbxassetid://10734919691",
+			["percent"] = "rbxassetid://10734919919",
+			["personstanding"] = "rbxassetid://10734920149",
+			["phone"] = "rbxassetid://10734921524",
+			["phonecall"] = "rbxassetid://10734920305",
+			["phoneforwarded"] = "rbxassetid://10734920508",
+			["phoneincoming"] = "rbxassetid://10734920694",
+			["phonemissed"] = "rbxassetid://10734920845",
+			["phoneoff"] = "rbxassetid://10734921077",
+			["phoneoutgoing"] = "rbxassetid://10734921288",
+			["piechart"] = "rbxassetid://10734921727",
+			["piggybank"] = "rbxassetid://10734921935",
+			["pin"] = "rbxassetid://10734922324",
+			["pinoff"] = "rbxassetid://10734922180",
+			["pipette"] = "rbxassetid://10734922497",
+			["pizza"] = "rbxassetid://10734922774",
+			["plane"] = "rbxassetid://10734922971",
+			["play"] = "rbxassetid://10734923549",
+			["playcircle"] = "rbxassetid://10734923214",
+			["plus"] = "rbxassetid://10734924532",
+			["pluscircle"] = "rbxassetid://10734923868",
+			["plussquare"] = "rbxassetid://10734924219",
+			["podcast"] = "rbxassetid://10734929553",
+			["pointer"] = "rbxassetid://10734929723",
+			["poundsterling"] = "rbxassetid://10734929981",
+			["power"] = "rbxassetid://10734930466",
+			["poweroff"] = "rbxassetid://10734930257",
+			["printer"] = "rbxassetid://10734930632",
+			["puzzle"] = "rbxassetid://10734930886",
+			["quote"] = "rbxassetid://10734931234",
+			["radio"] = "rbxassetid://10734931596",
+			["radioreceiver"] = "rbxassetid://10734931402",
+			["rectanglehorizontal"] = "rbxassetid://10734931777",
+			["rectanglevertical"] = "rbxassetid://10734932081",
+			["recycle"] = "rbxassetid://10734932295",
+			["redo"] = "rbxassetid://10734932822",
+			["redo2"] = "rbxassetid://10734932586",
+			["refreshccw"] = "rbxassetid://10734933056",
+			["refreshcw"] = "rbxassetid://10734933222",
+			["refrigerator"] = "rbxassetid://10734933465",
+			["regex"] = "rbxassetid://10734933655",
+			["repeat"] = "rbxassetid://10734933966",
+			["repeat1"] = "rbxassetid://10734933826",
+			["reply"] = "rbxassetid://10734934252",
+			["replyall"] = "rbxassetid://10734934132",
+			["rewind"] = "rbxassetid://10734934347",
+			["rocket"] = "rbxassetid://10734934585",
+			["rockingchair"] = "rbxassetid://10734939942",
+			["rotate3d"] = "rbxassetid://10734940107",
+			["rotateccw"] = "rbxassetid://10734940376",
+			["rotatecw"] = "rbxassetid://10734940654",
+			["rss"] = "rbxassetid://10734940825",
+			["ruler"] = "rbxassetid://10734941018",
+			["russianruble"] = "rbxassetid://10734941199",
+			["sailboat"] = "rbxassetid://10734941354",
+			["save"] = "rbxassetid://10734941499",
+			["scale"] = "rbxassetid://10734941912",
+			["scale3d"] = "rbxassetid://10734941739",
+			["scaling"] = "rbxassetid://10734942072",
+			["scan"] = "rbxassetid://10734942565",
+			["scanface"] = "rbxassetid://10734942198",
+			["scanline"] = "rbxassetid://10734942351",
+			["scissors"] = "rbxassetid://10734942778",
+			["screenshare"] = "rbxassetid://10734943193",
+			["screenshareoff"] = "rbxassetid://10734942967",
+			["scroll"] = "rbxassetid://10734943448",
+			["search"] = "rbxassetid://10734943674",
+			["send"] = "rbxassetid://10734943902",
+			["separatorhorizontal"] = "rbxassetid://10734944115",
+			["separatorvertical"] = "rbxassetid://10734944326",
+			["server"] = "rbxassetid://10734949856",
+			["servercog"] = "rbxassetid://10734944444",
+			["servercrash"] = "rbxassetid://10734944554",
+			["serveroff"] = "rbxassetid://10734944668",
+			["settings"] = "rbxassetid://10734950309",
+			["settings2"] = "rbxassetid://10734950020",
+			["share"] = "rbxassetid://10734950813",
+			["share2"] = "rbxassetid://10734950553",
+			["sheet"] = "rbxassetid://10734951038",
+			["shield"] = "rbxassetid://10734951847",
+			["shieldalert"] = "rbxassetid://10734951173",
+			["shieldcheck"] = "rbxassetid://10734951367",
+			["shieldclose"] = "rbxassetid://10734951535",
+			["shieldoff"] = "rbxassetid://10734951684",
+			["shirt"] = "rbxassetid://10734952036",
+			["shoppingbag"] = "rbxassetid://10734952273",
+			["shoppingcart"] = "rbxassetid://10734952479",
+			["shovel"] = "rbxassetid://10734952773",
+			["showerhead"] = "rbxassetid://10734952942",
+			["shrink"] = "rbxassetid://10734953073",
+			["shrub"] = "rbxassetid://10734953241",
+			["shuffle"] = "rbxassetid://10734953451",
+			["sidebar"] = "rbxassetid://10734954301",
+			["sidebarclose"] = "rbxassetid://10734953715",
+			["sidebaropen"] = "rbxassetid://10734954000",
+			["sigma"] = "rbxassetid://10734954538",
+			["signal"] = "rbxassetid://10734961133",
+			["signalhigh"] = "rbxassetid://10734954807",
+			["signallow"] = "rbxassetid://10734955080",
+			["signalmedium"] = "rbxassetid://10734955336",
+			["signalzero"] = "rbxassetid://10734960878",
+			["siren"] = "rbxassetid://10734961284",
+			["skipback"] = "rbxassetid://10734961526",
+			["skipforward"] = "rbxassetid://10734961809",
+			["skull"] = "rbxassetid://10734962068",
+			["slack"] = "rbxassetid://10734962339",
+			["slash"] = "rbxassetid://10734962600",
+			["slice"] = "rbxassetid://10734963024",
+			["sliders"] = "rbxassetid://10734963400",
+			["slidershorizontal"] = "rbxassetid://10734963191",
+			["smartphone"] = "rbxassetid://10734963940",
+			["smartphonecharging"] = "rbxassetid://10734963671",
+			["smile"] = "rbxassetid://10734964441",
+			["smileplus"] = "rbxassetid://10734964188",
+			["snowflake"] = "rbxassetid://10734964600",
+			["sofa"] = "rbxassetid://10734964852",
+			["sortasc"] = "rbxassetid://10734965115",
+			["sortdesc"] = "rbxassetid://10734965287",
+			["speaker"] = "rbxassetid://10734965419",
+			["sprout"] = "rbxassetid://10734965572",
+			["square"] = "rbxassetid://10734965702",
+			["star"] = "rbxassetid://10734966248",
+			["starhalf"] = "rbxassetid://10734965897",
+			["staroff"] = "rbxassetid://10734966097",
+			["stethoscope"] = "rbxassetid://10734966384",
+			["sticker"] = "rbxassetid://10734972234",
+			["stickynote"] = "rbxassetid://10734972463",
+			["stopcircle"] = "rbxassetid://10734972621",
+			["stretchhorizontal"] = "rbxassetid://10734972862",
+			["stretchvertical"] = "rbxassetid://10734973130",
+			["strikethrough"] = "rbxassetid://10734973290",
+			["subscript"] = "rbxassetid://10734973457",
+			["sun"] = "rbxassetid://10734974297",
+			["sundim"] = "rbxassetid://10734973645",
+			["sunmedium"] = "rbxassetid://10734973778",
+			["sunmoon"] = "rbxassetid://10734973999",
+			["sunsnow"] = "rbxassetid://10734974130",
+			["sunrise"] = "rbxassetid://10734974522",
+			["sunset"] = "rbxassetid://10734974689",
+			["superscript"] = "rbxassetid://10734974850",
+			["swissfranc"] = "rbxassetid://10734975024",
+			["switchcamera"] = "rbxassetid://10734975214",
+			["sword"] = "rbxassetid://10734975486",
+			["swords"] = "rbxassetid://10734975692",
+			["syringe"] = "rbxassetid://10734975932",
+			["table"] = "rbxassetid://10734976230",
+			["table2"] = "rbxassetid://10734976097",
+			["tablet"] = "rbxassetid://10734976394",
+			["tag"] = "rbxassetid://10734976528",
+			["tags"] = "rbxassetid://10734976739",
+			["target"] = "rbxassetid://10734977012",
+			["tent"] = "rbxassetid://10734981750",
+			["terminal"] = "rbxassetid://10734982144",
+			["terminalsquare"] = "rbxassetid://10734981995",
+			["textcursor"] = "rbxassetid://10734982395",
+			["textcursorinput"] = "rbxassetid://10734982297",
+			["thermometer"] = "rbxassetid://10734983134",
+			["thermometersnowflake"] = "rbxassetid://10734982571",
+			["thermometersun"] = "rbxassetid://10734982771",
+			["thumbsdown"] = "rbxassetid://10734983359",
+			["thumbsup"] = "rbxassetid://10734983629",
+			["ticket"] = "rbxassetid://10734983868",
+			["timer"] = "rbxassetid://10734984606",
+			["timeroff"] = "rbxassetid://10734984138",
+			["timerreset"] = "rbxassetid://10734984355",
+			["toggleleft"] = "rbxassetid://10734984834",
+			["toggleright"] = "rbxassetid://10734985040",
+			["tornado"] = "rbxassetid://10734985247",
+			["toybrick"] = "rbxassetid://10747361919",
+			["train"] = "rbxassetid://10747362105",
+			["trash"] = "rbxassetid://10747362393",
+			["trash2"] = "rbxassetid://10747362241",
+			["treedeciduous"] = "rbxassetid://10747362534",
+			["treepine"] = "rbxassetid://10747362748",
+			["trees"] = "rbxassetid://10747363016",
+			["trendingdown"] = "rbxassetid://10747363205",
+			["trendingup"] = "rbxassetid://10747363465",
+			["triangle"] = "rbxassetid://10747363621",
+			["trophy"] = "rbxassetid://10747363809",
+			["truck"] = "rbxassetid://10747364031",
+			["tv"] = "rbxassetid://10747364593",
+			["tv2"] = "rbxassetid://10747364302",
+			["type"] = "rbxassetid://10747364761",
+			["umbrella"] = "rbxassetid://10747364971",
+			["underline"] = "rbxassetid://10747365191",
+			["undo"] = "rbxassetid://10747365484",
+			["undo2"] = "rbxassetid://10747365359",
+			["unlink"] = "rbxassetid://10747365771",
+			["unlink2"] = "rbxassetid://10747397871",
+			["unlock"] = "rbxassetid://10747366027",
+			["upload"] = "rbxassetid://10747366434",
+			["uploadcloud"] = "rbxassetid://10747366266",
+			["usb"] = "rbxassetid://10747366606",
+			["user"] = "rbxassetid://10747373176",
+			["usercheck"] = "rbxassetid://10747371901",
+			["usercog"] = "rbxassetid://10747372167",
+			["userminus"] = "rbxassetid://10747372346",
+			["userplus"] = "rbxassetid://10747372702",
+			["userx"] = "rbxassetid://10747372992",
+			["users"] = "rbxassetid://10747373426",
+			["utensils"] = "rbxassetid://10747373821",
+			["utensilscrossed"] = "rbxassetid://10747373629",
+			["venetianmask"] = "rbxassetid://10747374003",
+			["verified"] = "rbxassetid://10747374131",
+			["vibrate"] = "rbxassetid://10747374489",
+			["vibrateoff"] = "rbxassetid://10747374269",
+			["video"] = "rbxassetid://10747374938",
+			["videooff"] = "rbxassetid://10747374721",
+			["view"] = "rbxassetid://10747375132",
+			["voicemail"] = "rbxassetid://10747375281",
+			["volume"] = "rbxassetid://10747376008",
+			["volume1"] = "rbxassetid://10747375450",
+			["volume2"] = "rbxassetid://10747375679",
+			["volumex"] = "rbxassetid://10747375880",
+			["wallet"] = "rbxassetid://10747376205",
+			["wand"] = "rbxassetid://10747376565",
+			["wand2"] = "rbxassetid://10747376349",
+			["watch"] = "rbxassetid://10747376722",
+			["waves"] = "rbxassetid://10747376931",
+			["webcam"] = "rbxassetid://10747381992",
+			["wifi"] = "rbxassetid://10747382504",
+			["wifioff"] = "rbxassetid://10747382268",
+			["wind"] = "rbxassetid://10747382750",
+			["wraptext"] = "rbxassetid://10747383065",
+			["wrench"] = "rbxassetid://10747383470",
+			["x"] = "rbxassetid://10747384394",
+			["xcircle"] = "rbxassetid://10747383819",
+			["xoctagon"] = "rbxassetid://10747384037",
+			["xsquare"] = "rbxassetid://10747384217",
+			["zoomin"] = "rbxassetid://10747384552",
+			["zoomout"] = "rbxassetid://10747384679"
+		}
+	end)()
+}
+
+local ViewportSize = workspace.CurrentCamera.ViewportSize
+local UIScale = ViewportSize.Y / 450
+
+local Settings = redzlib.Settings
+local Flags = redzlib.Flags
+
+local SetProps, SetChildren, InsertTheme, Create do
+	InsertTheme = function(Instance, Type)
+		table.insert(redzlib.Instances, {
+			Instance = Instance,
+			Type = Type
+		})
+		return Instance
+	end
+	
+	SetChildren = function(Instance, Children)
+		if Children then
+			table.foreach(Children, function(_,Child)
+				Child.Parent = Instance
+			end)
+		end
+		return Instance
+	end
+	
+	SetProps = function(Instance, Props)
+		if Props then
+			table.foreach(Props, function(prop, value)
+				Instance[prop] = value
+			end)
+		end
+		return Instance
+	end
+	
+	Create = function(...)
+		local args = {...}
+		if type(args) ~= "table" then return end
+		local new = Instance.new(args[1])
+		local Children = {}
+		
+		if type(args[2]) == "table" then
+			SetProps(new, args[2])
+			SetChildren(new, args[3])
+			Children = args[3] or {}
+		elseif typeof(args[2]) == "Instance" then
+			new.Parent = args[2]
+			SetProps(new, args[3])
+			SetChildren(new, args[4])
+			Children = args[4] or {}
+		end
+		return new
+	end
+	
+	local function Save(file)
+		if readfile and isfile and isfile(file) then
+			local decode = HttpService:JSONDecode(readfile(file))
+			
+			if type(decode) == "table" then
+				if rawget(decode, "UISize") then redzlib.Save["UISize"] = decode["UISize"] end
+				if rawget(decode, "TabSize") then redzlib.Save["TabSize"] = decode["TabSize"] end
+				if rawget(decode, "Theme") and VerifyTheme(decode["Theme"]) then redzlib.Save["Theme"] = decode["Theme"] end
+			end
+		end
+	end
+	
+	pcall(Save, "redz library V5.json")
+end
+
+local Funcs = {} do
+	function Funcs:InsertCallback(tab, func)
+		if type(func) == "function" then
+			table.insert(tab, func)
+		end
+		return func
+	end
+	
+	function Funcs:FireCallback(tab, ...)
+		for _,v in ipairs(tab) do
+			if type(v) == "function" then
+				task.spawn(v, ...)
+			end
+		end
+	end
+	
+	function Funcs:ToggleVisible(Obj, Bool)
+		Obj.Visible = Bool ~= nil and Bool or Obj.Visible
+	end
+	
+	function Funcs:ToggleParent(Obj, Parent)
+		if Bool ~= nil then
+			Obj.Parent = Bool
+		else
+			Obj.Parent = not Obj.Parent and Parent
+		end
+	end
+	
+	function Funcs:GetConnectionFunctions(ConnectedFuncs, func)
+		local Connected = { Function = func, Connected = true }
+		
+		function Connected:Disconnect()
+			if self.Connected then
+				table.remove(ConnectedFuncs, table.find(ConnectedFuncs, self.Function))
+				self.Connected = false
+			end
+		end
+		
+		function Connected:Fire(...)
+			if self.Connected then
+				task.spawn(self.Function, ...)
+			end
+		end
+		
+		return Connected
+	end
+	
+	function Funcs:GetCallback(Configs, index)
+		local func = Configs[index] or Configs.Callback or function()end
+		
+		if type(func) == "table" then
+			return ({function(Value) func[1][func[2]] = Value end})
+		end
+		return {func}
+	end
+end
+
+local Connections, Connection = {}, redzlib.Connection do
+	local function NewConnectionList(List)
+		if type(List) ~= "table" then return end
+		
+		for _,CoName in ipairs(List) do
+			local ConnectedFuncs, Connect = {}, {}
+			Connection[CoName] = Connect
+			Connections[CoName] = ConnectedFuncs
+			Connect.Name = CoName
+			
+			function Connect:Connect(func)
+				if type(func) == "function" then
+					table.insert(ConnectedFuncs, func)
+					return Funcs:GetConnectionFunctions(ConnectedFuncs, func)
+				end
+			end
+			
+			function Connect:Once(func)
+				if type(func) == "function" then
+					local Connected;
+					
+					local _NFunc;_NFunc = function(...)
+						task.spawn(func, ...)
+						Connected:Disconnect()
+					end
+					
+					Connected = Funcs:GetConnectionFunctions(ConnectedFuncs, _NFunc)
+					return Connected
+				end
+			end
+		end
+	end
+	
+	function Connection:FireConnection(CoName, ...)
+		local Connection = type(CoName) == "string" and Connections[CoName] or Connections[CoName.Name]
+		for _,Func in pairs(Connection) do
+			task.spawn(Func, ...)
+		end
+	end
+	
+	NewConnectionList({"FlagsChanged", "ThemeChanged", "FileSaved", "ThemeChanging", "OptionAdded"})
+end
+
+local GetFlag, SetFlag, CheckFlag do
+	CheckFlag = function(Name)
+		return type(Name) == "string" and Flags[Name] ~= nil
+	end
+	
+	GetFlag = function(Name)
+		return type(Name) == "string" and Flags[Name]
+	end
+	
+	SetFlag = function(Flag, Value)
+		if Flag and (Value ~= Flags[Flag] or type(Value) == "table") then
+			Flags[Flag] = Value
+			Connection:FireConnection("FlagsChanged", Flag, Value)
+		end
+	end
+	
+	local db
+	Connection.FlagsChanged:Connect(function(Flag, Value)
+		local ScriptFile = Settings.ScriptFile
+		if not db and ScriptFile and writefile then
+			db=true;task.wait(0.1);db=false
+			
+			local Success, Encoded = pcall(function()
+				-- local _Flags = {}
+				-- for _,Flag in pairs(Flags) do _Flags[_] = Flag.Value end
+				return HttpService:JSONEncode(Flags)
+			end)
+			
+			if Success then
+				local Success = pcall(writefile, ScriptFile, Encoded)
+				if Success then
+					Connection:FireConnection("FileSaved", "Script-Flags", ScriptFile, Encoded)
+				end
+			end
+		end
+	end)
+end
+
+local ScreenGui = Create("ScreenGui", CoreGui, {
+	Name = "redz Library V5",
+}, {
+	Create("UIScale", {
+		Scale = UIScale,
+		Name = "Scale"
+	})
+})
+
+local ScreenFind = CoreGui:FindFirstChild(ScreenGui.Name)
+if ScreenFind and ScreenFind ~= ScreenGui then
+	ScreenFind:Destroy()
+end
+
+local function GetStr(val)
+	if type(val) == "function" then
+		return val()
+	end
+	return val
+end
+
+local function ConnectSave(Instance, func)
+	Instance.InputBegan:Connect(function(Input)
+		if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+			while UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do task.wait()
+			end
+		end
+		func()
+	end)
+end
+
+local function CreateTween(Configs)
+	local Instance = Configs[1] or Configs.Instance
+	local Prop = Configs[2] or Configs.Prop
+	local NewVal = Configs[3] or Configs.NewVal
+	local Time = Configs[4] or Configs.Time or 0.5
+	local TweenWait = Configs[5] or Configs.wait or false
+	local TweenInfo = TweenInfo.new(Time, Enum.EasingStyle.Quint)
+	
+	local Tween = TweenService:Create(Instance, TweenInfo, {[Prop] = NewVal})
+	Tween:Play()
+	if TweenWait then
+		Tween.Completed:Wait()
+	end
+	return Tween
+end
+
+local function MakeDrag(Instance)
+	task.spawn(function()
+		SetProps(Instance, {
+			Active = true,
+			AutoButtonColor = false
+		})
+		
+		local DragStart, StartPos, InputOn
+		
+		local function Update(Input)
+			local delta = Input.Position - DragStart
+			local Position = UDim2.new(StartPos.X.Scale, StartPos.X.Offset + delta.X / UIScale, StartPos.Y.Scale, StartPos.Y.Offset + delta.Y / UIScale)
+			-- Instance.Position = Position
+			CreateTween({Instance, "Position", Position, 0.35})
+		end
+		
+		Instance.MouseButton1Down:Connect(function()
+			InputOn = true
+		end)
+		
+		Instance.InputBegan:Connect(function(Input)
+			if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+				StartPos = Instance.Position
+				DragStart = Input.Position
+				
+				while UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do RunService.Heartbeat:Wait()
+					if InputOn then
+						Update(Input)
+					end
+				end
+				InputOn = false
+			end
+		end)
+	end)
+	return Instance
+end
+
+local function VerifyTheme(Theme)
+	for name,_ in pairs(redzlib.Themes) do
+		if name == Theme then
+			return true
+		end
+	end
+end
+
+local function SaveJson(FileName, save)
+	if writefile then
+		local json = HttpService:JSONEncode(save)
+		writefile(FileName, json)
+	end
+end
+
+local Theme = redzlib.Themes[redzlib.Save.Theme]
+
+local function AddEle(Name, Func)
+	redzlib.Elements[Name] = Func
+end
+
+local function Make(Ele, Instance, props, ...)
+	local Element = redzlib.Elements[Ele](Instance, props, ...)
+	return Element
+end
+
+AddEle("Corner", function(parent, CornerRadius)
+	local New = SetProps(Create("UICorner", parent, {
+		CornerRadius = CornerRadius or UDim.new(0, 7)
+	}), props)
+	return New
+end)
+
+AddEle("Stroke", function(parent, props, ...)
+	local args = {...}
+	local New = InsertTheme(SetProps(Create("UIStroke", parent, {
+		Color = args[1] or Theme["Color Stroke"],
+		Thickness = args[2] or 1,
+		ApplyStrokeMode = "Border"
+	}), props), "Stroke")
+	return New
+end)
+
+AddEle("Button", function(parent, props, ...)
+	local args = {...}
+	local New = InsertTheme(SetProps(Create("TextButton", parent, {
+		Text = "",
+		Size = UDim2.fromScale(1, 1),
+		BackgroundColor3 = Theme["Color Hub 2"],
+		AutoButtonColor = false
+	}), props), "Frame")
+	
+	New.MouseEnter:Connect(function()
+		New.BackgroundTransparency = 0.4
+	end)
+	New.MouseLeave:Connect(function()
+		New.BackgroundTransparency = 0
+	end)
+	if args[1] then
+		New.Activated:Connect(args[1])
+	end
+	return New
+end)
+
+AddEle("Gradient", function(parent, props, ...)
+	local args = {...}
+	local New = InsertTheme(SetProps(Create("UIGradient", parent, {
+		Color = Theme["Color Hub 1"]
+	}), props), "Gradient")
+	return New
+end)
+
+local function ButtonFrame(Instance, Title, Description, HolderSize)
+	local TitleL = InsertTheme(Create("TextLabel", {
+		Font = Enum.Font.GothamMedium,
+		TextColor3 = Theme["Color Text"],
+		Size = UDim2.new(1, -20),
+		AutomaticSize = "Y",
+		Position = UDim2.new(0, 0, 0.5),
+		AnchorPoint = Vector2.new(0, 0.5),
+		BackgroundTransparency = 1,
+		TextTruncate = "AtEnd",
+		TextSize = 10,
+		TextXAlignment = "Left",
+		Text = "",
+		RichText = true
+	}), "Text")
+	
+	local DescL = InsertTheme(Create("TextLabel", {
+		Font = Enum.Font.Gotham,
+		TextColor3 = Theme["Color Dark Text"],
+		Size = UDim2.new(1, -20),
+		AutomaticSize = "Y",
+		Position = UDim2.new(0, 12, 0, 15),
+		BackgroundTransparency = 1,
+		TextWrapped = true,
+		TextSize = 8,
+		TextXAlignment = "Left",
+		Text = "",
+		RichText = true
+	}), "DarkText")
+
+	local Frame = Make("Button", Instance, {
+		Size = UDim2.new(1, 0, 0, 25),
+		AutomaticSize = "Y",
+		Name = "Option"
+	})Make("Corner", Frame, UDim.new(0, 6))
+	
+	LabelHolder = Create("Frame", Frame, {
+		AutomaticSize = "Y",
+		BackgroundTransparency = 1,
+		Size = HolderSize,
+		Position = UDim2.new(0, 10, 0),
+		AnchorPoint = Vector2.new(0, 0)
+	}, {
+		Create("UIListLayout", {
+			SortOrder = "LayoutOrder",
+			VerticalAlignment = "Center",
+			Padding = UDim.new(0, 2)
+		}),
+		Create("UIPadding", {
+			PaddingBottom = UDim.new(0, 5),
+			PaddingTop = UDim.new(0, 5)
+		}),
+		TitleL,
+		DescL,
+	})
+	
+	local Label = {}
+	function Label:SetTitle(NewTitle)
+		if type(NewTitle) == "string" and NewTitle:gsub(" ", ""):len() > 0 then
+			TitleL.Text = NewTitle
+		end
+	end
+	function Label:SetDesc(NewDesc)
+		if type(NewDesc) == "string" and NewDesc:gsub(" ", ""):len() > 0 then
+			DescL.Visible = true
+			DescL.Text = NewDesc
+			LabelHolder.Position = UDim2.new(0, 10, 0)
+			LabelHolder.AnchorPoint = Vector2.new(0, 0)
+		else
+			DescL.Visible = false
+			DescL.Text = ""
+			LabelHolder.Position = UDim2.new(0, 10, 0.5)
+			LabelHolder.AnchorPoint = Vector2.new(0, 0.5)
+		end
+	end
+	
+	Label:SetTitle(Title)
+	Label:SetDesc(Description)
+	return Frame, Label
+end
+
+local function GetColor(Instance)
+	if Instance:IsA("Frame") then
+		return "BackgroundColor3"
+	elseif Instance:IsA("ImageLabel") then
+		return "ImageColor3"
+	elseif Instance:IsA("TextLabel") then
+		return "TextColor3"
+	elseif Instance:IsA("ScrollingFrame") then
+		return "ScrollBarImageColor3"
+	elseif Instance:IsA("UIStroke") then
+		return "Color"
+	end
+	return ""
+end
+
+-- /////////// --
+function redzlib:GetIcon(index)
+	if type(index) ~= "string" or index:find("rbxassetid://") or #index == 0 then
+		return index
+	end
+	
+	local firstMatch = nil
+	index = string.lower(index):gsub("lucide", ""):gsub("-", "")
+	
+	if self.Icons[index] then
+	  return self.Icons[index]
+	end
+	
+	for Name, Icon in self.Icons do
+		if Name == index then
+			return Icon
+		elseif not firstMatch and Name:find(index, 1, true) then
+			firstMatch = Icon
+		end
+	end
+	
+	return firstMatch or index
+end
+
+function redzlib:SetTheme(NewTheme)
+	if not VerifyTheme(NewTheme) then return end
+	
+	redzlib.Save.Theme = NewTheme
+	SaveJson("redz library V5.json", redzlib.Save)
+	Theme = redzlib.Themes[NewTheme]
+	
+	Comnection:FireConnection("ThemeChanged", NewTheme)
+	table.foreach(redzlib.Instances, function(_,Val)
+		if Val.Type == "Gradient" then
+			Val.Instance.Color = Theme["Color Hub 1"]
+		elseif Val.Type == "Frame" then
+			Val.Instance.BackgroundColor3 = Theme["Color Hub 2"]
+		elseif Val.Type == "Stroke" then
+			Val.Instance[GetColor(Val.Instance)] = Theme["Color Stroke"]
+		elseif Val.Type == "Theme" then
+			Val.Instance[GetColor(Val.Instance)] = Theme["Color Theme"]
+		elseif Val.Type == "Text" then
+			Val.Instance[GetColor(Val.Instance)] = Theme["Color Text"]
+		elseif Val.Type == "DarkText" then
+			Val.Instance[GetColor(Val.Instance)] = Theme["Color Dark Text"]
+		elseif Val.Type == "ScrollBar" then
+			Val.Instance[GetColor(Val.Instance)] = Theme["Color Theme"]
+		end
+	end)
+end
+
+function redzlib:SetScale(NewScale)
+	NewScale = ViewportSize.Y / math.clamp(NewScale, 300, 2000)
+	UIScale, ScreenGui.Scale.Scale = NewScale, NewScale
+end
+
+function redzlib:MakeWindow(Configs)
+	local WTitle = Configs[1] or Configs.Name or Configs.Title or "redz Library V5"
+	local WMiniText = Configs[2] or Configs.SubTitle or "by : redz9999"
+	
+	Settings.ScriptFile = Configs[3] or Configs.SaveFolder or false
+	
+	local function LoadFile()
+		local File = Settings.ScriptFile
+		if type(File) ~= "string" then return end
+		if not readfile or not isfile then return end
+		local s, r = pcall(isfile, File)
+		
+		if s and r then
+			local s, _Flags = pcall(readfile, File)
+			
+			if s and type(_Flags) == "string" then
+				local s,r = pcall(function() return HttpService:JSONDecode(_Flags) end)
+				Flags = s and r or {}
+			end
+		end
+	end;LoadFile()
+	
+	local UISizeX, UISizeY = unpack(redzlib.Save.UISize)
+	local MainFrame = InsertTheme(Create("ImageButton", ScreenGui, {
+		Size = UDim2.fromOffset(UISizeX, UISizeY),
+		Position = UDim2.new(0.5, -UISizeX/2, 0.5, -UISizeY/2),
+		BackgroundTransparency = 0.03,
+		Name = "Hub"
+	}), "Main")
+	Make("Gradient", MainFrame, {
+		Rotation = 45
+	})MakeDrag(MainFrame)
+	
+	local MainCorner = Make("Corner", MainFrame)
+	
+	local Components = Create("Folder", MainFrame, {
+		Name = "Components"
+	})
+	
+	local DropdownHolder = Create("Folder", ScreenGui, {
+		Name = "Dropdown"
+	})
+	
+	local TopBar = Create("Frame", Components, {
+		Size = UDim2.new(1, 0, 0, 28),
+		BackgroundTransparency = 1,
+		Name = "Top Bar"
+	})
+	
+	local Title = InsertTheme(Create("TextLabel", TopBar, {
+		Position = UDim2.new(0, 15, 0.5),
+		AnchorPoint = Vector2.new(0, 0.5),
+		AutomaticSize = "XY",
+		Text = WTitle,
+		TextXAlignment = "Left",
+		TextSize = 12,
+		TextColor3 = Theme["Color Text"],
+		BackgroundTransparency = 1,
+		Font = Enum.Font.GothamMedium,
+		Name = "Title"
+	}, {
+		InsertTheme(Create("TextLabel", {
+			Size = UDim2.fromScale(0, 1),
+			AutomaticSize = "X",
+			AnchorPoint = Vector2.new(0, 1),
+			Position = UDim2.new(1, 5, 0.9),
+			Text = WMiniText,
+			TextColor3 = Theme["Color Dark Text"],
+			BackgroundTransparency = 1,
+			TextXAlignment = "Left",
+			TextYAlignment = "Bottom",
+			TextSize = 8,
+			Font = Enum.Font.Gotham,
+			Name = "SubTitle"
+		}), "DarkText")
+	}), "Text")
+	
+	local MainScroll = InsertTheme(Create("ScrollingFrame", Components, {
+		Size = UDim2.new(0, redzlib.Save.TabSize, 1, -TopBar.Size.Y.Offset),
+		ScrollBarImageColor3 = Theme["Color Theme"],
+		Position = UDim2.new(0, 0, 1, 0),
+		AnchorPoint = Vector2.new(0, 1),
+		ScrollBarThickness = 1.5,
+		BackgroundTransparency = 1,
+		ScrollBarImageTransparency = 0.2,
+		CanvasSize = UDim2.new(),
+		AutomaticCanvasSize = "Y",
+		ScrollingDirection = "Y",
+		BorderSizePixel = 0,
+		Name = "Tab Scroll"
+	}, {
+		Create("UIPadding", {
+			PaddingLeft = UDim.new(0, 10),
+			PaddingRight = UDim.new(0, 10),
+			PaddingTop = UDim.new(0, 10),
+			PaddingBottom = UDim.new(0, 10)
+		}), Create("UIListLayout", {
+			Padding = UDim.new(0, 5)
+		})
+	}), "ScrollBar")
+	
+	local Containers = Create("Frame", Components, {
+		Size = UDim2.new(1, -MainScroll.Size.X.Offset, 1, -TopBar.Size.Y.Offset),
+		AnchorPoint = Vector2.new(1, 1),
+		Position = UDim2.new(1, 0, 1, 0),
+		BackgroundTransparency = 1,
+		ClipsDescendants = true,
+		Name = "Containers"
+	})
+	
+	local ControlSize1, ControlSize2 = MakeDrag(Create("ImageButton", MainFrame, {
+		Size = UDim2.new(0, 35, 0, 35),
+		Position = MainFrame.Size,
+		Active = true,
+		AnchorPoint = Vector2.new(0.8, 0.8),
+		BackgroundTransparency = 1,
+		Name = "Control Hub Size"
+	})), MakeDrag(Create("ImageButton", MainFrame, {
+		Size = UDim2.new(0, 20, 1, -30),
+		Position = UDim2.new(0, MainScroll.Size.X.Offset, 1, 0),
+		AnchorPoint = Vector2.new(0.5, 1),
+		Active = true,
+		BackgroundTransparency = 1,
+		Name = "Control Tab Size"
+	}))
+	
+	local function ControlSize()
+		local Pos1, Pos2 = ControlSize1.Position, ControlSize2.Position
+		ControlSize1.Position = UDim2.fromOffset(math.clamp(Pos1.X.Offset, 430, 1000), math.clamp(Pos1.Y.Offset, 200, 500))
+		ControlSize2.Position = UDim2.new(0, math.clamp(Pos2.X.Offset, 135, 250), 1, 0)
+		
+		MainScroll.Size = UDim2.new(0, ControlSize2.Position.X.Offset, 1, -TopBar.Size.Y.Offset)
+		Containers.Size = UDim2.new(1, -MainScroll.Size.X.Offset, 1, -TopBar.Size.Y.Offset)
+		MainFrame.Size = ControlSize1.Position
+	end
+	
+	ControlSize1:GetPropertyChangedSignal("Position"):Connect(ControlSize)
+	ControlSize2:GetPropertyChangedSignal("Position"):Connect(ControlSize)
+	
+	ConnectSave(ControlSize1, function()
+		if not Minimized then
+			redzlib.Save.UISize = {MainFrame.Size.X.Offset, MainFrame.Size.Y.Offset}
+			SaveJson("redz library V5.json", redzlib.Save)
+		end
+	end)
+	
+	ConnectSave(ControlSize2, function()
+		redzlib.Save.TabSize = MainScroll.Size.X.Offset
+		SaveJson("redz library V5.json", redzlib.Save)
+	end)
+	
+	local ButtonsFolder = Create("Folder", TopBar, {
+		Name = "Buttons"
+	})
+	
+	local CloseButton = Create("ImageButton", {
+		Size = UDim2.new(0, 14, 0, 14),
+		Position = UDim2.new(1, -10, 0.5),
+		AnchorPoint = Vector2.new(1, 0.5),
+		BackgroundTransparency = 1,
+		Image = "rbxassetid://10747384394",
+		AutoButtonColor = false,
+		Name = "Close"
+	})
+	
+	local MinimizeButton = SetProps(CloseButton:Clone(), {
+		Position = UDim2.new(1, -35, 0.5),
+		Image = "rbxassetid://10734896206",
+		Name = "Minimize"
+	})
+	
+	SetChildren(ButtonsFolder, {
+		CloseButton,
+		MinimizeButton
+	})
+	
+	local Minimized, SaveSize, WaitClick
+	local Window, FirstTab = {}, false
+	function Window:CloseBtn()
+		local Dialog = Window:Dialog({
+			Title = "Close",
+			Text = "You Want Close Ui?",
+			Options = {
+				{"Confirm", function()
+					ScreenGui:Destroy()
+				end},
+				{"Cancel"}
+			}
+		})
+	end
+	function Window:MinimizeBtn()
+		if WaitClick then return end
+		WaitClick = true
+		
+		if Minimized then
+			MinimizeButton.Image = "rbxassetid://10734896206"
+			CreateTween({MainFrame, "Size", SaveSize, 0.25, true})
+			ControlSize1.Visible = true
+			ControlSize2.Visible = true
+			Minimized = false
+		else
+			MinimizeButton.Image = "rbxassetid://10734924532"
+			SaveSize = MainFrame.Size
+			ControlSize1.Visible = false
+			ControlSize2.Visible = false
+			CreateTween({MainFrame, "Size", UDim2.fromOffset(MainFrame.Size.X.Offset, 28), 0.25, true})
+			Minimized = true
+		end
+		
+		WaitClick = false
+	end
+	function Window:Minimize()
+		MainFrame.Visible = not MainFrame.Visible
+	end
+	function Window:AddMinimizeButton(Configs)
+		local Button = MakeDrag(Create("ImageButton", ScreenGui, {
+			Size = UDim2.fromOffset(35, 35),
+			Position = UDim2.fromScale(0.15, 0.15),
+			BackgroundTransparency = 1,
+			BackgroundColor3 = Theme["Color Hub 2"],
+			AutoButtonColor = false
+		}))
+		
+		local Stroke, Corner
+		if Configs.Corner then
+			Corner = Make("Corner", Button)
+			SetProps(Corner, Configs.Corner)
+		end
+		if Configs.Stroke then
+			Stroke = Make("Stroke", Button)
+			SetProps(Stroke, Configs.Corner)
+		end
+		
+		SetProps(Button, Configs.Button)
+		Button.Activated:Connect(Window.Minimize)
+		
+		return {
+			Stroke = Stroke,
+			Corner = Corner,
+			Button = Button
+		}
+	end
+	function Window:Set(Val1, Val2)
+		if type(Val1) == "string" and type(Val2) == "string" then
+			Title.Text = Val1
+			Title.SubTitle.Text = Val2
+		elseif type(Val1) == "string" then
+			Title.Text = Val1
+		end
+	end
+	function Window:Dialog(Configs)
+		if MainFrame:FindFirstChild("Dialog") then return end
+		if Minimized then
+			Window:MinimizeBtn()
+		end
+		
+		local DTitle = Configs[1] or Configs.Title or "Dialog"
+		local DText = Configs[2] or Configs.Text or "This is a Dialog"
+		local DOptions = Configs[3] or Configs.Options or {}
+		
+		local Frame = Create("Frame", {
+			Active = true,
+			Size = UDim2.fromOffset(250 * 1.08, 150 * 1.08),
+			Position = UDim2.fromScale(0.5, 0.5),
+			AnchorPoint = Vector2.new(0.5, 0.5)
+		}, {
+			InsertTheme(Create("TextLabel", {
+				Font = Enum.Font.GothamBold,
+				Size = UDim2.new(1, 0, 0, 20),
+				Text = DTitle,
+				TextXAlignment = "Left",
+				TextColor3 = Theme["Color Text"],
+				TextSize = 15,
+				Position = UDim2.fromOffset(15, 5),
+				BackgroundTransparency = 1
+			}), "Text"),
+			InsertTheme(Create("TextLabel", {
+				Font = Enum.Font.GothamMedium,
+				Size = UDim2.new(1, -25),
+				AutomaticSize = "Y",
+				Text = DText,
+				TextXAlignment = "Left",
+				TextColor3 = Theme["Color Dark Text"],
+				TextSize = 12,
+				Position = UDim2.fromOffset(15, 25),
+				BackgroundTransparency = 1,
+				TextWrapped = true
+			}), "DarkText")
+		})Make("Gradient", Frame, {Rotation = 270})Make("Corner", Frame)
+		
+		local ButtonsHolder = Create("Frame", Frame, {
+			Size = UDim2.fromScale(1, 0.35),
+			Position = UDim2.fromScale(0, 1),
+			AnchorPoint = Vector2.new(0, 1),
+			BackgroundColor3 = Theme["Color Hub 2"],
+			BackgroundTransparency = 1
+		}, {
+			Create("UIListLayout", {
+				Padding = UDim.new(0, 10),
+				VerticalAlignment = "Center",
+				FillDirection = "Horizontal",
+				HorizontalAlignment = "Center"
+			})
+		})
+		
+		local Screen = InsertTheme(Create("Frame", MainFrame, {
+			BackgroundTransparency = 0.6,
+			Active = true,
+			BackgroundColor3 = Theme["Color Hub 2"],
+			Size = UDim2.new(1, 0, 1, 0),
+			BackgroundColor3 = Theme["Color Stroke"],
+			Name = "Dialog"
+		}), "Stroke")
+		
+		MainCorner:Clone().Parent = Screen
+		Frame.Parent = Screen
+		CreateTween({Frame, "Size", UDim2.fromOffset(250, 150), 0.2})
+		CreateTween({Frame, "Transparency", 0, 0.15})
+		CreateTween({Screen, "Transparency", 0.3, 0.15})
+		
+		local ButtonCount, Dialog = 1, {}
+		function Dialog:Button(Configs)
+			local Name = Configs[1] or Configs.Name or Configs.Title or ""
+			local Callback = Configs[2] or Configs.Callback or function()end
+			
+			ButtonCount = ButtonCount + 1
+			local Button = Make("Button", ButtonsHolder)
+			Make("Corner", Button)
+			SetProps(Button, {
+				Text = Name,
+				Font = Enum.Font.GothamBold,
+				TextColor3 = Theme["Color Text"],
+				TextSize = 12
+			})
+			
+			for _,Button in pairs(ButtonsHolder:GetChildren()) do
+				if Button:IsA("TextButton") then
+					Button.Size = UDim2.new(1 / ButtonCount, -(((ButtonCount - 1) * 20) / ButtonCount), 0, 32) -- Fluent Library :)
+				end
+			end
+			Button.Activated:Connect(Dialog.Close)
+			Button.Activated:Connect(Callback)
+		end
+		function Dialog:Close()
+			CreateTween({Frame, "Size", UDim2.fromOffset(250 * 1.08, 150 * 1.08), 0.2})
+			CreateTween({Screen, "Transparency", 1, 0.15})
+			CreateTween({Frame, "Transparency", 1, 0.15, true})
+			Screen:Destroy()
+		end
+		table.foreach(DOptions, function(_,Button)
+			Dialog:Button(Button)
+		end)
+		return Dialog
+	end
+	function Window:SelectTab(TabSelect)
+		if type(TabSelect) == "number" then
+			redzlib.Tabs[TabSelect].func:Enable()
+		else
+			for _,Tab in pairs(redzlib.Tabs) do
+				if Tab.Cont == TabSelect.Cont then
+					Tab.func:Enable()
+				end
+			end
+		end
+	end
+	
+	local ContainerList = {}
+	function Window:MakeTab(paste, Configs)
+		if type(paste) == "table" then Configs = paste end
+		local TName = Configs[1] or Configs.Title or "Tab!"
+		local TIcon = Configs[2] or Configs.Icon or ""
+		
+		TIcon = redzlib:GetIcon(TIcon)
+		if not TIcon:find("rbxassetid://") or TIcon:gsub("rbxassetid://", ""):len() < 6 then
+			TIcon = false
+		end
+		
+		local TabSelect = Make("Button", MainScroll, {
+			Size = UDim2.new(1, 0, 0, 24)
+		})Make("Corner", TabSelect)
+		
+		local LabelTitle = InsertTheme(Create("TextLabel", TabSelect, {
+			Size = UDim2.new(1, TIcon and -25 or -15, 1),
+			Position = UDim2.fromOffset(TIcon and 25 or 15),
+			BackgroundTransparency = 1,
+			Font = Enum.Font.GothamMedium,
+			Text = TName,
+			TextColor3 = Theme["Color Text"],
+			TextSize = 10,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			TextTransparency = (FirstTab and 0.3) or 0,
+			TextTruncate = "AtEnd"
+		}), "Text")
+		
+		local LabelIcon = InsertTheme(Create("ImageLabel", TabSelect, {
+			Position = UDim2.new(0, 8, 0.5),
+			Size = UDim2.new(0, 13, 0, 13),
+			AnchorPoint = Vector2.new(0, 0.5),
+			Image = TIcon or "",
+			BackgroundTransparency = 1,
+			ImageTransparency = (FirstTab and 0.3) or 0
+		}), "Text")
+		
+		local Selected = InsertTheme(Create("Frame", TabSelect, {
+			Size = FirstTab and UDim2.new(0, 4, 0, 4) or UDim2.new(0, 4, 0, 13),
+			Position = UDim2.new(0, 1, 0.5),
+			AnchorPoint = Vector2.new(0, 0.5),
+			BackgroundColor3 = Theme["Color Theme"],
+			BackgroundTransparency = FirstTab and 1 or 0
+		}), "Theme")Make("Corner", Selected, UDim.new(0.5, 0))
+		
+		local Container = InsertTheme(Create("ScrollingFrame", {
+			Size = UDim2.new(1, 0, 1, 0),
+			Position = UDim2.new(0, 0, 1),
+			AnchorPoint = Vector2.new(0, 1),
+			ScrollBarThickness = 1.5,
+			BackgroundTransparency = 1,
+			ScrollBarImageTransparency = 0.2,
+			ScrollBarImageColor3 = Theme["Color Theme"],
+			AutomaticCanvasSize = "Y",
+			ScrollingDirection = "Y",
+			BorderSizePixel = 0,
+			CanvasSize = UDim2.new(),
+			Name = ("Container %i [ %s ]"):format(#ContainerList + 1, TName)
+		}, {
+			Create("UIPadding", {
+				PaddingLeft = UDim.new(0, 10),
+				PaddingRight = UDim.new(0, 10),
+				PaddingTop = UDim.new(0, 10),
+				PaddingBottom = UDim.new(0, 10)
+			}), Create("UIListLayout", {
+				Padding = UDim.new(0, 5)
+			})
+		}), "ScrollBar")
+		
+		table.insert(ContainerList, Container)
+		
+		if not FirstTab then Container.Parent = Containers end
+		
+		local function Tabs()
+			if Container.Parent then return end
+			for _,Frame in pairs(ContainerList) do
+				if Frame:IsA("ScrollingFrame") and Frame ~= Container then
+					Frame.Parent = nil
+				end
+			end
+			Container.Parent = Containers
+			Container.Size = UDim2.new(1, 0, 1, 150)
+			table.foreach(redzlib.Tabs, function(_,Tab)
+				if Tab.Cont ~= Container then
+					Tab.func:Disable()
+				end
+			end)
+			CreateTween({Container, "Size", UDim2.new(1, 0, 1, 0), 0.3})
+			CreateTween({LabelTitle, "TextTransparency", 0, 0.35})
+			CreateTween({LabelIcon, "ImageTransparency", 0, 0.35})
+			CreateTween({Selected, "Size", UDim2.new(0, 4, 0, 13), 0.35})
+			CreateTween({Selected, "BackgroundTransparency", 0, 0.35})
+		end
+		TabSelect.Activated:Connect(Tabs)
+		
+		FirstTab = true
+		local Tab = {}
+		table.insert(redzlib.Tabs, {TabInfo = {Name = TName, Icon = TIcon}, func = Tab, Cont = Container})
+		Tab.Cont = Container
+		
+		function Tab:Disable()
+			Container.Parent = nil
+			CreateTween({LabelTitle, "TextTransparency", 0.3, 0.35})
+			CreateTween({LabelIcon, "ImageTransparency", 0.3, 0.35})
+			CreateTween({Selected, "Size", UDim2.new(0, 4, 0, 4), 0.35})
+			CreateTween({Selected, "BackgroundTransparency", 1, 0.35})
+		end
+		function Tab:Enable()
+			Tabs()
+		end
+		function Tab:Visible(Bool)
+			Funcs:ToggleVisible(TabSelect, Bool)
+			Funcs:ToggleParent(Container, Bool, Containers)
+		end
+		function Tab:Destroy() TabSelect:Destroy() Container:Destroy() end
+		
+		function Tab:AddSection(Configs)
+			local SectionName = type(Configs) == "string" and Configs or Configs[1] or Configs.Name or Configs.Title or Configs.Section
+			
+			local SectionFrame = Create("Frame", Container, {
+				Size = UDim2.new(1, 0, 0, 20),
+				BackgroundTransparency = 1,
+				Name = "Option"
+			})
+			
+			local SectionLabel = InsertTheme(Create("TextLabel", SectionFrame, {
+				Font = Enum.Font.GothamBold,
+				Text = SectionName,
+				TextColor3 = Theme["Color Text"],
+				Size = UDim2.new(1, -25, 1, 0),
+				Position = UDim2.new(0, 5),
+				BackgroundTransparency = 1,
+				TextTruncate = "AtEnd",
+				TextSize = 14,
+				TextXAlignment = "Left"
+			}), "Text")
+			
+			local Section = {}
+			table.insert(redzlib.Options, {type = "Section", Name = SectionName, func = Section})
+			function Section:Visible(Bool)
+				if Bool == nil then SectionFrame.Visible = not SectionFrame.Visible return end
+				SectionFrame.Visible = Bool
+			end
+			function Section:Destroy()
+				SectionFrame:Destroy()
+			end
+			function Section:Set(New)
+				if New then
+					SectionLabel.Text = GetStr(New)
+				end
+			end
+			return Section
+		end
+		function Tab:AddParagraph(Configs)
+			local PName = Configs[1] or Configs.Title or "Paragraph"
+			local PDesc = Configs[2] or Configs.Text or ""
+			
+			local Frame, LabelFunc = ButtonFrame(Container, PName, PDesc, UDim2.new(1, -20))
+			
+			local Paragraph = {}
+			function Paragraph:Visible(...) Funcs:ToggleVisible(Frame, ...) end
+			function Paragraph:Destroy() Frame:Destroy() end
+			function Paragraph:SetTitle(Val)
+				LabelFunc:SetTitle(GetStr(Val))
+			end
+			function Paragraph:SetDesc(Val)
+				LabelFunc:SetDesc(GetStr(Val))
+			end
+			function Paragraph:Set(Val1, Val2)
+				if Val1 and Val2 then
+					LabelFunc:SetTitle(GetStr(Val1))
+					LabelFunc:SetDesc(GetStr(Val2))
+				elseif Val1 then
+					LabelFunc:SetDesc(GetStr(Val1))
+				end
+			end
+			return Paragraph
+		end
+		function Tab:AddButton(Configs)
+			local BName = Configs[1] or Configs.Name or Configs.Title or "Button!"
+			local BDescription = Configs.Desc or Configs.Description or ""
+			local Callback = Funcs:GetCallback(Configs, 2)
+			
+			local FButton, LabelFunc = ButtonFrame(Container, BName, BDescription, UDim2.new(1, -20))
+			
+			local ButtonIcon = Create("ImageLabel", FButton, {
+				Size = UDim2.new(0, 14, 0, 14),
+				Position = UDim2.new(1, -10, 0.5),
+				AnchorPoint = Vector2.new(1, 0.5),
+				BackgroundTransparency = 1,
+				Image = "rbxassetid://10709791437"
+			})
+			
+			FButton.Activated:Connect(function()
+				Funcs:FireCallback(Callback)
+			end)
+			
+			local Button = {}
+			function Button:Visible(...) Funcs:ToggleVisible(FButton, ...) end
+			function Button:Destroy() FButton:Destroy() end
+			function Button:Callback(...) Funcs:InsertCallback(Callback, ...) end
+			function Button:Set(Val1, Val2)
+				if type(Val1) == "string" and type(Val2) == "string" then
+					LabelFunc:SetTitle(Val1)
+					LabelFunc:SetDesc(Val2)
+				elseif type(Val1) == "string" then
+					LabelFunc:SetTitle(Val1)
+				elseif type(Val1) == "function" then
+					Callback = Val1
+				end
+			end
+			return Button
+		end
+		function Tab:AddToggle(Configs)
+			local TName = Configs[1] or Configs.Name or Configs.Title or "Toggle"
+			local TDesc = Configs.Desc or Configs.Description or ""
+			local Callback = Funcs:GetCallback(Configs, 3)
+			local Flag = Configs[4] or Configs.Flag or false
+			local Default = Configs[2] or Configs.Default or false
+			if CheckFlag(Flag) then Default = GetFlag(Flag) end
+			
+			local Button, LabelFunc = ButtonFrame(Container, TName, TDesc, UDim2.new(1, -38))
+			
+			local ToggleHolder = InsertTheme(Create("Frame", Button, {
+				Size = UDim2.new(0, 35, 0, 18),
+				Position = UDim2.new(1, -10, 0.5),
+				AnchorPoint = Vector2.new(1, 0.5),
+				BackgroundColor3 = Theme["Color Stroke"]
+			}), "Stroke")Make("Corner", ToggleHolder, UDim.new(0.5, 0))
+			
+			local Slider = Create("Frame", ToggleHolder, {
+				BackgroundTransparency = 1,
+				Size = UDim2.new(0.8, 0, 0.8, 0),
+				Position = UDim2.new(0.5, 0, 0.5, 0),
+				AnchorPoint = Vector2.new(0.5, 0.5)
+			})
+			
+			local Toggle = InsertTheme(Create("Frame", Slider, {
+				Size = UDim2.new(0, 12, 0, 12),
+				Position = UDim2.new(0, 0, 0.5),
+				AnchorPoint = Vector2.new(0, 0.5),
+				BackgroundColor3 = Theme["Color Theme"]
+			}), "Theme")Make("Corner", Toggle, UDim.new(0.5, 0))
+			
+			local WaitClick
+			local function SetToggle(Val)
+				if WaitClick then return end
+				
+				WaitClick, Default = true, Val
+				SetFlag(Flag, Default)
+				Funcs:FireCallback(Callback, Default)
+				if Default then
+					CreateTween({Toggle, "Position", UDim2.new(1, 0, 0.5), 0.25})
+					CreateTween({Toggle, "BackgroundTransparency", 0, 0.25})
+					CreateTween({Toggle, "AnchorPoint", Vector2.new(1, 0.5), 0.25, Wait or false})
+				else
+					CreateTween({Toggle, "Position", UDim2.new(0, 0, 0.5), 0.25})
+					CreateTween({Toggle, "BackgroundTransparency", 0.8, 0.25})
+					CreateTween({Toggle, "AnchorPoint", Vector2.new(0, 0.5), 0.25, Wait or false})
+				end
+				WaitClick = false
+			end;task.spawn(SetToggle, Default)
+			
+			Button.Activated:Connect(function()
+				SetToggle(not Default)
+			end)
+			
+			local Toggle = {}
+			function Toggle:Visible(...) Funcs:ToggleVisible(Button, ...) end
+			function Toggle:Destroy() Button:Destroy() end
+			function Toggle:Callback(...) Funcs:InsertCallback(Callback, ...)() end
+			function Toggle:Set(Val1, Val2)
+				if type(Val1) == "string" and type(Val2) == "string" then
+					LabelFunc:SetTitle(Val1)
+					LabelFunc:SetDesc(Val2)
+				elseif type(Val1) == "string" then
+					LabelFunc:SetTitle(Val1, false, true)
+				elseif type(Val1) == "boolean" then
+					if WaitClick and Val2 then
+						repeat task.wait() until not WaitClick
+					end
+					task.spawn(SetToggle, Val1)
+				elseif type(Val1) == "function" then
+					Callback = Val1
+				end
+			end
+			return Toggle
+		end
+		function Tab:AddDropdown(Configs)
+			local DName = Configs[1] or Configs.Name or Configs.Title or "Dropdown"
+			local DDesc = Configs.Desc or Configs.Description or ""
+			local DOptions = Configs[2] or Configs.Options or {}
+			local OpDefault = Configs[3] or Configs.Default or {}
+			local Flag = Configs[5] or Configs.Flag or false
+			local DMultiSelect = Configs.MultiSelect or false
+			local Callback = Funcs:GetCallback(Configs, 4)
+			
+			local Button, LabelFunc = ButtonFrame(Container, DName, DDesc, UDim2.new(1, -180))
+			
+			local SelectedFrame = InsertTheme(Create("Frame", Button, {
+				Size = UDim2.new(0, 150, 0, 18),
+				Position = UDim2.new(1, -10, 0.5),
+				AnchorPoint = Vector2.new(1, 0.5),
+				BackgroundColor3 = Theme["Color Stroke"]
+			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			
+			local ActiveLabel = InsertTheme(Create("TextLabel", SelectedFrame, {
+				Size = UDim2.new(0.85, 0, 0.85, 0),
+				AnchorPoint = Vector2.new(0.5, 0.5),
+				Position = UDim2.new(0.5, 0, 0.5, 0),
+				BackgroundTransparency = 1,
+				Font = Enum.Font.GothamBold,
+				TextScaled = true,
+				TextColor3 = Theme["Color Text"],
+				Text = "..."
+			}), "Text")
+			
+			local Arrow = Create("ImageLabel", SelectedFrame, {
+				Size = UDim2.new(0, 15, 0, 15),
+				Position = UDim2.new(0, -5, 0.5),
+				AnchorPoint = Vector2.new(1, 0.5),
+				Image = "rbxassetid://10709791523",
+				BackgroundTransparency = 1
+			})
+			
+			local NoClickFrame = Create("TextButton", DropdownHolder, {
+				Name = "AntiClick",
+				Size = UDim2.new(1, 0, 1, 0),
+				BackgroundTransparency = 1,
+				Visible = false,
+				Text = ""
+			})
+			
+			local DropFrame = Create("Frame", NoClickFrame, {
+				Size = UDim2.new(SelectedFrame.Size.X, 0, 0),
+				BackgroundTransparency = 0.1,
+				BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+				AnchorPoint = Vector2.new(0, 1),
+				Name = "DropdownFrame",
+				ClipsDescendants = true,
+				Active = true
+			})Make("Corner", DropFrame)Make("Stroke", DropFrame)Make("Gradient", DropFrame, {Rotation = 60})
+			
+			local ScrollFrame = InsertTheme(Create("ScrollingFrame", DropFrame, {
+				ScrollBarImageColor3 = Theme["Color Theme"],
+				Size = UDim2.new(1, 0, 1, 0),
+				ScrollBarThickness = 1.5,
+				BackgroundTransparency = 1,
+				BorderSizePixel = 0,
+				CanvasSize = UDim2.new(),
+				ScrollingDirection = "Y",
+				AutomaticCanvasSize = "Y",
+				Active = true
+			}, {
+				Create("UIPadding", {
+					PaddingLeft = UDim.new(0, 8),
+					PaddingRight = UDim.new(0, 8),
+					PaddingTop = UDim.new(0, 5),
+					PaddingBottom = UDim.new(0, 5)
+				}), Create("UIListLayout", {
+					Padding = UDim.new(0, 4)
+				})
+			}), "ScrollBar")
+			
+			local ScrollSize, WaitClick = 5
+			local function Disable()
+				WaitClick = true
+				CreateTween({Arrow, "Rotation", 0, 0.2})
+				CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
+				CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+				Arrow.Image = "rbxassetid://10709791523"
+				NoClickFrame.Visible = false
+				WaitClick = false
+			end
+			
+			local function GetFrameSize()
+				return UDim2.fromOffset(152, ScrollSize)
+			end
+			
+			local function CalculateSize()
+				local Count = 0
+				for _,Frame in pairs(ScrollFrame:GetChildren()) do
+					if Frame:IsA("Frame") or Frame.Name == "Option" then
+						Count = Count + 1
+					end
+				end
+				ScrollSize = (math.clamp(Count, 0, 10) * 25) + 10
+				if NoClickFrame.Visible then
+					NoClickFrame.Visible = true
+					CreateTween({DropFrame, "Size", GetFrameSize(), 0.2, true})
+				end
+			end
+			
+			local function Minimize()
+				if WaitClick then return end
+				WaitClick = true
+				if NoClickFrame.Visible then
+					Arrow.Image = "rbxassetid://10709791523"
+					CreateTween({Arrow, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+					CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
+					NoClickFrame.Visible = false
+				else
+					NoClickFrame.Visible = true
+					Arrow.Image = "rbxassetid://10709790948"
+					CreateTween({Arrow, "ImageColor3", Theme["Color Theme"], 0.2})
+					CreateTween({DropFrame, "Size", GetFrameSize(), 0.2, true})
+				end
+				WaitClick = false
+			end
+			
+			local function CalculatePos()
+				local FramePos = SelectedFrame.AbsolutePosition
+				local ScreenSize = ScreenGui.AbsoluteSize
+				local ClampX = math.clamp((FramePos.X / UIScale), 0, ScreenSize.X / UIScale - DropFrame.Size.X.Offset)
+				local ClampY = math.clamp((FramePos.Y / UIScale) , 0, ScreenSize.Y / UIScale)
+				
+				local NewPos = UDim2.fromOffset(ClampX, ClampY)
+				local AnchorPoint = FramePos.Y > ScreenSize.Y / 1.4 and 1 or ScrollSize > 80 and 0.5 or 0
+				DropFrame.AnchorPoint = Vector2.new(0, AnchorPoint)
+				CreateTween({DropFrame, "Position", NewPos, 0.1})
+			end
+			
+			local AddNewOptions, GetOptions, AddOption, RemoveOption, Selected do
+				local Default = type(OpDefault) ~= "table" and {OpDefault} or OpDefault
+				local MultiSelect = DMultiSelect
+				local Options = {}
+				Selected = MultiSelect and {} or CheckFlag(Flag) and GetFlag(Flag) or Default[1]
+				
+				if MultiSelect then
+					for index, Value in pairs(CheckFlag(Flag) and GetFlag(Flag) or Default) do
+						if type(index) == "string" and (DOptions[index] or table.find(DOptions, index)) then
+							Selected[index] = Value
+						elseif DOptions[Value] then
+							Selected[Value] = true
+						end
+					end
+				end
+				
+				local function CallbackSelected()
+					SetFlag(Flag, MultiSelect and Selected or tostring(Selected))
+					Funcs:FireCallback(Callback, Selected)
+				end
+				
+				local function UpdateLabel()
+					if MultiSelect then
+						local list = {}
+						for index, Value in pairs(Selected) do
+							if Value then
+								table.insert(list, index)
+							end
+						end
+						ActiveLabel.Text = #list > 0 and table.concat(list, ", ") or "..."
+					else
+						ActiveLabel.Text = tostring(Selected or "...")
+					end
+				end
+				
+				local function UpdateSelected()
+					if MultiSelect then
+						for _,v in pairs(Options) do
+							local nodes, Stats = v.nodes, v.Stats
+							CreateTween({nodes[2], "BackgroundTransparency", Stats and 0 or 0.8, 0.35})
+							CreateTween({nodes[2], "Size", Stats and UDim2.fromOffset(4, 12) or UDim2.fromOffset(4, 4), 0.35})
+							CreateTween({nodes[3], "TextTransparency", Stats and 0 or 0.4, 0.35})
+						end
+					else
+						for _,v in pairs(Options) do
+							local Slt = v.Value == Selected
+							local nodes = v.nodes
+							CreateTween({nodes[2], "BackgroundTransparency", Slt and 0 or 1, 0.35})
+							CreateTween({nodes[2], "Size", Slt and UDim2.fromOffset(4, 14) or UDim2.fromOffset(4, 4), 0.35})
+							CreateTween({nodes[3], "TextTransparency", Slt and 0 or 0.4, 0.35})
+						end
+					end
+					UpdateLabel()
+				end
+				
+				local function Select(Option)
+					if MultiSelect then
+						Option.Stats = not Option.Stats
+						Option.LastCB = tick()
+						
+						Selected[Option.Name] = Option.Stats
+						CallbackSelected()
+					else
+						Option.LastCB = tick()
+						
+						Selected = Option.Value
+						CallbackSelected()
+					end
+					UpdateSelected()
+				end
+				
+				AddOption = function(index, Value)
+					local Name = tostring(type(index) == "string" and index or Value)
+					
+					if Options[Name] then return end
+					Options[Name] = {
+						index = index,
+						Value = Value,
+						Name = Name,
+						Stats = false,
+						LastCB = 0
+					}
+					
+					if MultiSelect then
+						local Stats = Selected[Name]
+						Selected[Name] = Stats or false
+						Options[Name].Stats = Stats
+					end
+					
+					local Button = Make("Button", ScrollFrame, {
+						Name = "Option",
+						Size = UDim2.new(1, 0, 0, 21),
+						Position = UDim2.new(0, 0, 0.5),
+						AnchorPoint = Vector2.new(0, 0.5)
+					})Make("Corner", Button, UDim.new(0, 4))
+					
+					local IsSelected = InsertTheme(Create("Frame", Button, {
+						Position = UDim2.new(0, 1, 0.5),
+						Size = UDim2.new(0, 4, 0, 4),
+						BackgroundColor3 = Theme["Color Theme"],
+						BackgroundTransparency = 1,
+						AnchorPoint = Vector2.new(0, 0.5)
+					}), "Theme")Make("Corner", IsSelected, UDim.new(0.5, 0))
+					
+					local OptioneName = InsertTheme(Create("TextLabel", Button, {
+						Size = UDim2.new(1, 0, 1),
+						Position = UDim2.new(0, 10),
+						Text = Name,
+						TextColor3 = Theme["Color Text"],
+						Font = Enum.Font.GothamBold,
+						TextXAlignment = "Left",
+						BackgroundTransparency = 1,
+						TextTransparency = 0.4
+					}), "Text")
+					
+					Button.Activated:Connect(function()
+						Select(Options[Name])
+					end)
+					
+					Options[Name].nodes = {Button, IsSelected, OptioneName}
+				end
+				
+				RemoveOption = function(index, Value)
+					local Name = tostring(type(index) == "string" and index or Value)
+					if Options[Name] then
+						if MultiSelect then Selected[Name] = nil else Selected = nil end
+						Options[Name].nodes[1]:Destroy()
+						table.clear(Options[Name])
+						Options[Name] = nil
+					end
+				end
+				
+				GetOptions = function()
+					return Options
+				end
+				
+				AddNewOptions = function(List, Clear)
+					if Clear then
+						table.foreach(Options, RemoveOption)
+					end
+					table.foreach(List, AddOption)
+					CallbackSelected()
+					UpdateSelected()
+				end
+				
+				table.foreach(DOptions, AddOption)
+				CallbackSelected()
+				UpdateSelected()
+			end
+			
+			Button.Activated:Connect(Minimize)
+			NoClickFrame.MouseButton1Down:Connect(Disable)
+			NoClickFrame.MouseButton1Click:Connect(Disable)
+			MainFrame:GetPropertyChangedSignal("Visible"):Connect(Disable)
+			SelectedFrame:GetPropertyChangedSignal("AbsolutePosition"):Connect(CalculatePos)
+			
+			Button.Activated:Connect(CalculateSize)
+			ScrollFrame.ChildAdded:Connect(CalculateSize)
+			ScrollFrame.ChildRemoved:Connect(CalculateSize)
+			CalculatePos()
+			CalculateSize()
+			
+			local Dropdown = {}
+			function Dropdown:Visible(...) Funcs:ToggleVisible(Button, ...) end
+			function Dropdown:Destroy() Button:Destroy() end
+			function Dropdown:Callback(...) Funcs:InsertCallback(Callback, ...)(Selected) end
+			
+			function Dropdown:Add(...)
+				local NewOptions = {...}
+				if type(NewOptions[1]) == "table" then
+					table.foreach(Option, function(_,Name)
+						AddOption(Name)
+					end)
+				else
+					table.foreach(NewOptions, function(_,Name)
+						AddOption(Name)
+					end)
+				end
+			end
+			function Dropdown:Remove(Option)
+				for index, Value in pairs(GetOptions()) do
+					if type(Option) == "number" and index == Option or Value.Name == "Option" then
+						RemoveOption(index, Value.Value)
+					end
+				end
+			end
+			function Dropdown:Select(Option)
+				if type(Option) == "string" then
+					for _,Val in pairs(Options) do
+						if Val.Name == Option then
+							Val.Active()
+						end
+					end
+				elseif type(Option) == "number" then
+					for ind,Val in pairs(Options) do
+						if ind == Option then
+							Val.Active()
+						end
+					end
+				end
+			end
+			function Dropdown:Set(Val1, Clear)
+				if type(Val1) == "table" then
+					AddNewOptions(Val1, not Clear)
+				elseif type(Val1) == "function" then
+					Callback = Val1
+				end
+			end
+			return Dropdown
+		end
+		function Tab:AddSlider(Configs)
+			local SName = Configs[1] or Configs.Name or Configs.Title or "Slider!"
+			local SDesc = Configs.Desc or Configs.Description or ""
+			local Min = Configs[2] or Configs.MinValue or Configs.Min or 10
+			local Max = Configs[3] or Configs.MaxValue or Configs.Max or 100
+			local Increase = Configs[4] or Configs.Increase or 1
+			local Callback = Funcs:GetCallback(Configs, 6)
+			local Flag = Configs[7] or Configs.Flag or false
+			local Default = Configs[5] or Configs.Default or 25
+			if CheckFlag(Flag) then Default = GetFlag(Flag) end
+			Min, Max = Min / Increase, Max / Increase
+			
+			local Button, LabelFunc = ButtonFrame(Container, SName, SDesc, UDim2.new(1, -180))
+			
+			local SliderHolder = Create("TextButton", Button, {
+				Size = UDim2.new(0.45, 0, 1),
+				Position = UDim2.new(1),
+				AnchorPoint = Vector2.new(1, 0),
+				AutoButtonColor = false,
+				Text = "",
+				BackgroundTransparency = 1
+			})
+			
+			local SliderBar = InsertTheme(Create("Frame", SliderHolder, {
+				BackgroundColor3 = Theme["Color Stroke"],
+				Size = UDim2.new(1, -20, 0, 6),
+				Position = UDim2.new(0.5, 0, 0.5),
+				AnchorPoint = Vector2.new(0.5, 0.5)
+			}), "Stroke")Make("Corner", SliderBar)
+			
+			local Indicator = InsertTheme(Create("Frame", SliderBar, {
+				BackgroundColor3 = Theme["Color Theme"],
+				Size = UDim2.fromScale(0.3, 1),
+				BorderSizePixel = 0
+			}), "Theme")Make("Corner", Indicator)
+			
+			local SliderIcon = Create("Frame", SliderBar, {
+				Size = UDim2.new(0, 6, 0, 12),
+				BackgroundColor3 = Color3.fromRGB(220, 220, 220),
+				Position = UDim2.fromScale(0.3, 0.5),
+				AnchorPoint = Vector2.new(0.5, 0.5),
+				BackgroundTransparency = 0.2
+			})Make("Corner", SliderIcon)
+			
+			local LabelVal = InsertTheme(Create("TextLabel", SliderHolder, {
+				Size = UDim2.new(0, 14, 0, 14),
+				AnchorPoint = Vector2.new(1, 0.5),
+				Position = UDim2.new(0, 0, 0.5),
+				BackgroundTransparency = 1,
+				TextColor3 = Theme["Color Text"],
+				Font = Enum.Font.FredokaOne,
+				TextSize = 12
+			}), "Text")
+			
+			local UIScale = Create("UIScale", LabelVal)
+			
+			local BaseMousePos = Create("Frame", SliderBar, {
+				Position = UDim2.new(0, 0, 0.5, 0),
+				Visible = false
+			})
+			
+			local function UpdateLabel(NewValue)
+				local Number = tonumber(NewValue * Increase)
+				Number = math.floor(Number * 100) / 100
+				
+				Default, LabelVal.Text = Number, tostring(Number)
+				Funcs:FireCallback(Callback, Default)
+			end
+			
+			local function ControlPos()
+				local MousePos = Player:GetMouse()
+				local APos = MousePos.X - BaseMousePos.AbsolutePosition.X
+				local ConfigureDpiPos = APos / SliderBar.AbsoluteSize.X
+				
+				SliderIcon.Position = UDim2.new(math.clamp(ConfigureDpiPos, 0, 1), 0, 0.5, 0)
+			end
+			
+			local function UpdateValues()
+				Indicator.Size = UDim2.new(SliderIcon.Position.X.Scale, 0, 1, 0)
+				local SliderPos = SliderIcon.Position.X.Scale
+				local NewValue = math.floor(((SliderPos * Max) / Max) * (Max - Min) + Min)
+				UpdateLabel(NewValue)
+			end
+			
+			SliderHolder.MouseButton1Down:Connect(function()
+				CreateTween({SliderIcon, "Transparency", 0, 0.3})
+				Container.ScrollingEnabled = false
+				while UserInputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do task.wait()
+					ControlPos()
+				end
+				CreateTween({SliderIcon, "Transparency", 0.2, 0.3})
+				Container.ScrollingEnabled = true
+				SetFlag(Flag, Default)
+			end)
+			
+			LabelVal:GetPropertyChangedSignal("Text"):Connect(function()
+				UIScale.Scale = 0.3
+				CreateTween({UIScale, "Scale", 1.2, 0.1})
+				CreateTween({LabelVal, "Rotation", math.random(-1, 1) * 5, 0.15, true})
+				CreateTween({UIScale, "Scale", 1, 0.2})
+				CreateTween({LabelVal, "Rotation", 0, 0.1})
+			end)
+			
+			function SetSlider(NewValue)
+				if type(NewValue) ~= "number" then return end
+				
+				local Min, Max = Min * Increase, Max * Increase
+				
+				local SliderPos = (NewValue - Min) / (Max - Min)
+				
+				SetFlag(Flag, NewValue)
+				CreateTween({ SliderIcon, "Position", UDim2.fromScale(math.clamp(SliderPos, 0, 1), 0.5), 0.3, true })
+			end;SetSlider(Default)
+			
+			SliderIcon:GetPropertyChangedSignal("Position"):Connect(UpdateValues)UpdateValues()
+			
+			local Slider = {}
+			function Slider:Set(NewVal1, NewVal2)
+				if NewVal1 and NewVal2 then
+					LabelFunc:SetTitle(NewVal1)
+					LabelFunc:SetDesc(NewVal2)
+				elseif type(NewVal1) == "string" then
+					LabelFunc:SetTitle(NewVal1)
+				elseif type(NewVal1) == "function" then
+					Callback = NewVal1
+				elseif type(NewVal1) == "number" then
+					SetSlider(NewVal1)
+				end
+			end
+			function Slider:Callback(...) Funcs:InsertCallback(Callback, ...)(tonumber(Default)) end
+			function Slider:Visible(...) Funcs:ToggleVisible(Button, ...) end
+			function Slider:Destroy() Button:Destroy() end
+			return Slider
+		end
+		function Tab:AddTextBox(Configs)
+			local TName = Configs[1] or Configs.Name or Configs.Title or "Text Box"
+			local TDesc = Configs.Desc or Configs.Description or ""
+			local TDefault = Configs[2] or Configs.Default or ""
+			local TPlaceholderText = Configs[5] or Configs.PlaceholderText or "Input"
+			local TClearText = Configs[3] or Configs.ClearText or false
+			local Callback = Funcs:GetCallback(Configs, 4)
+			
+			if type(TDefault) ~= "string" or TDefault:gsub(" ", ""):len() < 1 then
+				TDefault = false
+			end
+			
+			local Button, LabelFunc = ButtonFrame(Container, TName, TDesc, UDim2.new(1, -38))
+			
+			local SelectedFrame = InsertTheme(Create("Frame", Button, {
+				Size = UDim2.new(0, 150, 0, 18),
+				Position = UDim2.new(1, -10, 0.5),
+				AnchorPoint = Vector2.new(1, 0.5),
+				BackgroundColor3 = Theme["Color Stroke"]
+			}), "Stroke")Make("Corner", SelectedFrame, UDim.new(0, 4))
+			
+			local TextBoxInput = InsertTheme(Create("TextBox", SelectedFrame, {
+				Size = UDim2.new(0.85, 0, 0.85, 0),
+				AnchorPoint = Vector2.new(0.5, 0.5),
+				Position = UDim2.new(0.5, 0, 0.5, 0),
+				BackgroundTransparency = 1,
+				Font = Enum.Font.GothamBold,
+				TextScaled = true,
+				TextColor3 = Theme["Color Text"],
+				ClearTextOnFocus = TClearText,
+				PlaceholderText = TPlaceholderText,
+				Text = ""
+			}), "Text")
+			
+			local Pencil = Create("ImageLabel", SelectedFrame, {
+				Size = UDim2.new(0, 12, 0, 12),
+				Position = UDim2.new(0, -5, 0.5),
+				AnchorPoint = Vector2.new(1, 0.5),
+				Image = "rbxassetid://15637081879",
+				BackgroundTransparency = 1
+			})
+			
+			local TextBox = {}
+			local function Input()
+				local Text = TextBoxInput.Text
+				if Text:gsub(" ", ""):len() > 0 then
+					if TextBox.OnChanging then Text = TextBox.OnChanging(Text) or Text end
+					Funcs:FireCallback(Callback, Text)
+					TextBoxInput.Text = Text
+				end
+			end
+			
+			TextBoxInput.FocusLost:Connect(Input)Input()
+			
+			TextBoxInput.FocusLost:Connect(function()
+				CreateTween({Pencil, "ImageColor3", Color3.fromRGB(255, 255, 255), 0.2})
+			end)
+			TextBoxInput.Focused:Connect(function()
+				CreateTween({Pencil, "ImageColor3", Theme["Color Theme"], 0.2})
+			end)
+			
+			TextBox.OnChanging = false
+			function TextBox:Visible(...) Funcs:ToggleVisible(Button, ...) end
+			function TextBox:Destroy() Button:Destroy() end
+			return TextBox
+		end
+		function Tab:AddDiscordInvite(Configs)
+			local Title = Configs[1] or Configs.Name or Configs.Title or "Discord"
+			local Desc = Configs.Desc or Configs.Description or ""
+			local Logo = Configs[2] or Configs.Logo or ""
+			local Invite = Configs[3] or Configs.Invite or ""
+			
+			local InviteHolder = Create("Frame", Container, {
+				Size = UDim2.new(1, 0, 0, 80),
+				Name = "Option",
+				BackgroundTransparency = 1
+			})
+			
+			local InviteLabel = Create("TextLabel", InviteHolder, {
+				Size = UDim2.new(1, 0, 0, 15),
+				Position = UDim2.new(0, 5),
+				TextColor3 = Color3.fromRGB(40, 150, 255),
+				Font = Enum.Font.GothamBold,
+				TextXAlignment = "Left",
+				BackgroundTransparency = 1,
+				TextSize = 10,
+				Text = Invite
+			})
+			
+			local FrameHolder = InsertTheme(Create("Frame", InviteHolder, {
+				Size = UDim2.new(1, 0, 0, 65),
+				AnchorPoint = Vector2.new(0, 1),
+				Position = UDim2.new(0, 0, 1),
+				BackgroundColor3 = Theme["Color Hub 2"]
+			}), "Frame")Make("Corner", FrameHolder)
+			
+			local ImageLabel = Create("ImageLabel", FrameHolder, {
+				Size = UDim2.new(0, 30, 0, 30),
+				Position = UDim2.new(0, 7, 0, 7),
+				Image = Logo,
+				BackgroundTransparency = 1
+			})Make("Corner", ImageLabel, UDim.new(0, 4))Make("Stroke", ImageLabel)
+			
+			local LTitle = InsertTheme(Create("TextLabel", FrameHolder, {
+				Size = UDim2.new(1, -52, 0, 15),
+				Position = UDim2.new(0, 44, 0, 7),
+				Font = Enum.Font.GothamBold,
+				TextColor3 = Theme["Color Text"],
+				TextXAlignment = "Left",
+				BackgroundTransparency = 1,
+				TextSize = 10,
+				Text = Title
+			}), "Text")
+			
+			local LDesc = InsertTheme(Create("TextLabel", FrameHolder, {
+				Size = UDim2.new(1, -52, 0, 0),
+				Position = UDim2.new(0, 44, 0, 22),
+				TextWrapped = "Y",
+				AutomaticSize = "Y",
+				Font = Enum.Font.Gotham,
+				TextColor3 = Theme["Color Dark Text"],
+				TextXAlignment = "Left",
+				BackgroundTransparency = 1,
+				TextSize = 8,
+				Text = Desc
+			}), "DarkText")
+			
+			local JoinButton = Create("TextButton", FrameHolder, {
+				Size = UDim2.new(1, -14, 0, 16),
+				AnchorPoint = Vector2.new(0.5, 1),
+				Position = UDim2.new(0.5, 0, 1, -7),
+				Text = "Join",
+				Font = Enum.Font.GothamBold,
+				TextSize = 12,
+				TextColor3 = Color3.fromRGB(220, 220, 220),
+				BackgroundColor3 = Color3.fromRGB(50, 150, 50)
+			})Make("Corner", JoinButton, UDim.new(0, 5))
+			
+			local ClickDelay
+			JoinButton.Activated:Connect(function()
+				setclipboard(Invite)
+				if ClickDelay then return end
+				
+				ClickDelay = true
+				SetProps(JoinButton, {
+					Text = "Copied to Clipboard",
+					BackgroundColor3 = Color3.fromRGB(100, 100, 100),
+					TextColor3 = Color3.fromRGB(150, 150, 150)
+				})task.wait(5)
+				SetProps(JoinButton, {
+					Text = "Join",
+					BackgroundColor3 = Color3.fromRGB(50, 150, 50),
+					TextColor3 = Color3.fromRGB(220, 220, 220)
+				})ClickDelay = false
+			end)
+			
+			local DiscordInvite = {}
+			function DiscordInvite:Destroy() InviteHolder:Destroy() end
+			function DiscordInvite:Visible(...) Funcs:ToggleVisible(InviteHolder, ...) end
+			return DiscordInvite
+		end
+		return Tab
+	end
+	
+	CloseButton.Activated:Connect(Window.CloseBtn)
+	MinimizeButton.Activated:Connect(Window.MinimizeBtn)
+	return Window
+end
+
+return redzlib
