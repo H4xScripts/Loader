@@ -1,3 +1,28 @@
+--[[
+
+Luna Interface Suite
+by Nebula Softworks
+
+Main Credits
+
+Hunter (Nebula Softworks) | Designing And Programming | Main Developer
+JustHey (Nebula Softworks) | Configurations, Bug Fixing And More! | Co Developer
+Throit | Color Picker
+Wally | Dragging And Certain Functions
+Sirius | PCall Parsing, Notifications, Slider And Home Tab
+Luna Executor | Original UI
+
+
+Extra Credits / Provided Certain Elements
+
+Pookie Pepelss | Bug Tester
+Inori | Configuration Concept
+Latte Softworks and qweery | Lucide Icons And Material Icons
+kirill9655 | Loading Circle
+Deity/dp4pv/x64x70 | Certain Scripting and Testing ig
+
+]]
+
 local Release = "Prerelease Beta 6.1"
 
 local Luna = { Folder = "Luna", Options = {}, ThemeGradient = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(117, 164, 206)), ColorSequenceKeypoint.new(0.50, Color3.fromRGB(123, 201, 201)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(224, 138, 175))} }
@@ -1596,8 +1621,6 @@ local function UnpackColor(Color)
 	return Color3.fromRGB(Color.R, Color.G, Color.B)
 end
 
-
-
 function tween(object, goal, callback, tweenin)
 	local tween = TweenService:Create(object,tweenin or tweeninfo, goal)
 	tween.Completed:Connect(callback or function() end)
@@ -1607,7 +1630,6 @@ end
 local function BlurModule(Frame)
 	return
 end
-
 
 local function unpackt(array : table)
 
@@ -2375,7 +2397,7 @@ function Luna:CreateWindow(WindowSettings)
 		local function checkFriends()
 			if friendsCooldown == 0 then
 
-				friendsCooldown = 300
+				friendsCooldown = 25
 
 				local playersFriends = {}
 				local friendsInTotal = 0
