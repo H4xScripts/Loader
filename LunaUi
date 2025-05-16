@@ -2375,7 +2375,7 @@ function Luna:CreateWindow(WindowSettings)
 		local function checkFriends()
 			if friendsCooldown == 0 then
 
-				friendsCooldown = 25
+				friendsCooldown = 300
 
 				local playersFriends = {}
 				local friendsInTotal = 0
