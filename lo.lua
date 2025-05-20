@@ -189,7 +189,7 @@ function SimpleUI:CreateWindow(WindowSettings)
         TabIcon.Size = UDim2.new(0, 24, 0, 24)
         TabIcon.Position = UDim2.new(0, 5, 0.5, -12)
         TabIcon.BackgroundTransparency = 1
-        TabIcon.Image = TabSettings.ImageSource == "Material" and SimpleUI.MaterialIcons[TabSettings.Icon] or "rbxassetid://" .. TabSettings.Icon
+        TabIcon.Image = SimpleUI.MaterialIcons[TabSettings.Icon] or "rbxassetid://" .. TabSettings.Icon
         TabIcon.Parent = TabButton
 
         local TabPage = Instance.new("Frame")
@@ -277,8 +277,11 @@ function SimpleUI:CreateWindow(WindowSettings)
     end
 
     SimpleUI.MaterialIcons = {
-        home = "http://www.roblox.com/asset/?id=6026568195",
-        view_in_ar = "http://www.roblox.com/asset/?id=6031079158"
+        home = "rbxassetid://6026568195",
+        view_in_ar = "rbxassetid://6031079158",
+        settings = "rbxassetid://6026568219",
+        info = "rbxassetid://6026568247",
+        person = "rbxassetid://6026568276"
     }
 
     return Window
