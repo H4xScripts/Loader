@@ -84,6 +84,9 @@ ConfigManager = {
             Load = function(element, data)
                 if element then
                     element:Set(data.value)
+                    if element.Callback then
+                        element.Callback(data.value)
+                    end
                 end
             end
         },
