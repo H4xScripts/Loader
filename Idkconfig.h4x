@@ -62,10 +62,22 @@ function ConfigManager:CreateConfig(configFilename)
         Elements = {}
     }
 
-    function ConfigModule:Register(Name, Element, Config)
+    function ConfigModule:Register(Name, ElementOrConfig)
+        local Element, Config
+        if type(ElementOrConfig) == "table" and ElementOrConfig.Config then
+            Element = ConfigManager.ElementsByConfig[ElementOrConfig.Config]
+            Config = ElementOrConfig.Config
+            if not Element then
+                Element = ConfigManager.Window.Tab[ElementOrConfig.__type](ConfigManager.Window.Tab, ElementOrConfig)
+                ConfigManager.ElementsByConfig[Config] = Element
+            end
+        else
+            Element = ElementOrConfig
+            Config = Element.Config
+        end
         self.Elements[Name] = Element
         if Config then
-            Element.Config = Config -- Set Config on the element
+            Element.Config = Config
             ConfigManager.ElementsByConfig[Config] = Element
         end
     end
