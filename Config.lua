@@ -23,24 +23,49 @@ local ConfigManager = {
             end
         },
         Dropdown = {
-            Save = function(obj) return { __type = obj.__type, value = obj.Value } end,
-            Load = function(element, data) if element then element:Select(data.value) end end
+            Save = function(obj)
+                if obj.Get then obj.Value = obj:Get() end
+                return { __type = obj.__type, value = obj.Value }
+            end,
+            Load = function(element, data)
+                if element then element:Select(data.value) end
+            end
         },
         Input = {
-            Save = function(obj) return { __type = obj.__type, value = obj.Value } end,
-            Load = function(element, data) if element then element:Set(data.value) end end
+            Save = function(obj)
+                if obj.Get then obj.Value = obj:Get() end
+                return { __type = obj.__type, value = obj.Value }
+            end,
+            Load = function(element, data)
+                if element then element:Set(data.value) end
+            end
         },
         Keybind = {
-            Save = function(obj) return { __type = obj.__type, value = obj.Value } end,
-            Load = function(element, data) if element then element:Set(data.value) end end
+            Save = function(obj)
+                if obj.Get then obj.Value = obj:Get() end
+                return { __type = obj.__type, value = obj.Value }
+            end,
+            Load = function(element, data)
+                if element then element:Set(data.value) end
+            end
         },
         Slider = {
-            Save = function(obj) return { __type = obj.__type, value = obj.Value.Default } end,
-            Load = function(element, data) if element then element:Set(data.value) end end
+            Save = function(obj)
+                if obj.Get then obj.Value = obj:Get() end
+                return { __type = obj.__type, value = obj.Value.Default }
+            end,
+            Load = function(element, data)
+                if element then element:Set(data.value) end
+            end
         },
         Toggle = {
-            Save = function(obj) return { __type = obj.__type, value = obj.Value } end,
-            Load = function(element, data) if element then element:Set(data.value) end end
+            Save = function(obj)
+                if obj.Get then obj.Value = obj:Get() end
+                return { __type = obj.__type, value = obj.Value }
+            end,
+            Load = function(element, data)
+                if element then element:Set(data.value) end
+            end
         },
     }
 }
@@ -70,6 +95,10 @@ function ConfigManager:CreateConfig(configFilename)
         for name, element in pairs(self.Elements) do
             local parser = ConfigManager.Parser[element.__type]
             if parser then
+                -- Patch: ensure Value is up-to-date before saving
+                if element.Get then
+                    element.Value = element:Get()
+                end
                 saveData.Elements[name] = parser.Save(element)
             end
         end
@@ -77,7 +106,10 @@ function ConfigManager:CreateConfig(configFilename)
     end
 
     function ConfigModule:Load()
-        if not isfile(self.Path .. configFilename .. ".json") then return false, "Invalid file" end
+        if not isfile(self.Path .. configFilename .. ".json") then
+            return false, "Invalid file"
+        end
+
         local loadData = HttpService:JSONDecode(readfile(self.Path .. configFilename .. ".json"))
         for name, data in pairs(loadData.Elements) do
             local element = self.Elements[name]
@@ -99,7 +131,9 @@ function ConfigManager:AllConfigs()
         local files = {}
         for _, file in ipairs(listfiles(self.Path)) do
             local name = file:match("([^\\/]+)%.json$")
-            if name then table.insert(files, name) end
+            if name then
+                table.insert(files, name)
+            end
         end
         return files
     end
