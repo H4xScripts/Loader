@@ -1,8 +1,8 @@
--- ConfigManager.lua
 -- credits: dawid
 local HttpService = game:GetService("HttpService")
 
-local ConfigManager = {
+local ConfigManager
+ConfigManager = {
     Window = nil,
     Folder = nil,
     Path = nil,
@@ -13,58 +13,78 @@ local ConfigManager = {
                 return {
                     __type = obj.__type,
                     value = obj.Default:ToHex(),
-                    transparency = obj.Transparency,
+                    transparency = obj.Transparency or nil,
                 }
             end,
             Load = function(element, data)
                 if element then
-                    element:Update(Color3.fromHex(data.value), data.transparency)
+                    element:Update(Color3.fromHex(data.value), data.transparency or nil)
                 end
             end
         },
         Dropdown = {
             Save = function(obj)
-                if obj.Get then obj.Value = obj:Get() end
-                return { __type = obj.__type, value = obj.Value }
+                return {
+                    __type = obj.__type,
+                    value = obj.Value,
+                }
             end,
             Load = function(element, data)
-                if element then element:Select(data.value) end
+                if element then
+                    element:Select(data.value)
+                end
             end
         },
         Input = {
             Save = function(obj)
-                if obj.Get then obj.Value = obj:Get() end
-                return { __type = obj.__type, value = obj.Value }
+                return {
+                    __type = obj.__type,
+                    value = obj.Value,
+                }
             end,
             Load = function(element, data)
-                if element then element:Set(data.value) end
+                if element then
+                    element:Set(data.value)
+                end
             end
         },
         Keybind = {
             Save = function(obj)
-                if obj.Get then obj.Value = obj:Get() end
-                return { __type = obj.__type, value = obj.Value }
+                return {
+                    __type = obj.__type,
+                    value = obj.Value,
+                }
             end,
             Load = function(element, data)
-                if element then element:Set(data.value) end
+                if element then
+                    element:Set(data.value)
+                end
             end
         },
         Slider = {
             Save = function(obj)
-                if obj.Get then obj.Value = obj:Get() end
-                return { __type = obj.__type, value = obj.Value.Default }
+                return {
+                    __type = obj.__type,
+                    value = obj.Value.Default,
+                }
             end,
             Load = function(element, data)
-                if element then element:Set(data.value) end
+                if element then
+                    element:Set(data.value)
+                end
             end
         },
         Toggle = {
             Save = function(obj)
-                if obj.Get then obj.Value = obj:Get() end
-                return { __type = obj.__type, value = obj.Value }
+                return {
+                    __type = obj.__type,
+                    value = obj.Value,
+                }
             end,
             Load = function(element, data)
-                if element then element:Set(data.value) end
+                if element then
+                    element:Set(data.value)
+                end
             end
         },
     }
@@ -72,69 +92,78 @@ local ConfigManager = {
 
 function ConfigManager:Init(Window)
     if Window.Folder then
-        self.Window = Window
-        self.Folder = Window.Folder
-        self.Path = "WindUI/" .. self.Folder .. "/config/"
-        return self
+        ConfigManager.Window = Window
+        ConfigManager.Folder = Window.Folder
+        
+        ConfigManager.Path = "WindUI/" .. ConfigManager.Folder .. "/config/"
+        
+        return ConfigManager
     end
     return false
 end
 
 function ConfigManager:CreateConfig(configFilename)
     local ConfigModule = {
-        Path = self.Path .. configFilename .. ".json",
+        Path = ConfigManager.Path .. configFilename .. ".json",
+        
         Elements = {}
     }
+    
+    if not configFilename then
+        return false, "No config file is selected"
+    end
 
     function ConfigModule:Register(Name, Element)
-        self.Elements[Name] = Element
+        ConfigModule.Elements[Name] = Element
     end
-
+    
     function ConfigModule:Save()
-        local saveData = { Elements = {} }
-        for name, element in pairs(self.Elements) do
-            local parser = ConfigManager.Parser[element.__type]
-            if parser then
-                -- Patch: ensure Value is up-to-date before saving
-                if element.Get then
-                    element.Value = element:Get()
-                end
-                saveData.Elements[name] = parser.Save(element)
+        local saveData = {
+            Elements = {}
+        }
+        
+        for name,i in next, ConfigModule.Elements do
+            if ConfigManager.Parser[i.__type] then
+                saveData.Elements[tostring(name)] = ConfigManager.Parser[i.__type].Save(i)
             end
         end
-        writefile(self.Path .. configFilename .. ".json", HttpService:JSONEncode(saveData))
+        
+        print(HttpService:JSONEncode(saveData))
+        
+        writefile(ConfigModule.Path, HttpService:JSONEncode(saveData))
     end
-
+    
     function ConfigModule:Load()
-        if not isfile(self.Path .. configFilename .. ".json") then
-            return false, "Invalid file"
-        end
-
-        local loadData = HttpService:JSONDecode(readfile(self.Path .. configFilename .. ".json"))
-        for name, data in pairs(loadData.Elements) do
-            local element = self.Elements[name]
-            local parser = ConfigManager.Parser[data.__type]
-            if element and parser then
+        if not isfile(ConfigModule.Path) then return false, "Invalid file" end
+        
+        local loadData = HttpService:JSONDecode(readfile(ConfigModule.Path))
+        
+        for name, data in next, loadData.Elements do
+            if ConfigModule.Elements[name] and ConfigManager.Parser[data.__type] then
                 task.spawn(function()
-                    parser.Load(element, data)
+                    ConfigManager.Parser[data.__type].Load(ConfigModule.Elements[name], data)
                 end)
             end
         end
+        
     end
-
+    
+    
     ConfigManager.Configs[configFilename] = ConfigModule
+    
     return ConfigModule
 end
 
 function ConfigManager:AllConfigs()
     if listfiles then
         local files = {}
-        for _, file in ipairs(listfiles(self.Path)) do
+        for _, file in next, listfiles(ConfigManager.Path) do
             local name = file:match("([^\\/]+)%.json$")
             if name then
                 table.insert(files, name)
             end
         end
+        
         return files
     end
     return false
