@@ -1,0 +1,155 @@
+	local Players = game:GetService("Players")
+	local TweenService = game:GetService("TweenService")
+	local PlayerGui = Players.LocalPlayer:WaitForChild("PlayerGui")
+
+	local screenGui = Instance.new("ScreenGui")
+	screenGui.Name = "NotifGui"
+	screenGui.ResetOnSpawn = false
+	screenGui.Parent = PlayerGui
+
+	local holder = Instance.new("Frame")
+	holder.Size = UDim2.new(0, 310, 0, 400)
+	holder.Position = UDim2.new(1, -30, 1, -30)
+	holder.AnchorPoint = Vector2.new(1, 1)
+	holder.BackgroundTransparency = 1
+	holder.ClipsDescendants = false
+	holder.Parent = screenGui
+
+	local layout = Instance.new("UIListLayout", holder)
+	layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	layout.SortOrder = Enum.SortOrder.LayoutOrder
+	layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+	layout.Padding = UDim.new(0, 20)
+
+	local function showNotification(titleText, contentText, subText, duration, imageId)
+		local holderFrame = Instance.new("Frame")
+		holderFrame.Size = UDim2.new(1, 0, 0, 200)
+		holderFrame.BackgroundTransparency = 1
+		holderFrame.Position = UDim2.new(1, 0, 0, 0)
+		holderFrame.AnchorPoint = Vector2.new(1, 0)
+		holderFrame.Parent = holder
+
+		holderFrame.LayoutOrder = 0
+		for _, child in pairs(holder:GetChildren()) do
+			if child:IsA("Frame") and child ~= holderFrame then
+				local currentPos = child.Position
+				local targetPos = UDim2.new(0, 0, 0, currentPos.Y.Offset - (holderFrame.Size.Y.Offset + layout.Padding.Offset))
+				TweenService:Create(child, TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = targetPos}):Play()
+				child.LayoutOrder = (child.LayoutOrder or 1) + 1
+			end
+		end
+
+		local root = Instance.new("Frame")
+		root.Size = UDim2.new(1, 0, 1, 0)
+		root.Position = UDim2.new(0, 0, 0, 0)
+		root.BackgroundTransparency = 1
+		root.Parent = holderFrame
+
+		local bg = Instance.new("Frame")
+		bg.Size = UDim2.new(1, 0, 1, 0)
+		bg.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+		bg.BackgroundTransparency = 0.2
+		bg.Parent = root
+
+		local uicorner = Instance.new("UICorner", bg)
+		uicorner.CornerRadius = UDim.new(0, 10)
+
+		if imageId then
+			local icon = Instance.new("ImageLabel")
+			icon.Size = UDim2.new(0, 36, 0, 36)
+			icon.Position = UDim2.new(0, 10, 0, 12)
+			icon.BackgroundTransparency = 1
+			icon.Image = imageId
+			icon.ScaleType = Enum.ScaleType.Fit
+			icon.Parent = root
+		end
+
+		local textOffset = imageId and 56 or 14
+
+		local title = Instance.new("TextLabel")
+		title.Position = UDim2.new(0, textOffset, 0, 17)
+		title.Size = UDim2.new(1, -72, 0, 12)
+		title.Text = titleText
+		title.Font = Enum.Font.Gotham
+		title.TextSize = 13
+		title.TextColor3 = Color3.new(1, 1, 1)
+		title.BackgroundTransparency = 1
+		title.TextXAlignment = Enum.TextXAlignment.Left
+		title.Parent = root
+
+		local labelHolder = Instance.new("Frame")
+		labelHolder.Position = UDim2.new(0, textOffset, 0, 40)
+		labelHolder.Size = UDim2.new(1, -72, 0, 0)
+		labelHolder.BackgroundTransparency = 1
+		labelHolder.AutomaticSize = Enum.AutomaticSize.Y
+		labelHolder.Parent = root
+
+		local layout2 = Instance.new("UIListLayout")
+		layout2.SortOrder = Enum.SortOrder.LayoutOrder
+		layout2.VerticalAlignment = Enum.VerticalAlignment.Center
+		layout2.Padding = UDim.new(0, 3)
+		layout2.Parent = labelHolder
+
+		if contentText ~= "" then
+			local content = Instance.new("TextLabel")
+			content.Text = contentText
+			content.Font = Enum.Font.Gotham
+			content.TextSize = 14
+			content.TextColor3 = Color3.fromRGB(240, 240, 240)
+			content.BackgroundTransparency = 1
+			content.Size = UDim2.new(1, 0, 0, 14)
+			content.TextWrapped = true
+			content.TextXAlignment = Enum.TextXAlignment.Left
+			content.AutomaticSize = Enum.AutomaticSize.Y
+			content.Parent = labelHolder
+		end
+
+		if subText ~= "" then
+			local sub = Instance.new("TextLabel")
+			sub.Text = subText
+			sub.Font = Enum.Font.Gotham
+			sub.TextSize = 14
+			sub.TextColor3 = Color3.fromRGB(240, 240, 240)
+			sub.BackgroundTransparency = 1
+			sub.Size = UDim2.new(1, 0, 0, 14)
+			sub.TextWrapped = true
+			sub.TextXAlignment = Enum.TextXAlignment.Left
+			sub.AutomaticSize = Enum.AutomaticSize.Y
+			sub.Parent = labelHolder
+		end
+
+		local closeBtn = Instance.new("TextButton")
+		closeBtn.Position = UDim2.new(1, -14, 0, 13)
+		closeBtn.Size = UDim2.fromOffset(20, 20)
+		closeBtn.AnchorPoint = Vector2.new(1, 0)
+		closeBtn.Text = "✖"
+		closeBtn.Font = Enum.Font.Gotham
+		closeBtn.TextSize = 14
+		closeBtn.BackgroundTransparency = 1
+		closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+		closeBtn.Parent = root
+
+		task.wait()
+		holderFrame.Size = UDim2.new(1, 0, 0, 58 + labelHolder.AbsoluteSize.Y)
+
+		local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+		TweenService:Create(holderFrame, tweenInfo, {Position = UDim2.new(0, 0, 0, 0)}):Play()
+
+		if duration and tonumber(duration) then
+			task.delay(duration, function()
+				local outTween = TweenService:Create(holderFrame, tweenInfo, {Position = UDim2.new(1, 0, 0, 0)})
+				outTween:Play()
+				outTween.Completed:Wait()
+				holderFrame:Destroy()
+			end)
+		end
+
+		closeBtn.MouseButton1Click:Connect(function()
+			local outTween = TweenService:Create(holderFrame, tweenInfo, {Position = UDim2.new(1, 0, 0, 0)})
+			outTween:Play()
+			outTween.Completed:Wait()
+			holderFrame:Destroy()
+		end)
+	end
+
+	return showNotification
