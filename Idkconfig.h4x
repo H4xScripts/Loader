@@ -62,10 +62,11 @@ function ConfigManager:CreateConfig(configFilename)
         Elements = {}
     }
 
-    function ConfigModule:Register(Name, Element)
+    function ConfigModule:Register(Name, Element, Config)
         self.Elements[Name] = Element
-        if Element.Config then
-            ConfigManager.ElementsByConfig[Element.Config] = Element
+        if Config then
+            Element.Config = Config -- Set Config on the element
+            ConfigManager.ElementsByConfig[Config] = Element
         end
     end
 
