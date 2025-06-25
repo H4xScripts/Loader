@@ -58,18 +58,11 @@ end
 function ConfigManager:CreateConfig(configFilename)
     local ConfigModule = {
         Path = self.Path .. configFilename .. ".json",
-        Elements = {},
-        Configs = {} -- Store configuration tables
+        Elements = {}
     }
 
-    function ConfigModule:Register(Name, ElementOrConfig)
-        if type(ElementOrConfig) == "table" and ElementOrConfig.Config then
-            -- Store the configuration table
-            self.Configs[Name] = ElementOrConfig
-        else
-            -- Store the element
-            self.Elements[Name] = ElementOrConfig
-        end
+    function ConfigModule:Register(Name, Element)
+        self.Elements[Name] = Element
     end
 
     function ConfigModule:Save()
