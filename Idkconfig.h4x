@@ -49,7 +49,7 @@ function ConfigManager:Init(Window)
     if Window.Folder then
         self.Window = Window
         self.Folder = Window.Folder
-        self.Path = "WindUI/" .. self.Folder .. "/config/"
+        self.Path = "H4xScripts/" .. self.Folder .. "/config/"
         return self
     end
     return false
