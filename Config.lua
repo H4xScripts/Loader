@@ -95,7 +95,7 @@ function ConfigManager:Init(Window)
         ConfigManager.Window = Window
         ConfigManager.Folder = Window.Folder
         
-        ConfigManager.Path = "H4xScripts/" .. ConfigManager.Folder ..
+        ConfigManager.Path = "WindUI/" .. ConfigManager.Folder .. "/config/"
         
         return ConfigManager
     end
