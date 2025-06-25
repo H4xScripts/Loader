@@ -7,6 +7,7 @@ local ConfigManager = {
     Folder = nil,
     Path = nil,
     Configs = {},
+    ElementsByConfig = {}, -- Store elements by Config value
     Parser = {
         Colorpicker = {
             Save = function(obj)
@@ -63,6 +64,9 @@ function ConfigManager:CreateConfig(configFilename)
 
     function ConfigModule:Register(Name, Element)
         self.Elements[Name] = Element
+        if Element.Config then
+            ConfigManager.ElementsByConfig[Element.Config] = Element
+        end
     end
 
     function ConfigModule:Save()
