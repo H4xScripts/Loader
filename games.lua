@@ -1,4 +1,6 @@
-local Scripts = {
+Lua
+
+return {
     ["110931811137535"] = {
         n = "Feed & catch Brainrot",
         url = "https://h4xscripts.pages.dev/s/FeedAndCatchBrainrot",
