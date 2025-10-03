@@ -1,4 +1,40 @@
 return {
+    ["79546208627805"] = {
+        n = "99 Nights in the Forest",
+        url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/99Nights%20in%20the%20Forst.lua",
+        u = 7326934954,
+        ["1"] = 2932,
+        ["2"] = 3735,
+        ["3"] = "meta",
+        ["4"] = 6428
+    },
+    ["96342491571673"] = {
+        n = "Steal A brainrot",
+        url = "https://api.luarmor.net/files/v3/loaders/fb81321895c774c8053e1531bbf86ed9.lua",
+        u = 7709344486,
+        ["1"] = 4957,
+        ["2"] = 1235,
+        ["3"] = "pcall",
+        ["4"] = 9213
+    },
+    ["126884695634066"] = {
+        n = "[⛲] Grow a Garden 🍅",
+        url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/GrowAGarden.lua",
+        u = 7436755782,
+        ["1"] = 7352,
+        ["2"] = 2876,
+        ["3"] = "hook_e",
+        ["4"] = 5762
+    },
+    ["111989938562194"] = {
+        n = "Brainrot Evolution",
+        url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/BrainrotEvolution.lua",
+        u = 7332711118,
+        ["1"] = 7160,
+        ["2"] = 3333,
+        ["3"] = "function",
+        ["4"] = 8217
+    },
     ["110931811137535"] = {
         n = "Feed & catch Brainrot",
         url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Feed%20%26%20catch%20Brainrot.lua",
@@ -17,15 +53,6 @@ return {
         ["3"] = "__index.same",
         ["4"] = 8321
     },
-    ["79546208627805"] = {
-        n = "99 Nights in the Forest",
-        url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/99Nights%20in%20the%20Forst.lua",
-        u = 7326934954,
-        ["1"] = 2932,
-        ["2"] = 3735,
-        ["3"] = "meta",
-        ["4"] = 6428
-    },
     ["18172550962"] = {
         n = "Pixel Blade [Early Access]",
         url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/Pixel%20Blade.lua",
@@ -35,15 +62,6 @@ return {
         ["3"] = "Get().efnc",
         ["4"] = 9174
     },
-    ["126884695634066"] = {
-        n = "[⛲] Grow a Garden 🍅",
-        url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/GrowAGarden.lua",
-        u = 7436755782,
-        ["1"] = 7352,
-        ["2"] = 2876,
-        ["3"] = "hook_e",
-        ["4"] = 5762
-    },
     ["17589670912"] = {
         n = "Find The Auras [585]",
         url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/FindTheAura.lua",
@@ -52,15 +70,6 @@ return {
         ["2"] = 1244,
         ["3"] = "G.getgc",
         ["4"] = 6935
-    },
-    ["111989938562194"] = {
-        n = "Brainrot Evolution",
-        url = "https://raw.githubusercontent.com/H4xScripts/Scripts/refs/heads/main/BrainrotEvolution.lua",
-        u = 7332711118,
-        ["1"] = 7160,
-        ["2"] = 3333,
-        ["3"] = "function",
-        ["4"] = 8217
     },
     ["81440632616906"] = {
         n = "⛏️ Dig to Earth's CORE!",
