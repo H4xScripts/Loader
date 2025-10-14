@@ -1,1 +1,11445 @@
-local v0;v0={cache={},load=function(v31) if  not v0.cache[v31] then v0.cache[v31]={c=v0[v31]()};end return v0.cache[v31].c;end};do v0.a=function() local v122=game:GetService("RunService");local v123=v122.Heartbeat;local v124=game:GetService("UserInputService");local v125=game:GetService("TweenService");local v126=game:GetService("LocalizationService");local v127=loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Footagesus/Icons/main/Main.lua"))();v127.SetIconsType("lucide");local v128;local v129={Font="rbxassetid://12187365364",Localization=nil,CanDraggable=true,Theme=nil,Themes=nil,Signals={},Objects={},LocalizationObjects={},FontObjects={},Language=string.match(v126.SystemLocaleId,"^[a-z]+"),Request=http_request or (syn and syn.request) or request ,DefaultProperties={ScreenGui={ResetOnSpawn=false,ZIndexBehavior="Sibling"},CanvasGroup={BorderSizePixel=0,BackgroundColor3=Color3.new(1,1,1)},Frame={BorderSizePixel=0,BackgroundColor3=Color3.new(1,1,1)},TextLabel={BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=0,Text="",RichText=true,TextColor3=Color3.new(1,1,1),TextSize=14},TextButton={BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=0,Text="",AutoButtonColor=false,TextColor3=Color3.new(1,1,1),TextSize=14},TextBox={BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0,0,0),ClearTextOnFocus=false,Text="",TextColor3=Color3.new(0,0,0),TextSize=14},ImageLabel={BackgroundTransparency=1,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=0},ImageButton={BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=0,AutoButtonColor=false},UIListLayout={SortOrder="LayoutOrder"},ScrollingFrame={ScrollBarImageTransparency=1,BorderSizePixel=0},VideoFrame={BorderSizePixel=0}},Colors={Red="#e53935",Orange="#f57c00",Green="#43a047",Blue="#039be5",White="#ffffff",Grey="#484848"}};v129.Init=function(v428) v128=v428;end;v129.AddSignal=function(v429,v430) table.insert(v129.Signals,v429:Connect(v430));end;v129.DisconnectAll=function() for v1220,v1221 in next,v129.Signals do local v1222=table.remove(v129.Signals,v1220);v1222:Disconnect();end end;v129.SafeCallback=function(v431,...) if  not v431 then return;end local v432,v433=pcall(v431,...);if  not v432 then local v1694,v1695=v433:find(":%d+: ");warn("[ WindUI: DEBUG Mode ] "   .. v433 );return v128({Title="DEBUG Mode: Error",Content=( not v1695 and v433) or v433:sub(v1695 + 1 ) ,Duration=8});end end;v129.SetTheme=function(v434) v129.Theme=v434;v129.UpdateTheme(nil,true);end;v129.AddFontObject=function(v436) table.insert(v129.FontObjects,v436);v129.UpdateFont(v129.Font);end;v129.UpdateFont=function(v437) v129.Font=v437;for v1223,v1224 in next,v129.FontObjects do v1224.FontFace=Font.new(v437,v1224.FontFace.Weight,v1224.FontFace.Style);end end;v129.GetThemeProperty=function(v439,v440) return v440[v439] or v129.Themes.Dark[v439] ;end;v129.AddThemeObject=function(v441,v442) v129.Objects[v441]={Object=v441,Properties=v442};v129.UpdateTheme(v441,false);return v441;end;v129.AddLangObject=function(v444) local v445=v129.LocalizationObjects[v444];local v446=v445.Object;local v447=currentObjTranslationId;v129.UpdateLang(v446,v447);return v446;end;v129.UpdateTheme=function(v448,v449) local function v450(v1226) for v1696,v1697 in pairs(v1226.Properties or {} ) do local v1698=v129.GetThemeProperty(v1697,v129.Theme);if v1698 then if  not v449 then v1226.Object[v1696]=Color3.fromHex(v1698);else v129.Tween(v1226.Object,0.08,{[v1696]=Color3.fromHex(v1698)}):Play();end end end end if v448 then local v1699=v129.Objects[v448];if v1699 then v450(v1699);end else for v1845,v1846 in pairs(v129.Objects) do v450(v1846);end end end;v129.SetLangForObject=function(v451) if (v129.Localization and v129.Localization.Enabled) then local v1700=v129.LocalizationObjects[v451];if  not v1700 then return;end local v1701=v1700.Object;local v1702=v1700.TranslationId;local v1703=v129.Localization.Translations[v129.Language];if (v1703 and v1703[v1702]) then v1701.Text=v1703[v1702];else local v1987=(v129.Localization and v129.Localization.Translations and v129.Localization.Translations.en) or nil ;if (v1987 and v1987[v1702]) then v1701.Text=v1987[v1702];else v1701.Text="["   .. v1702   .. "]" ;end end end end;v129.ChangeTranslationKey=function(v452,v453,v454) if (v129.Localization and v129.Localization.Enabled) then local v1704=string.match(v454,"^"   .. v129.Localization.Prefix   .. "(.+)" );if v1704 then for v2061,v2062 in ipairs(v129.LocalizationObjects) do if (v2062.Object==v453) then v2062.TranslationId=v1704;v129.SetLangForObject(v2061);return;end end table.insert(v129.LocalizationObjects,{TranslationId=v1704,Object=v453});v129.SetLangForObject( #v129.LocalizationObjects);end end end;v129.UpdateLang=function(v455) if v455 then v129.Language=v455;end for v1227=1, #v129.LocalizationObjects do local v1228=v129.LocalizationObjects[v1227];if (v1228.Object and (v1228.Object.Parent~=nil)) then v129.SetLangForObject(v1227);else v129.LocalizationObjects[v1227]=nil;end end end;v129.SetLanguage=function(v456) v129.Language=v456;v129.UpdateLang();end;v129.Icon=function(v458) return v127.Icon(v458);end;v129.New=function(v459,v460,v461) local v462=Instance.new(v459);for v1229,v1230 in next,v129.DefaultProperties[v459] or {}  do v462[v1229]=v1230;end for v1232,v1233 in next,v460 or {}  do if (v1232~="ThemeTag") then v462[v1232]=v1233;end if (v129.Localization and v129.Localization.Enabled and (v1232=="Text")) then local v1849=string.match(v1233,"^"   .. v129.Localization.Prefix   .. "(.+)" );if v1849 then local v2063= #v129.LocalizationObjects + 1 ;v129.LocalizationObjects[v2063]={TranslationId=v1849,Object=v462};v129.SetLangForObject(v2063);end end end for v1234,v1235 in next,v461 or {}  do v1235.Parent=v462;end if (v460 and v460.ThemeTag) then v129.AddThemeObject(v462,v460.ThemeTag);end if (v460 and v460.FontFace) then v129.AddFontObject(v462);end return v462;end;v129.Tween=function(v463,v464,v465,...) return v125:Create(v463,TweenInfo.new(v464,...),v465);end;v129.NewRoundFrame=function(v466,v467,v468,v469,v470) local v471=v129.New((v470 and "ImageButton") or "ImageLabel" ,{Image=((v467=="Squircle") and "rbxassetid://80999662900595") or ((v467=="SquircleOutline") and "rbxassetid://117788349049947") or ((v467=="SquircleOutline2") and "rbxassetid://117817408534198") or ((v467=="Shadow-sm") and "rbxassetid://84825982946844") or ((v467=="Squircle-TL-TR") and "rbxassetid://73569156276236") ,ScaleType="Slice",SliceCenter=((v467~="Shadow-sm") and Rect.new(256,256,256,256)) or Rect.new(512,512,512,512) ,SliceScale=1,BackgroundTransparency=1,ThemeTag=v468.ThemeTag and v468.ThemeTag },v469);for v1237,v1238 in pairs(v468 or {} ) do if (v1237~="ThemeTag") then v471[v1237]=v1238;end end local function v472(v1239) local v1240=((v467~="Shadow-sm") and (v1239/256)) or (v1239/512) ;v471.SliceScale=v1240;end v472(v466);return v471;end;local v149=v129.New;local v150=v129.Tween;v129.SetDraggable=function(v473) v129.CanDraggable=v473;end;v129.Drag=function(v475,v476,v477) local v478;local v479,v480,v481,v482;local v483={CanDraggable=true};if ( not v476 or (type(v476)~="table")) then v476={v475};end local function v484(v1242) local v1243=v1242.Position-v481 ;v129.Tween(v475,0.02,{Position=UDim2.new(v482.X.Scale,v482.X.Offset + v1243.X ,v482.Y.Scale,v482.Y.Offset + v1243.Y )}):Play();end for v1244,v1245 in pairs(v476) do v1245.InputBegan:Connect(function(v1706) if (((v1706.UserInputType==Enum.UserInputType.MouseButton1) or (v1706.UserInputType==Enum.UserInputType.Touch)) and v483.CanDraggable) then if (v478==nil) then v478=v1245;v479=true;v481=v1706.Position;v482=v475.Position;if (v477 and (type(v477)=="function")) then v477(true,v478);end v1706.Changed:Connect(function() if (v1706.UserInputState==Enum.UserInputState.End) then v479=false;v478=nil;if (v477 and (type(v477)=="function")) then v477(false,v478);end end end);end end end);v1245.InputChanged:Connect(function(v1707) if ((v478==v1245) and v479) then if ((v1707.UserInputType==Enum.UserInputType.MouseMovement) or (v1707.UserInputType==Enum.UserInputType.Touch)) then v480=v1707;end end end);end v124.InputChanged:Connect(function(v1246) if ((v1246==v480) and v479 and (v478~=nil)) then if v483.CanDraggable then v484(v1246);end end end);v483.Set=function(v1247,v1248) v483.CanDraggable=v1248;end;return v483;end;v129.Image=function(v486,v487,v488,v489,v490,v491,v492) local function v493(v1250) v1250=v1250:gsub('[%s/\\:*?\"<>|]+',"-");v1250=v1250:gsub("[^%w%-_%.]","");return v1250;end v489=v489 or "Temp" ;v487=v493(v487);local v494=v149("Frame",{Size=UDim2.new(0,0,0,0),BackgroundTransparency=1},{v149("ImageLabel",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1,ScaleType="Crop",ThemeTag=((v129.Icon(v486) or v492) and {ImageColor3=(v491 and "Icon") or nil }) or nil },{v149("UICorner",{CornerRadius=UDim.new(0,v488)})})});if v129.Icon(v486) then v494.ImageLabel.Image=v129.Icon(v486)[1];v494.ImageLabel.ImageRectOffset=v129.Icon(v486)[2].ImageRectPosition;v494.ImageLabel.ImageRectSize=v129.Icon(v486)[2].ImageRectSize;end if string.find(v486,"http") then local v1714="H4xScripts/"   .. v489   .. "/Assets/."   .. v490   .. "-"   .. v487   .. ".png" ;local v1715,v1716=pcall(function() task.spawn(function() if  not isfile(v1714) then local v2135=v129.Request({Url=v486,Method="GET"}).Body;writefile(v1714,v2135);end v494.ImageLabel.Image=getcustomasset(v1714);end);end);if  not v1715 then warn("[ WindUI.Creator ]  '"   .. identifyexecutor()   .. "' doesnt support the URL Images. Error: "   .. v1716 );v494:Destroy();end elseif string.find(v486,"rbxassetid") then v494.ImageLabel.Image=v486;end return v494;end;return v129;end;v0.b=function() local v154={};v154.New=function(v495,v496,v497) local v498={Enabled=v496.Enabled or false ,Translations=v496.Translations or {} ,Prefix=v496.Prefix or "loc:" ,DefaultLanguage=v496.DefaultLanguage or "en" };v497.Localization=v498;return v498;end;return v154;end;v0.c=function() local v156=v0.load("a");local v157=v156.New;local v158=v156.Tween;local v159={Size=UDim2.new(0,300,1, -156),SizeLower=UDim2.new(0,300,1, -56),UICorner=13,UIPadding=14,Holder=nil,NotificationIndex=0,Notifications={}};v159.Init=function(v500) local v501={Lower=false};v501.SetLower=function(v1251) v501.Lower=v1251;v501.Frame.Size=(v1251 and v159.SizeLower) or v159.Size ;end;v501.Frame=v157("Frame",{Position=UDim2.new(1, -29,0,56),AnchorPoint=Vector2.new(1,0),Size=v159.Size,Parent=v500,BackgroundTransparency=1},{v157("UIListLayout",{HorizontalAlignment="Center",SortOrder="LayoutOrder",VerticalAlignment="Bottom",Padding=UDim.new(0,8)}),v157("UIPadding",{PaddingBottom=UDim.new(0,29)})});return v501;end;v159.New=function(v504) local v505={Title=v504.Title or "Notification" ,Content=v504.Content or nil ,Icon=v504.Icon or nil ,IconThemed=v504.IconThemed,Background=v504.Background,BackgroundImageTransparency=v504.BackgroundImageTransparency,Duration=v504.Duration or 5 ,Buttons=v504.Buttons or {} ,CanClose=true,UIElements={},Closed=false};if (v505.CanClose==nil) then v505.CanClose=true;end v159.NotificationIndex=v159.NotificationIndex + 1 ;v159.Notifications[v159.NotificationIndex]=v505;local v508;if v505.Icon then v508=v156.Image(v505.Icon,v505.Title   .. ":"   .. v505.Icon ,0,v504.Window,"Notification",v505.IconThemed);v508.Size=UDim2.new(0,26,0,26);v508.Position=UDim2.new(0,v159.UIPadding,0,v159.UIPadding);end local v509;if v505.CanClose then v509=v157("ImageButton",{Image=v156.Icon("x")[1],ImageRectSize=v156.Icon("x")[2].ImageRectSize,ImageRectOffset=v156.Icon("x")[2].ImageRectPosition,BackgroundTransparency=1,Size=UDim2.new(0,16,0,16),Position=UDim2.new(1, -v159.UIPadding,0,v159.UIPadding),AnchorPoint=Vector2.new(1,0),ThemeTag={ImageColor3="Text"},ImageTransparency=0.4},{v157("TextButton",{Size=UDim2.new(1,8,1,8),BackgroundTransparency=1,AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Text=""})});end local v510=v157("Frame",{Size=UDim2.new(0,0,1,0),BackgroundTransparency=0.95,ThemeTag={BackgroundColor3="Text"}});local v511=v157("Frame",{Size=UDim2.new(1,(v505.Icon and ( -28 -v159.UIPadding)) or 0 ,1,0),Position=UDim2.new(1,0,0,0),AnchorPoint=Vector2.new(1,0),BackgroundTransparency=1,AutomaticSize="Y"},{v157("UIPadding",{PaddingTop=UDim.new(0,v159.UIPadding),PaddingLeft=UDim.new(0,v159.UIPadding),PaddingRight=UDim.new(0,v159.UIPadding),PaddingBottom=UDim.new(0,v159.UIPadding)}),v157("TextLabel",{AutomaticSize="Y",Size=UDim2.new(1, -30 -v159.UIPadding ,0,0),TextWrapped=true,TextXAlignment="Left",RichText=true,BackgroundTransparency=1,TextSize=16,ThemeTag={TextColor3="Text"},Text=v505.Title,FontFace=Font.new(v156.Font,Enum.FontWeight.Medium)}),v157("UIListLayout",{Padding=UDim.new(0,v159.UIPadding/3 )})});if v505.Content then v157("TextLabel",{AutomaticSize="Y",Size=UDim2.new(1,0,0,0),TextWrapped=true,TextXAlignment="Left",RichText=true,BackgroundTransparency=1,TextTransparency=0.4,TextSize=15,ThemeTag={TextColor3="Text"},Text=v505.Content,FontFace=Font.new(v156.Font,Enum.FontWeight.Medium),Parent=v511});end local v512=v156.NewRoundFrame(v159.UICorner,"Squircle",{Size=UDim2.new(1,0,0,0),Position=UDim2.new(2,0,1,0),AnchorPoint=Vector2.new(0,1),AutomaticSize="Y",ImageTransparency=0.05,ThemeTag={ImageColor3="Background"}},{v157("CanvasGroup",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1},{v510,v157("UICorner",{CornerRadius=UDim.new(0,v159.UICorner)})}),v157("ImageLabel",{Name="Background",Image=v505.Background,BackgroundTransparency=1,Size=UDim2.new(1,0,1,0),ScaleType="Crop",ImageTransparency=v505.BackgroundImageTransparency},{v157("UICorner",{CornerRadius=UDim.new(0,v159.UICorner)})}),v511,v508,v509});local v513=v157("Frame",{BackgroundTransparency=1,Size=UDim2.new(1,0,0,0),Parent=v504.Holder},{v512});v505.Close=function(v1254) if  not v505.Closed then v505.Closed=true;v158(v513,0.45,{Size=UDim2.new(1,0,0, -8)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v158(v512,0.55,{Position=UDim2.new(2,0,1,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();task.wait(0.45);v513:Destroy();end end;task.spawn(function() task.wait();v158(v513,0.45,{Size=UDim2.new(1,0,0,v512.AbsoluteSize.Y)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v158(v512,0.45,{Position=UDim2.new(0,0,1,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();if v505.Duration then v158(v510,v505.Duration,{Size=UDim2.new(1,0,1,0)},Enum.EasingStyle.Linear,Enum.EasingDirection.InOut):Play();task.wait(v505.Duration);v505:Close();end end);if v509 then v156.AddSignal(v509.TextButton.MouseButton1Click,function() v505:Close();end);end return v505;end;return v159;end;v0.d=function() return {Dark={Name="Dark",Accent="#18181b",Dialog="#161616",Outline="#FFFFFF",Text="#FFFFFF",Placeholder="#999999",Background="#101010",Button="#52525b",Icon="#a1a1aa"},Light={Name="Light",Accent="#FFFFFF",Dialog="#f4f4f5",Outline="#09090b",Text="#000000",Placeholder="#777777",Background="#e4e4e7",Button="#18181b",Icon="#52525b"},Rose={Name="Rose",Accent="#f43f5e",Outline="#ffe4e6",Text="#ffe4e6",Placeholder="#fda4af",Background="#881337",Button="#e11d48",Icon="#fecdd3"},Plant={Name="Plant",Accent="#22c55e",Outline="#dcfce7",Text="#dcfce7",Placeholder="#bbf7d0",Background="#14532d",Button="#22c55e",Icon="#86efac"},Red={Name="Red",Accent="#ef4444",Outline="#fee2e2",Text="#ffe4e6",Placeholder="#fca5a5",Background="#7f1d1d",Button="#ef4444",Icon="#fecaca"},Indigo={Name="Indigo",Accent="#6366f1",Outline="#e0e7ff",Text="#e0e7ff",Placeholder="#a5b4fc",Background="#312e81",Button="#6366f1",Icon="#c7d2fe"},Sky={Name="Sky",Accent="#0ea5e9",Outline="#e0f2fe",Text="#e0f2fe",Placeholder="#7dd3fc",Background="#075985",Button="#0ea5e9",Icon="#bae6fd"},Violet={Name="Violet",Accent="#8b5cf6",Outline="#ede9fe",Text="#ede9fe",Placeholder="#c4b5fd",Background="#4c1d95",Button="#8b5cf6",Icon="#ddd6fe"},Amber={Name="Amber",Accent="#f59e0b",Outline="#fef3c7",Text="#fef3c7",Placeholder="#fcd34d",Background="#78350f",Button="#f59e0b",Icon="#fde68a"},Emerald={Name="Emerald",Accent="#10b981",Outline="#d1fae5",Text="#d1fae5",Placeholder="#6ee7b7",Background="#064e3b",Button="#10b981",Icon="#a7f3d0"},Midnight={Name="Midnight",Accent="#1e3a8a",Outline="#93c5fd",Text="#bfdbfe",Placeholder="#60a5fa",Background="#0f172a",Button="#2563eb",Icon="#3b82f6"},Crimson={Name="Crimson",Accent="#d32f2f",Outline="#ff5252",Text="#f5f5f5",Placeholder="#9e9e9e",Background="#121212",Button="#b71c1c",Icon="#e53935"},MonokaiPro={Name="Monokai Pro",Accent="#fc9867",Outline="#727072",Text="#f5f4f1",Placeholder="#939293",Background="#2d2a2e",Button="#ab9df2",Icon="#78dce8"},CottonCandy={Name="Cotton Candy",Accent="#FF95B3",Outline="#A98CF6",Text="#f6d5e1",Placeholder="#87D7FF",Background="#492C37",Button="#F5B0DE",Icon="#78E0E8"}};end;v0.e=function() local v162=4294967296;local v163=v162-1 ;local function v164(v515,v516) local v517,v518=0,1;while (v515~=0) or (v516~=0)  do local v1255,v1256=v515%2 ,v516%2 ;local v1257=(v1255 + v1256)%2 ;v517=v517 + (v1257 * v518) ;v515=math.floor(v515/2 );v516=math.floor(v516/2 );v518=v518 * 2 ;end return v517%v162 ;end local function v165(v519,v520,v521,...) local v522;if v520 then v519=v519%v162 ;v520=v520%v162 ;v522=v164(v519,v520);if v521 then v522=v165(v522,v521,...);end return v522;elseif v519 then return v519%v162 ;else return 0;end end local function v166(v523,v524,v525,...) local v526;if v524 then v523=v523%v162 ;v524=v524%v162 ;v526=((v523 + v524) -v164(v523,v524))/2 ;if v525 then v526=v166(v526,v525,...);end return v526;elseif v523 then return v523%v162 ;else return v163;end end local function v167(v527) return v163-v527 ;end local function v168(v528,v529) if (v529<0) then return lshift(v528, -v529);end return math.floor((v528%4294967296)/(2^v529) );end local function v169(v530,v531) if ((v531>31) or (v531< -31)) then return 0;end return v168(v530%v162 ,v531);end local function v170(v532,v533) if (v533<0) then return v169(v532, -v533);end return (v532 * (2^v533))%4294967296 ;end local function v171(v534,v535) v534=v534%v162 ;v535=v535%32 ;local v536=v166(v534,(2^v535) -1 );return v169(v534,v535) + v170(v536,32 -v535 ) ;end local v172={1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298};local function v173(v537) return string.gsub(v537,".",function(v1258) return string.format("%02x",string.byte(v1258));end);end local function v174(v538,v539) local v540="";for v1259=1,v539 do local v1260=v538%256 ;v540=string.char(v1260)   .. v540 ;v538=(v538-v1260)/256 ;end return v540;end local function v175(v541,v542) local v543=0;for v1261=v542,v542 + 3  do v543=(v543 * 256) + string.byte(v541,v1261) ;end return v543;end local function v176(v544,v545) local v546=64 -((v545 + 9)%64) ;v545=v174(8 * v545 ,8);v544=v544   .. "\128"   .. string.rep("\0",v546)   .. v545 ;assert(( #v544%64)==0 );return v544;end local function v177(v547) v547[1]=1779033703;v547[2]=3144134277;v547[3]=1013904242;v547[4]=2773480762;v547[5]=1359893119;v547[6]=2600822924;v547[7]=528734635;v547[8]=1541459225;return v547;end local function v178(v556,v557,v558) local v559={};for v1262=1,16 do v559[v1262]=v175(v556,v557 + ((v1262-1) * 4) );end for v1264=17,64 do local v1265=v559[v1264-15 ];local v1266=v165(v171(v1265,7),v171(v1265,18),v169(v1265,3));v1265=v559[v1264-2 ];v559[v1264]=(v559[v1264-16 ] + v1266 + v559[v1264-7 ] + v165(v171(v1265,17),v171(v1265,19),v169(v1265,10)))%v162 ;end local v560,v561,v562,v563,v564,v565,v566,v567=v558[1],v558[2],v558[3],v558[4],v558[5],v558[6],v558[7],v558[8];for v1269=1,64 do local v1270=v165(v171(v560,2),v171(v560,13),v171(v560,22));local v1271=v165(v166(v560,v561),v166(v560,v562),v166(v561,v562));local v1272=(v1270 + v1271)%v162 ;local v1273=v165(v171(v564,6),v171(v564,11),v171(v564,25));local v1274=v165(v166(v564,v565),v166(v167(v564),v566));local v1275=(v567 + v1273 + v1274 + v172[v1269] + v559[v1269])%v162 ;v567=v566;v566=v565;v565=v564;v564=(v563 + v1275)%v162 ;v563=v562;v562=v561;v561=v560;v560=(v1275 + v1272)%v162 ;end v558[1]=(v558[1] + v560)%v162 ;v558[2]=(v558[2] + v561)%v162 ;v558[3]=(v558[3] + v562)%v162 ;v558[4]=(v558[4] + v563)%v162 ;v558[5]=(v558[5] + v564)%v162 ;v558[6]=(v558[6] + v565)%v162 ;v558[7]=(v558[7] + v566)%v162 ;v558[8]=(v558[8] + v567)%v162 ;end local function v179(v576) v576=v176(v576, #v576);local v577=v177({});for v1276=1, #v576,64 do v178(v576,v1276,v577);end return v173(v174(v577[1],4)   .. v174(v577[2],4)   .. v174(v577[3],4)   .. v174(v577[4],4)   .. v174(v577[5],4)   .. v174(v577[6],4)   .. v174(v577[7],4)   .. v174(v577[8],4) );end local v180;local v181={["\\"]="\\",['\"']='\"',["\b"]="b",["\f"]="f",["\n"]="n",["\r"]="r",["\t"]="t"};local v182={["/"]="/"};for v578,v579 in pairs(v181) do v182[v579]=v578;end local v183=function(v581) return "\\"   .. (v181[v581] or string.format("u%04x",v581:byte())) ;end;local v184=function(v582) return "null";end;local v185=function(v583,v584) local v585={};v584=v584 or {} ;if v584[v583] then error("circular reference");end v584[v583]=true;if ((rawget(v583,1)~=nil) or (next(v583)==nil)) then local v1720=0;for v1852 in pairs(v583) do if (type(v1852)~="number") then error("invalid table: mixed or invalid key types");end v1720=v1720 + 1 ;end if (v1720~= #v583) then error("invalid table: sparse array");end for v1853,v1854 in ipairs(v583) do table.insert(v585,v180(v1854,v584));end v584[v583]=nil;return "["   .. table.concat(v585,",")   .. "]" ;else for v1855,v1856 in pairs(v583) do if (type(v1855)~="string") then error("invalid table: mixed or invalid key types");end table.insert(v585,v180(v1855,v584)   .. ":"   .. v180(v1856,v584) );end v584[v583]=nil;return "{"   .. table.concat(v585,",")   .. "}" ;end end;local v186=function(v587) return '"'   .. v587:gsub('[%z\1-\31\\"]',v183)   .. '"' ;end;local v187=function(v588) if ((v588~=v588) or (v588<= -math.huge) or (v588>=math.huge)) then error("unexpected number value '"   .. tostring(v588)   .. "'" );end return string.format("%.14g",v588);end;local v188={["nil"]=v184,table=v185,string=v186,number=v187,boolean=tostring};function v180(v589,v590) local v591=type(v589);local v592=v188[v591];if v592 then return v592(v589,v590);end error("unexpected type '"   .. v591   .. "'" );end local v189=function(v593) return v180(v593);end;local v190;local v191=function(...) local v594={};for v1277=1,select("#",...) do v594[select(v1277,...)]=true;end return v594;end;local v192=v191(" ","\t","\r","\n");local v193=v191(" ","\t","\r","\n","]","}",",");local v194=v191("\\","/",'"',"b","f","n","r","t","u");local v195=v191("true","false","null");local v196={["true"]=true,["false"]=false,null=nil};local v197=function(v595,v596,v597,v598) for v1279=v596, #v595 do if (v597[v595:sub(v1279,v1279)]~=v598) then return v1279;end end return  #v595 + 1 ;end;local v198=function(v599,v600,v601) local v602=1;local v603=1;for v1280=1,v600-1  do v603=v603 + 1 ;if (v599:sub(v1280,v1280)=="\n") then v602=v602 + 1 ;v603=1;end end error(string.format("%s at line %d col %d",v601,v602,v603));end;local v199=function(v604) local v605=math.floor;if (v604<=127) then return string.char(v604);elseif (v604<=2047) then return string.char(v605(v604/64 ) + 192 ,(v604%64) + 128 );elseif (v604<=65535) then return string.char(v605(v604/4096 ) + 224 ,v605((v604%4096)/64 ) + 128 ,(v604%64) + 128 );elseif (v604<=1114111) then return string.char(v605(v604/262144 ) + 240 ,v605((v604%262144)/4096 ) + 128 ,v605((v604%4096)/64 ) + 128 ,(v604%64) + 128 );end error(string.format("invalid unicode codepoint '%x'",v604));end;local v200=function(v606) local v607=tonumber(v606:sub(1,4),16);local v608=tonumber(v606:sub(7,10),16);if v608 then return v199(((((v607-55296) * 1024) + v608) -56320) + 65536 );else return v199(v607);end end;local v201=function(v609,v610) local v611="";local v612=v610 + 1 ;local v613=v612;while v612<= #v609  do local v1281=v609:byte(v612);if (v1281<32) then v198(v609,v612,"control character in string");elseif (v1281==92) then v611=v611   .. v609:sub(v613,v612-1 ) ;v612=v612 + 1 ;local v2065=v609:sub(v612,v612);if (v2065=="u") then local v2165=v609:match("^[dD][89aAbB]%x%x\\u%x%x%x%x",v612 + 1 ) or v609:match("^%x%x%x%x",v612 + 1 ) or v198(v609,v612-1 ,"invalid unicode escape in string") ;v611=v611   .. v200(v2165) ;v612=v612 +  #v2165 ;else if  not v194[v2065] then v198(v609,v612-1 ,"invalid escape char '"   .. v2065   .. "' in string" );end v611=v611   .. v182[v2065] ;end v613=v612 + 1 ;elseif (v1281==34) then v611=v611   .. v609:sub(v613,v612-1 ) ;return v611,v612 + 1 ;end v612=v612 + 1 ;end v198(v609,v610,"expected closing quote for string");end;local v202=function(v614,v615) local v616=v197(v614,v615,v193);local v617=v614:sub(v615,v616-1 );local v618=tonumber(v617);if  not v618 then v198(v614,v615,"invalid number '"   .. v617   .. "'" );end return v618,v616;end;local v203=function(v619,v620) local v621=v197(v619,v620,v193);local v622=v619:sub(v620,v621-1 );if  not v195[v622] then v198(v619,v620,"invalid literal '"   .. v622   .. "'" );end return v196[v622],v621;end;local v204=function(v623,v624) local v625={};local v626=1;v624=v624 + 1 ;while 1 do local v1282;v624=v197(v623,v624,v192,true);if (v623:sub(v624,v624)=="]") then v624=v624 + 1 ;break;end v1282,v624=v190(v623,v624);v625[v626]=v1282;v626=v626 + 1 ;v624=v197(v623,v624,v192,true);local v1284=v623:sub(v624,v624);v624=v624 + 1 ;if (v1284=="]") then break;end if (v1284~=",") then v198(v623,v624,"expected ']' or ','");end end return v625,v624;end;local v205=function(v627,v628) local v629={};v628=v628 + 1 ;while 1 do local v1285,v1286;v628=v197(v627,v628,v192,true);if (v627:sub(v628,v628)=="}") then v628=v628 + 1 ;break;end if (v627:sub(v628,v628)~='"') then v198(v627,v628,"expected string for key");end v1285,v628=v190(v627,v628);v628=v197(v627,v628,v192,true);if (v627:sub(v628,v628)~=":") then v198(v627,v628,"expected ':' after key");end v628=v197(v627,v628 + 1 ,v192,true);v1286,v628=v190(v627,v628);v629[v1285]=v1286;v628=v197(v627,v628,v192,true);local v1288=v627:sub(v628,v628);v628=v628 + 1 ;if (v1288=="}") then break;end if (v1288~=",") then v198(v627,v628,"expected '}' or ','");end end return v629,v628;end;local v206={['"']=v201,["0"]=v202,["1"]=v202,["2"]=v202,["3"]=v202,["4"]=v202,["5"]=v202,["6"]=v202,["7"]=v202,["8"]=v202,["9"]=v202,["-"]=v202,t=v203,f=v203,n=v203,["["]=v204,["{"]=v205};function v190(v630,v631) local v632=v630:sub(v631,v631);local v633=v206[v632];if v633 then return v633(v630,v631);end v198(v630,v631,"unexpected character '"   .. v632   .. "'" );end local v207=function(v634) if (type(v634)~="string") then error("expected argument of type string, got "   .. type(v634) );end local v635,v636=v190(v634,v197(v634,1,v192,true));v636=v197(v634,v636,v192,true);if (v636<= #v634) then v198(v634,v636,"trailing garbage");end return v635;end;local v208,v209,v210=v189,v207,v179;local v211={};v211.New=function(v637,v638) local v639=v637;local v640=v638;local v641=true;local v642=function(v1289) end;repeat task.wait(1);until game:IsLoaded() local v643=false;local v644,v645,v646,v647,v648,v649,v650,v651,v652=setclipboard or toclipboard ,request or http_request or syn_request ,string.char,tostring,string.sub,os.time,math.random,math.floor,gethwid or function() return game:GetService("Players").LocalPlayer.UserId;end ;local v653,v654="",0;local v655="https://api.platoboost.com";local v656=v645({Url=v655   .. "/public/connectivity" ,Method="GET"});if ((v656.StatusCode~=200) or (v656.StatusCode~=429)) then v655="https://api.platoboost.net";end function cacheLink() if ((v654 + 600)<v649()) then local v1857=v645({Url=v655   .. "/public/start" ,Method="POST",Body=v208({service=v639,identifier=v210(v652())}),Headers={["Content-Type"]="application/json"}});if (v1857.StatusCode==200) then local v2066=v209(v1857.Body);if (v2066.success==true) then v653=v2066.data.url;v654=v649();return true,v653;else v642(v2066.message);return false,v2066.message;end elseif (v1857.StatusCode==429) then local v2167="you are being rate limited, please wait 20 seconds and try again.";v642(v2167);return false,v2167;end local v1858="Failed to cache link.";v642(v1858);return false,v1858;else return true,v653;end end cacheLink();local v657=function() local v1290="";for v1723=1,16 do v1290=v1290   .. v646(v651(v650() * 26 ) + 97 ) ;end return v1290;end;for v1291=1,5 do local v1292=v657();task.wait(0.2);if (v657()==v1292) then local v1859="platoboost nonce error.";v642(v1859);error(v1859);end end local v658=function() local v1293,v1294=cacheLink();if v1293 then v644(v1294);end end;local v659=function(v1295) local v1296=v657();local v1297=v655   .. "/public/redeem/"   .. v647(v639) ;local v1298={identifier=v210(v652()),key=v1295};if v641 then v1298.nonce=v1296;end local v1299=v645({Url=v1297,Method="POST",Body=v208(v1298),Headers={["Content-Type"]="application/json"}});if (v1299.StatusCode==200) then local v1861=v209(v1299.Body);if (v1861.success==true) then if (v1861.data.valid==true) then if v641 then if (v1861.data.hash==v210("true"   .. "-"   .. v1296   .. "-"   .. v640 )) then return true;else v642("failed to verify integrity.");return false;end else return true;end else v642("key is invalid.");return false;end elseif (v648(v1861.message,1,27)=="unique constraint violation") then v642("you already have an active key, please wait for it to expire before redeeming it.");return false;else v642(v1861.message);return false;end elseif (v1299.StatusCode==429) then v642("you are being rate limited, please wait 20 seconds and try again.");return false;else v642("server returned an invalid status code, please try again later.");return false;end end;local v660=function(v1300) if (v643==true) then return false,"A request is already being sent, please slow down.";else v643=true;end local v1301=v657();local v1302=v655   .. "/public/whitelist/"   .. v647(v639)   .. "?identifier="   .. v210(v652())   .. "&key="   .. v1300 ;if v641 then v1302=v1302   .. "&nonce="   .. v1301 ;end local v1303=v645({Url=v1302,Method="GET"});v643=false;if (v1303.StatusCode==200) then local v1862=v209(v1303.Body);if (v1862.success==true) then if (v1862.data.valid==true) then if v641 then if (v1862.data.hash==v210("true"   .. "-"   .. v1301   .. "-"   .. v640 )) then return true,"";else return false,"failed to verify integrity.";end else return true;end elseif (v648(v1300,1,4)=="KEY_") then return true,v659(v1300);else return false,"Key is invalid.";end else return false,v1862.message;end elseif (v1303.StatusCode==429) then return false,"You are being rate limited, please wait 20 seconds and try again.";else return false,"Server returned an invalid status code, please try again later.";end end;local v661=function(v1304) local v1305=v657();local v1306=v655   .. "/public/flag/"   .. v647(v639)   .. "?name="   .. v1304 ;if v641 then v1306=v1306   .. "&nonce="   .. v1305 ;end local v1307=v645({Url=v1306,Method="GET"});if (v1307.StatusCode==200) then local v1863=v209(v1307.Body);if (v1863.success==true) then if v641 then if (v1863.data.hash==v210(v647(v1863.data.value)   .. "-"   .. v1305   .. "-"   .. v640 )) then return v1863.data.value;else v642("failed to verify integrity.");return nil;end else return v1863.data.value;end else v642(v1863.message);return nil;end else return nil;end end;return {Verify=v660,GetFlag=v661,Copy=v658};end;return v211;end;v0.f=function() local v213=game:GetService("HttpService");local v214={};v214.New=function(v662) local v663=gethwid or function() return game:GetService("Players").LocalPlayer.UserId;end ;local v664,v665=request or http_request or syn_request ,setclipboard or toclipboard ;function ValidateKey(v1308) local v1309="https://pandadevelopment.net/v2_validation?key="   .. tostring(v1308)   .. "&service="   .. tostring(v662)   .. "&hwid="   .. tostring(v663()) ;local v1310,v1311=pcall(function() return v664({Url=v1309,Method="GET",Headers={["User-Agent"]="Roblox/Exploit"}});end);if (v1310 and v1311) then if v1311.Success then local v2067,v2068=pcall(function() return v213:JSONDecode(v1311.Body);end);if (v2067 and v2068) then if (v2068.V2_Authentication and (v2068.V2_Authentication=="success")) then return true,"Authenticated";else local v2196=v2068.Key_Information.Notes or "Unknown reason" ;return false,"Authentication failed: "   .. v2196 ;end else return false,"JSON decode error";end else warn("[Pelinda Ov2.5] HTTP request was not successful. Code: "   .. tostring(v1311.StatusCode)   .. " Message: "   .. v1311.StatusMessage );return false,"HTTP request failed: "   .. v1311.StatusMessage ;end else return false,"Request pcall error";end end function GetKeyLink() return "https://pandadevelopment.net/getkey?service="   .. tostring(v662)   .. "&hwid="   .. tostring(v663) ;end function CopyLink() return v665(GetKeyLink());end return {Verify=ValidateKey,Copy=CopyLink};end;return v214;end;v0.g=function() local v216={};v216.New=function(v666,v667) local v668=loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))();local v669=setclipboard or toclipboard ;v668.script_id=v666;function ValidateKey(v1312) local v1313=v668.check_key(v1312);print(v1313);if (v1313.code=="KEY_VALID") then return true,"Whitelisted!";elseif (v1313.code=="KEY_HWID_LOCKED") then return false,"Key linked to a different HWID. Please reset it using our bot";elseif (v1313.code=="KEY_INCORRECT") then return false,"Key is wrong or deleted!";else return false,"Key check failed:"   .. v1313.message   .. " Code: "   .. v1313.code ;end end function CopyLink() v669(tostring(v667));end return {Verify=ValidateKey,Copy=CopyLink};end;return v216;end;v0.h=function() return {platoboost={Name="Platoboost",Icon="rbxassetid://75920162824531",Args={"ServiceId","Secret"},New=v0.load("e").New},pandadevelopment={Name="Panda Development",Icon="panda",Args={"ServiceId"},New=v0.load("f").New},luarmor={Name="Luarmor",Icon="rbxassetid://130918283130165",Args={"ScriptId","Discord"},New=v0.load("g").New}};end;v0.i=function() local v218={};local v219=v0.load("a");local v220=v219.New;local v221=v219.Tween;v218.New=function(v671,v672,v673,v674,v675,v676,v677) v674=v674 or "Primary" ;local v678=( not v677 and 10) or 99 ;local v679;if (v672 and (v672~="")) then v679=v220("ImageLabel",{Image=v219.Icon(v672)[1],ImageRectSize=v219.Icon(v672)[2].ImageRectSize,ImageRectOffset=v219.Icon(v672)[2].ImageRectPosition,Size=UDim2.new(0,21,0,21),BackgroundTransparency=1,ThemeTag={ImageColor3="Icon"}});end local v680=v220("TextButton",{Size=UDim2.new(0,0,1,0),AutomaticSize="X",Parent=v675,BackgroundTransparency=1},{v219.NewRoundFrame(v678,"Squircle",{ThemeTag={ImageColor3=((v674~="White") and "Button") or nil },ImageColor3=((v674=="White") and Color3.new(1,1,1)) or nil ,Size=UDim2.new(1,0,1,0),Name="Squircle",ImageTransparency=((v674=="Primary") and 0) or ((v674=="White") and 0) or 1 }),v219.NewRoundFrame(v678,"Squircle",{ImageColor3=Color3.new(1,1,1),Size=UDim2.new(1,0,1,0),Name="Special",ImageTransparency=((v674=="Secondary") and 0.95) or 1 }),v219.NewRoundFrame(v678,"Shadow-sm",{ImageColor3=Color3.new(0,0,0),Size=UDim2.new(1,3,1,3),AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Name="Shadow",ImageTransparency=1,Visible= not v677}),v219.NewRoundFrame(v678,( not v677 and "SquircleOutline") or "SquircleOutline2" ,{ThemeTag={ImageColor3=((v674~="White") and "Outline") or nil },Size=UDim2.new(1,0,1,0),ImageColor3=((v674=="White") and Color3.new(0,0,0)) or nil ,ImageTransparency=((v674=="Primary") and 0.95) or 0.85 ,Name="SquircleOutline"},{v220("UIGradient",{Rotation=70,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v219.NewRoundFrame(v678,"Squircle",{Size=UDim2.new(1,0,1,0),Name="Frame",ThemeTag={ImageColor3=((v674~="White") and "Text") or nil },ImageColor3=((v674=="White") and Color3.new(0,0,0)) or nil ,ImageTransparency=1},{v220("UIPadding",{PaddingLeft=UDim.new(0,16),PaddingRight=UDim.new(0,16)}),v220("UIListLayout",{FillDirection="Horizontal",Padding=UDim.new(0,8),VerticalAlignment="Center",HorizontalAlignment="Center"}),v679,v220("TextLabel",{BackgroundTransparency=1,FontFace=Font.new(v219.Font,Enum.FontWeight.SemiBold),Text=v671 or "Button" ,ThemeTag={TextColor3=(v674~="Primary") and (v674~="White") and "Text" },TextColor3=((v674=="Primary") and Color3.new(1,1,1)) or ((v674=="White") and Color3.new(0,0,0)) or nil ,AutomaticSize="XY",TextSize=18})})});v219.AddSignal(v680.MouseEnter,function() v221(v680.Frame,0.047,{ImageTransparency=0.95}):Play();end);v219.AddSignal(v680.MouseLeave,function() v221(v680.Frame,0.047,{ImageTransparency=1}):Play();end);v219.AddSignal(v680.MouseButton1Up,function() if v676 then v676:Close()();end if v673 then v219.SafeCallback(v673);end end);return v680;end;return v218;end;v0.j=function() local v223={};local v224=v0.load("a");local v225=v224.New;local v226=v224.Tween;v223.New=function(v681,v682,v683,v684,v685) v684=v684 or "Input" ;local v686=10;local v687;if (v682 and (v682~="")) then v687=v225("ImageLabel",{Image=v224.Icon(v682)[1],ImageRectSize=v224.Icon(v682)[2].ImageRectSize,ImageRectOffset=v224.Icon(v682)[2].ImageRectPosition,Size=UDim2.new(0,21,0,21),BackgroundTransparency=1,ThemeTag={ImageColor3="Icon"}});end local v688=v684~="Input" ;local v689=v225("TextBox",{BackgroundTransparency=1,TextSize=17,FontFace=Font.new(v224.Font,Enum.FontWeight.Regular),Size=UDim2.new(1,(v687 and  -29) or 0 ,1,0),PlaceholderText=v681,ClearTextOnFocus=false,ClipsDescendants=true,TextWrapped=v688,MultiLine=v688,TextXAlignment="Left",TextYAlignment=((v684=="Input") and "Center") or "Top" ,ThemeTag={PlaceholderColor3="PlaceholderText",TextColor3="Text"}});local v690=v225("Frame",{Size=UDim2.new(1,0,0,42),Parent=v683,BackgroundTransparency=1},{v225("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1},{v224.NewRoundFrame(v686,"Squircle",{ThemeTag={ImageColor3="Accent"},Size=UDim2.new(1,0,1,0),ImageTransparency=0.85}),v224.NewRoundFrame(v686,"SquircleOutline",{ThemeTag={ImageColor3="Outline"},Size=UDim2.new(1,0,1,0),ImageTransparency=0.9}),v224.NewRoundFrame(v686,"Squircle",{Size=UDim2.new(1,0,1,0),Name="Frame",ImageColor3=Color3.new(1,1,1),ImageTransparency=0.95},{v225("UIPadding",{PaddingTop=UDim.new(0,((v684=="Input") and 0) or 12 ),PaddingLeft=UDim.new(0,12),PaddingRight=UDim.new(0,12),PaddingBottom=UDim.new(0,((v684=="Input") and 0) or 12 )}),v225("UIListLayout",{FillDirection="Horizontal",Padding=UDim.new(0,8),VerticalAlignment=((v684=="Input") and "Center") or "Top" ,HorizontalAlignment="Left"}),v687,v689})})});v224.AddSignal(v689.FocusLost,function() if v685 then v224.SafeCallback(v685,v689.Text);end end);return v690;end;return v223;end;v0.k=function() local v228=v0.load("a");local v229=v228.New;local v230=v228.Tween;local v231={Holder=nil,Parent=nil};v231.Init=function(v691,v692) Window=v691;v231.Parent=v692;return v231;end;v231.Create=function(v694) local v695={UICorner=24,UIPadding=15,UIElements={}};if v694 then v695.UIPadding=0;end if v694 then v695.UICorner=26;end if  not v694 then v695.UIElements.FullScreen=v229("Frame",{ZIndex=999,BackgroundTransparency=1,BackgroundColor3=Color3.fromHex("#000000"),Size=UDim2.new(1,0,1,0),Active=false,Visible=false,Parent=v231.Parent or (Window and Window.UIElements and Window.UIElements.Main and Window.UIElements.Main.Main) },{v229("UICorner",{CornerRadius=UDim.new(0,Window.UICorner)})});end v695.UIElements.Main=v229("Frame",{Size=UDim2.new(0,280,0,0),ThemeTag={BackgroundColor3="Dialog"},AutomaticSize="Y",BackgroundTransparency=1,Visible=false,ZIndex=99999},{v229("UIPadding",{PaddingTop=UDim.new(0,v695.UIPadding),PaddingLeft=UDim.new(0,v695.UIPadding),PaddingRight=UDim.new(0,v695.UIPadding),PaddingBottom=UDim.new(0,v695.UIPadding)})});v695.UIElements.MainContainer=v228.NewRoundFrame(v695.UICorner,"Squircle",{Visible=false,ImageTransparency=(v694 and 0.15) or 0 ,Parent=(v694 and v231.Parent) or v695.UIElements.FullScreen ,Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),AutomaticSize="XY",ThemeTag={ImageColor3="Dialog"},ZIndex=9999},{v695.UIElements.Main,v228.NewRoundFrame(v695.UICorner,"SquircleOutline2",{Size=UDim2.new(1,0,1,0),ImageTransparency=1,ThemeTag={ImageColor3="Outline"}},{v229("UIGradient",{Rotation=45,Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.55),NumberSequenceKeypoint.new(0.5,0.8),NumberSequenceKeypoint.new(1,0.6)})})})});v695.Open=function(v1314) if  not v694 then v695.UIElements.FullScreen.Visible=true;v695.UIElements.FullScreen.Active=true;end task.spawn(function() v695.UIElements.MainContainer.Visible=true;if  not v694 then v230(v695.UIElements.FullScreen,0.1,{BackgroundTransparency=0.3}):Play();end v230(v695.UIElements.MainContainer,0.1,{ImageTransparency=0}):Play();task.spawn(function() task.wait(0.05);v695.UIElements.Main.Visible=true;end);end);end;v695.Close=function(v1315) if  not v694 then v230(v695.UIElements.FullScreen,0.1,{BackgroundTransparency=1}):Play();v695.UIElements.FullScreen.Active=false;task.spawn(function() task.wait(0.1);v695.UIElements.FullScreen.Visible=false;end);end v695.UIElements.Main.Visible=false;v230(v695.UIElements.MainContainer,0.1,{ImageTransparency=1}):Play();task.spawn(function() task.wait(0.1);if  not v694 then v695.UIElements.FullScreen:Destroy();else v695.UIElements.MainContainer:Destroy();end end);return function() end;end;return v695;end;return v231;end;v0.l=function() local v234={};local v235=v0.load("a");local v236=v235.New;local v237=v235.Tween;local v238=v0.load("i").New;local v239=v0.load("j").New;v234.new=function(v700,v701,v702) local v703=v0.load("k").Init(nil,v700.WindUI.ScreenGui.KeySystem);local v704=v703.Create(true);local v705={};local v706;local v707=200;local v708=430;if (v700.KeySystem.Thumbnail and v700.KeySystem.Thumbnail.Image) then v708=430 + (v707/2) ;end v704.UIElements.Main.AutomaticSize="Y";v704.UIElements.Main.Size=UDim2.new(0,v708,0,0);local v711;if v700.Icon then v711=v235.Image(v700.Icon,v700.Title   .. ":"   .. v700.Icon ,0,"Temp","KeySystem",v700.IconThemed);v711.Size=UDim2.new(0,24,0,24);v711.LayoutOrder= -1;end local v712=v236("TextLabel",{AutomaticSize="XY",BackgroundTransparency=1,Text=v700.Title,FontFace=Font.new(v235.Font,Enum.FontWeight.SemiBold),ThemeTag={TextColor3="Text"},TextSize=20});local v713=v236("TextLabel",{AutomaticSize="XY",BackgroundTransparency=1,Text="Key System",AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,0,0.5,0),TextTransparency=1,FontFace=Font.new(v235.Font,Enum.FontWeight.Medium),ThemeTag={TextColor3="Text"},TextSize=16});local v714=v236("Frame",{BackgroundTransparency=1,AutomaticSize="XY"},{v236("UIListLayout",{Padding=UDim.new(0,14),FillDirection="Horizontal",VerticalAlignment="Center"}),v711,v712});local v715=v236("Frame",{AutomaticSize="Y",Size=UDim2.new(1,0,0,0),BackgroundTransparency=1},{v714,v713});local v716=v239("Enter Key","key",nil,"Input",function(v1317) v706=v1317;end);local v717;if (v700.KeySystem.Note and (v700.KeySystem.Note~="")) then v717=v236("TextLabel",{Size=UDim2.new(1,0,0,0),AutomaticSize="Y",FontFace=Font.new(v235.Font,Enum.FontWeight.Medium),TextXAlignment="Left",Text=v700.KeySystem.Note,TextSize=18,TextTransparency=0.4,ThemeTag={TextColor3="Text"},BackgroundTransparency=1,RichText=true,TextWrapped=true});end local v718=v236("Frame",{Size=UDim2.new(1,0,0,42),BackgroundTransparency=1},{v236("Frame",{BackgroundTransparency=1,AutomaticSize="X",Size=UDim2.new(0,0,1,0)},{v236("UIListLayout",{Padding=UDim.new(0,9),FillDirection="Horizontal"})})});local v719;if (v700.KeySystem.Thumbnail and v700.KeySystem.Thumbnail.Image) then local v1730;if v700.KeySystem.Thumbnail.Title then v1730=v236("TextLabel",{Text=v700.KeySystem.Thumbnail.Title,ThemeTag={TextColor3="Text"},TextSize=18,FontFace=Font.new(v235.Font,Enum.FontWeight.Medium),BackgroundTransparency=1,AutomaticSize="XY",AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0)});end v719=v236("ImageLabel",{Image=v700.KeySystem.Thumbnail.Image,BackgroundTransparency=1,Size=UDim2.new(0,v707,1,0),Parent=v704.UIElements.Main,ScaleType="Crop"},{v1730,v236("UICorner",{CornerRadius=UDim.new(0,0)})});end v236("Frame",{Size=UDim2.new(1,(v719 and  -v707) or 0 ,1,0),Position=UDim2.new(0,(v719 and v707) or 0 ,0,0),BackgroundTransparency=1,Parent=v704.UIElements.Main},{v236("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1},{v236("UIListLayout",{Padding=UDim.new(0,18),FillDirection="Vertical"}),v715,v717,v716,v718,v236("UIPadding",{PaddingTop=UDim.new(0,16),PaddingLeft=UDim.new(0,16),PaddingRight=UDim.new(0,16),PaddingBottom=UDim.new(0,16)})})});local v720=v238("Exit","log-out",function() v704:Close()();end,"Tertiary",v718.Frame);if v719 then v720.Parent=v719;v720.Size=UDim2.new(0,0,0,42);v720.Position=UDim2.new(0,16,1, -16);v720.AnchorPoint=Vector2.new(0,1);end if v700.KeySystem.URL then v238("Get key","key",function() setclipboard(v700.KeySystem.URL);end,"Secondary",v718.Frame);end if v700.KeySystem.API then local v1735=240;local v1736=false;local v1737=v238("Get key","key",nil,"Secondary",v718.Frame);local v1738=v235.NewRoundFrame(99,"Squircle",{Size=UDim2.new(0,1,1,0),ThemeTag={ImageColor3="Text"},ImageTransparency=0.9});v236("Frame",{BackgroundTransparency=1,Size=UDim2.new(0,0,1,0),AutomaticSize="X",Parent=v1737.Frame},{v1738,v236("UIPadding",{PaddingLeft=UDim.new(0,5),PaddingRight=UDim.new(0,5)})});local v1739=v235.Image("chevron-down","chevron-down",0,"Temp","KeySystem",true);v1739.Size=UDim2.new(1,0,1,0);v236("Frame",{Size=UDim2.new(0,21,0,21),Parent=v1737.Frame,BackgroundTransparency=1},{v1739});local v1741=v235.NewRoundFrame(15,"Squircle",{Size=UDim2.new(1,0,0,0),AutomaticSize="Y",ThemeTag={ImageColor3="Background"}},{v236("UIPadding",{PaddingTop=UDim.new(0,5),PaddingLeft=UDim.new(0,5),PaddingRight=UDim.new(0,5),PaddingBottom=UDim.new(0,5)}),v236("UIListLayout",{FillDirection="Vertical",Padding=UDim.new(0,5)})});local v1742=v236("Frame",{BackgroundTransparency=1,Size=UDim2.new(0,v1735,0,0),ClipsDescendants=true,AnchorPoint=Vector2.new(1,0),Parent=v1737,Position=UDim2.new(1,0,1,15)},{v1741});v236("TextLabel",{Text="Select Service",BackgroundTransparency=1,FontFace=Font.new(v235.Font,Enum.FontWeight.Medium),ThemeTag={TextColor3="Text"},TextTransparency=0.2,TextSize=16,Size=UDim2.new(1,0,0,0),AutomaticSize="Y",TextWrapped=true,TextXAlignment="Left",Parent=v1741},{v236("UIPadding",{PaddingTop=UDim.new(0,10),PaddingLeft=UDim.new(0,10),PaddingRight=UDim.new(0,10),PaddingBottom=UDim.new(0,10)})});for v1868,v1869 in next,v700.KeySystem.API do local v1870=v700.WindUI.Services[v1869.Type];if v1870 then local v2069={};for v2136,v2137 in next,v1870.Args do table.insert(v2069,v1869[v2137]);end local v2070=v1870.New(table.unpack(v2069));v2070.Type=v1869.Type;table.insert(v705,v2070);local v2073=v235.Image(v1869.Icon or v1870.Icon or Icons[v1869.Type] or "user" ,v1869.Icon or v1870.Icon or Icons[v1869.Type] or "user" ,0,"Temp","KeySystem",true);v2073.Size=UDim2.new(0,24,0,24);local v2075=v235.NewRoundFrame(10,"Squircle",{Size=UDim2.new(1,0,0,0),ThemeTag={ImageColor3="Text"},ImageTransparency=1,Parent=v1741,AutomaticSize="Y"},{v236("UIListLayout",{FillDirection="Horizontal",Padding=UDim.new(0,10),VerticalAlignment="Center"}),v2073,v236("UIPadding",{PaddingTop=UDim.new(0,10),PaddingLeft=UDim.new(0,10),PaddingRight=UDim.new(0,10),PaddingBottom=UDim.new(0,10)}),v236("Frame",{BackgroundTransparency=1,Size=UDim2.new(1, -34,0,0),AutomaticSize="Y"},{v236("UIListLayout",{FillDirection="Vertical",Padding=UDim.new(0,5),HorizontalAlignment="Center"}),v236("TextLabel",{Text=v1869.Title or v1870.Name ,BackgroundTransparency=1,FontFace=Font.new(v235.Font,Enum.FontWeight.Medium),ThemeTag={TextColor3="Text"},TextTransparency=0.05,TextSize=18,Size=UDim2.new(1,0,0,0),AutomaticSize="Y",TextWrapped=true,TextXAlignment="Left"}),v236("TextLabel",{Text=v1869.Desc or "" ,BackgroundTransparency=1,FontFace=Font.new(v235.Font,Enum.FontWeight.Regular),ThemeTag={TextColor3="Text"},TextTransparency=0.2,TextSize=16,Size=UDim2.new(1,0,0,0),AutomaticSize="Y",TextWrapped=true,Visible=(v1869.Desc and true) or false ,TextXAlignment="Left"})})},true);v235.AddSignal(v2075.MouseEnter,function() v237(v2075,0.08,{ImageTransparency=0.95}):Play();end);v235.AddSignal(v2075.InputEnded,function() v237(v2075,0.08,{ImageTransparency=1}):Play();end);v235.AddSignal(v2075.MouseButton1Click,function() v2070.Copy();v700.WindUI({Title="Key System",Content="Key link copied to clipboard.",Image="key"});end);end end v235.AddSignal(v1737.MouseButton1Click,function() if  not v1736 then v237(v1742,0.3,{Size=UDim2.new(0,v1735,0,v1741.AbsoluteSize.Y + 1 )},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v237(v1739,0.3,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();else v237(v1742,0.25,{Size=UDim2.new(0,v1735,0,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v237(v1739,0.25,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end v1736= not v1736;end);end local function v721(v1318) v704:Close()();writefile((v700.Folder or v700.Title)   .. "/"   .. v701   .. ".key" ,tostring(v1318));task.wait(0.4);v702(true);end local v722=v238("Submit","arrow-right",function() local v1319=tostring(v706 or "empty" );local v1320=v700.Folder or v700.Title ;if  not v700.KeySystem.API then local v1871=((type(v700.KeySystem.Key)=="table") and table.find(v700.KeySystem.Key,v1319)) or (v700.KeySystem.Key==v1319) ;if v1871 then if v700.KeySystem.SaveKey then v721(v1319);else v704:Close()();task.wait(0.4);v702(true);end end else local v1872,v1873;for v1991,v1992 in next,v705 do local v1993,v1994=v1992.Verify(v1319);if v1993 then v1872,v1873=true,v1994;break;end v1873=v1994;end if v1872 then v721(v1319);else v700.WindUI({Title="Key System. Error",Content=v1873,Icon="triangle-alert"});end end end,"Primary",v718);v722.AnchorPoint=Vector2.new(1,0.5);v722.Position=UDim2.new(1,0,0.5,0);v704:Open();end;return v234;end;v0.m=function() local v241={};local v242=v0.load("a");local v243=v242.New;local v244=v242.Tween;v241.new=function(v725) local v726={Title=v725.Title or "Dialog" ,Content=v725.Content,Icon=v725.Icon,IconThemed=v725.IconThemed,Thumbnail=v725.Thumbnail,Buttons=v725.Buttons,IconSize=22};local v727=v0.load("k").Init(nil,v725.WindUI.ScreenGui.Popups);local v728=v727.Create(true);local v729=200;local v730=430;if (v726.Thumbnail and v726.Thumbnail.Image) then v730=430 + (v729/2) ;end v728.UIElements.Main.AutomaticSize="Y";v728.UIElements.Main.Size=UDim2.new(0,v730,0,0);local v733;if v726.Icon then v733=v242.Image(v726.Icon,v726.Title   .. ":"   .. v726.Icon ,0,v725.WindUI.Window,"Popup",v725.IconThemed);v733.Size=UDim2.new(0,v726.IconSize,0,v726.IconSize);v733.LayoutOrder= -1;end local v734=v243("TextLabel",{AutomaticSize="Y",BackgroundTransparency=1,Text=v726.Title,TextXAlignment="Left",FontFace=Font.new(v242.Font,Enum.FontWeight.SemiBold),ThemeTag={TextColor3="Text"},TextSize=20,TextWrapped=true,Size=UDim2.new(1,(v733 and ( -v726.IconSize-14)) or 0 ,0,0)});local v735=v243("Frame",{BackgroundTransparency=1,AutomaticSize="XY"},{v243("UIListLayout",{Padding=UDim.new(0,14),FillDirection="Horizontal",VerticalAlignment="Center"}),v733,v734});local v736=v243("Frame",{AutomaticSize="Y",Size=UDim2.new(1,0,0,0),BackgroundTransparency=1},{v735});local v737;if (v726.Content and (v726.Content~="")) then v737=v243("TextLabel",{Size=UDim2.new(1,0,0,0),AutomaticSize="Y",FontFace=Font.new(v242.Font,Enum.FontWeight.Medium),TextXAlignment="Left",Text=v726.Content,TextSize=18,TextTransparency=0.2,ThemeTag={TextColor3="Text"},BackgroundTransparency=1,RichText=true,TextWrapped=true});end local v738=v243("Frame",{Size=UDim2.new(1,0,0,42),BackgroundTransparency=1},{v243("UIListLayout",{Padding=UDim.new(0,9),FillDirection="Horizontal",HorizontalAlignment="Right"})});local v739;if (v726.Thumbnail and v726.Thumbnail.Image) then local v1745;if v726.Thumbnail.Title then v1745=v243("TextLabel",{Text=v726.Thumbnail.Title,ThemeTag={TextColor3="Text"},TextSize=18,FontFace=Font.new(v242.Font,Enum.FontWeight.Medium),BackgroundTransparency=1,AutomaticSize="XY",AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0)});end v739=v243("ImageLabel",{Image=v726.Thumbnail.Image,BackgroundTransparency=1,Size=UDim2.new(0,v729,1,0),Parent=v728.UIElements.Main,ScaleType="Crop"},{v1745,v243("UICorner",{CornerRadius=UDim.new(0,0)})});end v243("Frame",{Size=UDim2.new(1,(v739 and  -v729) or 0 ,1,0),Position=UDim2.new(0,(v739 and v729) or 0 ,0,0),BackgroundTransparency=1,Parent=v728.UIElements.Main},{v243("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1},{v243("UIListLayout",{Padding=UDim.new(0,18),FillDirection="Vertical"}),v736,v737,v738,v243("UIPadding",{PaddingTop=UDim.new(0,16),PaddingLeft=UDim.new(0,16),PaddingRight=UDim.new(0,16),PaddingBottom=UDim.new(0,16)})})});local v740=v0.load("i").New;for v1321,v1322 in next,v726.Buttons do v740(v1322.Title,v1322.Icon,v1322.Callback,v1322.Variant,v738,v728);end v728:Open();return v726;end;return v241;end;v0.n=function() local v246={};local v247=v0.load("a");local v248=v247.New;local v249=v247.Tween;v246.New=function(v741,v742,v743) local v744=10;local v745;if (v742 and (v742~="")) then v745=v248("ImageLabel",{Image=v247.Icon(v742)[1],ImageRectSize=v247.Icon(v742)[2].ImageRectSize,ImageRectOffset=v247.Icon(v742)[2].ImageRectPosition,Size=UDim2.new(0,21,0,21),BackgroundTransparency=1,ThemeTag={ImageColor3="Icon"}});end local v746=v248("TextLabel",{BackgroundTransparency=1,TextSize=17,FontFace=Font.new(v247.Font,Enum.FontWeight.Regular),Size=UDim2.new(1,(v745 and  -29) or 0 ,1,0),TextXAlignment="Left",ThemeTag={TextColor3="Text"},Text=v741});local v747=v248("TextButton",{Size=UDim2.new(1,0,0,42),Parent=v743,BackgroundTransparency=1,Text=""},{v248("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1},{v247.NewRoundFrame(v744,"Squircle",{ThemeTag={ImageColor3="Accent"},Size=UDim2.new(1,0,1,0),ImageTransparency=0.85}),v247.NewRoundFrame(v744,"SquircleOutline",{ThemeTag={ImageColor3="Outline"},Size=UDim2.new(1,0,1,0),ImageTransparency=0.9}),v247.NewRoundFrame(v744,"Squircle",{Size=UDim2.new(1,0,1,0),Name="Frame",ImageColor3=Color3.new(1,1,1),ImageTransparency=0.95},{v248("UIPadding",{PaddingLeft=UDim.new(0,12),PaddingRight=UDim.new(0,12)}),v248("UIListLayout",{FillDirection="Horizontal",Padding=UDim.new(0,8),VerticalAlignment="Center",HorizontalAlignment="Left"}),v745,v746})})});return v747;end;return v246;end;v0.o=function() local v251={};local v252=game:GetService("UserInputService");local v253=v0.load("a");local v254=v253.New;local v255=v253.Tween;v251.New=function(v748,v749,v750,v751) local v752=v254("Frame",{Size=UDim2.new(0,v751,1,0),BackgroundTransparency=1,Position=UDim2.new(1,0,0,0),AnchorPoint=Vector2.new(1,0),Parent=v749,ZIndex=999,Active=true});local v753=v253.NewRoundFrame(v751/2 ,"Squircle",{Size=UDim2.new(1,0,0,0),ImageTransparency=0.85,ThemeTag={ImageColor3="Text"},Parent=v752});local v754=v254("Frame",{Size=UDim2.new(1,12,1,12),Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,Active=true,ZIndex=999,Parent=v753});local v755=false;local v756=0;local function v757() local v1323=v748;local v1324=v1323.AbsoluteCanvasSize.Y;local v1325=v1323.AbsoluteWindowSize.Y;if (v1324<=v1325) then v753.Visible=false;return;end local v1326=math.clamp(v1325/v1324 ,0.1,1);v753.Size=UDim2.new(1,0,v1326,0);v753.Visible=true;end local function v758() local v1329=v753.Position.Y.Scale;local v1330=v748.AbsoluteCanvasSize.Y;local v1331=v748.AbsoluteWindowSize.Y;local v1332=math.max(v1330-v1331 ,0);if (v1332<=0) then return;end local v1333=math.max(1 -v753.Size.Y.Scale ,0);if (v1333<=0) then return;end local v1334=v1329/v1333 ;v748.CanvasPosition=Vector2.new(v748.CanvasPosition.X,v1334 * v1332 );end local function v759() if v755 then return;end local v1336=v748.CanvasPosition.Y;local v1337=v748.AbsoluteCanvasSize.Y;local v1338=v748.AbsoluteWindowSize.Y;local v1339=math.max(v1337-v1338 ,0);if (v1339<=0) then v753.Position=UDim2.new(0,0,0,0);return;end local v1340=v1336/v1339 ;local v1341=math.max(1 -v753.Size.Y.Scale ,0);local v1342=math.clamp(v1340 * v1341 ,0,v1341);v753.Position=UDim2.new(0,0,v1342,0);end v253.AddSignal(v752.InputBegan,function(v1344) if ((v1344.UserInputType==Enum.UserInputType.MouseButton1) or (v1344.UserInputType==Enum.UserInputType.Touch)) then local v1876=v753.AbsolutePosition.Y;local v1877=v1876 + v753.AbsoluteSize.Y ;if  not ((v1344.Position.Y>=v1876) and (v1344.Position.Y<=v1877)) then local v2076=v752.AbsolutePosition.Y;local v2077=v752.AbsoluteSize.Y;local v2078=v753.AbsoluteSize.Y;local v2079=(v1344.Position.Y-v2076) -(v2078/2) ;local v2080=v2077-v2078 ;local v2081=math.clamp(v2079/v2080 ,0,1 -v753.Size.Y.Scale );v753.Position=UDim2.new(0,0,v2081,0);v758();end end end);v253.AddSignal(v754.InputBegan,function(v1345) if ((v1345.UserInputType==Enum.UserInputType.MouseButton1) or (v1345.UserInputType==Enum.UserInputType.Touch)) then v755=true;v756=v1345.Position.Y-v753.AbsolutePosition.Y ;local v1878;local v1879;v1878=v252.InputChanged:Connect(function(v1995) if ((v1995.UserInputType==Enum.UserInputType.MouseMovement) or (v1995.UserInputType==Enum.UserInputType.Touch)) then local v2138=v752.AbsolutePosition.Y;local v2139=v752.AbsoluteSize.Y;local v2140=v753.AbsoluteSize.Y;local v2141=(v1995.Position.Y-v2138) -v756 ;local v2142=v2139-v2140 ;local v2143=math.clamp(v2141/v2142 ,0,1 -v753.Size.Y.Scale );v753.Position=UDim2.new(0,0,v2143,0);v758();end end);v1879=v252.InputEnded:Connect(function(v1996) if ((v1996.UserInputType==Enum.UserInputType.MouseButton1) or (v1996.UserInputType==Enum.UserInputType.Touch)) then v755=false;if v1878 then v1878:Disconnect();end if v1879 then v1879:Disconnect();end end end);end end);v253.AddSignal(v748:GetPropertyChangedSignal("AbsoluteWindowSize"),function() v757();v759();end);v253.AddSignal(v748:GetPropertyChangedSignal("AbsoluteCanvasSize"),function() v757();v759();end);v253.AddSignal(v748:GetPropertyChangedSignal("CanvasPosition"),function() if  not v755 then v759();end end);v757();v759();return v752;end;return v251;end;v0.p=function() local v257={};local v258=v0.load("a");local v259=v258.New;local v260=v258.Tween;local function v261(v760) local v761,v762,v763=v760.R,v760.G,v760.B;local v764=math.max(v761,v762,v763);local v765=math.min(v761,v762,v763);local v766=v764-v765 ;local v767=0;if (v766~=0) then if (v764==v761) then v767=((v762-v763)/v766)%6 ;elseif (v764==v762) then v767=((v763-v761)/v766) + 2 ;else v767=((v761-v762)/v766) + 4 ;end v767=v767 * 60 ;else v767=0;end local v768=((v764==0) and 0) or (v766/v764) ;local v769=v764;return {h=math.floor(v767 + 0.5 ),s=v768,b=v769};end local function v262(v770) local v771=v770.R;local v772=v770.G;local v773=v770.B;return (0.299 * v771) + (0.587 * v772) + (0.114 * v773) ;end local function v263(v774) local v775=v261(v774);local v776,v777,v778=v775.h,v775.s,v775.b;if (v262(v774)>0.5) then return Color3.fromHSV(v776/360 ,0,0.05);else return Color3.fromHSV(v776/360 ,0,0.98);end end v257.New=function(v779,v780,v781) local v782={Title=v780.Title or "Tag" ,Color=v780.Color or Color3.fromHex("#315dff") ,TagFrame=nil,Height=26,Padding=10,TextSize=14};local v783=v259("TextLabel",{BackgroundTransparency=1,AutomaticSize="XY",TextSize=v782.TextSize,FontFace=Font.new(v258.Font,Enum.FontWeight.SemiBold),Text=v782.Title,TextColor3=v263(v782.Color)});local v784=v258.NewRoundFrame(999,"Squircle",{AutomaticSize="X",Size=UDim2.new(0,0,0,v782.Height),Parent=v781,ImageColor3=v782.Color},{v259("UIPadding",{PaddingLeft=UDim.new(0,v782.Padding),PaddingRight=UDim.new(0,v782.Padding)}),v783,v259("UIListLayout",{FillDirection="Horizontal",VerticalAlignment="Center"})});v782.SetTitle=function(v1346,v1347) v782.Title=v1347;v783.Text=v1347;end;v782.SetColor=function(v1350,v1351) v782.Color=v1351;v260(v783,0.06,{TextColor3=v263(v1351)}):Play();v260(v784,0.06,{ImageColor3=v1351}):Play();end;return v782;end;return v257;end;v0.q=function() local v265=game:GetService("HttpService");local v266;local v267;v267={Folder=nil,Path=nil,Configs={},Parser={Colorpicker={Save=function(v787) return {__type=v787.__type,value=v787.Default:ToHex(),transparency=v787.Transparency or nil };end,Load=function(v788,v789) if v788 then v788:Update(Color3.fromHex(v789.value),v789.transparency or nil );end end},Dropdown={Save=function(v790) return {__type=v790.__type,value=v790.Value};end,Load=function(v791,v792) if v791 then v791:Select(v792.value);end end},Input={Save=function(v793) return {__type=v793.__type,value=v793.Value};end,Load=function(v794,v795) if v794 then v794:Set(v795.value);end end},Keybind={Save=function(v796) return {__type=v796.__type,value=v796.Value};end,Load=function(v797,v798) if v797 then v797:Set(v798.value);end end},Slider={Save=function(v799) return {__type=v799.__type,value=v799.Value.Default};end,Load=function(v800,v801) if v800 then v800:Set(v801.value);end end},Toggle={Save=function(v802) return {__type=v802.__type,value=v802.Value};end,Load=function(v803,v804) if v803 then v803:Set(v804.value);end end}}};v267.Init=function(v805,v806) if  not v806.Folder then warn("[ WindUI.ConfigManager ] Window.Folder is not specified.");return false;end v266=v806;v267.Folder=v266.Folder;v267.Path="H4xScripts/"   .. tostring(v267.Folder)   .. "/config/" ;if  not isfolder("H4xScripts/"   .. v267.Folder ) then makefolder("H4xScripts/"   .. v267.Folder );if  not isfolder("H4xScripts/"   .. v267.Folder   .. "/config/" ) then makefolder("H4xScripts/"   .. v267.Folder   .. "/config/" );end end local v810=v267:AllConfigs();for v1353,v1354 in next,v810 do if isfile(v1354   .. ".json" ) then v267.Configs[v1354]=readfile(v1354   .. ".json" );end end return v267;end;v267.CreateConfig=function(v811,v812) local v813={Path=v267.Path   .. v812   .. ".json" ,Elements={},CustomData={},Version=1.1};if  not v812 then return false,"No config file is selected";end v813.Register=function(v1355,v1356,v1357) v813.Elements[v1356]=v1357;end;v813.Set=function(v1359,v1360,v1361) v813.CustomData[v1360]=v1361;end;v813.Get=function(v1363,v1364) return v813.CustomData[v1364];end;v813.Save=function(v1365) local v1366={__version=v813.Version,__elements={},__custom=v813.CustomData};for v1746,v1747 in next,v813.Elements do if v267.Parser[v1747.__type] then v1366.__elements[tostring(v1746)]=v267.Parser[v1747.__type].Save(v1747);end end local v1367=v265:JSONEncode(v1366);writefile(v813.Path,v1367);end;v813.Load=function(v1368) if  not isfile(v813.Path) then return false,"Config file does not exist";end local v1369,v1370=pcall(function() return v265:JSONDecode(readfile(v813.Path));end);if  not v1369 then return false,"Failed to parse config file";end if  not v1370.__version then local v1881={__version=v813.Version,__elements=v1370,__custom={}};v1370=v1881;end for v1748,v1749 in next,v1370.__elements or {}  do if (v813.Elements[v1748] and v267.Parser[v1749.__type]) then task.spawn(function() v267.Parser[v1749.__type].Load(v813.Elements[v1748],v1749);end);end end v813.CustomData=v1370.__custom or {} ;return v813.CustomData;end;v813.GetData=function(v1372) return {elements=v813.Elements,custom=v813.CustomData};end;v267.Configs[v812]=v813;return v813;end;v267.AllConfigs=function(v821) if  not listfiles then return {};end local v822={};if  not isfolder(v267.Path) then makefolder(v267.Path);return v822;end for v1373,v1374 in next,listfiles(v267.Path) do local v1375=v1374:match("([^\\/]+)%.json$");if v1375 then table.insert(v822,v1375);end end return v822;end;v267.GetConfig=function(v823,v824) return v267.Configs[v824];end;return v267;end;v0.r=function() local v272={};local v273=v0.load("a");local v274=v273.New;local v275=v273.Tween;local v276=game:GetService("UserInputService");v272.New=function(v825) local v826={Button=nil};local v827;local v828=v274("TextLabel",{Text=v825.Title,TextSize=17,FontFace=Font.new(v273.Font,Enum.FontWeight.Medium),BackgroundTransparency=1,AutomaticSize="XY"});local v829=v274("Frame",{Size=UDim2.new(0,36,0,36),BackgroundTransparency=1,Name="Drag"},{v274("ImageLabel",{Image=v273.Icon("move")[1],ImageRectOffset=v273.Icon("move")[2].ImageRectPosition,ImageRectSize=v273.Icon("move")[2].ImageRectSize,Size=UDim2.new(0,18,0,18),BackgroundTransparency=1,Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5)})});local v830=v274("Frame",{Size=UDim2.new(0,1,1,0),Position=UDim2.new(0,36,0.5,0),AnchorPoint=Vector2.new(0,0.5),BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=0.9});local v831=v274("Frame",{Size=UDim2.new(0,0,0,0),Position=UDim2.new(0.5,0,0,28),AnchorPoint=Vector2.new(0.5,0.5),Parent=v825.Parent,BackgroundTransparency=1,Active=true,Visible=false});local v832=v274("TextButton",{Size=UDim2.new(0,0,0,44),AutomaticSize="X",Parent=v831,Active=false,BackgroundTransparency=0.25,ZIndex=99,BackgroundColor3=Color3.new(0,0,0)},{v274("UICorner",{CornerRadius=UDim.new(1,0)}),v274("UIStroke",{Thickness=1,ApplyStrokeMode="Border",Color=Color3.new(1,1,1),Transparency=0},{v274("UIGradient",{Color=ColorSequence.new(Color3.fromHex("40c9ff"),Color3.fromHex("e81cff"))})}),v829,v830,v274("UIListLayout",{Padding=UDim.new(0,4),FillDirection="Horizontal",VerticalAlignment="Center"}),v274("TextButton",{AutomaticSize="XY",Active=true,BackgroundTransparency=1,Size=UDim2.new(0,0,0,36),BackgroundColor3=Color3.new(1,1,1)},{v274("UICorner",{CornerRadius=UDim.new(1, -4)}),v827,v274("UIListLayout",{Padding=UDim.new(0,v825.UIPadding),FillDirection="Horizontal",VerticalAlignment="Center"}),v828,v274("UIPadding",{PaddingLeft=UDim.new(0,12),PaddingRight=UDim.new(0,12)})}),v274("UIPadding",{PaddingLeft=UDim.new(0,4),PaddingRight=UDim.new(0,4)})});v826.Button=v832;v826.SetIcon=function(v1376,v1377) if v827 then v827:Destroy();end if v1377 then v827=v273.Image(v1377,v825.Title,0,v825.Folder,"OpenButton",true,v825.IconThemed);v827.Size=UDim2.new(0,22,0,22);v827.LayoutOrder= -1;v827.Parent=v826.Button.TextButton;end end;if v825.Icon then v826:SetIcon(v825.Icon);end v273.AddSignal(v832:GetPropertyChangedSignal("AbsoluteSize"),function() v831.Size=UDim2.new(0,v832.AbsoluteSize.X,0,v832.AbsoluteSize.Y);end);v273.AddSignal(v832.TextButton.MouseEnter,function() v275(v832.TextButton,0.1,{BackgroundTransparency=0.93}):Play();end);v273.AddSignal(v832.TextButton.MouseLeave,function() v275(v832.TextButton,0.1,{BackgroundTransparency=1}):Play();end);local v835=v273.Drag(v831);v826.Visible=function(v1379,v1380) v831.Visible=v1380;end;v826.Edit=function(v1382,v1383) local v1384={Title=v1383.Title,Icon=v1383.Icon,Enabled=v1383.Enabled,Position=v1383.Position,Draggable=v1383.Draggable,OnlyMobile=v1383.OnlyMobile,CornerRadius=v1383.CornerRadius or UDim.new(1,0) ,StrokeThickness=v1383.StrokeThickness or 2 ,Color=v1383.Color or ColorSequence.new(Color3.fromHex("40c9ff"),Color3.fromHex("e81cff")) };if (v1384.Enabled==false) then v825.IsOpenButtonEnabled=false;end if ((v1384.Draggable==false) and v829 and v830) then v829.Visible=v1384.Draggable;v830.Visible=v1384.Draggable;if v835 then v835:Set(v1384.Draggable);end end if (v1384.Position and OpenButtonContainer) then OpenButtonContainer.Position=v1384.Position;end local v1385=v276.KeyboardEnabled or  not v276.TouchEnabled ;v272.Visible= not v1384.OnlyMobile or  not v1385 ;if  not v272.Visible then return;end if v828 then if v1384.Title then v828.Text=v1384.Title;v273:ChangeTranslationKey(v828,v1384.Title);elseif (v1384.Title==nil) then end end if v1384.Icon then v826:SetIcon(v1384.Icon);end v832.UIStroke.UIGradient.Color=v1384.Color;if Glow then Glow.UIGradient.Color=v1384.Color;end v832.UICorner.CornerRadius=v1384.CornerRadius;v832.TextButton.UICorner.CornerRadius=UDim.new(v1384.CornerRadius.Scale,v1384.CornerRadius.Offset-4 );v832.UIStroke.Thickness=v1384.StrokeThickness;end;return v826;end;return v272;end;v0.s=function() local v278={};local v279=v0.load("a");local v280=v279.New;local v281=v279.Tween;v278.New=function(v838,v839) local v840={Container=nil,ToolTipSize=16};local v841=v280("TextLabel",{AutomaticSize="XY",TextWrapped=true,BackgroundTransparency=1,FontFace=Font.new(v279.Font,Enum.FontWeight.Medium),Text=v838,TextSize=17,TextTransparency=1,ThemeTag={TextColor3="Text"}});local v842=v280("UIScale",{Scale=0.9});local v843=v280("Frame",{AnchorPoint=Vector2.new(0.5,0),AutomaticSize="XY",BackgroundTransparency=1,Parent=v839,Visible=false},{v280("UISizeConstraint",{MaxSize=Vector2.new(400,math.huge)}),v280("Frame",{AutomaticSize="XY",BackgroundTransparency=1,LayoutOrder=99,Visible=false},{v280("ImageLabel",{Size=UDim2.new(0,v840.ToolTipSize,0,v840.ToolTipSize/2 ),BackgroundTransparency=1,Rotation=180,Image="rbxassetid://89524607682719",ThemeTag={ImageColor3="Accent"}},{v280("ImageLabel",{Size=UDim2.new(0,v840.ToolTipSize,0,v840.ToolTipSize/2 ),BackgroundTransparency=1,LayoutOrder=99,ImageTransparency=0.9,Image="rbxassetid://89524607682719",ThemeTag={ImageColor3="Text"}})})}),v279.NewRoundFrame(14,"Squircle",{AutomaticSize="XY",ThemeTag={ImageColor3="Accent"},ImageTransparency=1,Name="Background"},{v280("Frame",{ThemeTag={BackgroundColor3="Text"},AutomaticSize="XY",BackgroundTransparency=1},{v280("UICorner",{CornerRadius=UDim.new(0,16)}),v280("UIListLayout",{Padding=UDim.new(0,12),FillDirection="Horizontal",VerticalAlignment="Center"}),v841,v280("UIPadding",{PaddingTop=UDim.new(0,12),PaddingLeft=UDim.new(0,12),PaddingRight=UDim.new(0,12),PaddingBottom=UDim.new(0,12)})})}),v842,v280("UIListLayout",{Padding=UDim.new(0,0),FillDirection="Vertical",VerticalAlignment="Center",HorizontalAlignment="Center"})});v840.Container=v843;v840.Open=function(v1394) v843.Visible=true;v281(v843.Background,0.2,{ImageTransparency=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v281(v841,0.2,{TextTransparency=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v281(v842,0.18,{Scale=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end;v840.Close=function(v1396) v281(v843.Background,0.3,{ImageTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v281(v841,0.3,{TextTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v281(v842,0.35,{Scale=0.9},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();task.wait(0.35);v843.Visible=false;v843:Destroy();end;return v840;end;return v278;end;v0.t=function() local v283=v0.load("a");local v284=v283.New;local v285=v283.NewRoundFrame;local v286=v283.Tween;game:GetService("UserInputService");local function v287(v847) local v848,v849,v850=v847.R,v847.G,v847.B;local v851=math.max(v848,v849,v850);local v852=math.min(v848,v849,v850);local v853=v851-v852 ;local v854=0;if (v853~=0) then if (v851==v848) then v854=((v849-v850)/v853)%6 ;elseif (v851==v849) then v854=((v850-v848)/v853) + 2 ;else v854=((v848-v849)/v853) + 4 ;end v854=v854 * 60 ;else v854=0;end local v855=((v851==0) and 0) or (v853/v851) ;local v856=v851;return {h=math.floor(v854 + 0.5 ),s=v855,b=v856};end local function v288(v857) local v858=v857.R;local v859=v857.G;local v860=v857.B;return (0.299 * v858) + (0.587 * v859) + (0.114 * v860) ;end local function v289(v861) local v862=v287(v861);local v863,v864,v865=v862.h,v862.s,v862.b;if (v288(v861)>0.5) then return Color3.fromHSV(v863/360 ,0,0.05);else return Color3.fromHSV(v863/360 ,0,0.98);end end return function(v866) local v867={Title=v866.Title,Desc=v866.Desc or nil ,Hover=v866.Hover,Thumbnail=v866.Thumbnail,ThumbnailSize=v866.ThumbnailSize or 80 ,Image=v866.Image,IconThemed=v866.IconThemed or false ,ImageSize=v866.ImageSize or 30 ,Color=v866.Color,Scalable=v866.Scalable,Parent=v866.Parent,UIPadding=13,UICorner=12,UIElements={}};local v868=v867.ImageSize;local v869=v867.ThumbnailSize;local v870=true;local v871=0;local v872;local v873;if v867.Thumbnail then v872=v283.Image(v867.Thumbnail,v867.Title,v867.UICorner-3 ,v866.Window.Folder,"Thumbnail",false,v867.IconThemed);v872.Size=UDim2.new(1,0,0,v869);end if v867.Image then v873=v283.Image(v867.Image,v867.Title,v867.UICorner-3 ,v866.Window.Folder,"Image",( not v867.Color and true) or false );if (typeof(v867.Color)=="string") then v873.ImageLabel.ImageColor3=v289(Color3.fromHex(v283.Colors[v867.Color]));elseif (typeof(v867.Color)=="Color3") then v873.ImageLabel.ImageColor3=v289(v867.Color);end v873.Size=UDim2.new(0,v868,0,v868);v871=v868;end local function v874(v1398,v1399) local v1400=((typeof(v867.Color)=="string") and v289(Color3.fromHex(v283.Colors[v867.Color]))) or ((typeof(v867.Color)=="Color3") and v289(v867.Color)) ;return v284("TextLabel",{BackgroundTransparency=1,Text=v1398 or "" ,TextSize=((v1399=="Desc") and 14) or 16 ,TextXAlignment="Left",ThemeTag={TextColor3=( not v867.Color and "Text") or nil },TextColor3=(v867.Color and v1400) or nil ,TextTransparency=((v1399=="Desc") and 0.25) or 0 ,TextWrapped=true,Size=UDim2.new(1,0,0,0),AutomaticSize="Y",FontFace=Font.new(v283.Font,Enum.FontWeight.Medium)});end local v875=v874(v867.Title,"Title");local v876=v874(v867.Desc,"Desc");if ( not v867.Desc or (v867.Desc=="")) then v876.Visible=false;end v867.UIElements.Container=v284("Frame",{Size=UDim2.new(1,0,0,0),AutomaticSize="Y",BackgroundTransparency=1},{v284("UIListLayout",{Padding=UDim.new(0,v867.UIPadding),FillDirection="Vertical",VerticalAlignment="Top",HorizontalAlignment="Left"}),v872,v284("Frame",{Size=UDim2.new(1, -v866.TextOffset,0,0),AutomaticSize="Y",BackgroundTransparency=1},{v284("UIListLayout",{Padding=UDim.new(0,v867.UIPadding),FillDirection="Horizontal",VerticalAlignment="Top",HorizontalAlignment="Left"}),v873,v284("Frame",{BackgroundTransparency=1,AutomaticSize="Y",Size=UDim2.new(1, -v871,0,50 -(v867.UIPadding * 2) )},{v284("UIListLayout",{Padding=UDim.new(0,6),FillDirection="Vertical",VerticalAlignment="Center",HorizontalAlignment="Left"}),v875,v876})})});v867.UIElements.Locked=v285(v867.UICorner,"Squircle",{Size=UDim2.new(1,v867.UIPadding * 2 ,1,v867.UIPadding * 2 ),ImageTransparency=0.4,AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),ImageColor3=Color3.new(0,0,0),Visible=false,Active=false,ZIndex=9999999});v867.UIElements.Main=v285(v867.UICorner,"Squircle",{Size=UDim2.new(1,0,0,50),AutomaticSize="Y",ImageTransparency=(v867.Color and 0.05) or 0.95 ,Parent=v866.Parent,ThemeTag={ImageColor3=( not v867.Color and "Text") or nil },ImageColor3=(v867.Color and (((typeof(v867.Color)=="string") and Color3.fromHex(v283.Colors[v867.Color])) or ((typeof(v867.Color)=="Color3") and v867.Color))) or nil },{v867.UIElements.Container,v867.UIElements.Locked,v284("UIPadding",{PaddingTop=UDim.new(0,v867.UIPadding),PaddingLeft=UDim.new(0,v867.UIPadding),PaddingRight=UDim.new(0,v867.UIPadding),PaddingBottom=UDim.new(0,v867.UIPadding)})},true);if v867.Hover then v283.AddSignal(v867.UIElements.Main.MouseEnter,function() if v870 then v286(v867.UIElements.Main,0.05,{ImageTransparency=(v867.Color and 0.15) or 0.9 }):Play();end end);v283.AddSignal(v867.UIElements.Main.InputEnded,function() if v870 then v286(v867.UIElements.Main,0.05,{ImageTransparency=(v867.Color and 0.05) or 0.95 }):Play();end end);end v867.SetTitle=function(v1401,v1402) v875.Text=v1402;end;v867.SetDesc=function(v1404,v1405) v876.Text=v1405 or "" ;if  not v1405 then v876.Visible=false;elseif  not v876.Visible then v876.Visible=true;end end;v867.Destroy=function(v1407) v867.UIElements.Main:Destroy();end;v867.Lock=function(v1408) v870=false;v867.UIElements.Locked.Active=true;v867.UIElements.Locked.Visible=true;end;v867.Unlock=function(v1411) v870=true;v867.UIElements.Locked.Active=false;v867.UIElements.Locked.Visible=false;end;return v867;end;end;v0.u=function() local v290=v0.load("a");local v291=v290.New;local v292={};local v293=v0.load("i").New;v292.New=function(v885,v886) v886.Hover=false;v886.TextOffset=0;v886.IsButtons=(v886.Buttons and ( #v886.Buttons>0) and true) or false ;local v890={__type="Paragraph",Title=v886.Title or "Paragraph" ,Desc=v886.Desc or nil ,Locked=v886.Locked or false };local v891=v0.load("t")(v886);v890.ParagraphFrame=v891;if (v886.Buttons and ( #v886.Buttons>0)) then local v1753=v291("Frame",{Size=UDim2.new(1,0,0,38),BackgroundTransparency=1,AutomaticSize="Y",Parent=v891.UIElements.Container},{v291("UIListLayout",{Padding=UDim.new(0,10),FillDirection="Vertical"})});for v1895,v1896 in next,v886.Buttons do local v1897=v293(v1896.Title,v1896.Icon,v1896.Callback,"White",v1753);v1897.Size=UDim2.new(1,0,0,38);end end return v890.__type,v890;end;return v292;end;v0.v=function() local v295=v0.load("a");local v296=v295.New;local v297={};v297.New=function(v893,v894) local v895={__type="Button",Title=v894.Title or "Button" ,Desc=v894.Desc or nil ,Locked=v894.Locked or false ,Callback=v894.Callback or function() end ,UIElements={}};local v896=true;v895.ButtonFrame=v0.load("t")({Title=v895.Title,Desc=v895.Desc,Parent=v894.Parent,Window=v894.Window,TextOffset=20,Hover=true,Scalable=true});v895.UIElements.ButtonIcon=v296("ImageLabel",{Image=v295.Icon("mouse-pointer-click")[1],ImageRectOffset=v295.Icon("mouse-pointer-click")[2].ImageRectPosition,ImageRectSize=v295.Icon("mouse-pointer-click")[2].ImageRectSize,BackgroundTransparency=1,Parent=v895.ButtonFrame.UIElements.Main,Size=UDim2.new(0,20,0,20),AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,0,0.5,0),ThemeTag={ImageColor3="Text"}});v895.Lock=function(v1414) v896=false;return v895.ButtonFrame:Lock();end;v895.Unlock=function(v1415) v896=true;return v895.ButtonFrame:Unlock();end;if v895.Locked then v895:Lock();end v295.AddSignal(v895.ButtonFrame.UIElements.Main.MouseButton1Click,function() if v896 then task.spawn(function() v295.SafeCallback(v895.Callback);end);end end);return v895.__type,v895;end;return v297;end;v0.w=function() local v299={};local v300=v0.load("a");local v301=v300.New;local v302=v300.Tween;v299.New=function(v901,v902,v903,v904) local v905={};local v906=13;local v907;if (v902 and (v902~="")) then v907=v301("ImageLabel",{Size=UDim2.new(1, -7,1, -7),BackgroundTransparency=1,AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Image=v300.Icon(v902)[1],ImageRectOffset=v300.Icon(v902)[2].ImageRectPosition,ImageRectSize=v300.Icon(v902)[2].ImageRectSize,ImageTransparency=1,ImageColor3=Color3.new(0,0,0)});end local v908=v300.NewRoundFrame(v906,"Squircle",{ImageTransparency=0.95,ThemeTag={ImageColor3="Text"},Parent=v903,Size=UDim2.new(0,42,0,26)},{v300.NewRoundFrame(v906,"Squircle",{Size=UDim2.new(1,0,1,0),Name="Layer",ThemeTag={ImageColor3="Button"},ImageTransparency=1}),v300.NewRoundFrame(v906,"SquircleOutline",{Size=UDim2.new(1,0,1,0),Name="Stroke",ImageColor3=Color3.new(1,1,1),ImageTransparency=1},{v301("UIGradient",{Rotation=90,Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(1,1)})})}),v300.NewRoundFrame(v906,"Squircle",{Size=UDim2.new(0,18,0,18),Position=UDim2.new(0,3,0.5,0),AnchorPoint=Vector2.new(0,0.5),ImageTransparency=0,ImageColor3=Color3.new(1,1,1),Name="Frame"},{v907})});v905.Set=function(v1416,v1417) if v1417 then v302(v908.Frame,0.1,{Position=UDim2.new(1, -22,0.5,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v302(v908.Layer,0.1,{ImageTransparency=0}):Play();v302(v908.Stroke,0.1,{ImageTransparency=0.95}):Play();if v907 then v302(v907,0.1,{ImageTransparency=0}):Play();end else v302(v908.Frame,0.1,{Position=UDim2.new(0,4,0.5,0),Size=UDim2.new(0,18,0,18)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v302(v908.Layer,0.1,{ImageTransparency=1}):Play();v302(v908.Stroke,0.1,{ImageTransparency=1}):Play();if v907 then v302(v907,0.1,{ImageTransparency=1}):Play();end end task.spawn(function() if v904 then v300.SafeCallback(v904,v1417);end end);end;return v908,v905;end;return v299;end;v0.x=function() local v304={};local v305=v0.load("a");local v306=v305.New;local v307=v305.Tween;v304.New=function(v910,v911,v912,v913) local v914={};v911=v911 or "check" ;local v915=10;local v916=v306("ImageLabel",{Size=UDim2.new(1, -10,1, -10),BackgroundTransparency=1,AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Image=v305.Icon(v911)[1],ImageRectOffset=v305.Icon(v911)[2].ImageRectPosition,ImageRectSize=v305.Icon(v911)[2].ImageRectSize,ImageTransparency=1,ImageColor3=Color3.new(1,1,1)});local v917=v305.NewRoundFrame(v915,"Squircle",{ImageTransparency=0.95,ThemeTag={ImageColor3="Text"},Parent=v912,Size=UDim2.new(0,27,0,27)},{v305.NewRoundFrame(v915,"Squircle",{Size=UDim2.new(1,0,1,0),Name="Layer",ThemeTag={ImageColor3="Button"},ImageTransparency=1}),v305.NewRoundFrame(v915,"SquircleOutline",{Size=UDim2.new(1,0,1,0),Name="Stroke",ImageColor3=Color3.new(1,1,1),ImageTransparency=1},{v306("UIGradient",{Rotation=90,Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(1,1)})})}),v916});v914.Set=function(v1418,v1419) if v1419 then v307(v917.Layer,0.06,{ImageTransparency=0}):Play();v307(v917.Stroke,0.06,{ImageTransparency=0.95}):Play();v307(v916,0.06,{ImageTransparency=0}):Play();else v307(v917.Layer,0.05,{ImageTransparency=1}):Play();v307(v917.Stroke,0.05,{ImageTransparency=1}):Play();v307(v916,0.06,{ImageTransparency=1}):Play();end task.spawn(function() if v913 then v305.SafeCallback(v913,v1419);end end);end;return v917,v914;end;return v304;end;v0.y=function() local v309=v0.load("a");local v310=v309.New;local v311=v309.Tween;local v312=v0.load("w").New;local v313=v0.load("x").New;local v314={};v314.New=function(v919,v920) local v921={__type="Toggle",Title=v920.Title or "Toggle" ,Desc=v920.Desc or nil ,Value=v920.Value,Icon=v920.Icon or nil ,Type=v920.Type or "Toggle" ,Callback=v920.Callback or function() end ,UIElements={}};v921.ToggleFrame=v0.load("t")({Title=v921.Title,Desc=v921.Desc,Window=v920.Window,Parent=v920.Parent,TextOffset=44,Hover=false});local v923=true;if (v921.Value==nil) then v921.Value=false;end v921.Lock=function(v1420) v923=false;return v921.ToggleFrame:Lock();end;v921.Unlock=function(v1421) v923=true;return v921.ToggleFrame:Unlock();end;if v921.Locked then v921:Lock();end local v926=v921.Value;local v927,v928;if (v921.Type=="Toggle") then v927,v928=v312(v926,v921.Icon,v921.ToggleFrame.UIElements.Main,v921.Callback);elseif (v921.Type=="Checkbox") then v927,v928=v313(v926,v921.Icon,v921.ToggleFrame.UIElements.Main,v921.Callback);else error("Unknown Toggle Type: "   .. tostring(v921.Type) );end v927.AnchorPoint=Vector2.new(1,0.5);v927.Position=UDim2.new(1,0,0.5,0);v921.Set=function(v1422,v1423) if v923 then v928:Set(v1423);v926=v1423;v921.Value=v1423;end end;v921:Set(v926);v309.AddSignal(v921.ToggleFrame.UIElements.Main.MouseButton1Click,function() v921:Set( not v926);end);return v921.__type,v921;end;return v314;end;v0.z=function() local v316=v0.load("a");local v317=v316.New;local v318=v316.Tween;local v319={};local v320=false;v319.New=function(v932,v933) local v934={__type="Slider",Title=v933.Title or "Slider" ,Desc=v933.Desc or nil ,Locked=v933.Locked or nil ,Value=v933.Value or {} ,Step=v933.Step or 1 ,Callback=v933.Callback or function() end ,UIElements={},IsFocusing=false,Width=130,TextBoxWidth=30};local v935;local v936;local v937;local v938=v934.Value.Default or v934.Value.Min or 0 ;local v939=v938;local v940=(v938-(v934.Value.Min or 0))/((v934.Value.Max or 100) -(v934.Value.Min or 0)) ;local v941=true;local v942=(v934.Step%1)~=0 ;local function v943(v1424) if v942 then return string.format("%.2f",v1424);else return tostring(math.floor(v1424 + 0.5 ));end end local function v944(v1425) if v942 then return math.floor((v1425/v934.Step) + 0.5 ) * v934.Step ;else return math.floor((v1425/v934.Step) + 0.5 ) * v934.Step ;end end v934.SliderFrame=v0.load("t")({Title=v934.Title,Desc=v934.Desc,Parent=v933.Parent,TextOffset=v934.Width,Hover=false});v934.UIElements.SliderIcon=v316.NewRoundFrame(99,"Squircle",{ImageTransparency=0.95,Size=UDim2.new(1, -v934.TextBoxWidth-8 ,0,4),Name="Frame",ThemeTag={ImageColor3="Text"}},{v316.NewRoundFrame(99,"Squircle",{Name="Frame",Size=UDim2.new(v940,0,1,0),ImageTransparency=0.1,ThemeTag={ImageColor3="Button"}},{v316.NewRoundFrame(99,"Squircle",{Size=UDim2.new(0,13,0,13),Position=UDim2.new(1,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),ThemeTag={ImageColor3="Text"}})})});v934.UIElements.SliderContainer=v317("Frame",{Size=UDim2.new(0,v934.Width,0,0),AutomaticSize="Y",Position=UDim2.new(1,0,0.5,0),AnchorPoint=Vector2.new(1,0.5),BackgroundTransparency=1,Parent=v934.SliderFrame.UIElements.Main},{v317("UIListLayout",{Padding=UDim.new(0,8),FillDirection="Horizontal",VerticalAlignment="Center"}),v934.UIElements.SliderIcon,v317("TextBox",{Size=UDim2.new(0,v934.TextBoxWidth,0,0),TextXAlignment="Left",Text=v943(v938),ThemeTag={TextColor3="Text"},TextTransparency=0.4,AutomaticSize="Y",TextSize=15,FontFace=Font.new(v316.Font,Enum.FontWeight.Medium),BackgroundTransparency=1,LayoutOrder= -1})});v934.Lock=function(v1426) v941=false;return v934.SliderFrame:Lock();end;v934.Unlock=function(v1427) v941=true;return v934.SliderFrame:Unlock();end;if v934.Locked then v934:Lock();end local v950=(v934.SliderFrame.Parent:IsA("ScrollingFrame") and v934.SliderFrame.Parent) or v934.SliderFrame.Parent.Parent.Parent ;v934.Set=function(v1428,v1429,v1430) if v941 then if ( not v934.IsFocusing and  not v320 and ( not v1430 or (v1430.UserInputType==Enum.UserInputType.MouseButton1) or (v1430.UserInputType==Enum.UserInputType.Touch))) then v1429=math.clamp(v1429,v934.Value.Min or 0 ,v934.Value.Max or 100 );local v2086=math.clamp((v1429-(v934.Value.Min or 0))/((v934.Value.Max or 100) -(v934.Value.Min or 0)) ,0,1);v1429=v944(v934.Value.Min + (v2086 * (v934.Value.Max-v934.Value.Min)) );if (v1429~=v939) then v318(v934.UIElements.SliderIcon.Frame,0.08,{Size=UDim2.new(v2086,0,1,0)}):Play();v934.UIElements.SliderContainer.TextBox.Text=v943(v1429);v934.Value.Default=v943(v1429);v939=v1429;v316.SafeCallback(v934.Callback,v943(v1429));end if v1430 then v935=v1430.UserInputType==Enum.UserInputType.Touch ;v950.ScrollingEnabled=false;v320=true;v936=game:GetService("RunService").RenderStepped:Connect(function() local v2185=(v935 and v1430.Position.X) or game:GetService("UserInputService"):GetMouseLocation().X ;local v2186=math.clamp((v2185-v934.UIElements.SliderIcon.AbsolutePosition.X)/v934.UIElements.SliderIcon.AbsoluteSize.X ,0,1);v1429=v944(v934.Value.Min + (v2186 * (v934.Value.Max-v934.Value.Min)) );if (v1429~=v939) then v318(v934.UIElements.SliderIcon.Frame,0.08,{Size=UDim2.new(v2186,0,1,0)}):Play();v934.UIElements.SliderContainer.TextBox.Text=v943(v1429);v934.Value.Default=v943(v1429);v939=v1429;v316.SafeCallback(v934.Callback,v943(v1429));end end);v937=game:GetService("UserInputService").InputEnded:Connect(function(v2187) if (((v2187.UserInputType==Enum.UserInputType.MouseButton1) or (v2187.UserInputType==Enum.UserInputType.Touch)) and (v1430==v2187)) then v936:Disconnect();v937:Disconnect();v320=false;v950.ScrollingEnabled=true;end end);end end end end;v316.AddSignal(v934.UIElements.SliderContainer.TextBox.FocusLost,function(v1431) if v1431 then local v1900=tonumber(v934.UIElements.SliderContainer.TextBox.Text);if v1900 then v934:Set(v1900);else v934.UIElements.SliderContainer.TextBox.Text=v943(v939);end end end);v316.AddSignal(v934.UIElements.SliderContainer.InputBegan,function(v1432) v934:Set(v938,v1432);end);return v934.__type,v934;end;return v319;end;v0.A=function() local v322=game:GetService("UserInputService");local v323=v0.load("a");local v324=v323.New;local v325=v323.Tween;local v326={UICorner=6,UIPadding=8};local v327=v0.load("n").New;v326.New=function(v952,v953) local v954={__type="Keybind",Title=v953.Title or "Keybind" ,Desc=v953.Desc or nil ,Locked=v953.Locked or false ,Value=v953.Value or "F" ,Callback=v953.Callback or function() end ,CanChange=v953.CanChange or true ,Picking=false,UIElements={}};local v955=true;v954.KeybindFrame=v0.load("t")({Title=v954.Title,Desc=v954.Desc,Parent=v953.Parent,TextOffset=85,Hover=v954.CanChange});v954.UIElements.Keybind=v327(v954.Value,nil,v954.KeybindFrame.UIElements.Main);v954.UIElements.Keybind.Size=UDim2.new(0,24 + v954.UIElements.Keybind.Frame.Frame.TextLabel.TextBounds.X ,0,42);v954.UIElements.Keybind.AnchorPoint=Vector2.new(1,0.5);v954.UIElements.Keybind.Position=UDim2.new(1,0,0.5,0);v324("UIScale",{Parent=v954.UIElements.Keybind,Scale=0.85});v323.AddSignal(v954.UIElements.Keybind.Frame.Frame.TextLabel:GetPropertyChangedSignal("TextBounds"),function() v954.UIElements.Keybind.Size=UDim2.new(0,24 + v954.UIElements.Keybind.Frame.Frame.TextLabel.TextBounds.X ,0,42);end);v954.Lock=function(v1434) v955=false;return v954.KeybindFrame:Lock();end;v954.Unlock=function(v1435) v955=true;return v954.KeybindFrame:Unlock();end;v954.Set=function(v1436,v1437) v954.Value=v1437;v954.UIElements.Keybind.Frame.Frame.TextLabel.Text=v1437;end;if v954.Locked then v954:Lock();end v323.AddSignal(v954.KeybindFrame.UIElements.Main.MouseButton1Click,function() if v955 then if v954.CanChange then v954.Picking=true;v954.UIElements.Keybind.Frame.Frame.TextLabel.Text="...";task.wait(0.2);local v2090;v2090=v322.InputBegan:Connect(function(v2146) local v2147;if (v2146.UserInputType==Enum.UserInputType.Keyboard) then v2147=v2146.KeyCode.Name;elseif (v2146.UserInputType==Enum.UserInputType.MouseButton1) then v2147="MouseLeft";elseif (v2146.UserInputType==Enum.UserInputType.MouseButton2) then v2147="MouseRight";end local v2148;v2148=v322.InputEnded:Connect(function(v2171) if ((v2171.KeyCode.Name==v2147) or ((v2147=="MouseLeft") and (v2171.UserInputType==Enum.UserInputType.MouseButton1)) or ((v2147=="MouseRight") and (v2171.UserInputType==Enum.UserInputType.MouseButton2))) then v954.Picking=false;v954.UIElements.Keybind.Frame.Frame.TextLabel.Text=v2147;v954.Value=v2147;v2090:Disconnect();v2148:Disconnect();end end);end);end end end);v323.AddSignal(v322.InputBegan,function(v1440) if v955 then if (v1440.KeyCode.Name==v954.Value) then v323.SafeCallback(v954.Callback,v1440.KeyCode.Name);end end end);return v954.__type,v954;end;return v326;end;v0.B=function() local v329=v0.load("a");local v330=v329.New;local v331=v329.Tween;local v332={UICorner=8,UIPadding=8};local v333=v0.load("i").New;local v334=v0.load("j").New;v332.New=function(v964,v965) local v966={__type="Input",Title=v965.Title or "Input" ,Desc=v965.Desc or nil ,Type=v965.Type or "Input" ,Locked=v965.Locked or false ,InputIcon=v965.InputIcon or false ,Placeholder=v965.Placeholder or "Enter Text..." ,Value=v965.Value or "" ,Callback=v965.Callback or function() end ,ClearTextOnFocus=v965.ClearTextOnFocus or false ,UIElements={},Width=150};local v967=true;v966.InputFrame=v0.load("t")({Title=v966.Title,Desc=v966.Desc,Parent=v965.Parent,TextOffset=v966.Width,Hover=false});local v969=v334(v966.Placeholder,v966.InputIcon,(( not v966.Type=="Input") and v966.InputFrame.UIElements.Container) or v966.InputFrame.UIElements.Main ,v966.Type,function(v1441) v966:Set(v1441);end);if (v966.Type=="Input") then v969.Size=UDim2.new(0,v966.Width,0,36);v969.Position=UDim2.new(1,0,0.5,0);v969.AnchorPoint=Vector2.new(1,0.5);else v969.Size=UDim2.new(1,0,0,148);end v330("UIScale",{Parent=v969,Scale=1});v966.Lock=function(v1442) v967=false;return v966.InputFrame:Lock();end;v966.Unlock=function(v1443) v967=true;return v966.InputFrame:Unlock();end;v966.Set=function(v1444,v1445) if v967 then v329.SafeCallback(v966.Callback,v1445);v969.Frame.Frame.TextBox.Text=v1445;v966.Value=v1445;end end;v966.SetPlaceholder=function(v1446,v1447) v969.Frame.Frame.TextBox.PlaceholderText=v1447;v966.Placeholder=v1447;end;v966:Set(v966.Value);if v966.Locked then v966:Lock();end return v966.__type,v966;end;return v332;end;v0.C=function() local v336=game:GetService("UserInputService");local v337=game:GetService("Players").LocalPlayer:GetMouse();local v338=game:GetService("Workspace").CurrentCamera;local v339=v0.load("a");local v340=v339.New;local v341=v339.Tween;local v342=v0.load("n").New;local v343={UICorner=10,UIPadding=12,MenuCorner=15,MenuPadding=5,TabPadding=10};v343.New=function(v974,v975) local v976={__type="Dropdown",Title=v975.Title or "Dropdown" ,Desc=v975.Desc or nil ,Locked=v975.Locked or false ,Values=v975.Values or {} ,MenuWidth=v975.MenuWidth or 170 ,Value=v975.Value,AllowNone=v975.AllowNone,Multi=v975.Multi,Callback=v975.Callback or function() end ,UIElements={},Opened=false,Tabs={},Width=150};if (v976.Multi and  not v976.Value) then v976.Value={};end local v977=true;v976.DropdownFrame=v0.load("t")({Title=v976.Title,Desc=v976.Desc,Parent=v975.Parent,TextOffset=v976.Width,Hover=false});v976.UIElements.Dropdown=v342("",nil,v976.DropdownFrame.UIElements.Main);v976.UIElements.Dropdown.Frame.Frame.TextLabel.TextTruncate="AtEnd";v976.UIElements.Dropdown.Frame.Frame.TextLabel.Size=UDim2.new(1,((v976.UIElements.Dropdown.Frame.Frame.TextLabel.Size.X.Offset-18) -12) -12 ,0,0);v976.UIElements.Dropdown.Size=UDim2.new(0,v976.Width,0,36);v976.UIElements.Dropdown.Position=UDim2.new(1,0,0.5,0);v976.UIElements.Dropdown.AnchorPoint=Vector2.new(1,0.5);v340("ImageLabel",{Image=v339.Icon("chevrons-up-down")[1],ImageRectOffset=v339.Icon("chevrons-up-down")[2].ImageRectPosition,ImageRectSize=v339.Icon("chevrons-up-down")[2].ImageRectSize,Size=UDim2.new(0,18,0,18),Position=UDim2.new(1, -12,0.5,0),ThemeTag={ImageColor3="Icon"},AnchorPoint=Vector2.new(1,0.5),Parent=v976.UIElements.Dropdown.Frame});v976.UIElements.UIListLayout=v340("UIListLayout",{Padding=UDim.new(0,v343.MenuPadding),FillDirection="Vertical"});v976.UIElements.Menu=v339.NewRoundFrame(v343.MenuCorner,"Squircle",{ThemeTag={ImageColor3="Background"},ImageTransparency=1,Size=UDim2.new(1,0,1,0),AnchorPoint=Vector2.new(1,0),Position=UDim2.new(1,0,0,0)},{v340("UIPadding",{PaddingTop=UDim.new(0,v343.MenuPadding),PaddingLeft=UDim.new(0,v343.MenuPadding),PaddingRight=UDim.new(0,v343.MenuPadding),PaddingBottom=UDim.new(0,v343.MenuPadding)}),v340("Frame",{BackgroundTransparency=1,Size=UDim2.new(1,0,1,0),ClipsDescendants=true},{v340("UICorner",{CornerRadius=UDim.new(0,v343.MenuCorner-v343.MenuPadding )}),v340("ScrollingFrame",{Size=UDim2.new(1,0,1,0),ScrollBarThickness=0,ScrollingDirection="Y",AutomaticCanvasSize="Y",CanvasSize=UDim2.new(0,0,0,0),BackgroundTransparency=1,ScrollBarImageTransparency=1},{v976.UIElements.UIListLayout})})});v976.UIElements.MenuCanvas=v340("Frame",{Size=UDim2.new(0,v976.MenuWidth,0,300),BackgroundTransparency=1,Position=UDim2.new( -10,0, -10,0),Visible=false,Active=false,Parent=v975.WindUI.DropdownGui,AnchorPoint=Vector2.new(1,0)},{v976.UIElements.Menu,v340("UISizeConstraint",{MinSize=Vector2.new(170,0)})});v976.Lock=function(v1450) v977=false;return v976.DropdownFrame:Lock();end;v976.Unlock=function(v1451) v977=true;return v976.DropdownFrame:Unlock();end;if v976.Locked then v976:Lock();end local function v990() v976.UIElements.Menu.Frame.ScrollingFrame.CanvasSize=UDim2.fromOffset(0,v976.UIElements.UIListLayout.AbsoluteContentSize.Y);end local function v991() if ( #v976.Values>10) then v976.UIElements.MenuCanvas.Size=UDim2.fromOffset(v976.UIElements.MenuCanvas.AbsoluteSize.X,392);else v976.UIElements.MenuCanvas.Size=UDim2.fromOffset(v976.UIElements.MenuCanvas.AbsoluteSize.X,v976.UIElements.UIListLayout.AbsoluteContentSize.Y + (v343.MenuPadding * 2) );end end function UpdatePosition() local v1453=v976.UIElements.Dropdown;local v1454=v976.UIElements.MenuCanvas;local v1455=((v338.ViewportSize.Y-(v1453.AbsolutePosition.Y + v1453.AbsoluteSize.Y)) -v343.MenuPadding) -54 ;local v1456=v1454.AbsoluteSize.Y + v343.MenuPadding ;local v1457= -54;if (v1455<v1456) then v1457=(v1456-v1455) -54 ;end v1454.Position=UDim2.new(0,v1453.AbsolutePosition.X + v1453.AbsoluteSize.X ,0,((v1453.AbsolutePosition.Y + v1453.AbsoluteSize.Y) -v1457) + v343.MenuPadding );end v976.Display=function(v1459) local v1460=v976.Values;local v1461="";if v976.Multi then for v1999,v2000 in next,v1460 do if table.find(v976.Value,v2000) then v1461=v1461   .. v2000   .. ", " ;end end v1461=v1461:sub(1, #v1461-2 );else v1461=v976.Value or "" ;end v976.UIElements.Dropdown.Frame.Frame.TextLabel.Text=((v1461=="") and "--") or v1461 ;end;v976.Refresh=function(v1463,v1464) for v1760,v1761 in next,v976.UIElements.Menu.Frame.ScrollingFrame:GetChildren() do if  not v1761:IsA("UIListLayout") then v1761:Destroy();end end v976.Tabs={};for v1762,v1763 in next,v1464 do local v1764={Name=v1763,Selected=false,UIElements={}};v1764.UIElements.TabItem=v339.NewRoundFrame(v343.MenuCorner-v343.MenuPadding ,"Squircle",{Size=UDim2.new(1,0,0,36),ImageTransparency=1,Parent=v976.UIElements.Menu.Frame.ScrollingFrame,ImageColor3=Color3.new(1,1,1)},{v339.NewRoundFrame(v343.MenuCorner-v343.MenuPadding ,"SquircleOutline",{Size=UDim2.new(1,0,1,0),ImageColor3=Color3.new(1,1,1),ImageTransparency=1,Name="Highlight"},{v340("UIGradient",{Rotation=80,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v340("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1},{v340("UIPadding",{PaddingLeft=UDim.new(0,v343.TabPadding),PaddingRight=UDim.new(0,v343.TabPadding)}),v340("UICorner",{CornerRadius=UDim.new(0,v343.MenuCorner-v343.MenuPadding )}),v340("TextLabel",{Text=v1763,TextXAlignment="Left",FontFace=Font.new(v339.Font,Enum.FontWeight.Regular),ThemeTag={TextColor3="Text",BackgroundColor3="Text"},TextSize=15,BackgroundTransparency=1,TextTransparency=0.4,AutomaticSize="Y",Size=UDim2.new(1,0,0,0),AnchorPoint=Vector2.new(0,0.5),Position=UDim2.new(0,0,0.5,0)})})},true);if v976.Multi then v1764.Selected=table.find(v976.Value or {} ,v1764.Name);else v1764.Selected=v976.Value==v1764.Name ;end if v1764.Selected then v1764.UIElements.TabItem.ImageTransparency=0.95;v1764.UIElements.TabItem.Highlight.ImageTransparency=0.75;v1764.UIElements.TabItem.Frame.TextLabel.TextTransparency=0.05;end v976.Tabs[v1762]=v1764;v976:Display();local function v1767() v976:Display();task.spawn(function() v339.SafeCallback(v976.Callback,v976.Value);end);end v339.AddSignal(v1764.UIElements.TabItem.MouseButton1Click,function() if v976.Multi then if  not v1764.Selected then v1764.Selected=true;v341(v1764.UIElements.TabItem,0.1,{ImageTransparency=0.95}):Play();v341(v1764.UIElements.TabItem.Highlight,0.1,{ImageTransparency=0.75}):Play();v341(v1764.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=0}):Play();table.insert(v976.Value,v1764.Name);else if ( not v976.AllowNone and ( #v976.Value==1)) then return;end v1764.Selected=false;v341(v1764.UIElements.TabItem,0.1,{ImageTransparency=1}):Play();v341(v1764.UIElements.TabItem.Highlight,0.1,{ImageTransparency=1}):Play();v341(v1764.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=0.4}):Play();for v2189,v2190 in ipairs(v976.Value) do if (v2190==v1764.Name) then table.remove(v976.Value,v2189);break;end end end else for v2149,v2150 in next,v976.Tabs do v341(v2150.UIElements.TabItem,0.1,{ImageTransparency=1}):Play();v341(v2150.UIElements.TabItem.Highlight,0.1,{ImageTransparency=1}):Play();v341(v2150.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=0.5}):Play();v2150.Selected=false;end v1764.Selected=true;v341(v1764.UIElements.TabItem,0.1,{ImageTransparency=0.95}):Play();v341(v1764.UIElements.TabItem.Highlight,0.1,{ImageTransparency=0.75}):Play();v341(v1764.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=0.05}):Play();v976.Value=v1764.Name;end v1767();end);v990();v991();end local v1466=0;for v1768,v1769 in next,v976.Tabs do if v1769.UIElements.TabItem.Frame.TextLabel then local v2006=v1769.UIElements.TabItem.Frame.TextLabel.TextBounds.X;v1466=math.max(v1466,v2006);end end v976.UIElements.MenuCanvas.Size=UDim2.new(0,v1466 + 6 + 6 + 5 + 5 + 18 + 6 + 6 ,v976.UIElements.MenuCanvas.Size.Y.Scale,v976.UIElements.MenuCanvas.Size.Y.Offset);end;v976:Refresh(v976.Values);v976.Select=function(v1468,v1469) if v1469 then v976.Value=v1469;elseif v976.Multi then v976.Value={};else v976.Value=nil;end v976:Refresh(v976.Values);end;v991();v976.Open=function(v1470) if v977 then v976.UIElements.Menu.Visible=true;v976.UIElements.MenuCanvas.Visible=true;v976.UIElements.MenuCanvas.Active=true;v976.UIElements.Menu.Size=UDim2.new(1,0,0,0);v341(v976.UIElements.Menu,0.1,{Size=UDim2.new(1,0,1,0),ImageTransparency=0.05},Enum.EasingStyle.Quart,Enum.EasingDirection.Out):Play();task.spawn(function() task.wait(0.1);v976.Opened=true;end);UpdatePosition();end end;v976.Close=function(v1471) v976.Opened=false;v341(v976.UIElements.Menu,0.25,{Size=UDim2.new(1,0,0,0),ImageTransparency=1},Enum.EasingStyle.Quart,Enum.EasingDirection.Out):Play();task.spawn(function() task.wait(0.1);v976.UIElements.Menu.Visible=false;end);task.spawn(function() task.wait(0.25);v976.UIElements.MenuCanvas.Visible=false;v976.UIElements.MenuCanvas.Active=false;end);end;v339.AddSignal(v976.UIElements.Dropdown.MouseButton1Click,function() v976:Open();end);v339.AddSignal(v336.InputBegan,function(v1473) if ((v1473.UserInputType==Enum.UserInputType.MouseButton1) or (v1473.UserInputType==Enum.UserInputType.Touch)) then local v1910,v1911=v976.UIElements.MenuCanvas.AbsolutePosition,v976.UIElements.MenuCanvas.AbsoluteSize;if (v975.Window.CanDropdown and v976.Opened and ((v337.X<v1910.X) or (v337.X>(v1910.X + v1911.X)) or (v337.Y<((v1910.Y-20) -1)) or (v337.Y>(v1910.Y + v1911.Y)))) then v976:Close();end end end);v339.AddSignal(v976.UIElements.Dropdown:GetPropertyChangedSignal("AbsolutePosition"),UpdatePosition);return v976.__type,v976;end;return v343;end;v0.D=function() local v345={};local v346={lua={"and","break","or","else","elseif","if","then","until","repeat","while","do","for","in","end","local","return","function","export"},rbx={"game","workspace","script","math","string","table","task","wait","select","next","Enum","tick","assert","shared","loadstring","tonumber","tostring","type","typeof","unpack","Instance","CFrame","Vector3","Vector2","Color3","UDim","UDim2","Ray","BrickColor","OverlapParams","RaycastParams","Axes","Random","Region3","Rect","TweenInfo","collectgarbage","not","utf8","pcall","xpcall","_G","setmetatable","getmetatable","os","pairs","ipairs"},operators={"#","+","-","*","%","/","^","=","~","=","<",">"}};local v347={numbers=Color3.fromHex("#FAB387"),boolean=Color3.fromHex("#FAB387"),operator=Color3.fromHex("#94E2D5"),lua=Color3.fromHex("#CBA6F7"),rbx=Color3.fromHex("#F38BA8"),str=Color3.fromHex("#A6E3A1"),comment=Color3.fromHex("#9399B2"),null=Color3.fromHex("#F38BA8"),call=Color3.fromHex("#89B4FA"),self_call=Color3.fromHex("#89B4FA"),local_property=Color3.fromHex("#CBA6F7")};local function v348(v997) local v998={};for v1474,v1475 in ipairs(v997) do v998[v1475]=true;end return v998;end local v349=v348(v346.lua);local v350=v348(v346.rbx);local v351=v348(v346.operators);local function v352(v999,v1000) local v1001=v999[v1000];if v347[v1001   .. "_color" ] then return v347[v1001   .. "_color" ];end if tonumber(v1001) then return v347.numbers;elseif (v1001=="nil") then return v347.null;elseif (v1001:sub(1,2)=="--") then return v347.comment;elseif v351[v1001] then return v347.operator;elseif v349[v1001] then return v347.lua;elseif v350[v1001] then return v347.rbx;elseif ((v1001:sub(1,1)=='\"') or (v1001:sub(1,1)=="\'")) then return v347.str;elseif ((v1001=="true") or (v1001=="false")) then return v347.boolean;end if (v999[v1000 + 1 ]=="(") then if (v999[v1000-1 ]==":") then return v347.self_call;end return v347.call;end if (v999[v1000-1 ]==".") then if (v999[v1000-2 ]=="Enum") then return v347.rbx;end return v347.local_property;end end v345.run=function(v1002) local v1003={};local v1004="";local v1005=false;local v1006=false;local v1007=false;for v1477=1, #v1002 do local v1478=v1002:sub(v1477,v1477);if v1006 then if ((v1478=="\n") and  not v1007) then table.insert(v1003,v1004);table.insert(v1003,v1478);v1004="";v1006=false;elseif ((v1002:sub(v1477-1 ,v1477)=="]]") and v1007) then v1004..="]" table.insert(v1003,v1004);v1004="";v1006=false;v1007=false;else v1004=v1004   .. v1478 ;end elseif v1005 then if (((v1478==v1005) and (v1002:sub(v1477-1 ,v1477-1 )~="\\")) or (v1478=="\n")) then v1004=v1004   .. v1478 ;v1005=false;else v1004=v1004   .. v1478 ;end elseif (v1002:sub(v1477,v1477 + 1 )=="--") then table.insert(v1003,v1004);v1004="-";v1006=true;v1007=v1002:sub(v1477 + 2 ,v1477 + 3 )=="[[" ;elseif ((v1478=='\"') or (v1478=="\'")) then table.insert(v1003,v1004);v1004=v1478;v1005=v1478;elseif v351[v1478] then table.insert(v1003,v1004);table.insert(v1003,v1478);v1004="";elseif v1478:match("[%w_]") then v1004=v1004   .. v1478 ;else table.insert(v1003,v1004);table.insert(v1003,v1478);v1004="";end end table.insert(v1003,v1004);local v1008={};for v1479,v1480 in ipairs(v1003) do local v1481=v352(v1003,v1479);if v1481 then local v1912=string.format('<font color = \"#%s\">%s</font>',v1481:ToHex(),v1480:gsub("<","&lt;"):gsub(">","&gt;"));table.insert(v1008,v1912);else table.insert(v1008,v1480);end end return table.concat(v1008);end;return v345;end;v0.E=function() local v354={};local v355=v0.load("a");local v356=v355.New;local v357=v355.Tween;local v358=v0.load("D");v354.New=function(v1009,v1010,v1011,v1012,v1013) local v1014={Radius=12,Padding=10};local v1015=v356("TextLabel",{Text="",TextColor3=Color3.fromHex("#CDD6F4"),TextTransparency=0,TextSize=14,TextWrapped=false,LineHeight=1.15,RichText=true,TextXAlignment="Left",Size=UDim2.new(0,0,0,0),BackgroundTransparency=1,AutomaticSize="XY"},{v356("UIPadding",{PaddingTop=UDim.new(0,v1014.Padding + 3 ),PaddingLeft=UDim.new(0,v1014.Padding + 3 ),PaddingRight=UDim.new(0,v1014.Padding + 3 ),PaddingBottom=UDim.new(0,v1014.Padding + 3 )})});v1015.Font="Code";local v1017=v356("ScrollingFrame",{Size=UDim2.new(1,0,0,0),BackgroundTransparency=1,AutomaticCanvasSize="X",ScrollingDirection="X",ElasticBehavior="Never",CanvasSize=UDim2.new(0,0,0,0),ScrollBarThickness=0},{v1015});local v1018=v356("TextButton",{BackgroundTransparency=1,Size=UDim2.new(0,30,0,30),Position=UDim2.new(1, -v1014.Padding/2 ,0,v1014.Padding/2 ),AnchorPoint=Vector2.new(1,0),Visible=(v1012 and true) or false },{v355.NewRoundFrame(v1014.Radius-4 ,"Squircle",{ImageColor3=Color3.fromHex("#ffffff"),ImageTransparency=1,Size=UDim2.new(1,0,1,0),AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Name="Button"},{v356("UIScale",{Scale=1}),v356("ImageLabel",{Image=v355.Icon("copy")[1],ImageRectSize=v355.Icon("copy")[2].ImageRectSize,ImageRectOffset=v355.Icon("copy")[2].ImageRectPosition,BackgroundTransparency=1,AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Size=UDim2.new(0,12,0,12),ImageColor3=Color3.fromHex("#ffffff"),ImageTransparency=0.1})})});v355.AddSignal(v1018.MouseEnter,function() v357(v1018.Button,0.05,{ImageTransparency=0.95}):Play();v357(v1018.Button.UIScale,0.05,{Scale=0.9}):Play();end);v355.AddSignal(v1018.InputEnded,function() v357(v1018.Button,0.08,{ImageTransparency=1}):Play();v357(v1018.Button.UIScale,0.08,{Scale=1}):Play();end);local v1019=v355.NewRoundFrame(v1014.Radius,"Squircle",{ImageColor3=Color3.fromHex("#212121"),ImageTransparency=0.035,Size=UDim2.new(1,0,0,20 + (v1014.Padding * 2) ),AutomaticSize="Y",Parent=v1011},{v355.NewRoundFrame(v1014.Radius,"SquircleOutline",{Size=UDim2.new(1,0,1,0),ImageColor3=Color3.fromHex("#ffffff"),ImageTransparency=0.955}),v356("Frame",{BackgroundTransparency=1,Size=UDim2.new(1,0,0,0),AutomaticSize="Y"},{v355.NewRoundFrame(v1014.Radius,"Squircle-TL-TR",{ImageColor3=Color3.fromHex("#ffffff"),ImageTransparency=0.96,Size=UDim2.new(1,0,0,20 + (v1014.Padding * 2) ),Visible=(v1010 and true) or false },{v356("ImageLabel",{Size=UDim2.new(0,18,0,18),BackgroundTransparency=1,Image="rbxassetid://132464694294269",ImageColor3=Color3.fromHex("#ffffff"),ImageTransparency=0.2}),v356("TextLabel",{Text=v1010,TextColor3=Color3.fromHex("#ffffff"),TextTransparency=0.2,TextSize=16,AutomaticSize="Y",FontFace=Font.new(v355.Font,Enum.FontWeight.Medium),TextXAlignment="Left",BackgroundTransparency=1,TextTruncate="AtEnd",Size=UDim2.new(1,v1018 and ( -20 -(v1014.Padding * 2)) ,0,0)}),v356("UIPadding",{PaddingLeft=UDim.new(0,v1014.Padding + 3 ),PaddingRight=UDim.new(0,v1014.Padding + 3 )}),v356("UIListLayout",{Padding=UDim.new(0,v1014.Padding),FillDirection="Horizontal",VerticalAlignment="Center"})}),v1017,v356("UIListLayout",{Padding=UDim.new(0,0),FillDirection="Vertical"})}),v1018});v355.AddSignal(v1015:GetPropertyChangedSignal("TextBounds"),function() v1017.Size=UDim2.new(1,0,0,(v1015.TextBounds.Y/(v1013 or 1)) + ((v1014.Padding + 3) * 2) );end);v1014.Set=function(v1483) v1015.Text=v358.run(v1483);end;v1014.Destroy=function() v1019:Destroy();v1014=nil;end;v1014.Set(v1009);v355.AddSignal(v1018.MouseButton1Click,function() if v1012 then v1012();local v1913=v355.Icon("check");v1018.Button.ImageLabel.Image=v1913[1];v1018.Button.ImageLabel.ImageRectSize=v1913[2].ImageRectSize;v1018.Button.ImageLabel.ImageRectOffset=v1913[2].ImageRectPosition;task.wait(1);local v1920=v355.Icon("copy");v1018.Button.ImageLabel.Image=v1920[1];v1018.Button.ImageLabel.ImageRectSize=v1920[2].ImageRectSize;v1018.Button.ImageLabel.ImageRectOffset=v1920[2].ImageRectPosition;end end);return v1014;end;return v354;end;v0.F=function() local v360=v0.load("a");local v361=v360.New;local v362=v0.load("E");local v363={};v363.New=function(v1022,v1023) local v1024={__type="Code",Title=v1023.Title,Code=v1023.Code,OnCopy=v1023.OnCopy,UIElements={}};local v1025= not v1024.Locked;local v1026=v362.New(v1024.Code,v1024.Title,v1023.Parent,function() if v1025 then local v1924=v1024.Title or "code" ;local v1925,v1926=pcall(function() toclipboard(v1024.Code);if v1024.OnCopy then v1024.OnCopy();end end);if  not v1925 then v1023.WindUI({Title="Error",Content="The "   .. v1924   .. " is not copied. Error: "   .. v1926 ,Icon="x",Duration=5});end end end,v1023.WindUI.UIScale);v1024.SetCode=function(v1485,v1486) v1026.Set(v1486);end;v1024.Destroy=function(v1487) v1026.Destroy();v1024=nil;end;return v1024.__type,v1024;end;return v363;end;v0.G=function() local v365=v0.load("a");local v366=v365.New;local v367=v365.Tween;local v368=game:GetService("UserInputService");game:GetService("TouchInputService");local v369=game:GetService("RunService");local v370=game:GetService("Players");local v371=v369.RenderStepped;local v372=v370.LocalPlayer;local v373=v372:GetMouse();local v374=v0.load("i").New;local v375=v0.load("j").New;local v376={UICorner=8,UIPadding=8};v376.Colorpicker=function(v1029,v1030,v1031,v1032) local v1033={__type="Colorpicker",Title=v1030.Title,Desc=v1030.Desc,Default=v1030.Default,Callback=v1030.Callback,Transparency=v1030.Transparency,UIElements=v1030.UIElements,TextPadding=10};v1033.SetHSVFromRGB=function(v1488,v1489) local v1490,v1491,v1492=Color3.toHSV(v1489);v1033.Hue=v1490;v1033.Sat=v1491;v1033.Vib=v1492;end;v1033:SetHSVFromRGB(v1033.Default);local v1035=v0.load("k").Init(v1031);local v1036=v1035.Create();v1033.ColorpickerFrame=v1036;v1036.UIElements.Main.Size=UDim2.new(1,0,0,0);local v1039,v1040,v1041=v1033.Hue,v1033.Sat,v1033.Vib;v1033.UIElements.Title=v366("TextLabel",{Text=v1033.Title,TextSize=20,FontFace=Font.new(v365.Font,Enum.FontWeight.SemiBold),TextXAlignment="Left",Size=UDim2.new(1,0,0,0),AutomaticSize="Y",ThemeTag={TextColor3="Text"},BackgroundTransparency=1,Parent=v1036.UIElements.Main},{v366("UIPadding",{PaddingTop=UDim.new(0,v1033.TextPadding/2 ),PaddingLeft=UDim.new(0,v1033.TextPadding/2 ),PaddingRight=UDim.new(0,v1033.TextPadding/2 ),PaddingBottom=UDim.new(0,v1033.TextPadding/2 )})});local v1043=v366("Frame",{Size=UDim2.new(0,14,0,14),AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0,0),Parent=HueDragHolder,BackgroundColor3=v1033.Default},{v366("UIStroke",{Thickness=2,Transparency=0.1,ThemeTag={Color="Text"}}),v366("UICorner",{CornerRadius=UDim.new(1,0)})});v1033.UIElements.SatVibMap=v366("ImageLabel",{Size=UDim2.fromOffset(160,158),Position=UDim2.fromOffset(0,40 + v1033.TextPadding ),Image="rbxassetid://4155801252",BackgroundColor3=Color3.fromHSV(v1039,1,1),BackgroundTransparency=0,Parent=v1036.UIElements.Main},{v366("UICorner",{CornerRadius=UDim.new(0,8)}),v365.NewRoundFrame(8,"SquircleOutline",{ThemeTag={ImageColor3="Outline"},Size=UDim2.new(1,0,1,0),ImageTransparency=0.85,ZIndex=99999},{v366("UIGradient",{Rotation=45,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v1043});v1033.UIElements.Inputs=v366("Frame",{AutomaticSize="XY",Size=UDim2.new(0,0,0,0),Position=UDim2.fromOffset((v1033.Transparency and 240) or 210 ,40 + v1033.TextPadding ),BackgroundTransparency=1,Parent=v1036.UIElements.Main},{v366("UIListLayout",{Padding=UDim.new(0,4),FillDirection="Vertical"})});local v1046=v366("Frame",{BackgroundColor3=v1033.Default,Size=UDim2.fromScale(1,1),BackgroundTransparency=v1033.Transparency},{v366("UICorner",{CornerRadius=UDim.new(0,8)})});v366("ImageLabel",{Image="http://www.roblox.com/asset/?id=14204231522",ImageTransparency=0.45,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.fromOffset(40,40),BackgroundTransparency=1,Position=UDim2.fromOffset(85,208 + v1033.TextPadding ),Size=UDim2.fromOffset(75,24),Parent=v1036.UIElements.Main},{v366("UICorner",{CornerRadius=UDim.new(0,8)}),v365.NewRoundFrame(8,"SquircleOutline",{ThemeTag={ImageColor3="Outline"},Size=UDim2.new(1,0,1,0),ImageTransparency=0.85,ZIndex=99999},{v366("UIGradient",{Rotation=60,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v1046});local v1047=v366("Frame",{BackgroundColor3=v1033.Default,Size=UDim2.fromScale(1,1),BackgroundTransparency=0,ZIndex=9},{v366("UICorner",{CornerRadius=UDim.new(0,8)})});v366("ImageLabel",{Image="http://www.roblox.com/asset/?id=14204231522",ImageTransparency=0.45,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.fromOffset(40,40),BackgroundTransparency=1,Position=UDim2.fromOffset(0,208 + v1033.TextPadding ),Size=UDim2.fromOffset(75,24),Parent=v1036.UIElements.Main},{v366("UICorner",{CornerRadius=UDim.new(0,8)}),v365.NewRoundFrame(8,"SquircleOutline",{ThemeTag={ImageColor3="Outline"},Size=UDim2.new(1,0,1,0),ImageTransparency=0.85,ZIndex=99999},{v366("UIGradient",{Rotation=60,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v1047});local v1048={};for v1496=0,1,0.1 do table.insert(v1048,ColorSequenceKeypoint.new(v1496,Color3.fromHSV(v1496,1,1)));end local v1049=v366("UIGradient",{Color=ColorSequence.new(v1048),Rotation=90});local v1050=v366("Frame",{Size=UDim2.new(1,0,1,0),Position=UDim2.new(0,0,0,0),BackgroundTransparency=1});local v1051=v366("Frame",{Size=UDim2.new(0,14,0,14),AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0,0),Parent=v1050,BackgroundColor3=v1033.Default},{v366("UIStroke",{Thickness=2,Transparency=0.1,ThemeTag={Color="Text"}}),v366("UICorner",{CornerRadius=UDim.new(1,0)})});local v1052=v366("Frame",{Size=UDim2.fromOffset(6,192),Position=UDim2.fromOffset(180,40 + v1033.TextPadding ),Parent=v1036.UIElements.Main},{v366("UICorner",{CornerRadius=UDim.new(1,0)}),v1049,v1050});function CreateNewInput(v1497,v1498) local v1499=v375(v1497,nil,v1033.UIElements.Inputs);v366("TextLabel",{BackgroundTransparency=1,TextTransparency=0.4,TextSize=17,FontFace=Font.new(v365.Font,Enum.FontWeight.Regular),AutomaticSize="XY",ThemeTag={TextColor3="Placeholder"},AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1, -12,0.5,0),Parent=v1499.Frame,Text=v1497});v366("UIScale",{Parent=v1499,Scale=0.85});v1499.Frame.Frame.TextBox.Text=v1498;v1499.Size=UDim2.new(0,150,0,42);return v1499;end local function v1053(v1502) return {R=math.floor(v1502.R * 255 ),G=math.floor(v1502.G * 255 ),B=math.floor(v1502.B * 255 )};end local v1054=CreateNewInput("Hex","#"   .. v1033.Default:ToHex() );local v1055=CreateNewInput("Red",v1053(v1033.Default).R);local v1056=CreateNewInput("Green",v1053(v1033.Default).G);local v1057=CreateNewInput("Blue",v1053(v1033.Default).B);local v1058;if v1033.Transparency then v1058=CreateNewInput("Alpha",((1 -v1033.Transparency) * 100)   .. "%" );end local v1059=v366("Frame",{Size=UDim2.new(1,0,0,40),AutomaticSize="Y",Position=UDim2.new(0,0,0,254 + v1033.TextPadding ),BackgroundTransparency=1,Parent=v1036.UIElements.Main,LayoutOrder=4},{v366("UIListLayout",{Padding=UDim.new(0,6),FillDirection="Horizontal",HorizontalAlignment="Right"})});local v1060={{Title="Cancel",Variant="Secondary",Callback=function() end},{Title="Apply",Icon="chevron-right",Variant="Primary",Callback=function() v1032(Color3.fromHSV(v1033.Hue,v1033.Sat,v1033.Vib),v1033.Transparency);end}};for v1503,v1504 in next,v1060 do local v1505=v374(v1504.Title,v1504.Icon,v1504.Callback,v1504.Variant,v1059,v1036,false);v1505.Size=UDim2.new(0.5, -3,0,40);v1505.AutomaticSize="None";end local v1061,v1062,v1063;if v1033.Transparency then local v1773=v366("Frame",{Size=UDim2.new(1,0,1,0),Position=UDim2.fromOffset(0,0),BackgroundTransparency=1});v1062=v366("ImageLabel",{Size=UDim2.new(0,14,0,14),AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0,0),ThemeTag={BackgroundColor3="Text"},Parent=v1773},{v366("UIStroke",{Thickness=2,Transparency=0.1,ThemeTag={Color="Text"}}),v366("UICorner",{CornerRadius=UDim.new(1,0)})});v1063=v366("Frame",{Size=UDim2.fromScale(1,1)},{v366("UIGradient",{Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(1,1)}),Rotation=270}),v366("UICorner",{CornerRadius=UDim.new(0,6)})});v1061=v366("Frame",{Size=UDim2.fromOffset(6,192),Position=UDim2.fromOffset(210,40 + v1033.TextPadding ),Parent=v1036.UIElements.Main,BackgroundTransparency=1},{v366("UICorner",{CornerRadius=UDim.new(1,0)}),v366("ImageLabel",{Image="rbxassetid://14204231522",ImageTransparency=0.45,ScaleType=Enum.ScaleType.Tile,TileSize=UDim2.fromOffset(40,40),BackgroundTransparency=1,Size=UDim2.fromScale(1,1)},{v366("UICorner",{CornerRadius=UDim.new(1,0)})}),v1063,v1773});end v1033.Round=function(v1508,v1509,v1510) if (v1510==0) then return math.floor(v1509);end v1509=tostring(v1509);return (v1509:find("%.") and tonumber(v1509:sub(1,v1509:find("%.") + v1510 ))) or v1509 ;end;v1033.Update=function(v1511,v1512,v1513) if v1512 then v1039,v1040,v1041=Color3.toHSV(v1512);else v1039,v1040,v1041=v1033.Hue,v1033.Sat,v1033.Vib;end v1033.UIElements.SatVibMap.BackgroundColor3=Color3.fromHSV(v1039,1,1);v1043.Position=UDim2.new(v1040,0,1 -v1041 ,0);v1043.BackgroundColor3=Color3.fromHSV(v1039,v1040,v1041);v1047.BackgroundColor3=Color3.fromHSV(v1039,v1040,v1041);v1051.BackgroundColor3=Color3.fromHSV(v1039,1,1);v1051.Position=UDim2.new(0.5,0,v1039,0);v1054.Frame.Frame.TextBox.Text="#"   .. Color3.fromHSV(v1039,v1040,v1041):ToHex() ;v1055.Frame.Frame.TextBox.Text=v1053(Color3.fromHSV(v1039,v1040,v1041)).R;v1056.Frame.Frame.TextBox.Text=v1053(Color3.fromHSV(v1039,v1040,v1041)).G;v1057.Frame.Frame.TextBox.Text=v1053(Color3.fromHSV(v1039,v1040,v1041)).B;if (v1513 or v1033.Transparency) then v1047.BackgroundTransparency=v1033.Transparency or v1513 ;v1063.BackgroundColor3=Color3.fromHSV(v1039,v1040,v1041);v1062.BackgroundColor3=Color3.fromHSV(v1039,v1040,v1041);v1062.BackgroundTransparency=v1033.Transparency or v1513 ;v1062.Position=UDim2.new(0.5,0,(1 -v1033.Transparency) or v1513 ,0);v1058.Frame.Frame.TextBox.Text=v1033:Round(((1 -v1033.Transparency) or v1513) * 100 ,0)   .. "%" ;end end;v1033:Update(v1033.Default,v1033.Transparency);local function v1066() local v1527=Color3.fromHSV(v1033.Hue,v1033.Sat,v1033.Vib);return {R=math.floor(v1527.r * 255 ),G=math.floor(v1527.g * 255 ),B=math.floor(v1527.b * 255 )};end local function v1067(v1528,v1529,v1530) return math.clamp(tonumber(v1528) or 0 ,v1529,v1530);end v365.AddSignal(v1054.Frame.Frame.TextBox.FocusLost,function(v1531) if v1531 then local v1936=v1054.Frame.Frame.TextBox.Text:gsub("#","");local v1937,v1938=pcall(Color3.fromHex,v1936);if (v1937 and (typeof(v1938)=="Color3")) then v1033.Hue,v1033.Sat,v1033.Vib=Color3.toHSV(v1938);v1033:Update();v1033.Default=v1938;end end end);local function v1068(v1532,v1533) v365.AddSignal(v1532.Frame.Frame.TextBox.FocusLost,function(v1774) if v1774 then local v2008=v1532.Frame.Frame.TextBox;local v2009=v1066();local v2010=v1067(v2008.Text,0,255);v2008.Text=tostring(v2010);v2009[v1533]=v2010;local v2013=Color3.fromRGB(v2009.R,v2009.G,v2009.B);v1033.Hue,v1033.Sat,v1033.Vib=Color3.toHSV(v2013);v1033:Update();end end);end v1068(v1055,"R");v1068(v1056,"G");v1068(v1057,"B");if v1033.Transparency then v365.AddSignal(v1058.Frame.Frame.TextBox.FocusLost,function(v1939) if v1939 then local v2100=v1058.Frame.Frame.TextBox;local v2101=v1067(v2100.Text,0,100);v2100.Text=tostring(v2101);v1033.Transparency=1 -(v2101 * 0.01) ;v1033:Update(nil,v1033.Transparency);end end);end local v1069=v1033.UIElements.SatVibMap;v365.AddSignal(v1069.InputBegan,function(v1534) if ((v1534.UserInputType==Enum.UserInputType.MouseButton1) or (v1534.UserInputType==Enum.UserInputType.Touch)) then while v368:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do local v2017=v1069.AbsolutePosition.X;local v2018=v2017 + v1069.AbsoluteSize.X ;local v2019=math.clamp(v373.X,v2017,v2018);local v2020=v1069.AbsolutePosition.Y;local v2021=v2020 + v1069.AbsoluteSize.Y ;local v2022=math.clamp(v373.Y,v2020,v2021);v1033.Sat=(v2019-v2017)/(v2018-v2017) ;v1033.Vib=1 -((v2022-v2020)/(v2021-v2020)) ;v1033:Update();v371:Wait();end end end);v365.AddSignal(v1052.InputBegan,function(v1535) if ((v1535.UserInputType==Enum.UserInputType.MouseButton1) or (v1535.UserInputType==Enum.UserInputType.Touch)) then while v368:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do local v2025=v1052.AbsolutePosition.Y;local v2026=v2025 + v1052.AbsoluteSize.Y ;local v2027=math.clamp(v373.Y,v2025,v2026);v1033.Hue=(v2027-v2025)/(v2026-v2025) ;v1033:Update();v371:Wait();end end end);if v1033.Transparency then v365.AddSignal(v1061.InputBegan,function(v1940) if ((v1940.UserInputType==Enum.UserInputType.MouseButton1) or (v1940.UserInputType==Enum.UserInputType.Touch)) then while v368:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do local v2152=v1061.AbsolutePosition.Y;local v2153=v2152 + v1061.AbsoluteSize.Y ;local v2154=math.clamp(v373.Y,v2152,v2153);v1033.Transparency=1 -((v2154-v2152)/(v2153-v2152)) ;v1033:Update();v371:Wait();end end end);end return v1033;end;v376.New=function(v1070,v1071) local v1072={__type="Colorpicker",Title=v1071.Title or "Colorpicker" ,Desc=v1071.Desc or nil ,Locked=v1071.Locked or false ,Default=v1071.Default or Color3.new(1,1,1) ,Callback=v1071.Callback or function() end ,Transparency=v1071.Transparency,UIElements={}};local v1073=true;v1072.ColorpickerFrame=v0.load("t")({Title=v1072.Title,Desc=v1072.Desc,Parent=v1071.Parent,TextOffset=40,Hover=false});v1072.UIElements.Colorpicker=v365.NewRoundFrame(v376.UICorner,"Squircle",{ImageTransparency=0,Active=true,ImageColor3=v1072.Default,Parent=v1072.ColorpickerFrame.UIElements.Main,Size=UDim2.new(0,30,0,30),AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,0,0.5,0),ZIndex=2},nil,true);v1072.Lock=function(v1536) v1073=false;return v1072.ColorpickerFrame:Lock();end;v1072.Unlock=function(v1537) v1073=true;return v1072.ColorpickerFrame:Unlock();end;if v1072.Locked then v1072:Lock();end v1072.Update=function(v1538,v1539,v1540) v1072.UIElements.Colorpicker.ImageTransparency=v1540 or 0 ;v1072.UIElements.Colorpicker.ImageColor3=v1539;v1072.Default=v1539;if v1540 then v1072.Transparency=v1540;end end;v1072.Set=function(v1544,v1545,v1546) return v1072:Update(v1545,v1546);end;v365.AddSignal(v1072.UIElements.Colorpicker.MouseButton1Click,function() if v1073 then v376:Colorpicker(v1072,v1071.Window,function(v2029,v2030) v1072:Update(v2029,v2030);v1072.Default=v2029;v1072.Transparency=v2030;v365.SafeCallback(v1072.Callback,v2029,v2030);end).ColorpickerFrame:Open();end end);return v1072.__type,v1072;end;return v376;end;v0.H=function() local v379=v0.load("a");local v380=v379.New;local v381=v379.Tween;local v382={};v382.New=function(v1080,v1081) local v1082={__type="Section",Title=v1081.Title or "Section" ,Icon=v1081.Icon,TextXAlignment=v1081.TextXAlignment or "Left" ,TextSize=v1081.TextSize or 19 ,UIElements={},HeaderSize=42,IconSize=24,Elements={},Expandable=false};local v1083;v1082.SetIcon=function(v1547,v1548) v1082.Icon=v1548 or nil ;if v1083 then v1083:Destroy();end if v1548 then v1083=v379.Image(v1548,v1548   .. ":"   .. v1082.Title ,0,v1081.Window.Folder,v1082.__type,true);v1083.Size=UDim2.new(0,v1082.IconSize,0,v1082.IconSize);end end;local v1085=v380("Frame",{Size=UDim2.new(0,v1082.IconSize,0,v1082.IconSize),BackgroundTransparency=1,Visible=false},{v380("ImageLabel",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1,Image=v379.Icon("chevron-down")[1],ImageRectSize=v379.Icon("chevron-down")[2].ImageRectSize,ImageRectOffset=v379.Icon("chevron-down")[2].ImageRectPosition,ThemeTag={ImageColor3="Icon"},ImageTransparency=0.7})});if v1082.Icon then v1082:SetIcon(v1082.Icon);end local v1086=v380("TextLabel",{BackgroundTransparency=1,TextXAlignment="Left",AutomaticSize="Y",TextSize=v1082.TextSize,ThemeTag={TextColor3="Text"},FontFace=Font.new(v379.Font,Enum.FontWeight.SemiBold),Text=v1082.Title,Size=UDim2.new(1,(v1083 and (( -v1082.IconSize-8) * 2)) or ( -v1082.IconSize-8) ,1,0),TextWrapped=true});local v1087=v380("Frame",{Size=UDim2.new(1,0,0,v1082.HeaderSize),BackgroundTransparency=1,Parent=v1081.Parent,ClipsDescendants=true},{v380("TextButton",{Size=UDim2.new(1,0,0,v1082.HeaderSize),BackgroundTransparency=1,Text=""},{v1083,v1086,v380("UIListLayout",{Padding=UDim.new(0,8),FillDirection="Horizontal",VerticalAlignment="Center",HorizontalAlignment=( not v1083 and v1082.TextXAlignment) or "Left" }),v380("UIPadding",{PaddingTop=UDim.new(0,4),PaddingBottom=UDim.new(0,2)}),v1085}),v380("Frame",{BackgroundTransparency=1,Size=UDim2.new(1,0,0,0),AutomaticSize="Y",Name="Content",Visible=true,Position=UDim2.new(0,0,0,v1082.HeaderSize)},{v380("UIListLayout",{FillDirection="Vertical",Padding=UDim.new(0,6),VerticalAlignment="Bottom"})})});local v1088=v1081.ElementsModule;v1088.Load(v1082,v1087.Content,v1088.Elements,v1081.Window,v1081.WindUI,function() if  not v1082.Expandable then v1082.Expandable=true;v1085.Visible=true;end end);v1082.SetTitle=function(v1550,v1551) v1086.Text=v1551;end;v1082.Destroy=function(v1553) for v1775,v1776 in next,v1082.Elements do v1776:Destroy();end v1087:Destroy();end;v1082.Open=function(v1554) if v1082.Expandable then v1082.Opened=true;v381(v1087,0.33,{Size=UDim2.new(1,0,0,v1082.HeaderSize + (v1087.Content.AbsoluteSize.Y/v1081.UIScale) )},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v381(v1085.ImageLabel,0.1,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end end;v1082.Close=function(v1555) if v1082.Expandable then v1082.Opened=false;v381(v1087,0.26,{Size=UDim2.new(1,0,0,v1082.HeaderSize)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v381(v1085.ImageLabel,0.1,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end end;v379.AddSignal(v1087.TextButton.MouseButton1Click,function() if v1082.Expandable then if v1082.Opened then v1082:Close();else v1082:Open();end end end);if v1082.Opened then task.spawn(function() task.wait();v1082:Open();end);end return v1082.__type,v1082;end;return v382;end;v0.I=function() local v384=v0.load("a");local v385=v384.New;local v386={};v386.New=function(v1093,v1094) local v1095=v385("Frame",{Size=UDim2.new(1,0,0,1),Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=0.9,ThemeTag={BackgroundColor3="Text"}});v385("Frame",{Parent=v1094.Parent,Size=UDim2.new(1, -7,0,5),BackgroundTransparency=1},{v1095});return "Divider",{};end;return v386;end;v0.J=function() return {Elements={Paragraph=v0.load("u"),Button=v0.load("v"),Toggle=v0.load("y"),Slider=v0.load("z"),Keybind=v0.load("A"),Input=v0.load("B"),Dropdown=v0.load("C"),Code=v0.load("F"),Colorpicker=v0.load("G"),Section=v0.load("H"),Divider=v0.load("I")},Load=function(v1096,v1097,v1098,v1099,v1100,v1101,v1102,v1103) for v1556,v1557 in pairs(v1098) do v1096[v1556]=function(v1777,v1778) v1778=v1778 or {} ;v1778.Parent=v1097;v1778.Window=v1099;v1778.WindUI=v1100;v1778.UIScale=v1103;v1778.ElementsModule=v1102;local v1784,v1785=v1557:New(v1778);table.insert(v1096.Elements,v1785);local v1786;for v1947,v1948 in pairs(v1785) do if ((typeof(v1948)=="table") and v1947:match("Frame$")) then v1786=v1948;break;end end if v1786 then v1785.SetTitle=function(v2104,v2105) v1786:SetTitle(v2105);end;v1785.SetDesc=function(v2106,v2107) v1786:SetDesc(v2107);end;v1785.Destroy=function(v2108) v1786:Destroy();end;end if v1101 then v1101();end return v1785;end;end end};end;v0.K=function() game:GetService("UserInputService");local v388=game.Players.LocalPlayer:GetMouse();local v389=v0.load("a");local v390=v389.New;local v391=v389.Tween;local v392=v0.load("s").New;local v393=v0.load("o").New;local v394={Tabs={},Containers={},SelectedTab=nil,TabCount=0,ToolTipParent=nil,TabHighlight=nil,OnChangeFunc=function(v1104) end};v394.Init=function(v1105,v1106,v1107,v1108) Window=v1105;WindUI=v1106;v394.ToolTipParent=v1107;v394.TabHighlight=v1108;return v394;end;v394.New=function(v1111,v1112) local v1113={__type="Tab",Title=v1111.Title or "Tab" ,Desc=v1111.Desc,Icon=v1111.Icon,IconThemed=v1111.IconThemed,Locked=v1111.Locked,ShowTabTitle=v1111.ShowTabTitle,Selected=false,Index=nil,Parent=v1111.Parent,UIElements={},Elements={},ContainerFrame=nil,UICorner=Window.UICorner-(Window.UIPadding/2) };v394.TabCount=v394.TabCount + 1 ;local v1115=v394.TabCount;v1113.Index=v1115;v1113.UIElements.Main=v389.NewRoundFrame(v1113.UICorner,"Squircle",{BackgroundTransparency=1,Size=UDim2.new(1, -7,0,0),AutomaticSize="Y",Parent=v1111.Parent,ThemeTag={ImageColor3="Text"},ImageTransparency=1},{v389.NewRoundFrame(v1113.UICorner,"SquircleOutline",{Size=UDim2.new(1,0,1,0),ThemeTag={ImageColor3="Text"},ImageTransparency=1,Name="Outline"},{v390("UIGradient",{Rotation=80,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v389.NewRoundFrame(v1113.UICorner,"Squircle",{Size=UDim2.new(1,0,0,0),AutomaticSize="Y",ThemeTag={ImageColor3="Text"},ImageTransparency=1,Name="Frame"},{v390("UIListLayout",{SortOrder="LayoutOrder",Padding=UDim.new(0,10),FillDirection="Horizontal",VerticalAlignment="Center"}),v390("TextLabel",{Text=v1113.Title,ThemeTag={TextColor3="Text"},TextTransparency=( not v1113.Locked and 0.4) or 0.7 ,TextSize=15,Size=UDim2.new(1,0,0,0),FontFace=Font.new(v389.Font,Enum.FontWeight.Medium),TextWrapped=true,RichText=true,AutomaticSize="Y",LayoutOrder=2,TextXAlignment="Left",BackgroundTransparency=1}),v390("UIPadding",{PaddingTop=UDim.new(0,2 + (Window.UIPadding/2) ),PaddingLeft=UDim.new(0,4 + (Window.UIPadding/2) ),PaddingRight=UDim.new(0,4 + (Window.UIPadding/2) ),PaddingBottom=UDim.new(0,2 + (Window.UIPadding/2) )})})},true);local v1118=0;local v1119;local v1120;if v1113.Icon then v1119=v389.Image(v1113.Icon,v1113.Icon   .. ":"   .. v1113.Title ,0,Window.Folder,v1113.__type,true,v1113.IconThemed);v1119.Size=UDim2.new(0,16,0,16);v1119.Parent=v1113.UIElements.Main.Frame;v1119.ImageLabel.ImageTransparency=( not v1113.Locked and 0) or 0.7 ;v1113.UIElements.Main.Frame.TextLabel.Size=UDim2.new(1, -30,0,0);v1118= -30;v1113.UIElements.Icon=v1119;v1120=v389.Image(v1113.Icon,v1113.Icon   .. ":"   .. v1113.Title ,0,Window.Folder,v1113.__type,true,v1113.IconThemed);v1120.Size=UDim2.new(0,16,0,16);v1120.ImageLabel.ImageTransparency=( not v1113.Locked and 0) or 0.7 ;v1118= -30;end v1113.UIElements.ContainerFrame=v390("ScrollingFrame",{Size=UDim2.new(1,0,1,(v1113.ShowTabTitle and  -((Window.UIPadding * 2.4) + 12)) or 0 ),BackgroundTransparency=1,ScrollBarThickness=0,ElasticBehavior="Never",CanvasSize=UDim2.new(0,0,0,0),AnchorPoint=Vector2.new(0,1),Position=UDim2.new(0,0,1,0),AutomaticCanvasSize="Y",ScrollingDirection="Y"},{v390("UIPadding",{PaddingTop=UDim.new(0,20),PaddingLeft=UDim.new(0,20),PaddingRight=UDim.new(0,20),PaddingBottom=UDim.new(0,20)}),v390("UIListLayout",{SortOrder="LayoutOrder",Padding=UDim.new(0,6),HorizontalAlignment="Center"})});v1113.UIElements.ContainerFrameCanvas=v390("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1,Visible=false,Parent=Window.UIElements.MainBar,ZIndex=5},{v1113.UIElements.ContainerFrame,v390("Frame",{Size=UDim2.new(1,0,0,(Window.UIPadding * 2.4) + 12 ),BackgroundTransparency=1,Visible=v1113.ShowTabTitle or false ,Name="TabTitle"},{v1120,v390("TextLabel",{Text=v1113.Title,ThemeTag={TextColor3="Text"},TextSize=20,TextTransparency=0.1,Size=UDim2.new(1, -v1118,1,0),FontFace=Font.new(v389.Font,Enum.FontWeight.SemiBold),TextTruncate="AtEnd",RichText=true,LayoutOrder=2,TextXAlignment="Left",BackgroundTransparency=1}),v390("UIPadding",{PaddingTop=UDim.new(0,20),PaddingLeft=UDim.new(0,20),PaddingRight=UDim.new(0,20),PaddingBottom=UDim.new(0,20)}),v390("UIListLayout",{SortOrder="LayoutOrder",Padding=UDim.new(0,10),FillDirection="Horizontal",VerticalAlignment="Center"})}),v390("Frame",{Size=UDim2.new(1,0,0,1),BackgroundTransparency=0.9,ThemeTag={BackgroundColor3="Text"},Position=UDim2.new(0,0,0,(Window.UIPadding * 2.4) + 12 ),Visible=v1113.ShowTabTitle or false })});v394.Containers[v1115]=v1113.UIElements.ContainerFrameCanvas;v394.Tabs[v1115]=v1113;v1113.ContainerFrame=ContainerFrameCanvas;v389.AddSignal(v1113.UIElements.Main.MouseButton1Click,function() if  not v1113.Locked then v394:SelectTab(v1115);end end);v393(v1113.UIElements.ContainerFrame,v1113.UIElements.ContainerFrameCanvas,Window,3);local v1126;local v1127;local v1128;local v1129=false;if v1113.Desc then v389.AddSignal(v1113.UIElements.Main.InputBegan,function() v1129=true;v1127=task.spawn(function() task.wait(0.35);if (v1129 and  not v1126) then v1126=v392(v1113.Desc,v394.ToolTipParent);local function v2156() if v1126 then v1126.Container.Position=UDim2.new(0,v388.X,0,v388.Y-20 );end end v2156();v1128=v388.Move:Connect(v2156);v1126:Open();end end);end);end v389.AddSignal(v1113.UIElements.Main.MouseEnter,function() if  not v1113.Locked then v391(v1113.UIElements.Main.Frame,0.08,{ImageTransparency=0.97}):Play();end end);v389.AddSignal(v1113.UIElements.Main.InputEnded,function() if v1113.Desc then v1129=false;if v1127 then task.cancel(v1127);v1127=nil;end if v1128 then v1128:Disconnect();v1128=nil;end if v1126 then v1126:Close();v1126=nil;end end if  not v1113.Locked then v391(v1113.UIElements.Main.Frame,0.08,{ImageTransparency=1}):Play();end end);local v1130=v0.load("J");v1130.Load(v1113,v1113.UIElements.ContainerFrame,v1130.Elements,Window,WindUI,nil,v1130,v1112);task.spawn(function() local v1559=v390("Frame",{BackgroundTransparency=1,Size=UDim2.new(1,0,1, -Window.UIElements.Main.Main.Topbar.AbsoluteSize.Y),Parent=v1113.UIElements.ContainerFrame},{v390("UIListLayout",{Padding=UDim.new(0,8),SortOrder="LayoutOrder",VerticalAlignment="Center",HorizontalAlignment="Center",FillDirection="Vertical"}),v390("ImageLabel",{Size=UDim2.new(0,48,0,48),Image=v389.Icon("frown")[1],ImageRectOffset=v389.Icon("frown")[2].ImageRectPosition,ImageRectSize=v389.Icon("frown")[2].ImageRectSize,ThemeTag={ImageColor3="Icon"},BackgroundTransparency=1,ImageTransparency=0.6}),v390("TextLabel",{AutomaticSize="XY",Text="This tab is empty",ThemeTag={TextColor3="Text"},TextSize=18,TextTransparency=0.5,BackgroundTransparency=1,FontFace=Font.new(v389.Font,Enum.FontWeight.Medium)})});v389.AddSignal(v1113.UIElements.ContainerFrame.ChildAdded,function() v1559.Visible=false;end);end);return v1113;end;v394.OnChange=function(v1131,v1132) v394.OnChangeFunc=v1132;end;v394.SelectTab=function(v1134,v1135) if  not v394.Tabs[v1135].Locked then v394.SelectedTab=v1135;for v1949,v1950 in next,v394.Tabs do if  not v1950.Locked then v391(v1950.UIElements.Main,0.15,{ImageTransparency=1}):Play();v391(v1950.UIElements.Main.Outline,0.15,{ImageTransparency=1}):Play();v391(v1950.UIElements.Main.Frame.TextLabel,0.15,{TextTransparency=0.3}):Play();if v1950.UIElements.Icon then v391(v1950.UIElements.Icon.ImageLabel,0.15,{ImageTransparency=0.4}):Play();end v1950.Selected=false;end end v391(v394.Tabs[v1135].UIElements.Main,0.15,{ImageTransparency=0.95}):Play();v391(v394.Tabs[v1135].UIElements.Main.Outline,0.15,{ImageTransparency=0.85}):Play();v391(v394.Tabs[v1135].UIElements.Main.Frame.TextLabel,0.15,{TextTransparency=0}):Play();if v394.Tabs[v1135].UIElements.Icon then v391(v394.Tabs[v1135].UIElements.Icon.ImageLabel,0.15,{ImageTransparency=0.1}):Play();end v394.Tabs[v1135].Selected=true;task.spawn(function() for v2036,v2037 in next,v394.Containers do v2037.AnchorPoint=Vector2.new(0,0.05);v2037.Visible=false;end v394.Containers[v1135].Visible=true;v391(v394.Containers[v1135],0.15,{AnchorPoint=Vector2.new(0,0)},Enum.EasingStyle.Quart,Enum.EasingDirection.Out):Play();end);v394.OnChangeFunc(v1135);end end;return v394;end;v0.L=function() local v399={};local v400=v0.load("a");local v401=v400.New;local v402=v400.Tween;local v403=v0.load("K");v399.New=function(v1136,v1137,v1138,v1139) local v1140={Title=v1136.Title or "Section" ,Icon=v1136.Icon,IconThemed=v1136.IconThemed,Opened=v1136.Opened or false ,HeaderSize=42,IconSize=18,Expandable=false};local v1141;if v1140.Icon then v1141=v400.Image(v1140.Icon,v1140.Icon,0,v1138,"Section",true,v1140.IconThemed);v1141.Size=UDim2.new(0,v1140.IconSize,0,v1140.IconSize);v1141.ImageLabel.ImageTransparency=0.25;end local v1142=v401("Frame",{Size=UDim2.new(0,v1140.IconSize,0,v1140.IconSize),BackgroundTransparency=1,Visible=false},{v401("ImageLabel",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1,Image=v400.Icon("chevron-down")[1],ImageRectSize=v400.Icon("chevron-down")[2].ImageRectSize,ImageRectOffset=v400.Icon("chevron-down")[2].ImageRectPosition,ThemeTag={ImageColor3="Icon"},ImageTransparency=0.7})});local v1143=v401("Frame",{Size=UDim2.new(1,0,0,v1140.HeaderSize),BackgroundTransparency=1,Parent=v1137,ClipsDescendants=true},{v401("TextButton",{Size=UDim2.new(1,0,0,v1140.HeaderSize),BackgroundTransparency=1,Text=""},{v1141,v401("TextLabel",{Text=v1140.Title,TextXAlignment="Left",Size=UDim2.new(1,(v1141 and (( -v1140.IconSize-10) * 2)) or ( -v1140.IconSize-10) ,1,0),ThemeTag={TextColor3="Text"},FontFace=Font.new(v400.Font,Enum.FontWeight.SemiBold),TextSize=14,BackgroundTransparency=1,TextTransparency=0.7,TextWrapped=true}),v401("UIListLayout",{FillDirection="Horizontal",VerticalAlignment="Center",Padding=UDim.new(0,10)}),v1142,v401("UIPadding",{PaddingLeft=UDim.new(0,11),PaddingRight=UDim.new(0,11)})}),v401("Frame",{BackgroundTransparency=1,Size=UDim2.new(1,0,0,0),AutomaticSize="Y",Name="Content",Visible=true,Position=UDim2.new(0,0,0,v1140.HeaderSize)},{v401("UIListLayout",{FillDirection="Vertical",Padding=UDim.new(0,0),VerticalAlignment="Bottom"})})});v1140.Tab=function(v1560,v1561) if  not v1140.Expandable then v1140.Expandable=true;v1142.Visible=true;end v1561.Parent=v1143.Content;return v403.New(v1561,v1139);end;v1140.Open=function(v1564) if v1140.Expandable then v1140.Opened=true;v402(v1143,0.33,{Size=UDim2.new(1,0,0,v1140.HeaderSize + (v1143.Content.AbsoluteSize.Y/v1139) )},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v402(v1142.ImageLabel,0.1,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end end;v1140.Close=function(v1565) if v1140.Expandable then v1140.Opened=false;v402(v1143,0.26,{Size=UDim2.new(1,0,0,v1140.HeaderSize)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v402(v1142.ImageLabel,0.1,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end end;v400.AddSignal(v1143.TextButton.MouseButton1Click,function() if v1140.Expandable then if v1140.Opened then v1140:Close();else v1140:Open();end end end);if v1140.Opened then task.spawn(function() task.wait();v1140:Open();end);end return v1140;end;return v399;end;v0.M=function() return {Tab="table-of-contents",Paragraph="type",Button="square-mouse-pointer",Toggle="toggle-right",Slider="sliders-horizontal",Keybind="command",Input="text-cursor-input",Dropdown="chevrons-up-down",Code="terminal",Colorpicker="palette"};end;v0.N=function() game:GetService("UserInputService");local v405={Margin=8,Padding=9};local v406=v0.load("a");local v407=v406.New;local v408=v406.Tween;v405.new=function(v1147,v1148,v1149) local v1150={IconSize=14,Padding=14,Radius=18,Width=400,MaxHeight=380,Icons=v0.load("M")};local v1151=v407("TextBox",{Text="",PlaceholderText="Search...",ThemeTag={PlaceholderColor3="Placeholder",TextColor3="Text"},Size=UDim2.new(1, -((v1150.IconSize * 2) + (v1150.Padding * 2)),0,0),AutomaticSize="Y",ClipsDescendants=true,ClearTextOnFocus=false,BackgroundTransparency=1,TextXAlignment="Left",FontFace=Font.new(v406.Font,Enum.FontWeight.Regular),TextSize=17});local v1152=v407("ImageLabel",{Image=v406.Icon("x")[1],ImageRectSize=v406.Icon("x")[2].ImageRectSize,ImageRectOffset=v406.Icon("x")[2].ImageRectPosition,BackgroundTransparency=1,ThemeTag={ImageColor3="Text"},ImageTransparency=0.2,Size=UDim2.new(0,v1150.IconSize,0,v1150.IconSize)},{v407("TextButton",{Size=UDim2.new(1,8,1,8),BackgroundTransparency=1,Active=true,ZIndex=999999999,AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Text=""})});local v1153=v407("ScrollingFrame",{Size=UDim2.new(1,0,0,0),AutomaticCanvasSize="Y",ScrollingDirection="Y",ElasticBehavior="Never",ScrollBarThickness=0,CanvasSize=UDim2.new(0,0,0,0),BackgroundTransparency=1,Visible=false},{v407("UIListLayout",{Padding=UDim.new(0,0),FillDirection="Vertical"}),v407("UIPadding",{PaddingTop=UDim.new(0,v1150.Padding),PaddingLeft=UDim.new(0,v1150.Padding),PaddingRight=UDim.new(0,v1150.Padding),PaddingBottom=UDim.new(0,v1150.Padding)})});local v1154=v406.NewRoundFrame(v1150.Radius,"Squircle",{Size=UDim2.new(1,0,1,0),ThemeTag={ImageColor3="Accent"},ImageTransparency=0},{v407("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1,Visible=false},{v407("Frame",{Size=UDim2.new(1,0,0,46),BackgroundTransparency=1},{v407("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1},{v407("ImageLabel",{Image=v406.Icon("search")[1],ImageRectSize=v406.Icon("search")[2].ImageRectSize,ImageRectOffset=v406.Icon("search")[2].ImageRectPosition,BackgroundTransparency=1,ThemeTag={ImageColor3="Icon"},ImageTransparency=0.05,Size=UDim2.new(0,v1150.IconSize,0,v1150.IconSize)}),v1151,v1152,v407("UIListLayout",{Padding=UDim.new(0,v1150.Padding),FillDirection="Horizontal",VerticalAlignment="Center"}),v407("UIPadding",{PaddingLeft=UDim.new(0,v1150.Padding),PaddingRight=UDim.new(0,v1150.Padding)})})}),v407("Frame",{BackgroundTransparency=1,AutomaticSize="Y",Size=UDim2.new(1,0,0,0),Name="Results"},{v407("Frame",{Size=UDim2.new(1,0,0,1),ThemeTag={BackgroundColor3="Outline"},BackgroundTransparency=0.9,Visible=false}),v1153,v407("UISizeConstraint",{MaxSize=Vector2.new(v1150.Width,v1150.MaxHeight)})}),v407("UIListLayout",{Padding=UDim.new(0,0),FillDirection="Vertical"})})});local v1155=v407("Frame",{Size=UDim2.new(0,v1150.Width,0,0),AutomaticSize="Y",Parent=v1148,BackgroundTransparency=1,Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),Visible=false,ZIndex=99999999},{v407("UIScale",{Scale=0.9}),v1154,v406.NewRoundFrame(v1150.Radius,"SquircleOutline2",{Size=UDim2.new(1,0,1,0),ThemeTag={ImageColor3="Outline"},ImageTransparency=0.7},{v407("UIGradient",{Rotation=45,Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.55),NumberSequenceKeypoint.new(0.5,0.8),NumberSequenceKeypoint.new(1,0.6)})})})});local function v1156(v1566,v1567,v1568,v1569,v1570,v1571) local v1572=v407("TextButton",{Size=UDim2.new(1,0,0,0),AutomaticSize="Y",BackgroundTransparency=1,Parent=v1569 or nil },{v406.NewRoundFrame(v1150.Radius-4 ,"Squircle",{Size=UDim2.new(1,0,0,0),Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),ThemeTag={ImageColor3="Text"},ImageTransparency=1,Name="Main"},{v407("UIPadding",{PaddingTop=UDim.new(0,v1150.Padding-2 ),PaddingLeft=UDim.new(0,v1150.Padding),PaddingRight=UDim.new(0,v1150.Padding),PaddingBottom=UDim.new(0,v1150.Padding-2 )}),v407("ImageLabel",{Image=v406.Icon(v1568)[1],ImageRectSize=v406.Icon(v1568)[2].ImageRectSize,ImageRectOffset=v406.Icon(v1568)[2].ImageRectPosition,BackgroundTransparency=1,ThemeTag={ImageColor3="Text"},ImageTransparency=0.2,Size=UDim2.new(0,v1150.IconSize,0,v1150.IconSize)}),v407("Frame",{Size=UDim2.new(1, -v1150.IconSize-v1150.Padding ,0,0),BackgroundTransparency=1},{v407("TextLabel",{Text=v1566,ThemeTag={TextColor3="Text"},TextSize=17,BackgroundTransparency=1,TextXAlignment="Left",FontFace=Font.new(v406.Font,Enum.FontWeight.Medium),Size=UDim2.new(1,0,0,0),TextTruncate="AtEnd",AutomaticSize="Y",Name="Title"}),v407("TextLabel",{Text=v1567 or "" ,Visible=(v1567 and true) or false ,ThemeTag={TextColor3="Text"},TextSize=15,TextTransparency=0.2,BackgroundTransparency=1,TextXAlignment="Left",FontFace=Font.new(v406.Font,Enum.FontWeight.Medium),Size=UDim2.new(1,0,0,0),TextTruncate="AtEnd",AutomaticSize="Y",Name="Desc"}) or nil ,v407("UIListLayout",{Padding=UDim.new(0,6),FillDirection="Vertical"})}),v407("UIListLayout",{Padding=UDim.new(0,v1150.Padding),FillDirection="Horizontal"})},true),v407("Frame",{Name="ParentContainer",Size=UDim2.new(1, -v1150.Padding,0,0),AutomaticSize="Y",BackgroundTransparency=1,Visible=v1570},{v406.NewRoundFrame(99,"Squircle",{Size=UDim2.new(0,2,1,0),BackgroundTransparency=1,ThemeTag={ImageColor3="Text"},ImageTransparency=0.9}),v407("Frame",{Size=UDim2.new(1, -v1150.Padding-2 ,0,0),Position=UDim2.new(0,v1150.Padding + 2 ,0,0),BackgroundTransparency=1},{v407("UIListLayout",{Padding=UDim.new(0,0),FillDirection="Vertical"})})}),v407("UIListLayout",{Padding=UDim.new(0,0),FillDirection="Vertical",HorizontalAlignment="Right"})});v1572.Main.Size=UDim2.new(1,0,0,(v1572.Main.Frame.Desc.Visible and (((v1150.Padding-2) * 2) + v1572.Main.Frame.Title.TextBounds.Y + 6 + v1572.Main.Frame.Desc.TextBounds.Y)) or (((v1150.Padding-2) * 2) + v1572.Main.Frame.Title.TextBounds.Y) );v406.AddSignal(v1572.Main.MouseEnter,function() v408(v1572.Main,0.04,{ImageTransparency=0.95}):Play();end);v406.AddSignal(v1572.Main.InputEnded,function() v408(v1572.Main,0.08,{ImageTransparency=1}):Play();end);v406.AddSignal(v1572.Main.MouseButton1Click,function() if v1571 then v1571();end end);return v1572;end local function v1157(v1574,v1575) if ( not v1575 or (v1575=="")) then return false;end if ( not v1574 or (v1574=="")) then return false;end local v1576=string.lower(v1574);local v1577=string.lower(v1575);return string.find(v1576,v1577,1,true)~=nil ;end local function v1158(v1578) if ( not v1578 or (v1578=="")) then return {};end local v1579={};for v1800,v1801 in next,v1147.Tabs do local v1802=v1157(v1801.Title or "" ,v1578);local v1803={};for v1956,v1957 in next,v1801.Elements do if (v1957.__type~="Section") then local v2110=v1157(v1957.Title or "" ,v1578);local v2111=v1157(v1957.Desc or "" ,v1578);if (v2110 or v2111) then v1803[v1956]={Title=v1957.Title,Desc=v1957.Desc,Original=v1957,__type=v1957.__type};end end end if (v1802 or (next(v1803)~=nil)) then v1579[v1800]={Tab=v1801,Title=v1801.Title,Icon=v1801.Icon,Elements=v1803};end end return v1579;end v1150.Search=function(v1580,v1581) v1581=v1581 or "" ;local v1582=v1158(v1581);v1153.Visible=true;v1154.Frame.Results.Frame.Visible=true;for v1804,v1805 in next,v1153:GetChildren() do if ((v1805.ClassName~="UIListLayout") and (v1805.ClassName~="UIPadding")) then v1805:Destroy();end end if (v1582 and (next(v1582)~=nil)) then for v2041,v2042 in next,v1582 do local v2043=v1150.Icons.Tab;local v2044=v1156(v2042.Title,nil,v2043,v1153,true,function() v1150:Close();v1147:SelectTab(v2041);end);if (v2042.Elements and (next(v2042.Elements)~=nil)) then for v2175,v2176 in next,v2042.Elements do local v2177=v1150.Icons[v2176.__type];v1156(v2176.Title,v2176.Desc,v2177,(v2044:FindFirstChild("ParentContainer") and v2044.ParentContainer.Frame) or nil ,false,function() v1150:Close();v1147:SelectTab(v2041);end);end end end elseif (v1581~="") then v407("TextLabel",{Size=UDim2.new(1,0,0,70),BackgroundTransparency=1,Text="No results found",TextSize=16,ThemeTag={TextColor3="Text"},TextTransparency=0.2,BackgroundTransparency=1,FontFace=Font.new(v406.Font,Enum.FontWeight.Medium),Parent=v1153,Name="NotFound"});else v1153.Visible=false;v1154.Frame.Results.Frame.Visible=false;end end;v406.AddSignal(v1151:GetPropertyChangedSignal("Text"),function() v1150:Search(v1151.Text);end);v406.AddSignal(v1153.UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"),function() v408(v1153,0.06,{Size=UDim2.new(1,0,0,math.clamp(v1153.UIListLayout.AbsoluteContentSize.Y + (v1150.Padding * 2) ,0,v1150.MaxHeight))},Enum.EasingStyle.Quint,Enum.EasingDirection.InOut):Play();end);v1150.Open=function(v1585) task.spawn(function() v1154.Frame.Visible=true;v1155.Visible=true;v408(v1155.UIScale,0.12,{Scale=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end);end;v1150.Close=function(v1586) task.spawn(function() v1149();v1154.Frame.Visible=false;v408(v1155.UIScale,0.12,{Scale=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();task.wait(0.12);v1155.Visible=false;end);end;v406.AddSignal(v1152.TextButton.MouseButton1Click,function() v1150:Close();end);v1150:Open();return v1150;end;return v405;end;v0.O=function() local v410=game:GetService("UserInputService");game:GetService("RunService");local v411=workspace.CurrentCamera;local v412=v0.load("a");local v413=v412.New;local v414=v412.Tween;local v415=v0.load("n").New;local v416=v0.load("i").New;local v417=v0.load("o").New;local v418=v0.load("p");local v419=v0.load("q");return function(v1162) local v1163={Title=v1162.Title or "UI Library" ,Author=v1162.Author,Icon=v1162.Icon,IconThemed=v1162.IconThemed,Folder=v1162.Folder,Resizable=v1162.Resizable,Background=v1162.Background,BackgroundImageTransparency=v1162.BackgroundImageTransparency or 0 ,User=v1162.User or {} ,Size=(v1162.Size and UDim2.new(0,math.clamp(v1162.Size.X.Offset,560,700),0,math.clamp(v1162.Size.Y.Offset,350,520))) or UDim2.new(0,580,0,460) ,ToggleKey=v1162.ToggleKey or Enum.KeyCode.G ,Transparent=v1162.Transparent or false ,HideSearchBar=v1162.HideSearchBar,ScrollBarEnabled=v1162.ScrollBarEnabled or false ,SideBarWidth=v1162.SideBarWidth or 200 ,Position=UDim2.new(0.5,0,0.5,0),IconSize=22,UICorner=16,UIPadding=14,UIElements={},CanDropdown=true,Closed=false,Parent=v1162.Parent,Destroyed=false,IsFullscreen=false,CanResize=false,IsOpenButtonEnabled=true,ConfigManager=nil,CurrentTab=nil,TabModule=nil,OnCloseCallback=nil,OnDestroyCallback=nil,TopBarButtons={}};if (v1163.HideSearchBar~=false) then v1163.HideSearchBar=true;end if (v1163.Resizable~=false) then v1163.CanResize=true;v1163.Resizable=true;end if v1163.Folder then makefolder("H4xScripts/"   .. v1163.Folder );end local v1164=v413("UICorner",{CornerRadius=UDim.new(0,v1163.UICorner)});if v1163.Folder then v1163.ConfigManager=v419:Init(v1163);end local v1165=v413("Frame",{Size=UDim2.new(0,32,0,32),Position=UDim2.new(1,0,1,0),AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,ZIndex=99,Active=true},{v413("ImageLabel",{Size=UDim2.new(0,96,0,96),BackgroundTransparency=1,Image="rbxassetid://120997033468887",Position=UDim2.new(0.5, -16,0.5, -16),AnchorPoint=Vector2.new(0.5,0.5),ImageTransparency=1})});local v1166=v412.NewRoundFrame(v1163.UICorner,"Squircle",{Size=UDim2.new(1,0,1,0),ImageTransparency=1,ImageColor3=Color3.new(0,0,0),ZIndex=98,Active=false},{v413("ImageLabel",{Size=UDim2.new(0,70,0,70),Image=v412.Icon("expand")[1],ImageRectOffset=v412.Icon("expand")[2].ImageRectPosition,ImageRectSize=v412.Icon("expand")[2].ImageRectSize,BackgroundTransparency=1,Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),ImageTransparency=1})});local v1167=v412.NewRoundFrame(v1163.UICorner,"Squircle",{Size=UDim2.new(1,0,1,0),ImageTransparency=1,ImageColor3=Color3.new(0,0,0),ZIndex=999,Active=false});v1163.UIElements.SideBar=v413("ScrollingFrame",{Size=UDim2.new(1,(v1163.ScrollBarEnabled and ( -3 -(v1163.UIPadding/2))) or 0 ,1,( not v1163.HideSearchBar and  -45) or 0 ),Position=UDim2.new(0,0,1,0),AnchorPoint=Vector2.new(0,1),BackgroundTransparency=1,ScrollBarThickness=0,ElasticBehavior="Never",CanvasSize=UDim2.new(0,0,0,0),AutomaticCanvasSize="Y",ScrollingDirection="Y",ClipsDescendants=true,VerticalScrollBarPosition="Left"},{v413("Frame",{BackgroundTransparency=1,AutomaticSize="Y",Size=UDim2.new(1,0,0,0),Name="Frame"},{v413("UIPadding",{PaddingTop=UDim.new(0,v1163.UIPadding/2 ),PaddingBottom=UDim.new(0,v1163.UIPadding/2 )}),v413("UIListLayout",{SortOrder="LayoutOrder",Padding=UDim.new(0,0)})}),v413("UIPadding",{PaddingLeft=UDim.new(0,v1163.UIPadding/2 ),PaddingRight=UDim.new(0,v1163.UIPadding/2 )})});v1163.UIElements.SideBarContainer=v413("Frame",{Size=UDim2.new(0,v1163.SideBarWidth,1,(v1163.User.Enabled and ( -94 -(v1163.UIPadding * 2))) or  -52 ),Position=UDim2.new(0,0,0,52),BackgroundTransparency=1,Visible=true},{v413("Frame",{Name="Content",BackgroundTransparency=1,Size=UDim2.new(1,0,1,( not v1163.HideSearchBar and ( -45 -(v1163.UIPadding/2))) or 0 ),Position=UDim2.new(0,0,1,0),AnchorPoint=Vector2.new(0,1)}),v1163.UIElements.SideBar});if v1163.ScrollBarEnabled then v417(v1163.UIElements.SideBar,v1163.UIElements.SideBarContainer.Content,v1163,3);end v1163.UIElements.MainBar=v413("Frame",{Size=UDim2.new(1, -v1163.UIElements.SideBarContainer.AbsoluteSize.X,1, -52),Position=UDim2.new(1,0,1,0),AnchorPoint=Vector2.new(1,1),BackgroundTransparency=1},{v412.NewRoundFrame(v1163.UICorner-(v1163.UIPadding/2) ,"Squircle",{Size=UDim2.new(1,0,1,0),ImageColor3=Color3.new(1,1,1),ZIndex=3,ImageTransparency=0.95,Name="Background"}),v413("UIPadding",{PaddingTop=UDim.new(0,v1163.UIPadding/2 ),PaddingLeft=UDim.new(0,v1163.UIPadding/2 ),PaddingRight=UDim.new(0,v1163.UIPadding/2 ),PaddingBottom=UDim.new(0,v1163.UIPadding/2 )})});local v1171=v413("ImageLabel",{Image="rbxassetid://8992230677",ImageColor3=Color3.new(0,0,0),ImageTransparency=1,Size=UDim2.new(1,120,1,116),Position=UDim2.new(0, -60,0, -58),ScaleType="Slice",SliceCenter=Rect.new(99,99,99,99),BackgroundTransparency=1,ZIndex= -999999999999999,Name="Blur"});local v1172;if (v410.TouchEnabled and  not v410.KeyboardEnabled) then v1172=false;elseif v410.KeyboardEnabled then v1172=true;else v1172=nil;end local v1173;if v1163.User.Enabled then local v1814,v1815=game.Players:GetUserThumbnailAsync((v1163.User.Anonymous and 1) or game.Players.LocalPlayer.UserId ,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size420x420);v1173=v413("TextButton",{Size=UDim2.new(0,v1163.UIElements.SideBarContainer.AbsoluteSize.X-(v1163.UIPadding/2) ,0,42 + v1163.UIPadding ),Position=UDim2.new(0,v1163.UIPadding/2 ,1, -(v1163.UIPadding/2)),AnchorPoint=Vector2.new(0,1),BackgroundTransparency=1},{v412.NewRoundFrame(v1163.UICorner-(v1163.UIPadding/2) ,"SquircleOutline",{Size=UDim2.new(1,0,1,0),ThemeTag={ImageColor3="Text"},ImageTransparency=1,Name="Outline"},{v413("UIGradient",{Rotation=78,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v412.NewRoundFrame(v1163.UICorner-(v1163.UIPadding/2) ,"Squircle",{Size=UDim2.new(1,0,1,0),ThemeTag={ImageColor3="Text"},ImageTransparency=1,Name="UserIcon"},{v413("ImageLabel",{Image=v1814,BackgroundTransparency=1,Size=UDim2.new(0,42,0,42),ThemeTag={BackgroundColor3="Text"},BackgroundTransparency=0.93},{v413("UICorner",{CornerRadius=UDim.new(1,0)})}),v413("Frame",{AutomaticSize="XY",BackgroundTransparency=1},{v413("TextLabel",{Text=(v1163.User.Anonymous and "Anonymous") or game.Players.LocalPlayer.DisplayName ,TextSize=17,ThemeTag={TextColor3="Text"},FontFace=Font.new(v412.Font,Enum.FontWeight.SemiBold),AutomaticSize="Y",BackgroundTransparency=1,Size=UDim2.new(1, -27,0,0),TextTruncate="AtEnd",TextXAlignment="Left"}),v413("TextLabel",{Text=(v1163.User.Anonymous and "@anonymous") or ("@"   .. game.Players.LocalPlayer.Name) ,TextSize=15,TextTransparency=0.6,ThemeTag={TextColor3="Text"},FontFace=Font.new(v412.Font,Enum.FontWeight.Medium),AutomaticSize="Y",BackgroundTransparency=1,Size=UDim2.new(1, -27,0,0),TextTruncate="AtEnd",TextXAlignment="Left"}),v413("UIListLayout",{Padding=UDim.new(0,4),HorizontalAlignment="Left"})}),v413("UIListLayout",{Padding=UDim.new(0,v1163.UIPadding),FillDirection="Horizontal",VerticalAlignment="Center"}),v413("UIPadding",{PaddingLeft=UDim.new(0,v1163.UIPadding/2 ),PaddingRight=UDim.new(0,v1163.UIPadding/2 )})})});if v1163.User.Callback then v412.AddSignal(v1173.MouseButton1Click,function() v1163.User.Callback();end);v412.AddSignal(v1173.MouseEnter,function() v414(v1173.UserIcon,0.04,{ImageTransparency=0.95}):Play();v414(v1173.Outline,0.04,{ImageTransparency=0.85}):Play();end);v412.AddSignal(v1173.InputEnded,function() v414(v1173.UserIcon,0.04,{ImageTransparency=1}):Play();v414(v1173.Outline,0.04,{ImageTransparency=1}):Play();end);end end local v1174;local v1175;local v1176=false;local v1177;local v1178=((typeof(v1163.Background)=="string") and string.match(v1163.Background,"^video:(.+)")) or nil ;if ((typeof(v1163.Background)=="string") and v1178) then v1176=true;if string.find(v1178,"http") then local function v2045(v2114) v2114=v2114:gsub('[%s/\\:*?\"<>|]+',"-");v2114=v2114:gsub("[^%w%-_%.]","");return v2114;end local v2046=v1163.Folder   .. "/Assets/."   .. v2045(v1178)   .. ".webm" ;if  not isfile(v2046) then local v2157,v2158=pcall(function() local v2178=game:HttpGet(v1178);writefile(v2046,v2178);end);if  not v2157 then warn("[ WindUI.Background ]  Failed to download video: "   .. tostring(v2158) );return;end end v1178=getcustomasset(v2046);end v1177=v413("VideoFrame",{BackgroundTransparency=1,Size=UDim2.new(1,0,1,0),Video=v1178,Looped=true,Volume=0},{v413("UICorner",{CornerRadius=UDim.new(0,v1163.UICorner)})});v1177:Play();elseif v1163.Background then v1177=v413("ImageLabel",{BackgroundTransparency=1,Size=UDim2.new(1,0,1,0),Image=((typeof(v1163.Background)=="string") and v1163.Background) or "" ,ImageTransparency=1,ScaleType="Crop"},{v413("UICorner",{CornerRadius=UDim.new(0,v1163.UICorner)})});end local v1179=v412.NewRoundFrame(99,"Squircle",{ImageTransparency=0.8,ImageColor3=Color3.new(1,1,1),Size=UDim2.new(0,0,0,4),Position=UDim2.new(0.5,0,1,4),AnchorPoint=Vector2.new(0.5,0)},{v413("Frame",{Size=UDim2.new(1,12,1,12),BackgroundTransparency=1,Position=UDim2.new(0.5,0,0.5,0),AnchorPoint=Vector2.new(0.5,0.5),Active=true,ZIndex=99})});function createAuthor(v1587) return v413("TextLabel",{Text=v1587,FontFace=Font.new(v412.Font,Enum.FontWeight.Medium),BackgroundTransparency=1,TextTransparency=0.35,AutomaticSize="XY",Parent=v1163.UIElements.Main and v1163.UIElements.Main.Main.Topbar.Left.Title ,TextXAlignment="Left",TextSize=13,LayoutOrder=2,ThemeTag={TextColor3="Text"},Name="Author"});end local v1180;local v1181;if v1163.Author then v1180=createAuthor(v1163.Author);end local v1182=v413("TextLabel",{Text=v1163.Title,FontFace=Font.new(v412.Font,Enum.FontWeight.SemiBold),BackgroundTransparency=1,AutomaticSize="XY",Name="Title",TextXAlignment="Left",TextSize=16,ThemeTag={TextColor3="Text"}});v1163.UIElements.Main=v413("Frame",{Size=v1163.Size,Position=v1163.Position,BackgroundTransparency=1,Parent=v1162.Parent,AnchorPoint=Vector2.new(0.5,0.5),Active=true},{v1171,v412.NewRoundFrame(v1163.UICorner,"Squircle",{ImageTransparency=1,Size=UDim2.new(1,0,1, -240),AnchorPoint=Vector2.new(0.5,0.5),Position=UDim2.new(0.5,0,0.5,0),Name="Background",ThemeTag={ImageColor3="Background"}},{v1177,v1179,v1165}),UIStroke,v1164,v1166,v1167,v413("Frame",{Size=UDim2.new(1,0,1,0),BackgroundTransparency=1,Name="Main",Visible=false,ZIndex=97},{v413("UICorner",{CornerRadius=UDim.new(0,v1163.UICorner)}),v1163.UIElements.SideBarContainer,v1163.UIElements.MainBar,v1173,v1175,v413("Frame",{Size=UDim2.new(1,0,0,52),BackgroundTransparency=1,BackgroundColor3=Color3.fromRGB(50,50,50),Name="Topbar"},{v1174,v413("Frame",{AutomaticSize="X",Size=UDim2.new(0,0,1,0),BackgroundTransparency=1,Name="Left"},{v413("UIListLayout",{Padding=UDim.new(0,v1163.UIPadding + 4 ),SortOrder="LayoutOrder",FillDirection="Horizontal",VerticalAlignment="Center"}),v413("Frame",{AutomaticSize="XY",BackgroundTransparency=1,Name="Title",Size=UDim2.new(0,0,1,0),LayoutOrder=2},{v413("UIListLayout",{Padding=UDim.new(0,0),SortOrder="LayoutOrder",FillDirection="Vertical",VerticalAlignment="Center"}),v1182,v1180}),v413("UIPadding",{PaddingLeft=UDim.new(0,4)})}),v413("ScrollingFrame",{Name="Center",BackgroundTransparency=1,AutomaticSize="Y",ScrollBarThickness=0,ScrollingDirection="X",AutomaticCanvasSize="X",CanvasSize=UDim2.new(0,0,0,0),Size=UDim2.new(0,0,1,0),AnchorPoint=Vector2.new(0,0.5),Position=UDim2.new(0,0,0.5,0),Visible=false},{v413("UIListLayout",{FillDirection="Horizontal",VerticalAlignment="Center",HorizontalAlignment="Left",Padding=UDim.new(0,v1163.UIPadding/2 )})}),v413("Frame",{AutomaticSize="XY",BackgroundTransparency=1,Position=UDim2.new(1,0,0.5,0),AnchorPoint=Vector2.new(1,0.5),Name="Right"},{v413("UIListLayout",{Padding=UDim.new(0,9),FillDirection="Horizontal",SortOrder="LayoutOrder"})}),v413("UIPadding",{PaddingTop=UDim.new(0,v1163.UIPadding),PaddingLeft=UDim.new(0,v1163.UIPadding),PaddingRight=UDim.new(0,8),PaddingBottom=UDim.new(0,v1163.UIPadding)})})})});v412.AddSignal(v1163.UIElements.Main.Main.Topbar.Left:GetPropertyChangedSignal("AbsoluteSize"),function() local v1588=0;local v1589=v1163.UIElements.Main.Main.Topbar.Right.UIListLayout.AbsoluteContentSize.X;if (v1182 and v1180) then v1588=math.max(v1182.TextBounds.X,v1180.TextBounds.X);else v1588=v1182.TextBounds.X;end if v1181 then v1588=v1588 + v1163.IconSize + v1163.UIPadding + 4 ;end v1163.UIElements.Main.Main.Topbar.Center.Position=UDim2.new(0,v1588 + v1163.UIPadding ,0.5,0);v1163.UIElements.Main.Main.Topbar.Center.Size=UDim2.new(1,( -v1588-v1589) -(v1163.UIPadding * 2) ,1,0);end);v1163.CreateTopbarButton=function(v1592,v1593,v1594,v1595,v1596,v1597) local v1598=v412.Image(v1594,v1594,0,v1163.Folder,"TopbarIcon",true,v1597);v1598.Size=UDim2.new(0,16,0,16);v1598.AnchorPoint=Vector2.new(0.5,0.5);v1598.Position=UDim2.new(0.5,0,0.5,0);local v1602=v412.NewRoundFrame(9,"Squircle",{Size=UDim2.new(0,36,0,36),LayoutOrder=v1596 or 999 ,Parent=v1163.UIElements.Main.Main.Topbar.Right,ZIndex=9999,ThemeTag={ImageColor3="Text"},ImageTransparency=1},{v412.NewRoundFrame(9,"SquircleOutline",{Size=UDim2.new(1,0,1,0),ThemeTag={ImageColor3="Text"},ImageTransparency=1,Name="Outline"},{v413("UIGradient",{Rotation=45,Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,255,255))}),Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0.1),NumberSequenceKeypoint.new(0.5,1),NumberSequenceKeypoint.new(1,0.1)})})}),v1598},true);v1163.TopBarButtons[100 -v1596 ]={Name=v1593,Object=v1602};v412.AddSignal(v1602.MouseButton1Click,function() v1595();end);v412.AddSignal(v1602.MouseEnter,function() v414(v1602,0.15,{ImageTransparency=0.93}):Play();v414(v1602.Outline,0.15,{ImageTransparency=0.75}):Play();end);v412.AddSignal(v1602.MouseLeave,function() v414(v1602,0.1,{ImageTransparency=1}):Play();v414(v1602.Outline,0.1,{ImageTransparency=1}):Play();end);return v1602;end;local v1185=v412.Drag(v1163.UIElements.Main,{v1163.UIElements.Main.Main.Topbar,v1179.Frame},function(v1604,v1605) if  not v1163.Closed then if (v1604 and (v1605==v1179.Frame)) then v414(v1179,0.1,{ImageTransparency=0.35}):Play();else v414(v1179,0.2,{ImageTransparency=0.8}):Play();end end end);if ( not v1176 and v1163.Background and (typeof(v1163.Background)=="table")) then local v1816=v413("UIGradient");for v1959,v1960 in next,v1163.Background do v1816[v1959]=v1960;end v1163.UIElements.BackgroundGradient=v412.NewRoundFrame(v1163.UICorner,"Squircle",{Size=UDim2.new(1,0,1,0),Parent=v1163.UIElements.Main.Background,ImageTransparency=(v1163.Transparent and v1162.WindUI.TransparencyValue) or 0 },{v1816});end local v1186=v0.load("r").New(v1163);task.spawn(function() if v1163.Icon then v1181=v412.Image(v1163.Icon,v1163.Title,0,v1163.Folder,"Window",true,v1163.IconThemed);v1181.Parent=v1163.UIElements.Main.Main.Topbar.Left;v1181.Size=UDim2.new(0,v1163.IconSize,0,v1163.IconSize);v1186:SetIcon(v1163.Icon);else v1186:SetIcon(v1163.Icon);OpenButtonIcon.Visible=false;end end);v1163.SetToggleKey=function(v1606,v1607) v1163.ToggleKey=v1607;end;v1163.SetTitle=function(v1609,v1610) v1163.Title=v1610;v1182.Text=v1610;end;v1163.SetAuthor=function(v1613,v1614) v1163.Author=v1614;if  not v1180 then v1180=createAuthor(v1163.Author);end v1180.Text=v1614;end;v1163.SetBackgroundImage=function(v1617,v1618) v1163.UIElements.Main.Background.ImageLabel.Image=v1618;end;v1163.SetBackgroundImageTransparency=function(v1620,v1621) v1163.UIElements.Main.Background.ImageLabel.ImageTransparency=v1621;v1163.BackgroundImageTransparency=v1621;end;local v1192;local v1193;v412.Icon("minimize");v412.Icon("maximize");v1163:CreateTopbarButton("Fullscreen","maximize",function() v1163:ToggleFullscreen();end,998);v1163.ToggleFullscreen=function(v1624) local v1625=v1163.IsFullscreen;v1185:Set(v1625);if  not v1625 then v1192=v1163.UIElements.Main.Position;v1193=v1163.UIElements.Main.Size;v1163.CanResize=false;elseif v1163.Resizable then v1163.CanResize=true;end v414(v1163.UIElements.Main,0.45,{Size=(v1625 and v1193) or UDim2.new(1, -20,1, -72) },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v414(v1163.UIElements.Main,0.45,{Position=(v1625 and v1192) or UDim2.new(0.5,0,0.5,26) },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v1163.IsFullscreen= not v1625;end;v1163:CreateTopbarButton("Minimize","minus",function() v1163:Close();task.spawn(function() task.wait(0.3);if ( not v1172 and v1163.IsOpenButtonEnabled) then v1186:Visible(true);end end);end,997);v1163.OnClose=function(v1627,v1628) v1163.OnCloseCallback=v1628;end;v1163.OnDestroy=function(v1630,v1631) v1163.OnDestroyCallback=v1631;end;v1163.Open=function(v1633) task.spawn(function() task.wait(0.06);v1163.Closed=false;v414(v1163.UIElements.Main.Background,0.2,{ImageTransparency=(v1163.Transparent and v1162.WindUI.TransparencyValue) or 0 },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();if v1163.UIElements.BackgroundGradient then v414(v1163.UIElements.BackgroundGradient,0.2,{ImageTransparency=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end v414(v1163.UIElements.Main.Background,0.4,{Size=UDim2.new(1,0,1,0)},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play();if v1177 then if v1177:IsA("VideoFrame") then v1177.Visible=true;end v414(v1177,0.2,{ImageTransparency=(v1177:IsA("ImageLabel") and 0) or nil },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end v414(v1171,0.25,{ImageTransparency=0.7},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();if UIStroke then v414(UIStroke,0.25,{Transparency=0.8},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end task.spawn(function() task.wait(0.5);v414(v1179,0.45,{Size=UDim2.new(0,200,0,4),ImageTransparency=0.8},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play();v1185:Set(true);task.wait(0.45);if v1163.Resizable then v414(v1165.ImageLabel,0.45,{ImageTransparency=0.8},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play();v1163.CanResize=true;end end);v1163.CanDropdown=true;v1163.UIElements.Main.Visible=true;task.spawn(function() task.wait(0.05);v1163.UIElements.Main:WaitForChild("Main").Visible=true;end);end);end;v1163.Close=function(v1634) local v1635={};if v1163.OnCloseCallback then task.spawn(function() v412.SafeCallback(v1163.OnCloseCallback);end);end v1163.UIElements.Main:WaitForChild("Main").Visible=false;v1163.CanDropdown=false;v1163.Closed=true;v414(v1163.UIElements.Main.Background,0.32,{ImageTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.InOut):Play();if v1163.UIElements.BackgroundGradient then v414(v1163.UIElements.BackgroundGradient,0.32,{ImageTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.InOut):Play();end v414(v1163.UIElements.Main.Background,0.4,{Size=UDim2.new(1,0,1, -240)},Enum.EasingStyle.Exponential,Enum.EasingDirection.InOut):Play();if v1177 then if v1177:IsA("VideoFrame") then v1177.Visible=false;end v414(v1177,0.2,{ImageTransparency=(v1177:IsA("ImageLabel") and 1) or nil },Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end v414(v1171,0.25,{ImageTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();if UIStroke then v414(UIStroke,0.25,{Transparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end v414(v1179,0.3,{Size=UDim2.new(0,0,0,4),ImageTransparency=1},Enum.EasingStyle.Exponential,Enum.EasingDirection.InOut):Play();v414(v1165.ImageLabel,0.3,{ImageTransparency=1},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play();v1185:Set(false);v1163.CanResize=false;task.spawn(function() task.wait(0.4);v1163.UIElements.Main.Visible=false;end);v1635.Destroy=function(v1822) if v1163.OnDestroyCallback then task.spawn(function() v412.SafeCallback(v1163.OnDestroyCallback);end);end v1163.Destroyed=true;task.wait(0.4);v1162.Parent.Parent:Destroy();end;return v1635;end;v1163.ToggleTransparency=function(v1641,v1642) v1163.Transparent=v1642;v1162.WindUI.Transparent=v1642;v1163.UIElements.Main.Background.ImageTransparency=(v1642 and v1162.WindUI.TransparencyValue) or 0 ;v1163.UIElements.MainBar.Background.ImageTransparency=(v1642 and 0.97) or 0.95 ;end;v1163.SetUIScale=function(v1647,v1648) v1162.WindUI.UIScale=v1648;v414(v1162.WindUI.ScreenGui.UIScale,0.2,{Scale=v1648},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();end;do if (((v411.ViewportSize.X-40)<v1163.UIElements.Main.AbsoluteSize.X) or ((v411.ViewportSize.Y-40)<v1163.UIElements.Main.AbsoluteSize.Y)) then if  not v1163.IsFullscreen then v1163:SetUIScale(0.9);end end end if ( not v1172 and v1163.IsOpenButtonEnabled) then v412.AddSignal(v1186.Button.TextButton.MouseButton1Click,function() v1186:Visible(false);v1163:Open();end);end v412.AddSignal(v410.InputBegan,function(v1650,v1651) if v1651 then return;end if (v1650.KeyCode==v1163.ToggleKey) then if v1163.Closed then v1163:Open();else v1163:Close();end end end);task.spawn(function() v1163:Open();end);v1163.EditOpenButton=function(v1652,v1653) return v1186:Edit(v1653);end;local v1202=v0.load("K");local v1203=v0.load("L");local v1204=v1202.Init(v1163,v1162.WindUI,v1162.Parent.Parent.ToolTips);v1204:OnChange(function(v1654) v1163.CurrentTab=v1654;end);v1163.TabModule=v1202;v1163.Tab=function(v1656,v1657) v1657.Parent=v1163.UIElements.SideBar.Frame;return v1204.New(v1657,v1162.WindUI.UIScale);end;v1163.SelectTab=function(v1660,v1661) v1204:SelectTab(v1661);end;v1163.Section=function(v1662,v1663) return v1203.New(v1663,v1163.UIElements.SideBar.Frame,v1163.Folder,v1162.WindUI.UIScale);end;v1163.IsResizable=function(v1664,v1665) v1163.Resizable=v1665;v1163.CanResize=v1665;end;v1163.Divider=function(v1668) local v1669=v413("Frame",{Size=UDim2.new(1,0,0,1),Position=UDim2.new(0.5,0,0,0),AnchorPoint=Vector2.new(0.5,0),BackgroundTransparency=0.9,ThemeTag={BackgroundColor3="Text"}});local v1670=v413("Frame",{Parent=v1163.UIElements.SideBar.Frame,Size=UDim2.new(1, -7,0,5),BackgroundTransparency=1},{v1669});return v1670;end;local v1211=v0.load("k").Init(v1163,nil);v1163.Dialog=function(v1671,v1672) local v1673={Title=v1672.Title or "Dialog" ,Width=v1672.Width or 320 ,Content=v1672.Content,Buttons=v1672.Buttons or {} ,TextPadding=10};local v1674=v1211.Create(false);v1674.UIElements.Main.Size=UDim2.new(0,v1673.Width,0,0);local v1676=v413("Frame",{Size=UDim2.new(1,0,0,0),AutomaticSize="Y",BackgroundTransparency=1,Parent=v1674.UIElements.Main},{v413("UIListLayout",{FillDirection="Horizontal",Padding=UDim.new(0,v1674.UIPadding),VerticalAlignment="Center"}),v413("UIPadding",{PaddingTop=UDim.new(0,v1673.TextPadding/2 ),PaddingLeft=UDim.new(0,v1673.TextPadding/2 ),PaddingRight=UDim.new(0,v1673.TextPadding/2 )})});local v1677;if v1672.Icon then v1677=v412.Image(v1672.Icon,v1673.Title   .. ":"   .. v1672.Icon ,0,v1163,"Dialog",true,v1672.IconThemed);v1677.Size=UDim2.new(0,22,0,22);v1677.Parent=v1676;end v1674.UIElements.UIListLayout=v413("UIListLayout",{Padding=UDim.new(0,12),FillDirection="Vertical",HorizontalAlignment="Left",Parent=v1674.UIElements.Main});v413("UISizeConstraint",{MinSize=Vector2.new(180,20),MaxSize=Vector2.new(400,math.huge),Parent=v1674.UIElements.Main});v1674.UIElements.Title=v413("TextLabel",{Text=v1673.Title,TextSize=20,FontFace=Font.new(v412.Font,Enum.FontWeight.SemiBold),TextXAlignment="Left",TextWrapped=true,RichText=true,Size=UDim2.new(1,(v1677 and ( -26 -v1674.UIPadding)) or 0 ,0,0),AutomaticSize="Y",ThemeTag={TextColor3="Text"},BackgroundTransparency=1,Parent=v1676});if v1673.Content then v413("TextLabel",{Text=v1673.Content,TextSize=18,TextTransparency=0.4,TextWrapped=true,RichText=true,FontFace=Font.new(v412.Font,Enum.FontWeight.Medium),TextXAlignment="Left",Size=UDim2.new(1,0,0,0),AutomaticSize="Y",LayoutOrder=2,ThemeTag={TextColor3="Text"},BackgroundTransparency=1,Parent=v1674.UIElements.Main},{v413("UIPadding",{PaddingLeft=UDim.new(0,v1673.TextPadding/2 ),PaddingRight=UDim.new(0,v1673.TextPadding/2 ),PaddingBottom=UDim.new(0,v1673.TextPadding/2 )})});end local v1680=v413("UIListLayout",{Padding=UDim.new(0,6),FillDirection="Horizontal",HorizontalAlignment="Right"});local v1681=v413("Frame",{Size=UDim2.new(1,0,0,40),AutomaticSize="None",BackgroundTransparency=1,Parent=v1674.UIElements.Main,LayoutOrder=4},{v1680});local v1682={};for v1824,v1825 in next,v1673.Buttons do local v1826=v416(v1825.Title,v1825.Icon,v1825.Callback,v1825.Variant,v1681,v1674,false);table.insert(v1682,v1826);end local function v1683() v1680.FillDirection=Enum.FillDirection.Horizontal;v1680.HorizontalAlignment=Enum.HorizontalAlignment.Right;v1680.VerticalAlignment=Enum.VerticalAlignment.Center;v1681.AutomaticSize=Enum.AutomaticSize.None;for v1972,v1973 in ipairs(v1682) do v1973.Size=UDim2.new(0,0,1,0);v1973.AutomaticSize=Enum.AutomaticSize.X;end wait();local v1835=v1680.AbsoluteContentSize.X;local v1836=v1681.AbsoluteSize.X;if (v1835>v1836) then v1680.FillDirection=Enum.FillDirection.Vertical;v1680.HorizontalAlignment=Enum.HorizontalAlignment.Right;v1680.VerticalAlignment=Enum.VerticalAlignment.Bottom;v1681.AutomaticSize=Enum.AutomaticSize.Y;for v2118,v2119 in ipairs(v1682) do v2119.Size=UDim2.new(1,0,0,40);v2119.AutomaticSize=Enum.AutomaticSize.None;end else local v2055=v1836-v1835 ;if (v2055>0) then local v2160;local v2161=math.huge;for v2179,v2180 in ipairs(v1682) do local v2181=v2180.AbsoluteSize.X;if (v2181<v2161) then v2161=v2181;v2160=v2180;end end if v2160 then v2160.Size=UDim2.new(0,v2161 + v2055 ,1,0);v2160.AutomaticSize=Enum.AutomaticSize.None;end end end end v412.AddSignal(v1674.UIElements.Main:GetPropertyChangedSignal("AbsoluteSize"),v1683);v1683();wait();v1674:Open();return v1674;end;v1163:CreateTopbarButton("Close","x",function() v414(v1163.UIElements.Main,0.35,{Position=UDim2.new(0.5,0,0.5,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play();v1163({Title="Close Window",Content="Do you want to close this window? You will not be able to open it again.",Buttons={{Title="Cancel",Callback=function() end,Variant="Secondary"},{Title="Close Window",Callback=function() v1163:Close():Destroy();end,Variant="Primary"}}});end,999);v1163.Tag=function(v1684,v1685) if (v1163.UIElements.Main.Main.Topbar.Center.Visible==false) then v1163.UIElements.Main.Main.Topbar.Center.Visible=true;end return v418:New(v1685,v1163.UIElements.Main.Main.Topbar.Center);end;local function v1214(v1686) if v1163.CanResize then isResizing=true;v1166.Active=true;initialSize=v1163.UIElements.Main.Size;initialInputPosition=v1686.Position;v414(v1166,0.12,{ImageTransparency=0.65}):Play();v414(v1166.ImageLabel,0.12,{ImageTransparency=0}):Play();v414(v1165.ImageLabel,0.1,{ImageTransparency=0.35}):Play();v412.AddSignal(v1686.Changed,function() if (v1686.UserInputState==Enum.UserInputState.End) then isResizing=false;v1166.Active=false;v414(v1166,0.2,{ImageTransparency=1}):Play();v414(v1166.ImageLabel,0.17,{ImageTransparency=1}):Play();v414(v1165.ImageLabel,0.17,{ImageTransparency=0.8}):Play();end end);end end v412.AddSignal(v1165.InputBegan,function(v1687) if ((v1687.UserInputType==Enum.UserInputType.MouseButton1) or (v1687.UserInputType==Enum.UserInputType.Touch)) then if v1163.CanResize then v1214(v1687);end end end);v412.AddSignal(v410.InputChanged,function(v1688) if ((v1688.UserInputType==Enum.UserInputType.MouseMovement) or (v1688.UserInputType==Enum.UserInputType.Touch)) then if (isResizing and v1163.CanResize) then local v2123=v1688.Position-initialInputPosition ;local v2124=UDim2.new(0,initialSize.X.Offset + (v2123.X * 2) ,0,initialSize.Y.Offset + (v2123.Y * 2) );v414(v1163.UIElements.Main,0,{Size=UDim2.new(0,math.clamp(v2124.X.Offset,560,700),0,math.clamp(v2124.Y.Offset,350,520))}):Play();end end end);if  not v1163.HideSearchBar then local v1837=v0.load("N");local v1838=false;local v1839=v415("Search","search",v1163.UIElements.SideBarContainer);v1839.Size=UDim2.new(1, -v1163.UIPadding/2 ,0,39);v1839.Position=UDim2.new(0,v1163.UIPadding/2 ,0,v1163.UIPadding/2 );v412.AddSignal(v1839.MouseButton1Click,function() if v1838 then return;end v1837.new(v1163.TabModule,v1163.UIElements.Main,function() v1838=false;if v1163.Resizable then v1163.CanResize=true;end v414(v1167,0.1,{ImageTransparency=1}):Play();v1167.Active=false;end);v414(v1167,0.1,{ImageTransparency=0.65}):Play();v1167.Active=true;v1838=true;v1163.CanResize=false;end);end v1163.DisableTopbarButtons=function(v1689,v1690) for v1842,v1843 in next,v1690 do for v1983,v1984 in next,v1163.TopBarButtons do if (v1984.Name==v1843) then v1984.Object.Visible=false;end end end end;return v1163;end;end;end local v1={Window=nil,Theme=nil,Creator=v0.load("a"),LocalizationModule=v0.load("b"),NotificationModule=v0.load("c"),Themes=v0.load("d"),Transparent=false,TransparencyValue=0.15,UIScale=1,Version="1.6.44",Services=v0.load("h"),OnThemeChangeFunction=nil};local v2=v0.load("l");local v3=v1.Services;local v4=v1.Themes;local v5=v1.Creator;local v6=v5.New;local v7=v5.Tween;v5.Themes=v4;local v9=(game:GetService("Players") and game:GetService("Players").LocalPlayer) or nil ;local v10=protectgui or (syn and syn.protect_gui) or function() end ;local v11=(gethui and gethui()) or game.CoreGui ;v1.ScreenGui=v6("ScreenGui",{Name="WindUI",Parent=v11,IgnoreGuiInset=true,ScreenInsets="None"},{v6("UIScale",{Scale=v1.Scale}),v6("Folder",{Name="Window"}),v6("Folder",{Name="KeySystem"}),v6("Folder",{Name="Popups"}),v6("Folder",{Name="ToolTips"})});v1.NotificationGui=v6("ScreenGui",{Name="WindUI/Notifications",Parent=v11,IgnoreGuiInset=true});v1.DropdownGui=v6("ScreenGui",{Name="WindUI/Dropdowns",Parent=v11,IgnoreGuiInset=true});v10(v1.ScreenGui);v10(v1.NotificationGui);v10(v1.DropdownGui);v5.Init(v1);math.clamp(v1.TransparencyValue,0,1);local v15=v1.NotificationModule.Init(v1.NotificationGui);v1.Notify=function(v73,v74) v74.Holder=v15.Frame;v74.Window=v1.Window;return v1.NotificationModule.New(v74);end;v1.SetNotificationLower=function(v79,v80) v15.SetLower(v80);end;v1.SetFont=function(v81,v82) v5.UpdateFont(v82);end;v1.OnThemeChange=function(v83,v84) v1.OnThemeChangeFunction=v84;end;v1.AddTheme=function(v86,v87) v4[v87.Name]=v87;return v87;end;v1.SetTheme=function(v89,v90) if v4[v90] then v1.Theme=v4[v90];v5.SetTheme(v4[v90]);if v1.OnThemeChangeFunction then v1.OnThemeChangeFunction(v90);end return v4[v90];end return nil;end;v1.GetThemes=function(v91) return v4;end;v1.GetCurrentTheme=function(v92) return v1.Theme.Name;end;v1.GetTransparency=function(v93) return v1.Transparent or false ;end;v1.GetWindowSize=function(v94) return Window.UIElements.Main.Size;end;v1.Localization=function(v95,v96) return v1.LocalizationModule:New(v96,v5);end;v1.SetLanguage=function(v97,v98) if v5.Localization then return v5.SetLanguage(v98);end return false;end;v1:SetTheme("Dark");v1:SetLanguage(v5.Language);v1.Gradient=function(v99,v100,v101) local v102={};local v103={};for v420,v421 in next,v100 do local v422=tonumber(v420);if v422 then v422=math.clamp(v422/100 ,0,1);table.insert(v102,ColorSequenceKeypoint.new(v422,v421.Color));table.insert(v103,NumberSequenceKeypoint.new(v422,v421.Transparency or 0 ));end end table.sort(v102,function(v423,v424) return v423.Time<v424.Time ;end);table.sort(v103,function(v425,v426) return v425.Time<v426.Time ;end);if ( #v102<2) then error("ColorSequence requires at least 2 keypoints");end local v104={Color=ColorSequence.new(v102),Transparency=NumberSequence.new(v103)};if v101 then for v1691,v1692 in pairs(v101) do v104[v1691]=v1692;end end return v104;end;v1.Popup=function(v105,v106) v106.WindUI=v1;return v0.load("m").new(v106);end;v1.CreateWindow=function(v108,v109) local v110=v0.load("O");if  not isfolder("H4xScripts") then makefolder("H4xScripts");end if v109.Folder then makefolder(v109.Folder);else makefolder(v109.Title);end v109.WindUI=v1;v109.Parent=v1.ScreenGui.Window;if v1.Window then warn("You cannot create more than one window");return;end local v114=true;local v115=v4[v109.Theme or "Dark" ];v5.SetTheme(v115);local v116=gethwid or function() return game:GetService("Players").LocalPlayer.UserId;end ;local v117=v116();if v109.KeySystem then v114=false;local function v1218() v2.new(v109,v117,function(v1844) v114=v1844;end);end local v1219=v109.Folder   .. "/"   .. v117   .. ".key" ;if ( not v109.KeySystem.API and v109.KeySystem.SaveKey and v109.Folder) then if isfile(v1219) then local v2057=readfile(v1219);local v2058=((type(v109.KeySystem.Key)=="table") and table.find(v109.KeySystem.Key,v2057)) or (tostring(v109.KeySystem.Key)==tostring(v2057)) ;if v2058 then v114=true;else v1218();end else v1218();end elseif isfile(v1219) then local v2059=readfile(v1219);local v2060=false;for v2126,v2127 in next,v109.KeySystem.API do local v2128=v1.Services[v2127.Type];if v2128 then local v2182={};for v2194,v2195 in next,v2128.Args do table.insert(v2182,v2127[v2195]);end local v2183=v2128.New(table.unpack(v2182));local v2184=v2183.Verify(v2059);if v2184 then v2060=true;break;end end end v114=v2060;if  not v2060 then v1218();end else v1218();end repeat task.wait();until v114 end local v118=v110(v109);v1.Transparent=v109.Transparent;v1.Window=v118;return v118;end;return v1;
+--[[
+     _      ___         ____  ______
+    | | /| / (_)__  ___/ / / / /  _/
+    | |/ |/ / / _ \/ _  / /_/ // /  
+    |__/|__/_/_//_/\_,_/\____/___/
+    
+    v1.6.54  |  2025-10-09  |  Roblox UI Library for scripts
+    
+    This script is NOT intended to be modified.
+    To view the source code, see the `src/` folder on the official GitHub repository.
+    
+    Author: Footagesus (Footages, .ftgs, oftgs)
+    Github: https://github.com/Footagesus/WindUI
+    Discord: https://discord.gg/ftgs-development-hub-1300692552005189632
+    License: MIT
+]]
+
+
+local a a={cache={}, load=function(b)if not a.cache[b]then a.cache[b]={c=a[b]()}end return a.cache[b].c end}do function a.a()local b=game:GetService"RunService"local d=
+b.Heartbeat
+local e=game:GetService"UserInputService"
+local f=game:GetService"TweenService"
+local g=game:GetService"LocalizationService"
+local h=game:GetService"HttpService"
+
+local i="https://raw.githubusercontent.com/Footagesus/Icons/main/Main-v2.lua"
+
+local j=loadstring(
+game.HttpGetAsync and game:HttpGetAsync(i)
+or h:GetAsync(i)
+)()
+j.SetIconsType"lucide"
+
+local l
+
+local m={
+Font="rbxassetid://12187365364",
+Localization=nil,
+CanDraggable=true,
+Theme=nil,
+Themes=nil,
+Icons=j,
+Signals={},
+Objects={},
+LocalizationObjects={},
+FontObjects={},
+Language=string.match(g.SystemLocaleId,"^[a-z]+"),
+Request=http_request or(syn and syn.request)or request,
+DefaultProperties={
+ScreenGui={
+ResetOnSpawn=false,
+ZIndexBehavior="Sibling",
+},
+CanvasGroup={
+BorderSizePixel=0,
+BackgroundColor3=Color3.new(1,1,1),
+},
+Frame={
+BorderSizePixel=0,
+BackgroundColor3=Color3.new(1,1,1),
+},
+TextLabel={
+BackgroundColor3=Color3.new(1,1,1),
+BorderSizePixel=0,
+Text="",
+RichText=true,
+TextColor3=Color3.new(1,1,1),
+TextSize=14,
+},TextButton={
+BackgroundColor3=Color3.new(1,1,1),
+BorderSizePixel=0,
+Text="",
+AutoButtonColor=false,
+TextColor3=Color3.new(1,1,1),
+TextSize=14,
+},
+TextBox={
+BackgroundColor3=Color3.new(1,1,1),
+BorderColor3=Color3.new(0,0,0),
+ClearTextOnFocus=false,
+Text="",
+TextColor3=Color3.new(0,0,0),
+TextSize=14,
+},
+ImageLabel={
+BackgroundTransparency=1,
+BackgroundColor3=Color3.new(1,1,1),
+BorderSizePixel=0,
+},
+ImageButton={
+BackgroundColor3=Color3.new(1,1,1),
+BorderSizePixel=0,
+AutoButtonColor=false,
+},
+UIListLayout={
+SortOrder="LayoutOrder",
+},
+ScrollingFrame={
+ScrollBarImageTransparency=1,
+BorderSizePixel=0,
+},
+VideoFrame={
+BorderSizePixel=0,
+}
+},
+Colors={
+Red="#e53935",
+Orange="#f57c00",
+Green="#43a047",
+Blue="#039be5",
+White="#ffffff",
+Grey="#484848",
+},
+}
+
+function m.Init(p)
+l=p
+end
+
+function m.AddSignal(p,r)
+local u=p:Connect(r)
+table.insert(m.Signals,u)
+return u
+end
+
+function m.DisconnectAll()
+for p,r in next,m.Signals do
+local u=table.remove(m.Signals,p)
+u:Disconnect()
+end
+end
+
+function m.SafeCallback(p,...)
+if not p then
+return
+end
+
+local r,u=pcall(p,...)
+if not r then
+if l and l.Window and l.Window.Debug then local
+v, x=u:find":%d+: "
+
+warn("[ WindUI: DEBUG Mode ] "..u)
+
+return l:Notify{
+Title="DEBUG Mode: Error",
+Content=not x and u or u:sub(x+1),
+Duration=8,
+}
+end
+end
+end
+
+function m.Gradient(p,r)
+if l and l.Gradient then
+return l:Gradient(p,r)
+end
+
+local u={}
+local v={}
+
+for x,z in next,p do
+local A=tonumber(x)
+if A then
+A=math.clamp(A/100,0,1)
+table.insert(u,ColorSequenceKeypoint.new(A,z.Color))
+table.insert(v,NumberSequenceKeypoint.new(A,z.Transparency or 0))
+end
+end
+
+table.sort(u,function(A,B)return A.Time<B.Time end)
+table.sort(v,function(A,B)return A.Time<B.Time end)
+
+if#u<2 then
+error"ColorSequence requires at least 2 keypoints"
+end
+
+local A={
+Color=ColorSequence.new(u),
+Transparency=NumberSequence.new(v),
+}
+
+if r then
+for B,C in pairs(r)do
+A[B]=C
+end
+end
+
+return A
+end
+
+function m.SetTheme(p)
+m.Theme=p
+m.UpdateTheme(nil,true)
+end
+
+function m.AddFontObject(p)
+table.insert(m.FontObjects,p)
+m.UpdateFont(m.Font)
+end
+
+function m.UpdateFont(p)
+m.Font=p
+for r,u in next,m.FontObjects do
+u.FontFace=Font.new(p,u.FontFace.Weight,u.FontFace.Style)
+end
+end
+
+function m.GetThemeProperty(p,r)
+local u=r[p]or m.Themes.Dark[p]
+
+if not u then return nil end
+
+if type(u)=="string"and string.sub(u,1,1)=="#"then
+return Color3.fromHex(u)
+end
+
+if typeof(u)=="Color3"then
+return u
+end
+
+if type(u)=="table"and u.Color and u.Transparency then
+return u
+end
+
+if type(u)=="function"then
+return u()
+end
+
+return nil
+end
+
+function m.AddThemeObject(p,r)
+m.Objects[p]={Object=p,Properties=r}
+m.UpdateTheme(p,false)
+return p
+end
+
+function m.AddLangObject(p)
+local r=m.LocalizationObjects[p]
+local u=r.Object
+local v=currentObjTranslationId
+m.UpdateLang(u,v)
+return u
+end
+
+function m.UpdateTheme(p,r)
+local function ApplyTheme(u)
+for v,x in pairs(u.Properties or{})do
+local z=m.GetThemeProperty(x,m.Theme)
+if z then
+if typeof(z)=="Color3"then
+local A=u.Object:FindFirstChild"WindUIGradient"
+if A then
+A:Destroy()
+end
+
+if not r then
+u.Object[v]=z
+else
+m.Tween(u.Object,0.08,{[v]=z}):Play()
+end
+elseif type(z)=="table"and z.Color and z.Transparency then
+u.Object[v]=Color3.new(1,1,1)
+
+local A=u.Object:FindFirstChild"WindUIGradient"
+if not A then
+A=Instance.new"UIGradient"
+A.Name="WindUIGradient"
+A.Parent=u.Object
+end
+
+A.Color=z.Color
+A.Transparency=z.Transparency
+
+for B,C in pairs(z)do
+if B~="Color"and B~="Transparency"and A[B]~=nil then
+A[B]=C
+end
+end
+end
+else
+local A=u.Object:FindFirstChild"WindUIGradient"
+if A then
+A:Destroy()
+end
+end
+end
+end
+
+if p then
+local u=m.Objects[p]
+if u then
+ApplyTheme(u)
+end
+else
+for u,v in pairs(m.Objects)do
+ApplyTheme(v)
+end
+end
+end
+
+function m.SetLangForObject(p)
+if m.Localization and m.Localization.Enabled then
+local r=m.LocalizationObjects[p]
+if not r then return end
+
+local u=r.Object
+local v=r.TranslationId
+
+local x=m.Localization.Translations[m.Language]
+if x and x[v]then
+u.Text=x[v]
+else
+local z=m.Localization and m.Localization.Translations and m.Localization.Translations.en or nil
+if z and z[v]then
+u.Text=z[v]
+else
+u.Text="["..v.."]"
+end
+end
+end
+end
+
+function m.ChangeTranslationKey(p,r,u)
+if m.Localization and m.Localization.Enabled then
+local v=string.match(u,"^"..m.Localization.Prefix.."(.+)")
+if v then
+for x,z in ipairs(m.LocalizationObjects)do
+if z.Object==r then
+z.TranslationId=v
+m.SetLangForObject(x)
+return
+end
+end
+
+table.insert(m.LocalizationObjects,{
+TranslationId=v,
+Object=r
+})
+m.SetLangForObject(#m.LocalizationObjects)
+end
+end
+end
+
+function m.UpdateLang(p)
+if p then
+m.Language=p
+end
+
+for r=1,#m.LocalizationObjects do
+local u=m.LocalizationObjects[r]
+if u.Object and u.Object.Parent~=nil then
+m.SetLangForObject(r)
+else
+m.LocalizationObjects[r]=nil
+end
+end
+end
+
+function m.SetLanguage(p)
+m.Language=p
+m.UpdateLang()
+end
+
+function m.Icon(p)
+return j.Icon(p)
+end
+
+function m.AddIcons(p,r)
+return j.AddIcons(p,r)
+end
+
+function m.New(p,r,u)
+local v=Instance.new(p)
+
+for x,z in next,m.DefaultProperties[p]or{}do
+v[x]=z
+end
+
+for A,B in next,r or{}do
+if A~="ThemeTag"then
+v[A]=B
+end
+if m.Localization and m.Localization.Enabled and A=="Text"then
+local C=string.match(B,"^"..m.Localization.Prefix.."(.+)")
+if C then
+local F=#m.LocalizationObjects+1
+m.LocalizationObjects[F]={TranslationId=C,Object=v}
+
+m.SetLangForObject(F)
+end
+end
+end
+
+for C,F in next,u or{}do
+F.Parent=v
+end
+
+if r and r.ThemeTag then
+m.AddThemeObject(v,r.ThemeTag)
+end
+if r and r.FontFace then
+m.AddFontObject(v)
+end
+return v
+end
+
+function m.Tween(p,r,u,...)
+return f:Create(p,TweenInfo.new(r,...),u)
+end
+
+function m.NewRoundFrame(p,r,u,v,A,B)
+local function getImageForType(C)
+return C=="Squircle"and"rbxassetid://80999662900595"
+or C=="SquircleOutline"and"rbxassetid://117788349049947"
+or C=="SquircleOutline2"and"rbxassetid://117817408534198"
+or C=="Squircle-Outline"and"rbxassetid://117817408534198"
+or C=="Shadow-sm"and"rbxassetid://84825982946844"
+or C=="Squircle-TL-TR"and"rbxassetid://73569156276236"
+or C=="Squircle-BL-BR"and"rbxassetid://93853842912264"
+or C=="Squircle-TL-TR-Outline"and"rbxassetid://136702870075563"
+or C=="Squircle-BL-BR-Outline"and"rbxassetid://75035847706564"
+or C=="Square"and"rbxassetid://82909646051652"
+or C=="Square-Outline"and"rbxassetid://72946211851948"
+end
+
+local function getSliceCenterForType(C)
+return C~="Shadow-sm"and Rect.new(256
+,256
+,256
+,256
+
+)or Rect.new(512,512,512,512)
+end
+
+local C=m.New(A and"ImageButton"or"ImageLabel",{
+Image=getImageForType(r),
+ScaleType="Slice",
+SliceCenter=getSliceCenterForType(r),
+SliceScale=1,
+BackgroundTransparency=1,
+ThemeTag=u.ThemeTag and u.ThemeTag
+},v)
+
+for F,G in pairs(u or{})do
+if F~="ThemeTag"then
+C[F]=G
+end
+end
+
+local function UpdateSliceScale(H)
+local J=r~="Shadow-sm"and(H/(256))or(H/512)
+C.SliceScale=math.max(J,0.0001)
+end
+
+local H={}
+
+function H.SetRadius(J,L)
+UpdateSliceScale(L)
+end
+
+function H.SetType(J,L)
+r=L
+C.Image=getImageForType(L)
+C.SliceCenter=getSliceCenterForType(L)
+UpdateSliceScale(p)
+end
+
+function H.UpdateShape(J,L,M)
+if M then
+r=M
+C.Image=getImageForType(M)
+C.SliceCenter=getSliceCenterForType(M)
+end
+if L then
+p=L
+end
+UpdateSliceScale(p)
+end
+
+function H.GetRadius(J)
+return p
+end
+
+function H.GetType(J)
+return r
+end
+
+UpdateSliceScale(p)
+
+return C,B and H or nil
+end
+
+local p=m.New local r=
+m.Tween
+
+function m.SetDraggable(u)
+m.CanDraggable=u
+end
+
+
+function m.Drag(u,v,A)
+local B
+local C,F,G,H
+local J={
+CanDraggable=true
+}
+
+if not v or type(v)~="table"then
+v={u}
+end
+
+local function update(L)
+local M=L.Position-G
+m.Tween(u,0.02,{Position=UDim2.new(
+H.X.Scale,H.X.Offset+M.X,
+H.Y.Scale,H.Y.Offset+M.Y
+)}):Play()
+end
+
+for L,M in pairs(v)do
+M.InputBegan:Connect(function(N)
+if(N.UserInputType==Enum.UserInputType.MouseButton1 or N.UserInputType==Enum.UserInputType.Touch)and J.CanDraggable then
+if B==nil then
+B=M
+C=true
+G=N.Position
+H=u.Position
+
+if A and type(A)=="function"then
+A(true,B)
+end
+
+N.Changed:Connect(function()
+if N.UserInputState==Enum.UserInputState.End then
+C=false
+B=nil
+
+if A and type(A)=="function"then
+A(false,B)
+end
+end
+end)
+end
+end
+end)
+
+M.InputChanged:Connect(function(N)
+if B==M and C then
+if N.UserInputType==Enum.UserInputType.MouseMovement or N.UserInputType==Enum.UserInputType.Touch then
+F=N
+end
+end
+end)
+end
+
+e.InputChanged:Connect(function(N)
+if N==F and C and B~=nil then
+if J.CanDraggable then
+update(N)
+end
+end
+end)
+
+function J.Set(N,O)
+J.CanDraggable=O
+end
+
+return J
+end
+
+
+j.Init(p,"Icon")
+
+
+function m.Image(u,v,A,B,C,F,G)
+local function SanitizeFilename(H)
+H=H:gsub("[%s/\\:*?\"<>|]+","-")
+H=H:gsub("[^%w%-_%.]","")
+return H
+end
+
+B=B or"Temp"
+v=SanitizeFilename(v)
+
+local H=p("Frame",{
+Size=UDim2.new(0,0,0,0),
+BackgroundTransparency=1,
+},{
+p("ImageLabel",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+ScaleType="Crop",
+ThemeTag=(m.Icon(u)or G)and{
+ImageColor3=F and"Icon"or nil
+}or nil,
+},{
+p("UICorner",{
+CornerRadius=UDim.new(0,A)
+})
+})
+})
+if m.Icon(u)then
+H.ImageLabel:Destroy()
+
+local J=j.Image{
+Icon=u,
+Size=UDim2.new(1,0,1,0),
+Colors={
+(F and"Icon"or false),
+"Button"
+}
+}.IconFrame
+J.Parent=H
+elseif string.find(u,"http")then
+local J="WindUI/"..B.."/assets/."..C.."-"..v..".png"
+local L,M=pcall(function()
+task.spawn(function()
+if not isfile(J)then
+local L=m.Request{
+Url=u,
+Method="GET",
+}.Body
+
+writefile(J,L)
+end
+
+
+local L,M=pcall(getcustomasset,J)
+if L then
+H.ImageLabel.Image=M
+else
+warn(string.format("[ WindUI.Creator ] Failed to load custom asset '%s': %s",J,tostring(M)))
+H:Destroy()
+
+return
+end
+end)
+end)
+if not L then
+warn("[ WindUI.Creator ]  '"..identifyexecutor().."' doesnt support the URL Images. Error: "..M)
+
+H:Destroy()
+end
+elseif u==""then
+H.Visible=false
+else
+H.ImageLabel.Image=u
+end
+
+return H
+end
+
+return m end function a.b()
+local b={}
+
+
+
+
+
+
+
+function b.New(e,f,g)
+local h={
+Enabled=f.Enabled or false,
+Translations=f.Translations or{},
+Prefix=f.Prefix or"loc:",
+DefaultLanguage=f.DefaultLanguage or"en"
+}
+
+g.Localization=h
+
+return h
+end
+
+
+
+return b end function a.c()
+local b=a.load'a'
+local e=b.New
+local f=b.Tween
+
+local g={
+Size=UDim2.new(0,300,1,-156),
+SizeLower=UDim2.new(0,300,1,-56),
+UICorner=13,
+UIPadding=14,
+
+Holder=nil,
+NotificationIndex=0,
+Notifications={}
+}
+
+function g.Init(h)
+local i={
+Lower=false
+}
+
+function i.SetLower(j)
+i.Lower=j
+i.Frame.Size=j and g.SizeLower or g.Size
+end
+
+i.Frame=e("Frame",{
+Position=UDim2.new(1,-29,0,56),
+AnchorPoint=Vector2.new(1,0),
+Size=g.Size,
+Parent=h,
+BackgroundTransparency=1,
+
+
+
+
+},{
+e("UIListLayout",{
+HorizontalAlignment="Center",
+SortOrder="LayoutOrder",
+VerticalAlignment="Bottom",
+Padding=UDim.new(0,8),
+}),
+e("UIPadding",{
+PaddingBottom=UDim.new(0,29)
+})
+})
+return i
+end
+
+function g.New(h)
+local i={
+Title=h.Title or"Notification",
+Content=h.Content or nil,
+Icon=h.Icon or nil,
+IconThemed=h.IconThemed,
+Background=h.Background,
+BackgroundImageTransparency=h.BackgroundImageTransparency,
+Duration=h.Duration or 5,
+Buttons=h.Buttons or{},
+CanClose=true,
+UIElements={},
+Closed=false,
+}
+if i.CanClose==nil then
+i.CanClose=true
+end
+g.NotificationIndex=g.NotificationIndex+1
+g.Notifications[g.NotificationIndex]=i
+
+
+
+
+
+
+
+
+
+local j
+
+if i.Icon then
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+j=b.Image(
+i.Icon,
+i.Title..":"..i.Icon,
+0,
+h.Window,
+"Notification",
+i.IconThemed
+)
+j.Size=UDim2.new(0,26,0,26)
+j.Position=UDim2.new(0,g.UIPadding,0,g.UIPadding)
+
+end
+
+local l
+if i.CanClose then
+l=e("ImageButton",{
+Image=b.Icon"x"[1],
+ImageRectSize=b.Icon"x"[2].ImageRectSize,
+ImageRectOffset=b.Icon"x"[2].ImageRectPosition,
+BackgroundTransparency=1,
+Size=UDim2.new(0,16,0,16),
+Position=UDim2.new(1,-g.UIPadding,0,g.UIPadding),
+AnchorPoint=Vector2.new(1,0),
+ThemeTag={
+ImageColor3="Text"
+},
+ImageTransparency=.4,
+},{
+e("TextButton",{
+Size=UDim2.new(1,8,1,8),
+BackgroundTransparency=1,
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Text="",
+})
+})
+end
+
+local m=e("Frame",{
+Size=UDim2.new(0,0,1,0),
+BackgroundTransparency=.95,
+ThemeTag={
+BackgroundColor3="Text",
+},
+
+})
+
+local p=e("Frame",{
+Size=UDim2.new(1,
+i.Icon and-28-g.UIPadding or 0,
+1,0),
+Position=UDim2.new(1,0,0,0),
+AnchorPoint=Vector2.new(1,0),
+BackgroundTransparency=1,
+AutomaticSize="Y",
+},{
+e("UIPadding",{
+PaddingTop=UDim.new(0,g.UIPadding),
+PaddingLeft=UDim.new(0,g.UIPadding),
+PaddingRight=UDim.new(0,g.UIPadding),
+PaddingBottom=UDim.new(0,g.UIPadding),
+}),
+e("TextLabel",{
+AutomaticSize="Y",
+Size=UDim2.new(1,-30-g.UIPadding,0,0),
+TextWrapped=true,
+TextXAlignment="Left",
+RichText=true,
+BackgroundTransparency=1,
+TextSize=16,
+ThemeTag={
+TextColor3="Text"
+},
+Text=i.Title,
+FontFace=Font.new(b.Font,Enum.FontWeight.Medium)
+}),
+e("UIListLayout",{
+Padding=UDim.new(0,g.UIPadding/3)
+})
+})
+
+if i.Content then
+e("TextLabel",{
+AutomaticSize="Y",
+Size=UDim2.new(1,0,0,0),
+TextWrapped=true,
+TextXAlignment="Left",
+RichText=true,
+BackgroundTransparency=1,
+TextTransparency=.4,
+TextSize=15,
+ThemeTag={
+TextColor3="Text"
+},
+Text=i.Content,
+FontFace=Font.new(b.Font,Enum.FontWeight.Medium),
+Parent=p
+})
+end
+
+
+local r=b.NewRoundFrame(g.UICorner,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+Position=UDim2.new(2,0,1,0),
+AnchorPoint=Vector2.new(0,1),
+AutomaticSize="Y",
+ImageTransparency=.05,
+ThemeTag={
+ImageColor3="Background"
+},
+
+},{
+e("CanvasGroup",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+},{
+m,
+e("UICorner",{
+CornerRadius=UDim.new(0,g.UICorner),
+})
+
+}),
+e("ImageLabel",{
+Name="Background",
+Image=i.Background,
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,1,0),
+ScaleType="Crop",
+ImageTransparency=i.BackgroundImageTransparency
+
+},{
+e("UICorner",{
+CornerRadius=UDim.new(0,g.UICorner),
+})
+}),
+
+p,
+j,l,
+})
+
+local u=e("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,0,0),
+Parent=h.Holder
+},{
+r
+})
+
+function i.Close(v)
+if not i.Closed then
+i.Closed=true
+f(u,0.45,{Size=UDim2.new(1,0,0,-8)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+f(r,0.55,{Position=UDim2.new(2,0,1,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+task.wait(.45)
+u:Destroy()
+end
+end
+
+task.spawn(function()
+task.wait()
+f(u,0.45,{Size=UDim2.new(
+1,
+0,
+0,
+r.AbsoluteSize.Y
+)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+f(r,0.45,{Position=UDim2.new(0,0,1,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+if i.Duration then
+f(m,i.Duration,{Size=UDim2.new(1,0,1,0)},Enum.EasingStyle.Linear,Enum.EasingDirection.InOut):Play()
+task.wait(i.Duration)
+i:Close()
+end
+end)
+
+if l then
+b.AddSignal(l.TextButton.MouseButton1Click,function()
+i:Close()
+end)
+end
+
+
+return i
+end
+
+return g end function a.d()
+
+
+
+
+
+
+
+
+
+
+
+local b=4294967296;local e=b-1;local function c(f,g)local h,i=0,1;while f~=0 or g~=0 do local j,l=f%2,g%2;local m=(j+l)%2;h=h+m*i;f=math.floor(f/2)g=math.floor(g/2)i=i*2 end;return h%b end;local function k(f,g,h,...)local i;if g then f=f%b;g=g%b;i=c(f,g)if h then i=k(i,h,...)end;return i elseif f then return f%b else return 0 end end;local function n(f,g,h,...)local i;if g then f=f%b;g=g%b;i=(f+g-c(f,g))/2;if h then i=n(i,h,...)end;return i elseif f then return f%b else return e end end;local function o(f)return e-f end;local function q(f,g)if g<0 then return lshift(f,-g)end;return math.floor(f%4294967296/2^g)end;local function s(f,g)if g>31 or g<-31 then return 0 end;return q(f%b,g)end;local function lshift(f,g)if g<0 then return s(f,-g)end;return f*2^g%4294967296 end;local function t(f,g)f=f%b;g=g%32;local h=n(f,2^g-1)return s(f,g)+lshift(h,32-g)end;local f={0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2}local function w(g)return string.gsub(g,".",function(h)return string.format("%02x",string.byte(h))end)end;local function y(g,h)local i=""for j=1,h do local l=g%256;i=string.char(l)..i;g=(g-l)/256 end;return i end;local function D(g,h)local i=0;for j=h,h+3 do i=i*256+string.byte(g,j)end;return i end;local function E(g,h)local i=64-(h+9)%64;h=y(8*h,8)g=g.."\128"..string.rep("\0",i)..h;assert(#g%64==0)return g end;local function I(g)g[1]=0x6a09e667;g[2]=0xbb67ae85;g[3]=0x3c6ef372;g[4]=0xa54ff53a;g[5]=0x510e527f;g[6]=0x9b05688c;g[7]=0x1f83d9ab;g[8]=0x5be0cd19;return g end;local function K(g,h,i)local j={}for l=1,16 do j[l]=D(g,h+(l-1)*4)end;for l=17,64 do local m=j[l-15]local p=k(t(m,7),t(m,18),s(m,3))m=j[l-2]j[l]=(j[l-16]+p+j[l-7]+k(t(m,17),t(m,19),s(m,10)))%b end;local l,m,p,r,u,v,A,B=i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8]for C=1,64 do local F=k(t(l,2),t(l,13),t(l,22))local G=k(n(l,m),n(l,p),n(m,p))local H=(F+G)%b;local J=k(t(u,6),t(u,11),t(u,25))local L=k(n(u,v),n(o(u),A))local M=(B+J+L+f[C]+j[C])%b;B=A;A=v;v=u;u=(r+M)%b;r=p;p=m;m=l;l=(M+H)%b end;i[1]=(i[1]+l)%b;i[2]=(i[2]+m)%b;i[3]=(i[3]+p)%b;i[4]=(i[4]+r)%b;i[5]=(i[5]+u)%b;i[6]=(i[6]+v)%b;i[7]=(i[7]+A)%b;i[8]=(i[8]+B)%b end;local function Z(g)g=E(g,#g)local h=I{}for i=1,#g,64 do K(g,i,h)end;return w(y(h[1],4)..y(h[2],4)..y(h[3],4)..y(h[4],4)..y(h[5],4)..y(h[6],4)..y(h[7],4)..y(h[8],4))end;local g;local h={["\\"]="\\",["\""]="\"",["\b"]="b",["\f"]="f",["\n"]="n",["\r"]="r",["\t"]="t"}local i={["/"]="/"}for j,l in pairs(h)do i[l]=j end;local m=function(m)return"\\"..(h[m]or string.format("u%04x",m:byte()))end;local p=function(p)return"null"end;local r=function(r,u)local v={}u=u or{}if u[r]then error"circular reference"end;u[r]=true;if rawget(r,1)~=nil or next(r)==nil then local A=0;for B in pairs(r)do if type(B)~="number"then error"invalid table: mixed or invalid key types"end;A=A+1 end;if A~=#r then error"invalid table: sparse array"end;for C,F in ipairs(r)do table.insert(v,g(F,u))end;u[r]=nil;return"["..table.concat(v,",").."]"else for A,B in pairs(r)do if type(A)~="string"then error"invalid table: mixed or invalid key types"end;table.insert(v,g(A,u)..":"..g(B,u))end;u[r]=nil;return"{"..table.concat(v,",").."}"end end;local u=function(u)return'"'..u:gsub('[%z\1-\31\\"]',m)..'"'end;local v=function(v)if v~=v or v<=-math.huge or v>=math.huge then error("unexpected number value '"..tostring(v).."'")end;return string.format("%.14g",v)end;local A={["nil"]=p,table=r,string=u,number=v,boolean=tostring}g=function(B,C)local F=type(B)local G=A[F]if G then return G(B,C)end;error("unexpected type '"..F.."'")end;local B=function(B)return g(B)end;local C;local F=function(...)local F={}for G=1,select("#",...)do F[select(G,...)]=true end;return F end;local G=F(" ","\t","\r","\n")local H=F(" ","\t","\r","\n","]","}",",")local J=F("\\","/",'"',"b","f","n","r","t","u")local L=F("true","false","null")local M={["true"]=true,["false"]=false,null=nil}local N=function(N,O,P,Q)for R=O,#N do if P[N:sub(R,R)]~=Q then return R end end;return#N+1 end;local O=function(O,P,Q)local R=1;local S=1;for T=1,P-1 do S=S+1;if O:sub(T,T)=="\n"then R=R+1;S=1 end end;error(string.format("%s at line %d col %d",Q,R,S))end;local P=function(P)local Q=math.floor;if P<=0x7f then return string.char(P)elseif P<=0x7ff then return string.char(Q(P/64)+192,P%64+128)elseif P<=0xffff then return string.char(Q(P/4096)+224,Q(P%4096/64)+128,P%64+128)elseif P<=0x10ffff then return string.char(Q(P/262144)+240,Q(P%262144/4096)+128,Q(P%4096/64)+128,P%64+128)end;error(string.format("invalid unicode codepoint '%x'",P))end;local Q=function(Q)local R=tonumber(Q:sub(1,4),16)local S=tonumber(Q:sub(7,10),16)if S then return P((R-0xd800)*0x400+S-0xdc00+0x10000)else return P(R)end end;local R=function(R,S)local T=""local U=S+1;local V=U;while U<=#R do local W=R:byte(U)if W<32 then O(R,U,"control character in string")elseif W==92 then T=T..R:sub(V,U-1)U=U+1;local X=R:sub(U,U)if X=="u"then local Y=R:match("^[dD][89aAbB]%x%x\\u%x%x%x%x",U+1)or R:match("^%x%x%x%x",U+1)or O(R,U-1,"invalid unicode escape in string")T=T..Q(Y)U=U+#Y else if not J[X]then O(R,U-1,"invalid escape char '"..X.."' in string")end;T=T..i[X]end;V=U+1 elseif W==34 then T=T..R:sub(V,U-1)return T,U+1 end;U=U+1 end;O(R,S,"expected closing quote for string")end;local S=function(S,T)local U=N(S,T,H)local V=S:sub(T,U-1)local W=tonumber(V)if not W then O(S,T,"invalid number '"..V.."'")end;return W,U end;local T=function(T,U)local V=N(T,U,H)local W=T:sub(U,V-1)if not L[W]then O(T,U,"invalid literal '"..W.."'")end;return M[W],V end;local U=function(U,V)local W={}local X=1;V=V+1;while 1 do local Y;V=N(U,V,G,true)if U:sub(V,V)=="]"then V=V+1;break end;Y,V=C(U,V)W[X]=Y;X=X+1;V=N(U,V,G,true)local _=U:sub(V,V)V=V+1;if _=="]"then break end;if _~=","then O(U,V,"expected ']' or ','")end end;return W,V end;local aa=function(V,W)local X={}W=W+1;while 1 do local Y,_;W=N(V,W,G,true)if V:sub(W,W)=="}"then W=W+1;break end;if V:sub(W,W)~='"'then O(V,W,"expected string for key")end;Y,W=C(V,W)W=N(V,W,G,true)if V:sub(W,W)~=":"then O(V,W,"expected ':' after key")end;W=N(V,W+1,G,true)_,W=C(V,W)X[Y]=_;W=N(V,W,G,true)local aa=V:sub(W,W)W=W+1;if aa=="}"then break end;if aa~=","then O(V,W,"expected '}' or ','")end end;return X,W end;local V={['"']=R,["0"]=S,["1"]=S,["2"]=S,["3"]=S,["4"]=S,["5"]=S,["6"]=S,["7"]=S,["8"]=S,["9"]=S,["-"]=S,t=T,f=T,n=T,["["]=U,["{"]=aa}C=function(W,X)local Y=W:sub(X,X)local _=V[Y]if _ then return _(W,X)end;O(W,X,"unexpected character '"..Y.."'")end;local W=function(W)if type(W)~="string"then error("expected argument of type string, got "..type(W))end;local X,Y=C(W,N(W,1,G,true))Y=N(W,Y,G,true)if Y<=#W then O(W,Y,"trailing garbage")end;return X end;
+local X,Y,_=B,W,Z;
+
+
+
+
+
+local ab={}
+
+
+function ab.New(ac,ad)
+
+local ae=ac;
+local af=ad;
+local ag=true;
+
+
+local ah=function(ah)end;
+
+
+repeat task.wait(1)until game:IsLoaded();
+
+
+local ai=false;
+local aj,ak,al,am,an,ao,ap,aq,ar=setclipboard or toclipboard,request or http_request or syn_request,string.char,tostring,string.sub,os.time,math.random,math.floor,gethwid or function()return game:GetService"Players".LocalPlayer.UserId end
+local as,at="",0;
+
+
+local au="https://api.platoboost.com";
+local av=ak{
+Url=au.."/public/connectivity",
+Method="GET"
+};
+if av.StatusCode~=200 or av.StatusCode~=429 then
+au="https://api.platoboost.net";
+end
+
+
+function cacheLink()
+if at+(600)<ao()then
+local aw=ak{
+Url=au.."/public/start",
+Method="POST",
+Body=X{
+service=ae,
+identifier=_(ar())
+},
+Headers={
+["Content-Type"]="application/json",
+["User-Agent"]="Roblox/Exploit"
+}
+};
+
+if aw.StatusCode==200 then
+local ax=Y(aw.Body);
+
+if ax.success==true then
+as=ax.data.url;
+at=ao();
+return true,as
+else
+ah(ax.message);
+return false,ax.message
+end
+elseif aw.StatusCode==429 then
+local ax="you are being rate limited, please wait 20 seconds and try again.";
+ah(ax);
+return false,ax
+end
+
+local ax="Failed to cache link.";
+ah(ax);
+return false,ax
+else
+return true,as
+end
+end
+
+cacheLink();
+
+
+local aw=function()
+local aw=""
+for ax=1,16 do
+aw=aw..al(aq(ap()*(26))+97)
+end
+return aw
+end
+
+
+for ax=1,5 do
+local ay=aw();
+task.wait(0.2)
+if aw()==ay then
+local az="platoboost nonce error.";
+ah(az);
+error(az);
+end
+end
+
+
+local ax=function()
+local ax,ay=cacheLink();
+
+if ax then
+aj(ay);
+end
+end
+
+
+local ay=function(ay)
+local az=aw();
+local aA=au.."/public/redeem/"..am(ae);
+
+local aB={
+identifier=_(ar()),
+key=ay
+}
+
+if ag then
+aB.nonce=az;
+end
+
+local aC=ak{
+Url=aA,
+Method="POST",
+Body=X(aB),
+Headers={
+["Content-Type"]="application/json"
+}
+};
+
+if aC.StatusCode==200 then
+local aD=Y(aC.Body);
+
+if aD.success==true then
+if aD.data.valid==true then
+if ag then
+if aD.data.hash==_("true".."-"..az.."-"..af)then
+return true
+else
+ah"failed to verify integrity.";
+return false
+end
+else
+return true
+end
+else
+ah"key is invalid.";
+return false
+end
+else
+if an(aD.message,1,27)=="unique constraint violation"then
+ah"you already have an active key, please wait for it to expire before redeeming it.";
+return false
+else
+ah(aD.message);
+return false
+end
+end
+elseif aC.StatusCode==429 then
+ah"you are being rate limited, please wait 20 seconds and try again.";
+return false
+else
+ah"server returned an invalid status code, please try again later.";
+return false
+end
+end
+
+
+local az=function(az)
+if ai==true then
+return false,("A request is already being sent, please slow down.")
+else
+ai=true;
+end
+
+local aA=aw();
+local aB=au.."/public/whitelist/"..am(ae).."?identifier=".._(ar()).."&key="..az;
+
+if ag then
+aB=aB.."&nonce="..aA;
+end
+
+local aC=ak{
+Url=aB,
+Method="GET",
+};
+
+ai=false;
+
+if aC.StatusCode==200 then
+local aD=Y(aC.Body);
+
+if aD.success==true then
+if aD.data.valid==true then
+if ag then
+if aD.data.hash==_("true".."-"..aA.."-"..af)then
+return true,""
+else
+return false,("failed to verify integrity.")
+end
+else
+return true
+end
+else
+if an(az,1,4)=="KEY_"then
+return true,ay(az)
+else
+return false,("Key is invalid.")
+end
+end
+else
+return false,(aD.message)
+end
+elseif aC.StatusCode==429 then
+return false,("You are being rate limited, please wait 20 seconds and try again.")
+else
+return false,("Server returned an invalid status code, please try again later.")
+end
+end
+
+
+local aA=function(aA)
+local aB=aw();
+local aC=au.."/public/flag/"..am(ae).."?name="..aA;
+
+if ag then
+aC=aC.."&nonce="..aB;
+end
+
+local aD=ak{
+Url=aC,
+Method="GET",
+};
+
+if aD.StatusCode==200 then
+local aE=Y(aD.Body);
+
+if aE.success==true then
+if ag then
+if aE.data.hash==_(am(aE.data.value).."-"..aB.."-"..af)then
+return aE.data.value
+else
+ah"failed to verify integrity.";
+return nil
+end
+else
+return aE.data.value
+end
+else
+ah(aE.message);
+return nil
+end
+else
+return nil
+end
+end
+
+
+return{
+Verify=az,
+GetFlag=aA,
+Copy=ax,
+}
+end
+
+
+return ab end function a.e()
+
+
+
+
+
+
+
+
+local aa=game:GetService"HttpService"
+local ab={}
+
+
+function ab.New(ac)
+local ad=gethwid or function()return game:GetService"Players".LocalPlayer.UserId end
+local ae,af=request or http_request or syn_request,setclipboard or toclipboard
+
+function ValidateKey(ag)
+local ah="https://pandadevelopment.net/v2_validation?key="..tostring(ag).."&service="..tostring(ac).."&hwid="..tostring(ad())
+
+
+local ai,aj=pcall(function()
+return ae{
+Url=ah,
+Method="GET",
+Headers={["User-Agent"]="Roblox/Exploit"}
+}
+end)
+
+if ai and aj then
+if aj.Success then
+local ak,al=pcall(function()
+return aa:JSONDecode(aj.Body)
+end)
+
+if ak and al then
+if al.V2_Authentication and al.V2_Authentication=="success"then
+
+return true,"Authenticated"
+else
+local am=al.Key_Information.Notes or"Unknown reason"
+
+return false,"Authentication failed: "..am
+end
+else
+
+return false,"JSON decode error"
+end
+else
+warn("[Pelinda Ov2.5] HTTP request was not successful. Code: "..tostring(aj.StatusCode).." Message: "..aj.StatusMessage)
+return false,"HTTP request failed: "..aj.StatusMessage
+end
+else
+
+return false,"Request pcall error"
+end
+end
+
+function GetKeyLink()
+return"https://pandadevelopment.net/getkey?service="..tostring(ac).."&hwid="..tostring(ad())
+end
+
+function CopyLink()
+return af(GetKeyLink())
+end
+
+return{
+Verify=ValidateKey,
+Copy=CopyLink
+}
+end
+
+return ab end function a.f()
+
+
+
+
+
+
+
+
+local aa={}
+
+
+function aa.New(ab,ac)
+local ad="https://sdkapi-public.luarmor.net/library.lua"
+
+local ae=loadstring(
+game.HttpGetAsync and game:HttpGetAsync(ad)
+or HttpService:GetAsync(ad)
+)()
+local af=setclipboard or toclipboard
+
+ae.script_id=ab
+
+function ValidateKey(ag)
+local ah=ae.check_key(ag);
+
+
+if(ah.code=="KEY_VALID")then
+return true,"Whitelisted!"
+
+elseif(ah.code=="KEY_HWID_LOCKED")then
+return false,"Key linked to a different HWID. Please reset it using our bot"
+
+elseif(ah.code=="KEY_INCORRECT")then
+return false,"Key is wrong or deleted!"
+else
+return false,"Key check failed:"..ah.message.." Code: "..ah.code
+end
+end
+
+function CopyLink()
+af(tostring(ac))
+end
+
+return{
+Verify=ValidateKey,
+Copy=CopyLink
+}
+end
+
+
+return aa end function a.g()
+return{
+platoboost={
+Name="Platoboost",
+Icon="rbxassetid://75920162824531",
+Args={"ServiceId","Secret"},
+
+
+New=a.load'd'.New
+},
+pandadevelopment={
+Name="Panda Development",
+Icon="panda",
+Args={"ServiceId"},
+
+
+New=a.load'e'.New
+},
+luarmor={
+Name="Luarmor",
+Icon="rbxassetid://130918283130165",
+Args={"ScriptId","Discord"},
+
+
+New=a.load'f'.New
+},
+
+}end function a.h()
+
+
+return[[
+{
+    "name": "windui",
+    "version": "1.6.54",
+    "main": "./dist/main.lua",
+    "repository": "https://github.com/Footagesus/WindUI",
+    "discord": "https://discord.gg/ftgs-development-hub-1300692552005189632",
+    "author": "Footagesus",
+    "description": "Roblox UI Library for scripts",
+    "license": "MIT",
+    "scripts": {
+        "dev": "sh build/build.sh dev $INPUT_FILE",
+        "build": "sh build/build.sh build $INPUT_FILE",
+        "live": "python -m http.server 8642",
+        "watch": "chokidar . -i 'node_modules' -i 'dist' -i 'build' -c 'npm run dev --'",
+        "live-build": "concurrently \"npm run live\" \"npm run watch --\"",
+        "updater": "python updater/main.py"
+    },
+    "keywords": [
+        "ui-library",
+        "ui-design",
+        "script",
+        "script-hub",
+        "exploiting"
+    ],
+    "devDependencies": {
+        "chokidar-cli": "^3.0.0",
+        "concurrently": "^9.2.0"
+    }
+}]]end function a.i()
+
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New
+local ad=ab.Tween
+
+
+function aa.New(ae,af,ag,ah,ai,aj,ak,al)
+ah=ah or"Primary"
+local am=al or(not ak and 10 or 99)
+local an
+if af and af~=""then
+an=ac("ImageLabel",{
+Image=ab.Icon(af)[1],
+ImageRectSize=ab.Icon(af)[2].ImageRectSize,
+ImageRectOffset=ab.Icon(af)[2].ImageRectPosition,
+Size=UDim2.new(0,21,0,21),
+BackgroundTransparency=1,
+ImageColor3=ah=="White"and Color3.new(0,0,0)or nil,
+ImageTransparency=ah=="White"and.4 or 0,
+ThemeTag={
+ImageColor3=ah~="White"and"Icon"or nil,
+}
+})
+end
+
+local ao=ac("TextButton",{
+Size=UDim2.new(0,0,1,0),
+AutomaticSize="X",
+Parent=ai,
+BackgroundTransparency=1
+},{
+ab.NewRoundFrame(am,"Squircle",{
+ThemeTag={
+ImageColor3=ah~="White"and"Button"or nil,
+},
+ImageColor3=ah=="White"and Color3.new(1,1,1)or nil,
+Size=UDim2.new(1,0,1,0),
+Name="Squircle",
+ImageTransparency=ah=="Primary"and 0 or ah=="White"and 0 or 1
+}),
+
+ab.NewRoundFrame(am,"Squircle",{
+
+
+
+ImageColor3=Color3.new(1,1,1),
+Size=UDim2.new(1,0,1,0),
+Name="Special",
+ImageTransparency=ah=="Secondary"and 0.95 or 1
+}),
+
+ab.NewRoundFrame(am,"Shadow-sm",{
+
+
+
+ImageColor3=Color3.new(0,0,0),
+Size=UDim2.new(1,3,1,3),
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Name="Shadow",
+
+ImageTransparency=1,
+Visible=not ak
+}),
+
+ab.NewRoundFrame(am,not ak and"SquircleOutline"or"SquircleOutline2",{
+ThemeTag={
+ImageColor3=ah~="White"and"Outline"or nil,
+},
+Size=UDim2.new(1,0,1,0),
+ImageColor3=ah=="White"and Color3.new(0,0,0)or nil,
+ImageTransparency=ah=="Primary"and.95 or.85,
+Name="SquircleOutline",
+},{
+ac("UIGradient",{
+Rotation=70,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+})
+}),
+
+ab.NewRoundFrame(am,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+Name="Frame",
+ThemeTag={
+ImageColor3=ah~="White"and"Text"or nil
+},
+ImageColor3=ah=="White"and Color3.new(0,0,0)or nil,
+ImageTransparency=1
+},{
+ac("UIPadding",{
+PaddingLeft=UDim.new(0,16),
+PaddingRight=UDim.new(0,16),
+}),
+ac("UIListLayout",{
+FillDirection="Horizontal",
+Padding=UDim.new(0,8),
+VerticalAlignment="Center",
+HorizontalAlignment="Center",
+}),
+an,
+ac("TextLabel",{
+BackgroundTransparency=1,
+FontFace=Font.new(ab.Font,Enum.FontWeight.SemiBold),
+Text=ae or"Button",
+ThemeTag={
+TextColor3=(ah~="Primary"and ah~="White")and"Text",
+},
+TextColor3=ah=="Primary"and Color3.new(1,1,1)or ah=="White"and Color3.new(0,0,0)or nil,
+AutomaticSize="XY",
+TextSize=18,
+})
+})
+})
+
+ab.AddSignal(ao.MouseEnter,function()
+ad(ao.Frame,.047,{ImageTransparency=.95}):Play()
+end)
+ab.AddSignal(ao.MouseLeave,function()
+ad(ao.Frame,.047,{ImageTransparency=1}):Play()
+end)
+ab.AddSignal(ao.MouseButton1Up,function()
+if aj then
+aj:Close()()
+end
+if ag then
+ab.SafeCallback(ag)
+end
+end)
+
+return ao
+end
+
+
+return aa end function a.j()
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New local ad=
+ab.Tween
+
+
+function aa.New(ae,af,ag,ah,ai,aj,ak,al)
+ah=ah or"Input"
+local am=ak or 10
+local an
+if af and af~=""then
+an=ac("ImageLabel",{
+Image=ab.Icon(af)[1],
+ImageRectSize=ab.Icon(af)[2].ImageRectSize,
+ImageRectOffset=ab.Icon(af)[2].ImageRectPosition,
+Size=UDim2.new(0,21,0,21),
+BackgroundTransparency=1,
+ThemeTag={
+ImageColor3="Icon",
+}
+})
+end
+
+local ao=ah~="Input"
+
+local ap=ac("TextBox",{
+BackgroundTransparency=1,
+TextSize=17,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Regular),
+Size=UDim2.new(1,an and-29 or 0,1,0),
+PlaceholderText=ae,
+ClearTextOnFocus=al or false,
+ClipsDescendants=true,
+TextWrapped=ao,
+MultiLine=ao,
+TextXAlignment="Left",
+TextYAlignment=ah=="Input"and"Center"or"Top",
+
+ThemeTag={
+PlaceholderColor3="PlaceholderText",
+TextColor3="Text",
+},
+})
+
+local aq=ac("Frame",{
+Size=UDim2.new(1,0,0,42),
+Parent=ag,
+BackgroundTransparency=1
+},{
+ac("Frame",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+},{
+ab.NewRoundFrame(am,"Squircle",{
+ThemeTag={
+ImageColor3="Accent",
+},
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.97,
+}),
+ab.NewRoundFrame(am,"SquircleOutline",{
+ThemeTag={
+ImageColor3="Outline",
+},
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.95,
+},{
+
+
+
+
+
+
+
+
+
+
+
+
+
+}),
+ab.NewRoundFrame(am,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+Name="Frame",
+ImageColor3=Color3.new(1,1,1),
+ImageTransparency=.95
+},{
+ac("UIPadding",{
+PaddingTop=UDim.new(0,ah=="Input"and 0 or 12),
+PaddingLeft=UDim.new(0,12),
+PaddingRight=UDim.new(0,12),
+PaddingBottom=UDim.new(0,ah=="Input"and 0 or 12),
+}),
+ac("UIListLayout",{
+FillDirection="Horizontal",
+Padding=UDim.new(0,8),
+VerticalAlignment=ah=="Input"and"Center"or"Top",
+HorizontalAlignment="Left",
+}),
+an,
+ap,
+})
+})
+})
+
+
+
+
+
+
+
+
+
+
+if aj then
+ab.AddSignal(ap:GetPropertyChangedSignal"Text",function()
+if ai then
+ab.SafeCallback(ai,ap.Text)
+end
+end)
+else
+ab.AddSignal(ap.FocusLost,function()
+if ai then
+ab.SafeCallback(ai,ap.Text)
+end
+end)
+end
+
+return aq
+end
+
+
+return aa end function a.k()
+local aa=a.load'a'
+local ab=aa.New
+local ac=aa.Tween
+
+
+
+local ad={
+Holder=nil,
+
+Parent=nil,
+}
+
+function ad.Init(ae,af)
+Window=ae
+ad.Parent=af
+return ad
+end
+
+function ad.Create(ae)
+local af={
+UICorner=24,
+UIPadding=15,
+UIElements={}
+}
+
+if ae then af.UIPadding=0 end
+if ae then af.UICorner=26 end
+
+if not ae then
+af.UIElements.FullScreen=ab("Frame",{
+ZIndex=999,
+BackgroundTransparency=1,
+BackgroundColor3=Color3.fromHex"#000000",
+Size=UDim2.new(1,0,1,0),
+Active=false,
+Visible=false,
+Parent=ad.Parent or(Window and Window.UIElements and Window.UIElements.Main and Window.UIElements.Main.Main)
+},{
+ab("UICorner",{
+CornerRadius=UDim.new(0,Window.UICorner)
+})
+})
+end
+
+af.UIElements.Main=ab("Frame",{
+Size=UDim2.new(0,280,0,0),
+ThemeTag={
+BackgroundColor3="Dialog",
+},
+AutomaticSize="Y",
+BackgroundTransparency=1,
+Visible=false,
+ZIndex=99999,
+},{
+ab("UIPadding",{
+PaddingTop=UDim.new(0,af.UIPadding),
+PaddingLeft=UDim.new(0,af.UIPadding),
+PaddingRight=UDim.new(0,af.UIPadding),
+PaddingBottom=UDim.new(0,af.UIPadding),
+})
+})
+
+af.UIElements.MainContainer=aa.NewRoundFrame(af.UICorner,"Squircle",{
+Visible=false,
+
+ImageTransparency=ae and 0.15 or 0,
+Parent=ae and ad.Parent or af.UIElements.FullScreen,
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+AutomaticSize="XY",
+ThemeTag={
+ImageColor3="Dialog"
+},
+ZIndex=9999,
+},{
+
+
+
+
+
+af.UIElements.Main,
+
+
+
+aa.NewRoundFrame(af.UICorner,"SquircleOutline2",{
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=1,
+ThemeTag={
+ImageColor3="Outline",
+},
+},{
+ab("UIGradient",{
+Rotation=45,
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,0.55),
+NumberSequenceKeypoint.new(0.5,0.8),
+NumberSequenceKeypoint.new(1,0.6)
+}
+})
+})
+})
+
+function af.Open(ag)
+if not ae then
+af.UIElements.FullScreen.Visible=true
+af.UIElements.FullScreen.Active=true
+end
+
+task.spawn(function()
+af.UIElements.MainContainer.Visible=true
+
+if not ae then
+ac(af.UIElements.FullScreen,0.1,{BackgroundTransparency=.3}):Play()
+end
+ac(af.UIElements.MainContainer,0.1,{ImageTransparency=0}):Play()
+
+
+task.spawn(function()
+task.wait(0.05)
+af.UIElements.Main.Visible=true
+end)
+end)
+end
+function af.Close(ag)
+if not ae then
+ac(af.UIElements.FullScreen,0.1,{BackgroundTransparency=1}):Play()
+af.UIElements.FullScreen.Active=false
+task.spawn(function()
+task.wait(.1)
+af.UIElements.FullScreen.Visible=false
+end)
+end
+af.UIElements.Main.Visible=false
+
+ac(af.UIElements.MainContainer,0.1,{ImageTransparency=1}):Play()
+
+
+
+task.spawn(function()
+task.wait(.1)
+if not ae then
+af.UIElements.FullScreen:Destroy()
+else
+af.UIElements.MainContainer:Destroy()
+end
+end)
+
+return function()end
+end
+
+
+return af
+end
+
+return ad end function a.l()
+local aa={}
+
+
+local ab=a.load'a'
+local ac=ab.New
+local ad=ab.Tween
+
+local ae=a.load'i'.New
+local af=a.load'j'.New
+
+function aa.new(ag,ah,ai)
+local aj=a.load'k'.Init(nil,ag.WindUI.ScreenGui.KeySystem)
+local ak=aj.Create(true)
+
+local al={}
+
+local am
+
+local an=(ag.KeySystem.Thumbnail and ag.KeySystem.Thumbnail.Width)or 200
+
+local ao=430
+if ag.KeySystem.Thumbnail and ag.KeySystem.Thumbnail.Image then
+ao=430+(an/2)
+end
+
+ak.UIElements.Main.AutomaticSize="Y"
+ak.UIElements.Main.Size=UDim2.new(0,ao,0,0)
+
+local ap
+
+if ag.Icon then
+
+ap=ab.Image(
+ag.Icon,
+ag.Title..":"..ag.Icon,
+0,
+"Temp",
+"KeySystem",
+ag.IconThemed
+)
+ap.Size=UDim2.new(0,24,0,24)
+ap.LayoutOrder=-1
+end
+
+local aq=ac("TextLabel",{
+AutomaticSize="XY",
+BackgroundTransparency=1,
+Text=ag.Title,
+FontFace=Font.new(ab.Font,Enum.FontWeight.SemiBold),
+ThemeTag={
+TextColor3="Text",
+},
+TextSize=20
+})
+local ar=ac("TextLabel",{
+AutomaticSize="XY",
+BackgroundTransparency=1,
+Text="Key System",
+AnchorPoint=Vector2.new(1,0.5),
+Position=UDim2.new(1,0,0.5,0),
+TextTransparency=1,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+ThemeTag={
+TextColor3="Text",
+},
+TextSize=16
+})
+
+local as=ac("Frame",{
+BackgroundTransparency=1,
+AutomaticSize="XY",
+},{
+ac("UIListLayout",{
+Padding=UDim.new(0,14),
+FillDirection="Horizontal",
+VerticalAlignment="Center"
+}),
+ap,aq
+})
+
+local at=ac("Frame",{
+AutomaticSize="Y",
+Size=UDim2.new(1,0,0,0),
+BackgroundTransparency=1,
+},{
+
+
+
+
+
+as,ar,
+})
+
+local au=af("Enter Key","key",nil,"Input",function(au)
+am=au
+end)
+
+local av
+if ag.KeySystem.Note and ag.KeySystem.Note~=""then
+av=ac("TextLabel",{
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+TextXAlignment="Left",
+Text=ag.KeySystem.Note,
+TextSize=18,
+TextTransparency=.4,
+ThemeTag={
+TextColor3="Text",
+},
+BackgroundTransparency=1,
+RichText=true,
+TextWrapped=true,
+})
+end
+
+local aw=ac("Frame",{
+Size=UDim2.new(1,0,0,42),
+BackgroundTransparency=1,
+},{
+ac("Frame",{
+BackgroundTransparency=1,
+AutomaticSize="X",
+Size=UDim2.new(0,0,1,0),
+},{
+ac("UIListLayout",{
+Padding=UDim.new(0,9),
+FillDirection="Horizontal",
+})
+})
+})
+
+
+local ax
+if ag.KeySystem.Thumbnail and ag.KeySystem.Thumbnail.Image then
+local ay
+if ag.KeySystem.Thumbnail.Title then
+ay=ac("TextLabel",{
+Text=ag.KeySystem.Thumbnail.Title,
+ThemeTag={
+TextColor3="Text",
+},
+TextSize=18,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+BackgroundTransparency=1,
+AutomaticSize="XY",
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+})
+end
+ax=ac("ImageLabel",{
+Image=ag.KeySystem.Thumbnail.Image,
+BackgroundTransparency=1,
+Size=UDim2.new(0,an,1,-12),
+Position=UDim2.new(0,6,0,6),
+Parent=ak.UIElements.Main,
+ScaleType="Crop"
+},{
+ay,
+ac("UICorner",{
+CornerRadius=UDim.new(0,20),
+})
+})
+end
+
+ac("Frame",{
+
+Size=UDim2.new(1,ax and-an or 0,1,0),
+Position=UDim2.new(0,ax and an or 0,0,0),
+BackgroundTransparency=1,
+Parent=ak.UIElements.Main
+},{
+ac("Frame",{
+
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+},{
+ac("UIListLayout",{
+Padding=UDim.new(0,18),
+FillDirection="Vertical",
+}),
+at,
+av,
+au,
+aw,
+ac("UIPadding",{
+PaddingTop=UDim.new(0,16),
+PaddingLeft=UDim.new(0,16),
+PaddingRight=UDim.new(0,16),
+PaddingBottom=UDim.new(0,16),
+})
+}),
+})
+
+
+
+
+
+local ay=ae("Exit","log-out",function()
+ak:Close()()
+end,"Tertiary",aw.Frame)
+
+if ax then
+ay.Parent=ax
+ay.Size=UDim2.new(0,0,0,42)
+ay.Position=UDim2.new(0,10,1,-10)
+ay.AnchorPoint=Vector2.new(0,1)
+end
+
+if ag.KeySystem.URL then
+ae("Get key","key",function()
+setclipboard(ag.KeySystem.URL)
+end,"Secondary",aw.Frame)
+end
+
+if ag.KeySystem.API then
+
+
+
+
+
+
+
+
+local az=240
+local aA=false
+local aB=ae("Get key","key",nil,"Secondary",aw.Frame)
+
+local aC=ab.NewRoundFrame(99,"Squircle",{
+Size=UDim2.new(0,1,1,0),
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=.9,
+})
+
+ac("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(0,0,1,0),
+AutomaticSize="X",
+Parent=aB.Frame,
+},{
+aC,
+ac("UIPadding",{
+PaddingLeft=UDim.new(0,5),
+PaddingRight=UDim.new(0,5),
+})
+})
+
+local aD=ab.Image(
+"chevron-down",
+"chevron-down",
+0,
+"Temp",
+"KeySystem",
+true
+)
+
+aD.Size=UDim2.new(1,0,1,0)
+
+ac("Frame",{
+Size=UDim2.new(0,21,0,21),
+Parent=aB.Frame,
+BackgroundTransparency=1,
+},{
+aD
+})
+
+local aE=ab.NewRoundFrame(15,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+ThemeTag={
+ImageColor3="Background",
+},
+},{
+ac("UIPadding",{
+PaddingTop=UDim.new(0,5),
+PaddingLeft=UDim.new(0,5),
+PaddingRight=UDim.new(0,5),
+PaddingBottom=UDim.new(0,5),
+}),
+ac("UIListLayout",{
+FillDirection="Vertical",
+Padding=UDim.new(0,5),
+})
+})
+
+local b=ac("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(0,az,0,0),
+ClipsDescendants=true,
+AnchorPoint=Vector2.new(1,0),
+Parent=aB,
+Position=UDim2.new(1,0,1,15)
+},{
+aE
+})
+
+ac("TextLabel",{
+Text="Select Service",
+BackgroundTransparency=1,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+ThemeTag={TextColor3="Text"},
+TextTransparency=0.2,
+TextSize=16,
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+TextWrapped=true,
+TextXAlignment="Left",
+Parent=aE,
+},{
+ac("UIPadding",{
+PaddingTop=UDim.new(0,10),
+PaddingLeft=UDim.new(0,10),
+PaddingRight=UDim.new(0,10),
+PaddingBottom=UDim.new(0,10),
+})
+})
+
+for e,g in next,ag.KeySystem.API do
+local h=ag.WindUI.Services[g.Type]
+if h then
+local i={}
+for j,l in next,h.Args do
+table.insert(i,g[l])
+end
+
+local m=h.New(table.unpack(i))
+m.Type=g.Type
+table.insert(al,m)
+
+local p=ab.Image(
+g.Icon or h.Icon or Icons[g.Type]or"user",
+g.Icon or h.Icon or Icons[g.Type]or"user",
+0,
+"Temp",
+"KeySystem",
+true
+)
+p.Size=UDim2.new(0,24,0,24)
+
+local r=ab.NewRoundFrame(10,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+ThemeTag={ImageColor3="Text"},
+ImageTransparency=1,
+Parent=aE,
+AutomaticSize="Y",
+},{
+ac("UIListLayout",{
+FillDirection="Horizontal",
+Padding=UDim.new(0,10),
+VerticalAlignment="Center",
+}),
+p,
+ac("UIPadding",{
+PaddingTop=UDim.new(0,10),
+PaddingLeft=UDim.new(0,10),
+PaddingRight=UDim.new(0,10),
+PaddingBottom=UDim.new(0,10),
+}),
+ac("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,-34,0,0),
+AutomaticSize="Y",
+},{
+ac("UIListLayout",{
+FillDirection="Vertical",
+Padding=UDim.new(0,5),
+HorizontalAlignment="Center",
+}),
+ac("TextLabel",{
+Text=g.Title or h.Name,
+BackgroundTransparency=1,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+ThemeTag={TextColor3="Text"},
+TextTransparency=0.05,
+TextSize=18,
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+TextWrapped=true,
+TextXAlignment="Left",
+}),
+ac("TextLabel",{
+Text=g.Desc or"",
+BackgroundTransparency=1,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Regular),
+ThemeTag={TextColor3="Text"},
+TextTransparency=0.2,
+TextSize=16,
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+TextWrapped=true,
+Visible=g.Desc and true or false,
+TextXAlignment="Left",
+})
+})
+},true)
+
+ab.AddSignal(r.MouseEnter,function()
+ad(r,0.08,{ImageTransparency=.95}):Play()
+end)
+ab.AddSignal(r.InputEnded,function()
+ad(r,0.08,{ImageTransparency=1}):Play()
+end)
+ab.AddSignal(r.MouseButton1Click,function()
+m.Copy()
+ag.WindUI:Notify{
+Title="Key System",
+Content="Key link copied to clipboard.",
+Image="key",
+}
+end)
+end
+end
+
+ab.AddSignal(aB.MouseButton1Click,function()
+if not aA then
+ad(b,.3,{Size=UDim2.new(0,az,0,aE.AbsoluteSize.Y+1)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(aD,.3,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+else
+ad(b,.25,{Size=UDim2.new(0,az,0,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(aD,.25,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+aA=not aA
+end)
+
+end
+
+local function handleSuccess(az)
+ak:Close()()
+writefile((ag.Folder or ag.Title).."/"..ah..".key",tostring(az))
+task.wait(.4)
+ai(true)
+end
+
+local az=ae("Submit","arrow-right",function()
+local az=tostring(am or"empty")local aA=
+ag.Folder or ag.Title
+
+if not ag.KeySystem.API then
+local aB=type(ag.KeySystem.Key)=="table"
+and table.find(ag.KeySystem.Key,az)
+or ag.KeySystem.Key==az
+
+if aB then
+if ag.KeySystem.SaveKey then
+handleSuccess(az)
+else
+ak:Close()()
+task.wait(.4)
+ai(true)
+end
+end
+else
+local aB,aC
+for aD,aE in next,al do
+local b,e=aE.Verify(az)
+if b then
+aB,aC=true,e
+break
+end
+aC=e
+end
+
+if aB then
+handleSuccess(az)
+else
+ag.WindUI:Notify{
+Title="Key System. Error",
+Content=aC,
+Icon="triangle-alert",
+}
+end
+end
+end,"Primary",aw)
+
+az.AnchorPoint=Vector2.new(1,0.5)
+az.Position=UDim2.new(1,0,0.5,0)
+
+
+
+
+
+
+
+
+
+
+ak:Open()
+end
+
+return aa end function a.m()
+
+
+local function map(aa,ab,ac,ad,ae)
+return(aa-ab)*(ae-ad)/(ac-ab)+ad
+end
+
+local function viewportPointToWorld(aa,ab)
+local ac=game:GetService"Workspace".CurrentCamera:ScreenPointToRay(aa.X,aa.Y)
+return ac.Origin+ac.Direction*ab
+end
+
+local function getOffset()
+local aa=game:GetService"Workspace".CurrentCamera.ViewportSize.Y
+return map(aa,0,2560,8,56)
+end
+
+return{viewportPointToWorld,getOffset}end function a.n()
+
+
+
+local aa=a.load'a'
+local ab=aa.New
+
+
+local ac,ad=unpack(a.load'm')
+local ae=Instance.new("Folder",game:GetService"Workspace".CurrentCamera)
+
+
+local function createAcrylic()
+local af=ab("Part",{
+Name="Body",
+Color=Color3.new(0,0,0),
+Material=Enum.Material.Glass,
+Size=Vector3.new(1,1,0),
+Anchored=true,
+CanCollide=false,
+Locked=true,
+CastShadow=false,
+Transparency=0.98,
+},{
+ab("SpecialMesh",{
+MeshType=Enum.MeshType.Brick,
+Offset=Vector3.new(0,0,-1E-6),
+}),
+})
+
+return af
+end
+
+
+local function createAcrylicBlur(af)
+local ag={}
+
+af=af or 0.001
+local ah={
+topLeft=Vector2.new(),
+topRight=Vector2.new(),
+bottomRight=Vector2.new(),
+}
+local ai=createAcrylic()
+ai.Parent=ae
+
+local function updatePositions(aj,ak)
+ah.topLeft=ak
+ah.topRight=ak+Vector2.new(aj.X,0)
+ah.bottomRight=ak+aj
+end
+
+local function render()
+local aj=game:GetService"Workspace".CurrentCamera
+if aj then
+aj=aj.CFrame
+end
+local ak=aj
+if not ak then
+ak=CFrame.new()
+end
+
+local al=ak
+local am=ah.topLeft
+local an=ah.topRight
+local ao=ah.bottomRight
+
+local ap=ac(am,af)
+local aq=ac(an,af)
+local ar=ac(ao,af)
+
+local as=(aq-ap).Magnitude
+local at=(aq-ar).Magnitude
+
+ai.CFrame=
+CFrame.fromMatrix((ap+ar)/2,al.XVector,al.YVector,al.ZVector)
+ai.Mesh.Scale=Vector3.new(as,at,0)
+end
+
+local function onChange(aj)
+local ak=ad()
+local al=aj.AbsoluteSize-Vector2.new(ak,ak)
+local am=aj.AbsolutePosition+Vector2.new(ak/2,ak/2)
+
+updatePositions(al,am)
+task.spawn(render)
+end
+
+local function renderOnChange()
+local aj=game:GetService"Workspace".CurrentCamera
+if not aj then
+return
+end
+
+table.insert(ag,aj:GetPropertyChangedSignal"CFrame":Connect(render))
+table.insert(ag,aj:GetPropertyChangedSignal"ViewportSize":Connect(render))
+table.insert(ag,aj:GetPropertyChangedSignal"FieldOfView":Connect(render))
+task.spawn(render)
+end
+
+ai.Destroying:Connect(function()
+for aj,ak in ag do
+pcall(function()
+ak:Disconnect()
+end)
+end
+end)
+
+renderOnChange()
+
+return onChange,ai
+end
+
+return function(af)
+local ag={}
+local ah,ai=createAcrylicBlur(af)
+
+local aj=ab("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.fromScale(1,1),
+})
+
+aa.AddSignal(aj:GetPropertyChangedSignal"AbsolutePosition",function()
+ah(aj)
+end)
+
+aa.AddSignal(aj:GetPropertyChangedSignal"AbsoluteSize",function()
+ah(aj)
+end)
+
+ag.AddParent=function(ak)
+aa.AddSignal(ak:GetPropertyChangedSignal"Visible",function()
+ag.SetVisibility(ak.Visible)
+end)
+end
+
+ag.SetVisibility=function(ak)
+ai.Transparency=ak and 0.98 or 1
+end
+
+ag.Frame=aj
+ag.Model=ai
+
+return ag
+end end function a.o()
+
+
+
+local aa=a.load'a'
+local ab=a.load'n'
+
+local ac=aa.New
+
+return function(ad)
+local ae={}
+
+ae.Frame=ac("Frame",{
+Size=UDim2.fromScale(1,1),
+BackgroundTransparency=1,
+BackgroundColor3=Color3.fromRGB(255,255,255),
+BorderSizePixel=0,
+},{
+
+
+
+
+
+
+
+
+
+
+
+
+ac("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+
+ac("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.fromScale(1,1),
+Name="Background",
+ThemeTag={
+BackgroundColor3="AcrylicMain",
+},
+},{
+ac("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+}),
+
+ac("Frame",{
+BackgroundColor3=Color3.fromRGB(255,255,255),
+BackgroundTransparency=1,
+Size=UDim2.fromScale(1,1),
+},{
+
+
+
+
+
+
+
+
+
+
+}),
+
+ac("ImageLabel",{
+Image="rbxassetid://9968344105",
+ImageTransparency=0.98,
+ScaleType=Enum.ScaleType.Tile,
+TileSize=UDim2.new(0,128,0,128),
+Size=UDim2.fromScale(1,1),
+BackgroundTransparency=1,
+},{
+ac("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+}),
+
+ac("ImageLabel",{
+Image="rbxassetid://9968344227",
+ImageTransparency=0.9,
+ScaleType=Enum.ScaleType.Tile,
+TileSize=UDim2.new(0,128,0,128),
+Size=UDim2.fromScale(1,1),
+BackgroundTransparency=1,
+ThemeTag={
+ImageTransparency="AcrylicNoise",
+},
+},{
+ac("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+}),
+
+ac("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.fromScale(1,1),
+ZIndex=2,
+},{
+
+
+
+
+
+
+
+
+
+
+}),
+})
+
+
+local af
+
+task.wait()
+if ad.UseAcrylic then
+af=ab()
+
+af.Frame.Parent=ae.Frame
+ae.Model=af.Model
+ae.AddParent=af.AddParent
+ae.SetVisibility=af.SetVisibility
+end
+
+return ae,af
+end end function a.p()
+
+
+
+local aa={
+AcrylicBlur=a.load'n',
+
+AcrylicPaint=a.load'o',
+}
+
+function aa.init()
+local ab=Instance.new"DepthOfFieldEffect"
+ab.FarIntensity=0
+ab.InFocusRadius=0.1
+ab.NearIntensity=1
+
+local ac={}
+
+function aa.Enable()
+for ad,ae in pairs(ac)do
+ae.Enabled=false
+end
+ab.Parent=game:GetService"Lighting"
+end
+
+function aa.Disable()
+for ad,ae in pairs(ac)do
+ae.Enabled=ae.enabled
+end
+ab.Parent=nil
+end
+
+local function registerDefaults()
+local function register(ad)
+if ad:IsA"DepthOfFieldEffect"then
+ac[ad]={enabled=ad.Enabled}
+end
+end
+
+for ad,ae in pairs(game:GetService"Lighting":GetChildren())do
+register(ae)
+end
+
+if game:GetService"Workspace".CurrentCamera then
+for af,ag in pairs(game:GetService"Workspace".CurrentCamera:GetChildren())do
+register(ag)
+end
+end
+end
+
+registerDefaults()
+aa.Enable()
+end
+
+return aa end function a.q()
+
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New local ad=
+ab.Tween
+
+
+function aa.new(ae)
+local af={
+Title=ae.Title or"Dialog",
+Content=ae.Content,
+Icon=ae.Icon,
+IconThemed=ae.IconThemed,
+Thumbnail=ae.Thumbnail,
+Buttons=ae.Buttons,
+
+IconSize=22,
+}
+
+local ag=a.load'k'.Init(nil,ae.WindUI.ScreenGui.Popups)
+local ah=ag.Create(true)
+
+local ai=200
+
+local aj=430
+if af.Thumbnail and af.Thumbnail.Image then
+aj=430+(ai/2)
+end
+
+ah.UIElements.Main.AutomaticSize="Y"
+ah.UIElements.Main.Size=UDim2.new(0,aj,0,0)
+
+
+
+local ak
+
+if af.Icon then
+ak=ab.Image(
+af.Icon,
+af.Title..":"..af.Icon,
+0,
+ae.WindUI.Window,
+"Popup",
+true,
+ae.IconThemed
+)
+ak.Size=UDim2.new(0,af.IconSize,0,af.IconSize)
+ak.LayoutOrder=-1
+end
+
+
+local al=ac("TextLabel",{
+AutomaticSize="Y",
+BackgroundTransparency=1,
+Text=af.Title,
+TextXAlignment="Left",
+FontFace=Font.new(ab.Font,Enum.FontWeight.SemiBold),
+ThemeTag={
+TextColor3="Text",
+},
+TextSize=20,
+TextWrapped=true,
+Size=UDim2.new(1,ak and-af.IconSize-14 or 0,0,0)
+})
+
+local am=ac("Frame",{
+BackgroundTransparency=1,
+AutomaticSize="XY",
+},{
+ac("UIListLayout",{
+Padding=UDim.new(0,14),
+FillDirection="Horizontal",
+VerticalAlignment="Center"
+}),
+ak,al
+})
+
+local an=ac("Frame",{
+AutomaticSize="Y",
+Size=UDim2.new(1,0,0,0),
+BackgroundTransparency=1,
+},{
+
+
+
+
+
+am,
+})
+
+local ao
+if af.Content and af.Content~=""then
+ao=ac("TextLabel",{
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+TextXAlignment="Left",
+Text=af.Content,
+TextSize=18,
+TextTransparency=.2,
+ThemeTag={
+TextColor3="Text",
+},
+BackgroundTransparency=1,
+RichText=true,
+TextWrapped=true,
+})
+end
+
+local ap=ac("Frame",{
+Size=UDim2.new(1,0,0,42),
+BackgroundTransparency=1,
+},{
+ac("UIListLayout",{
+Padding=UDim.new(0,9),
+FillDirection="Horizontal",
+HorizontalAlignment="Right"
+})
+})
+
+local aq
+if af.Thumbnail and af.Thumbnail.Image then
+local ar
+if af.Thumbnail.Title then
+ar=ac("TextLabel",{
+Text=af.Thumbnail.Title,
+ThemeTag={
+TextColor3="Text",
+},
+TextSize=18,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+BackgroundTransparency=1,
+AutomaticSize="XY",
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+})
+end
+aq=ac("ImageLabel",{
+Image=af.Thumbnail.Image,
+BackgroundTransparency=1,
+Size=UDim2.new(0,ai,1,0),
+Parent=ah.UIElements.Main,
+ScaleType="Crop"
+},{
+ar,
+ac("UICorner",{
+CornerRadius=UDim.new(0,0),
+})
+})
+end
+
+ac("Frame",{
+
+Size=UDim2.new(1,aq and-ai or 0,1,0),
+Position=UDim2.new(0,aq and ai or 0,0,0),
+BackgroundTransparency=1,
+Parent=ah.UIElements.Main
+},{
+ac("Frame",{
+
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+},{
+ac("UIListLayout",{
+Padding=UDim.new(0,18),
+FillDirection="Vertical",
+}),
+an,
+ao,
+ap,
+ac("UIPadding",{
+PaddingTop=UDim.new(0,16),
+PaddingLeft=UDim.new(0,16),
+PaddingRight=UDim.new(0,16),
+PaddingBottom=UDim.new(0,16),
+})
+}),
+})
+
+local ar=a.load'i'.New
+
+for as,at in next,af.Buttons do
+ar(at.Title,at.Icon,at.Callback,at.Variant,ap,ah)
+end
+
+ah:Open()
+
+
+return af
+end
+
+return aa end function a.r()
+return function(aa)
+return{
+Dark={
+Name="Dark",
+
+Accent=Color3.fromHex"#18181b",
+Dialog=Color3.fromHex"#161616",
+Outline=Color3.fromHex"#FFFFFF",
+Text=Color3.fromHex"#FFFFFF",
+Placeholder=Color3.fromHex"#7a7a7a",
+Background=Color3.fromHex"#101010",
+Button=Color3.fromHex"#52525b",
+Icon=Color3.fromHex"#a1a1aa"
+},
+Light={
+Name="Light",
+
+Accent=Color3.fromHex"#FFFFFF",
+Dialog=Color3.fromHex"#f4f4f5",
+Outline=Color3.fromHex"#09090b",
+Text=Color3.fromHex"#000000",
+Placeholder=Color3.fromHex"#555555",
+Background=Color3.fromHex"#e4e4e7",
+Button=Color3.fromHex"#18181b",
+Icon=Color3.fromHex"#52525b",
+},
+Rose={
+Name="Rose",
+
+Accent=Color3.fromHex"#be185d",
+Dialog=Color3.fromHex"#4c0519",
+Outline=Color3.fromHex"#fecdd3",
+Text=Color3.fromHex"#fdf2f8",
+Placeholder=Color3.fromHex"#d67aa6",
+Background=Color3.fromHex"#1f0308",
+Button=Color3.fromHex"#e11d48",
+Icon=Color3.fromHex"#fb7185",
+},
+Plant={
+Name="Plant",
+
+Accent=Color3.fromHex"#166534",
+Dialog=Color3.fromHex"#052e16",
+Outline=Color3.fromHex"#bbf7d0",
+Text=Color3.fromHex"#f0fdf4",
+Placeholder=Color3.fromHex"#4fbf7a",
+Background=Color3.fromHex"#0a1b0f",
+Button=Color3.fromHex"#16a34a",
+Icon=Color3.fromHex"#4ade80",
+},
+Red={
+Name="Red",
+
+Accent=Color3.fromHex"#991b1b",
+Dialog=Color3.fromHex"#450a0a",
+Outline=Color3.fromHex"#fecaca",
+Text=Color3.fromHex"#fef2f2",
+Placeholder=Color3.fromHex"#d95353",
+Background=Color3.fromHex"#1c0606",
+Button=Color3.fromHex"#dc2626",
+Icon=Color3.fromHex"#ef4444",
+},
+Indigo={
+Name="Indigo",
+
+Accent=Color3.fromHex"#3730a3",
+Dialog=Color3.fromHex"#1e1b4b",
+Outline=Color3.fromHex"#c7d2fe",
+Text=Color3.fromHex"#f1f5f9",
+Placeholder=Color3.fromHex"#7078d9",
+Background=Color3.fromHex"#0f0a2e",
+Button=Color3.fromHex"#4f46e5",
+Icon=Color3.fromHex"#6366f1",
+},
+Sky={
+Name="Sky",
+
+Accent=Color3.fromHex"#0369a1",
+Dialog=Color3.fromHex"#0c4a6e",
+Outline=Color3.fromHex"#bae6fd",
+Text=Color3.fromHex"#f0f9ff",
+Placeholder=Color3.fromHex"#4fb6d9",
+Background=Color3.fromHex"#041f2e",
+Button=Color3.fromHex"#0284c7",
+Icon=Color3.fromHex"#0ea5e9",
+},
+Violet={
+Name="Violet",
+
+Accent=Color3.fromHex"#6d28d9",
+Dialog=Color3.fromHex"#3c1361",
+Outline=Color3.fromHex"#ddd6fe",
+Text=Color3.fromHex"#faf5ff",
+Placeholder=Color3.fromHex"#8f7ee0",
+Background=Color3.fromHex"#1e0a3e",
+Button=Color3.fromHex"#7c3aed",
+Icon=Color3.fromHex"#8b5cf6",
+},
+Amber={
+Name="Amber",
+
+Accent=Color3.fromHex"#b45309",
+Dialog=Color3.fromHex"#451a03",
+Outline=Color3.fromHex"#fde68a",
+Text=Color3.fromHex"#fffbeb",
+Placeholder=Color3.fromHex"#d1a326",
+Background=Color3.fromHex"#1c1003",
+Button=Color3.fromHex"#d97706",
+Icon=Color3.fromHex"#f59e0b",
+},
+Emerald={
+Name="Emerald",
+
+Accent=Color3.fromHex"#047857",
+Dialog=Color3.fromHex"#022c22",
+Outline=Color3.fromHex"#a7f3d0",
+Text=Color3.fromHex"#ecfdf5",
+Placeholder=Color3.fromHex"#3fbf8f",
+Background=Color3.fromHex"#011411",
+Button=Color3.fromHex"#059669",
+Icon=Color3.fromHex"#10b981",
+},
+Midnight={
+Name="Midnight",
+
+Accent=Color3.fromHex"#1e3a8a",
+Dialog=Color3.fromHex"#0c1e42",
+Outline=Color3.fromHex"#bfdbfe",
+Text=Color3.fromHex"#dbeafe",
+Placeholder=Color3.fromHex"#2f74d1",
+Background=Color3.fromHex"#0a0f1e",
+Button=Color3.fromHex"#2563eb",
+Icon=Color3.fromHex"#3b82f6",
+},
+Crimson={
+Name="Crimson",
+
+Accent=Color3.fromHex"#b91c1c",
+Dialog=Color3.fromHex"#450a0a",
+Outline=Color3.fromHex"#fca5a5",
+Text=Color3.fromHex"#fef2f2",
+Placeholder=Color3.fromHex"#6f757b",
+Background=Color3.fromHex"#0c0404",
+Button=Color3.fromHex"#991b1b",
+Icon=Color3.fromHex"#dc2626",
+},
+MonokaiPro={
+Name="Monokai Pro",
+
+Accent=Color3.fromHex"#fc9867",
+Dialog=Color3.fromHex"#1e1e1e",
+Outline=Color3.fromHex"#78dce8",
+Text=Color3.fromHex"#fcfcfa",
+Placeholder=Color3.fromHex"#6f6f6f",
+Background=Color3.fromHex"#191622",
+Button=Color3.fromHex"#ab9df2",
+Icon=Color3.fromHex"#a9dc76",
+},
+CottonCandy={
+Name="Cotton Candy",
+
+Accent=Color3.fromHex"#ec4899",
+Dialog=Color3.fromHex"#2d1b3d",
+Outline=Color3.fromHex"#f9a8d4",
+Text=Color3.fromHex"#fdf2f8",
+Placeholder=Color3.fromHex"#8a5fd3",
+Background=Color3.fromHex"#1a0b2e",
+Button=Color3.fromHex"#d946ef",
+Icon=Color3.fromHex"#06b6d4",
+},
+Rainbow={
+Name="Rainbow",
+
+Accent=aa:Gradient({
+["0"]={Color=Color3.fromHex"#00ff41",Transparency=0},
+["33"]={Color=Color3.fromHex"#00ffff",Transparency=0},
+["66"]={Color=Color3.fromHex"#0080ff",Transparency=0},
+["100"]={Color=Color3.fromHex"#8000ff",Transparency=0},
+},{
+Rotation=45,
+}),
+
+Dialog=aa:Gradient({
+["0"]={Color=Color3.fromHex"#ff0080",Transparency=0},
+["25"]={Color=Color3.fromHex"#8000ff",Transparency=0},
+["50"]={Color=Color3.fromHex"#0080ff",Transparency=0},
+["75"]={Color=Color3.fromHex"#00ff80",Transparency=0},
+["100"]={Color=Color3.fromHex"#ff8000",Transparency=0},
+},{
+Rotation=135,
+}),
+
+Outline=Color3.fromHex"#ffffff",
+Text=Color3.fromHex"#ffffff",
+
+Placeholder=Color3.fromHex"#00ff80",
+
+Background=aa:Gradient({
+["0"]={Color=Color3.fromHex"#ff0040",Transparency=0},
+["20"]={Color=Color3.fromHex"#ff4000",Transparency=0},
+["40"]={Color=Color3.fromHex"#ffff00",Transparency=0},
+["60"]={Color=Color3.fromHex"#00ff40",Transparency=0},
+["80"]={Color=Color3.fromHex"#0040ff",Transparency=0},
+["100"]={Color=Color3.fromHex"#4000ff",Transparency=0},
+},{
+Rotation=90,
+}),
+
+Button=aa:Gradient({
+["0"]={Color=Color3.fromHex"#ff0080",Transparency=0},
+["25"]={Color=Color3.fromHex"#ff8000",Transparency=0},
+["50"]={Color=Color3.fromHex"#ffff00",Transparency=0},
+["75"]={Color=Color3.fromHex"#80ff00",Transparency=0},
+["100"]={Color=Color3.fromHex"#00ffff",Transparency=0},
+},{
+Rotation=60,
+}),
+
+Icon=Color3.fromHex"#ffffff",
+}
+}
+end end function a.s()
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New local ad=
+ab.Tween
+
+
+function aa.New(ae,af,ag,ah,ai)
+local aj=ai or 10
+local ak
+if af and af~=""then
+ak=ac("ImageLabel",{
+Image=ab.Icon(af)[1],
+ImageRectSize=ab.Icon(af)[2].ImageRectSize,
+ImageRectOffset=ab.Icon(af)[2].ImageRectPosition,
+Size=UDim2.new(0,21,0,21),
+BackgroundTransparency=1,
+ThemeTag={
+ImageColor3="Icon",
+}
+})
+end
+
+local al=ac("TextLabel",{
+BackgroundTransparency=1,
+TextSize=17,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Regular),
+Size=UDim2.new(1,ak and-29 or 0,1,0),
+TextXAlignment="Left",
+ThemeTag={
+TextColor3=ah and"Placeholder"or"Text",
+},
+Text=ae,
+})
+
+local am=ac("TextButton",{
+Size=UDim2.new(1,0,0,42),
+Parent=ag,
+BackgroundTransparency=1,
+Text="",
+},{
+ac("Frame",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+},{
+ab.NewRoundFrame(aj,"Squircle",{
+ThemeTag={
+ImageColor3="Accent",
+},
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.97,
+}),
+ab.NewRoundFrame(aj,"SquircleOutline",{
+ThemeTag={
+ImageColor3="Outline",
+},
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.95,
+},{
+ac("UIGradient",{
+Rotation=70,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+})
+}),
+ab.NewRoundFrame(aj,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+Name="Frame",
+ImageColor3=Color3.new(1,1,1),
+ImageTransparency=.95
+},{
+ac("UIPadding",{
+PaddingLeft=UDim.new(0,12),
+PaddingRight=UDim.new(0,12),
+}),
+ac("UIListLayout",{
+FillDirection="Horizontal",
+Padding=UDim.new(0,8),
+VerticalAlignment="Center",
+HorizontalAlignment="Left",
+}),
+ak,
+al,
+})
+})
+})
+
+return am
+end
+
+
+return aa end function a.t()
+local aa={}
+
+local ab=game:GetService"UserInputService"
+
+local ac=a.load'a'
+local ad=ac.New local ae=
+ac.Tween
+
+
+function aa.New(af,ag,ah,ai)
+local aj=ad("Frame",{
+Size=UDim2.new(0,ai,1,0),
+BackgroundTransparency=1,
+Position=UDim2.new(1,0,0,0),
+AnchorPoint=Vector2.new(1,0),
+Parent=ag,
+ZIndex=999,
+Active=true,
+})
+
+local ak=ac.NewRoundFrame(ai/2,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+ImageTransparency=0.85,
+ThemeTag={ImageColor3="Text"},
+Parent=aj,
+})
+
+local al=ad("Frame",{
+Size=UDim2.new(1,12,1,12),
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+BackgroundTransparency=1,
+Active=true,
+ZIndex=999,
+Parent=ak,
+})
+
+local am=false
+local an=0
+
+local function updateSliderSize()
+local ao=af
+local ap=ao.AbsoluteCanvasSize.Y
+local aq=ao.AbsoluteWindowSize.Y
+
+if ap<=aq then
+ak.Visible=false
+return
+end
+
+local ar=math.clamp(aq/ap,0.1,1)
+ak.Size=UDim2.new(1,0,ar,0)
+ak.Visible=true
+end
+
+local function updateScrollingFramePosition()
+local ao=ak.Position.Y.Scale
+local ap=af.AbsoluteCanvasSize.Y
+local aq=af.AbsoluteWindowSize.Y
+local ar=math.max(ap-aq,0)
+
+if ar<=0 then return end
+
+local as=math.max(1-ak.Size.Y.Scale,0)
+if as<=0 then return end
+
+local at=ao/as
+
+af.CanvasPosition=Vector2.new(
+af.CanvasPosition.X,
+at*ar
+)
+end
+
+local function updateThumbPosition()
+if am then return end
+
+local ao=af.CanvasPosition.Y
+local ap=af.AbsoluteCanvasSize.Y
+local aq=af.AbsoluteWindowSize.Y
+local ar=math.max(ap-aq,0)
+
+if ar<=0 then
+ak.Position=UDim2.new(0,0,0,0)
+return
+end
+
+local as=ao/ar
+local at=math.max(1-ak.Size.Y.Scale,0)
+local au=math.clamp(as*at,0,at)
+
+ak.Position=UDim2.new(0,0,au,0)
+end
+
+ac.AddSignal(aj.InputBegan,function(ao)
+if(ao.UserInputType==Enum.UserInputType.MouseButton1 or ao.UserInputType==Enum.UserInputType.Touch)then
+local ap=ak.AbsolutePosition.Y
+local aq=ap+ak.AbsoluteSize.Y
+
+if not(ao.Position.Y>=ap and ao.Position.Y<=aq)then
+local ar=aj.AbsolutePosition.Y
+local as=aj.AbsoluteSize.Y
+local at=ak.AbsoluteSize.Y
+
+local au=ao.Position.Y-ar-at/2
+local av=as-at
+
+local aw=math.clamp(au/av,0,1-ak.Size.Y.Scale)
+
+ak.Position=UDim2.new(0,0,aw,0)
+updateScrollingFramePosition()
+end
+end
+end)
+
+ac.AddSignal(al.InputBegan,function(ao)
+if ao.UserInputType==Enum.UserInputType.MouseButton1 or ao.UserInputType==Enum.UserInputType.Touch then
+am=true
+an=ao.Position.Y-ak.AbsolutePosition.Y
+
+local ap
+local aq
+
+ap=ab.InputChanged:Connect(function(ar)
+if ar.UserInputType==Enum.UserInputType.MouseMovement or ar.UserInputType==Enum.UserInputType.Touch then
+local as=aj.AbsolutePosition.Y
+local at=aj.AbsoluteSize.Y
+local au=ak.AbsoluteSize.Y
+
+local av=ar.Position.Y-as-an
+local aw=at-au
+
+local ax=math.clamp(av/aw,0,1-ak.Size.Y.Scale)
+
+ak.Position=UDim2.new(0,0,ax,0)
+updateScrollingFramePosition()
+end
+end)
+
+aq=ab.InputEnded:Connect(function(ar)
+if ar.UserInputType==Enum.UserInputType.MouseButton1 or ar.UserInputType==Enum.UserInputType.Touch then
+am=false
+if ap then ap:Disconnect()end
+if aq then aq:Disconnect()end
+end
+end)
+end
+end)
+
+ac.AddSignal(af:GetPropertyChangedSignal"AbsoluteWindowSize",function()
+updateSliderSize()
+updateThumbPosition()
+end)
+
+ac.AddSignal(af:GetPropertyChangedSignal"AbsoluteCanvasSize",function()
+updateSliderSize()
+updateThumbPosition()
+end)
+
+ac.AddSignal(af:GetPropertyChangedSignal"CanvasPosition",function()
+if not am then
+updateThumbPosition()
+end
+end)
+
+updateSliderSize()
+updateThumbPosition()
+
+return aj
+end
+
+
+return aa end function a.u()
+local aa={}
+
+
+local ab=a.load'a'
+local ac=ab.New
+local ad=ab.Tween
+
+local function Color3ToHSB(ae)
+local af,ag,ah=ae.R,ae.G,ae.B
+local ai=math.max(af,ag,ah)
+local aj=math.min(af,ag,ah)
+local ak=ai-aj
+
+local al=0
+if ak~=0 then
+if ai==af then
+al=(ag-ah)/ak%6
+elseif ai==ag then
+al=(ah-af)/ak+2
+else
+al=(af-ag)/ak+4
+end
+al=al*60
+else
+al=0
+end
+
+local am=(ai==0)and 0 or(ak/ai)
+local an=ai
+
+return{
+h=math.floor(al+0.5),
+s=am,
+b=an
+}
+end
+
+local function GetPerceivedBrightness(ae)
+local af=ae.R
+local ag=ae.G
+local ah=ae.B
+return 0.299*af+0.587*ag+0.114*ah
+end
+
+local function GetTextColorForHSB(ae)
+local af=Color3ToHSB(ae)local
+ag, ah, ai=af.h, af.s, af.b
+if GetPerceivedBrightness(ae)>0.5 then
+return Color3.fromHSV(ag/360,0,0.05)
+else
+return Color3.fromHSV(ag/360,0,0.98)
+end
+end
+
+local function GetAverageColor(ae)
+local af,ag,ah=0,0,0
+local ai=ae.Color.Keypoints
+for aj,ak in ipairs(ai)do
+
+af=af+ak.Value.R
+ag=ag+ak.Value.G
+ah=ah+ak.Value.B
+end
+local al=#ai
+return Color3.new(af/al,ag/al,ah/al)
+end
+
+
+function aa.New(ae,af,ag)
+local ah={
+Title=af.Title or"Tag",
+Color=af.Color or Color3.fromHex"#315dff",
+Radius=af.Radius or 999,
+
+TagFrame=nil,
+Height=26,
+Padding=10,
+TextSize=14,
+}
+
+local ai=ac("TextLabel",{
+BackgroundTransparency=1,
+AutomaticSize="XY",
+TextSize=ah.TextSize,
+FontFace=Font.new(ab.Font,Enum.FontWeight.SemiBold),
+Text=ah.Title,
+TextColor3=typeof(ah.Color)=="Color3"and GetTextColorForHSB(ah.Color)or nil,
+})
+
+local aj
+
+if typeof(ah.Color)=="table"then
+
+aj=ac"UIGradient"
+for ak,al in next,ah.Color do
+aj[ak]=al
+end
+
+ai.TextColor3=GetTextColorForHSB(GetAverageColor(aj))
+end
+
+
+
+local ak=ab.NewRoundFrame(ah.Radius,"Squircle",{
+AutomaticSize="X",
+Size=UDim2.new(0,0,0,ah.Height),
+Parent=ag,
+ImageColor3=typeof(ah.Color)=="Color3"and ah.Color or Color3.new(1,1,1),
+},{
+aj,
+ac("UIPadding",{
+PaddingLeft=UDim.new(0,ah.Padding),
+PaddingRight=UDim.new(0,ah.Padding),
+}),
+ai,
+ac("UIListLayout",{
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+})
+})
+
+
+function ah.SetTitle(al,am)
+ah.Title=am
+ai.Text=am
+end
+
+function ah.SetColor(al,am)
+ah.Color=am
+if typeof(am)=="table"then
+local an=GetAverageColor(am)
+ad(ai,.06,{TextColor3=GetTextColorForHSB(an)}):Play()
+local ao=ak:FindFirstChildOfClass"UIGradient"or ac("UIGradient",{Parent=ak})
+for ap,aq in next,am do ao[ap]=aq end
+ad(ak,.06,{ImageColor3=Color3.new(1,1,1)}):Play()
+else
+if aj then
+aj:Destroy()
+end
+ad(ai,.06,{TextColor3=GetTextColorForHSB(am)}):Play()
+ad(ak,.06,{ImageColor3=am}):Play()
+end
+end
+
+
+return ah
+end
+
+
+return aa end function a.v()
+
+local aa=game:GetService"HttpService"
+
+local ab
+
+local ac
+ac={
+Folder=nil,
+Path=nil,
+Configs={},
+Parser={
+Colorpicker={
+Save=function(ad)
+return{
+__type=ad.__type,
+value=ad.Default:ToHex(),
+transparency=ad.Transparency or nil,
+}
+end,
+Load=function(ad,ae)
+if ad and ad.Update then
+ad:Update(Color3.fromHex(ae.value),ae.transparency or nil)
+end
+end
+},
+Dropdown={
+Save=function(ad)
+return{
+__type=ad.__type,
+value=ad.Value,
+}
+end,
+Load=function(ad,ae)
+if ad and ad.Select then
+ad:Select(ae.value)
+end
+end
+},
+Input={
+Save=function(ad)
+return{
+__type=ad.__type,
+value=ad.Value,
+}
+end,
+Load=function(ad,ae)
+if ad and ad.Set then
+ad:Set(ae.value)
+end
+end
+},
+Keybind={
+Save=function(ad)
+return{
+__type=ad.__type,
+value=ad.Value,
+}
+end,
+Load=function(ad,ae)
+if ad and ad.Set then
+ad:Set(ae.value)
+end
+end
+},
+Slider={
+Save=function(ad)
+return{
+__type=ad.__type,
+value=ad.Value.Default,
+}
+end,
+Load=function(ad,ae)
+if ad and ad.Set then
+ad:Set(tonumber(ae.value))
+end
+end
+},
+Toggle={
+Save=function(ad)
+return{
+__type=ad.__type,
+value=ad.Value,
+}
+end,
+Load=function(ad,ae)
+if ad and ad.Set then
+ad:Set(ae.value)
+end
+end
+},
+}
+}
+
+function ac.Init(ad,ae)
+if not ae.Folder then
+warn"[ WindUI.ConfigManager ] Window.Folder is not specified."
+return false
+end
+
+ab=ae
+ac.Folder=ab.Folder
+ac.Path="H4xScripts/"..tostring(ac.Folder).."/config/"
+
+if not isfolder("H4xScripts/"..ac.Folder)then
+makefolder("H4xScripts/"..ac.Folder)
+if not isfolder("H4xScripts/"..ac.Folder.."/config/")then
+makefolder("H4xScripts/"..ac.Folder.."/config/")
+end
+end
+
+local af=ac:AllConfigs()
+
+for ag,ah in next,af do
+if isfile and readfile and isfile(ah..".json")then
+ac.Configs[ah]=readfile(ah..".json")
+end
+end
+
+return ac
+end
+
+function ac.CreateConfig(ad,ae)
+local af={
+Path=ac.Path..ae..".json",
+Elements={},
+CustomData={},
+Version=1.1
+}
+
+if not ae then
+return false,"No config file is selected"
+end
+
+function af.SetAsCurrent(ag)
+ab:SetCurrentConfig(af)
+end
+
+function af.Register(ag,ah,ai)
+af.Elements[ah]=ai
+end
+
+function af.Set(ag,ah,ai)
+af.CustomData[ah]=ai
+end
+
+function af.Get(ag,ah)
+return af.CustomData[ah]
+end
+
+function af.Save(ag)
+if ab.PendingFlags then
+for ah,ai in next,ab.PendingFlags do
+af:Register(ah,ai)
+end
+end
+
+local ah={
+__version=af.Version,
+__elements={},
+__custom=af.CustomData
+}
+
+for ai,aj in next,af.Elements do
+if ac.Parser[aj.__type]then
+ah.__elements[tostring(ai)]=ac.Parser[aj.__type].Save(aj)
+end
+end
+
+local ak=aa:JSONEncode(ah)
+if writefile then
+writefile(af.Path,ak)
+end
+
+return ah
+end
+
+function af.Load(ag)
+if isfile and not isfile(af.Path)then
+return false,"Config file does not exist"
+end
+
+local ah,ai=pcall(function()
+local ah=readfile or function()
+warn"[ WindUI.ConfigManager ] The config system doesn't work in the studio."
+return nil
+end
+return aa:JSONDecode(ah(af.Path))
+end)
+
+if not ah then
+return false,"Failed to parse config file"
+end
+
+if not ai.__version then
+local aj={
+__version=af.Version,
+__elements=ai,
+__custom={}
+}
+ai=aj
+end
+
+if ab.PendingFlags then
+for aj,ak in next,ab.PendingFlags do
+af:Register(aj,ak)
+end
+end
+
+for aj,ak in next,(ai.__elements or{})do
+if af.Elements[aj]and ac.Parser[ak.__type]then
+task.spawn(function()
+ac.Parser[ak.__type].Load(af.Elements[aj],ak)
+end)
+end
+end
+
+af.CustomData=ai.__custom or{}
+
+return af.CustomData
+end
+
+function af.GetData(ag)
+return{
+elements=af.Elements,
+custom=af.CustomData
+}
+end
+
+af:SetAsCurrent()
+ac.Configs[ae]=af
+return af
+end
+
+function ac.AllConfigs(ad)
+if not listfiles then return{}end
+
+local ae={}
+if not isfolder(ac.Path)then
+makefolder(ac.Path)
+return ae
+end
+
+for af,ag in next,listfiles(ac.Path)do
+local ah=ag:match"([^\\/]+)%.json$"
+if ah then
+table.insert(ae,ah)
+end
+end
+
+return ae
+end
+
+function ac.GetConfig(ad,ae)
+return ac.Configs[ae]
+end
+
+return ac end function a.w()
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New
+local ad=ab.Tween
+
+game:GetService"UserInputService"
+
+
+function aa.New(ae)
+local af={
+Button=nil
+}
+
+local ag
+
+
+
+
+
+
+
+
+
+
+
+
+
+local ah=ac("TextLabel",{
+Text=ae.Title,
+TextSize=17,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+BackgroundTransparency=1,
+AutomaticSize="XY",
+})
+
+local ai=ac("Frame",{
+Size=UDim2.new(0,36,0,36),
+BackgroundTransparency=1,
+Name="Drag",
+},{
+ac("ImageLabel",{
+Image=ab.Icon"move"[1],
+ImageRectOffset=ab.Icon"move"[2].ImageRectPosition,
+ImageRectSize=ab.Icon"move"[2].ImageRectSize,
+Size=UDim2.new(0,18,0,18),
+BackgroundTransparency=1,
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+ThemeTag={
+ImageColor3="Icon",
+},
+ImageTransparency=.3,
+})
+})
+local aj=ac("Frame",{
+Size=UDim2.new(0,1,1,0),
+Position=UDim2.new(0,36,0.5,0),
+AnchorPoint=Vector2.new(0,0.5),
+BackgroundColor3=Color3.new(1,1,1),
+BackgroundTransparency=.9,
+})
+
+local ak=ac("Frame",{
+Size=UDim2.new(0,0,0,0),
+Position=UDim2.new(0.5,0,0,28),
+AnchorPoint=Vector2.new(0.5,0.5),
+Parent=ae.Parent,
+BackgroundTransparency=1,
+Active=true,
+Visible=false,
+})
+local al=ac("TextButton",{
+Size=UDim2.new(0,0,0,44),
+AutomaticSize="X",
+Parent=ak,
+Active=false,
+BackgroundTransparency=.25,
+ZIndex=99,
+BackgroundColor3=Color3.new(0,0,0),
+},{
+
+
+
+ac("UICorner",{
+CornerRadius=UDim.new(1,0)
+}),
+ac("UIStroke",{
+Thickness=1,
+ApplyStrokeMode="Border",
+Color=Color3.new(1,1,1),
+Transparency=0,
+},{
+ac("UIGradient",{
+Color=ColorSequence.new(Color3.fromHex"40c9ff",Color3.fromHex"e81cff")
+})
+}),
+ai,
+aj,
+
+ac("UIListLayout",{
+Padding=UDim.new(0,4),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+
+ac("TextButton",{
+AutomaticSize="XY",
+Active=true,
+BackgroundTransparency=1,
+Size=UDim2.new(0,0,0,36),
+
+BackgroundColor3=Color3.new(1,1,1),
+},{
+ac("UICorner",{
+CornerRadius=UDim.new(1,-4)
+}),
+ag,
+ac("UIListLayout",{
+Padding=UDim.new(0,ae.UIPadding),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+ah,
+ac("UIPadding",{
+PaddingLeft=UDim.new(0,11),
+PaddingRight=UDim.new(0,11),
+}),
+}),
+ac("UIPadding",{
+PaddingLeft=UDim.new(0,4),
+PaddingRight=UDim.new(0,4),
+})
+})
+
+af.Button=al
+
+
+
+function af.SetIcon(am,an)
+if ag then
+ag:Destroy()
+end
+if an then
+ag=ab.Image(
+an,
+ae.Title,
+0,
+ae.Folder,
+"OpenButton",
+true,
+ae.IconThemed
+)
+ag.Size=UDim2.new(0,22,0,22)
+ag.LayoutOrder=-1
+ag.Parent=af.Button.TextButton
+end
+end
+
+if ae.Icon then
+af:SetIcon(ae.Icon)
+end
+
+
+
+ab.AddSignal(al:GetPropertyChangedSignal"AbsoluteSize",function()
+ak.Size=UDim2.new(
+0,al.AbsoluteSize.X,
+0,al.AbsoluteSize.Y
+)
+end)
+
+ab.AddSignal(al.TextButton.MouseEnter,function()
+ad(al.TextButton,.1,{BackgroundTransparency=.93}):Play()
+end)
+ab.AddSignal(al.TextButton.MouseLeave,function()
+ad(al.TextButton,.1,{BackgroundTransparency=1}):Play()
+end)
+
+local am=ab.Drag(ak)
+
+
+function af.Visible(an,ao)
+ak.Visible=ao
+end
+
+function af.Edit(an,ao)
+local ap={
+Title=ao.Title,
+Icon=ao.Icon,
+Enabled=ao.Enabled,
+Position=ao.Position,
+OnlyIcon=ao.OnlyIcon or false,
+Draggable=ao.Draggable or nil,
+OnlyMobile=ao.OnlyMobile,
+CornerRadius=ao.CornerRadius or UDim.new(1,0),
+StrokeThickness=ao.StrokeThickness or 2,
+Color=ao.Color
+or ColorSequence.new(Color3.fromHex"40c9ff",Color3.fromHex"e81cff"),
+}
+
+
+
+if ap.Enabled==false then
+ae.IsOpenButtonEnabled=false
+end
+
+if ap.OnlyMobile~=false then
+ap.OnlyMobile=true
+else
+ae.IsPC=false
+end
+
+
+if ap.Draggable==false and ai and aj then
+ai.Visible=ap.Draggable
+aj.Visible=ap.Draggable
+
+if am then
+am:Set(ap.Draggable)
+end
+end
+
+if ap.Position and ak then
+ak.Position=ap.Position
+end
+
+if ap.OnlyIcon==true and ah then
+ah.Visible=false
+al.TextButton.UIPadding.PaddingLeft=UDim.new(0,7)
+al.TextButton.UIPadding.PaddingRight=UDim.new(0,7)
+elseif ap.OnlyIcon==false then
+ah.Visible=true
+al.TextButton.UIPadding.PaddingLeft=UDim.new(0,11)
+al.TextButton.UIPadding.PaddingRight=UDim.new(0,11)
+end
+
+
+
+
+
+if ah then
+if ap.Title then
+ah.Text=ap.Title
+ab:ChangeTranslationKey(ah,ap.Title)
+elseif ap.Title==nil then
+
+end
+end
+
+if ap.Icon then
+af:SetIcon(ap.Icon)
+end
+
+al.UIStroke.UIGradient.Color=ap.Color
+if Glow then
+Glow.UIGradient.Color=ap.Color
+end
+
+al.UICorner.CornerRadius=ap.CornerRadius
+al.TextButton.UICorner.CornerRadius=UDim.new(ap.CornerRadius.Scale,ap.CornerRadius.Offset-4)
+al.UIStroke.Thickness=ap.StrokeThickness
+end
+
+return af
+end
+
+
+
+return aa end function a.x()
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New
+local ad=ab.Tween
+
+
+function aa.New(ae,af)
+local ag={
+Container=nil,
+ToolTipSize=16,
+}
+
+local ah=ac("TextLabel",{
+AutomaticSize="XY",
+TextWrapped=true,
+BackgroundTransparency=1,
+FontFace=Font.new(ab.Font,Enum.FontWeight.Medium),
+Text=ae,
+TextSize=17,
+TextTransparency=1,
+ThemeTag={
+TextColor3="Text",
+}
+})
+
+local ai=ac("UIScale",{
+Scale=.9
+})
+
+local aj=ac("Frame",{
+AnchorPoint=Vector2.new(0.5,0),
+AutomaticSize="XY",
+BackgroundTransparency=1,
+Parent=af,
+
+Visible=false
+},{
+ac("UISizeConstraint",{
+MaxSize=Vector2.new(400,math.huge)
+}),
+ac("Frame",{
+AutomaticSize="XY",
+BackgroundTransparency=1,
+LayoutOrder=99,
+Visible=false
+},{
+ac("ImageLabel",{
+Size=UDim2.new(0,ag.ToolTipSize,0,ag.ToolTipSize/2),
+BackgroundTransparency=1,
+Rotation=180,
+Image="rbxassetid://89524607682719",
+ThemeTag={
+ImageColor3="Accent",
+},
+},{
+ac("ImageLabel",{
+Size=UDim2.new(0,ag.ToolTipSize,0,ag.ToolTipSize/2),
+BackgroundTransparency=1,
+LayoutOrder=99,
+ImageTransparency=.9,
+Image="rbxassetid://89524607682719",
+ThemeTag={
+ImageColor3="Text",
+},
+}),
+}),
+}),
+ab.NewRoundFrame(14,"Squircle",{
+AutomaticSize="XY",
+ThemeTag={
+ImageColor3="Accent",
+},
+ImageTransparency=1,
+Name="Background",
+},{
+
+
+
+ac("Frame",{
+ThemeTag={
+BackgroundColor3="Text",
+},
+AutomaticSize="XY",
+BackgroundTransparency=1,
+},{
+ac("UICorner",{
+CornerRadius=UDim.new(0,16),
+}),
+ac("UIListLayout",{
+Padding=UDim.new(0,12),
+FillDirection="Horizontal",
+VerticalAlignment="Center"
+}),
+
+ah,
+ac("UIPadding",{
+PaddingTop=UDim.new(0,12),
+PaddingLeft=UDim.new(0,12),
+PaddingRight=UDim.new(0,12),
+PaddingBottom=UDim.new(0,12),
+}),
+})
+}),
+ai,
+ac("UIListLayout",{
+Padding=UDim.new(0,0),
+FillDirection="Vertical",
+VerticalAlignment="Center",
+HorizontalAlignment="Center",
+}),
+})
+ag.Container=aj
+
+function ag.Open(ak)
+aj.Visible=true
+
+
+ad(aj.Background,.2,{ImageTransparency=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(ah,.2,{TextTransparency=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(ai,.18,{Scale=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+
+function ag.Close(ak)
+
+ad(aj.Background,.3,{ImageTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(ah,.3,{TextTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(ai,.35,{Scale=.9},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+task.wait(.35)
+
+aj.Visible=false
+aj:Destroy()
+end
+
+return ag
+end
+
+
+
+return aa end function a.y()
+local aa=a.load'a'
+local ab=aa.New
+local ac=aa.NewRoundFrame
+local ad=aa.Tween
+
+game:GetService"UserInputService"
+
+
+local function Color3ToHSB(ae)
+local af,ag,ah=ae.R,ae.G,ae.B
+local ai=math.max(af,ag,ah)
+local aj=math.min(af,ag,ah)
+local ak=ai-aj
+
+local al=0
+if ak~=0 then
+if ai==af then
+al=(ag-ah)/ak%6
+elseif ai==ag then
+al=(ah-af)/ak+2
+else
+al=(af-ag)/ak+4
+end
+al=al*60
+else
+al=0
+end
+
+local am=(ai==0)and 0 or(ak/ai)
+local an=ai
+
+return{
+h=math.floor(al+0.5),
+s=am,
+b=an
+}
+end
+
+local function GetPerceivedBrightness(ae)
+local af=ae.R
+local ag=ae.G
+local ah=ae.B
+return 0.299*af+0.587*ag+0.114*ah
+end
+
+local function GetTextColorForHSB(ae)
+local af=Color3ToHSB(ae)local
+ag, ah, ai=af.h, af.s, af.b
+if GetPerceivedBrightness(ae)>0.5 then
+return Color3.fromHSV(ag/360,0,0.05)
+else
+return Color3.fromHSV(ag/360,0,0.98)
+end
+end
+
+
+local function getElementPosition(ae,af)
+if type(af)~="number"or af~=math.floor(af)then
+return nil,1
+end
+
+
+
+
+
+
+local ag=#ae
+
+
+if ag==0 or af<1 or af>ag then
+return nil,2
+end
+
+local function isDelimiter(ah)
+if ah==nil then return true end
+local ai=ah.__type
+return ai=="Divider"or ai=="Space"or ai=="Section"or ai=="Code"
+end
+
+if isDelimiter(ae[af])then
+return nil,3
+end
+
+local function calculate(ah,ai)
+if ai==1 then return"Squircle"end
+if ah==1 then return"Squircle-TL-TR"end
+if ah==ai then return"Squircle-BL-BR"end
+return"Square"
+end
+
+local ah=1
+local ai=0
+
+for aj=1,ag do
+local ak=ae[aj]
+if isDelimiter(ak)then
+if af>=ah and af<=aj-1 then
+local al=af-ah+1
+return calculate(al,ai)
+end
+ah=aj+1
+ai=0
+else
+ai=ai+1
+end
+end
+
+
+if af>=ah and af<=ag then
+local aj=af-ah+1
+return calculate(aj,ai)
+end
+
+return nil,4
+end
+
+
+return function(ae)
+local af={
+Title=ae.Title,
+Desc=ae.Desc or nil,
+Hover=ae.Hover,
+Thumbnail=ae.Thumbnail,
+ThumbnailSize=ae.ThumbnailSize or 80,
+Image=ae.Image,
+IconThemed=ae.IconThemed or false,
+ImageSize=ae.ImageSize or 30,
+Color=ae.Color,
+Scalable=ae.Scalable,
+Parent=ae.Parent,
+Justify=ae.Justify or"Between",
+UIPadding=ae.Window.ElementConfig.UIPadding,
+UICorner=ae.Window.ElementConfig.UICorner,
+UIElements={},
+
+Index=ae.Index
+}
+
+local ag=af.ImageSize
+local ah=af.ThumbnailSize
+local ai=true
+
+
+local aj=0
+
+local ak
+local al
+if af.Thumbnail then
+ak=aa.Image(
+af.Thumbnail,
+af.Title,
+ae.Window.NewElements and af.UICorner-12 or(af.UICorner-4),
+ae.Window.Folder,
+"Thumbnail",
+false,
+af.IconThemed
+)
+ak.Size=UDim2.new(1,0,0,ah)
+end
+if af.Image then
+al=aa.Image(
+af.Image,
+af.Title,
+ae.Window.NewElements and af.UICorner-12 or(af.UICorner-4),
+ae.Window.Folder,
+"Image",
+not af.Color and true or false
+)
+if typeof(af.Color)=="string"then
+al.ImageLabel.ImageColor3=GetTextColorForHSB(Color3.fromHex(aa.Colors[af.Color]))
+elseif typeof(af.Color)=="Color3"then
+al.ImageLabel.ImageColor3=GetTextColorForHSB(af.Color)
+end
+
+al.Size=UDim2.new(0,ag,0,ag)
+
+aj=ag
+end
+
+local function CreateText(am,an)
+local ao=typeof(af.Color)=="string"
+and GetTextColorForHSB(Color3.fromHex(aa.Colors[af.Color]))
+or typeof(af.Color)=="Color3"
+and GetTextColorForHSB(af.Color)
+
+return ab("TextLabel",{
+BackgroundTransparency=1,
+Text=am or"",
+TextSize=an=="Desc"and 15 or 17,
+TextXAlignment="Left",
+ThemeTag={
+TextColor3=not af.Color and"Text"or nil,
+},
+TextColor3=af.Color and ao or nil,
+TextTransparency=an=="Desc"and.3 or 0,
+TextWrapped=true,
+Size=UDim2.new(af.Justify=="Between"and 1 or 0,0,0,0),
+AutomaticSize=af.Justify=="Between"and"Y"or"XY",
+FontFace=Font.new(aa.Font,an=="Desc"and Enum.FontWeight.Medium or Enum.FontWeight.SemiBold)
+})
+end
+
+local am=CreateText(af.Title,"Title")
+local an=CreateText(af.Desc,"Desc")
+if not af.Desc or af.Desc==""then
+an.Visible=false
+end
+
+af.UIElements.Container=ab("Frame",{
+Size=UDim2.new(1,0,1,0),
+AutomaticSize="Y",
+BackgroundTransparency=1,
+},{
+ab("UIListLayout",{
+Padding=UDim.new(0,af.UIPadding),
+FillDirection="Vertical",
+VerticalAlignment="Center",
+HorizontalAlignment=af.Justify=="Between"and"Left"or"Center",
+}),
+ak,
+ab("Frame",{
+Size=UDim2.new(
+af.Justify=="Between"and 1 or 0,
+af.Justify=="Between"and-ae.TextOffset or 0,
+0,
+0
+),
+AutomaticSize=af.Justify=="Between"and"Y"or"XY",
+BackgroundTransparency=1,
+Name="TitleFrame",
+},{
+ab("UIListLayout",{
+Padding=UDim.new(0,af.UIPadding),
+FillDirection="Horizontal",
+VerticalAlignment=ae.Window.NewElements and(af.Justify=="Between"and"Top"or"Center")or"Center",
+HorizontalAlignment=af.Justify~="Between"and af.Justify or"Center",
+}),
+al,
+ab("Frame",{
+BackgroundTransparency=1,
+AutomaticSize=af.Justify=="Between"and"Y"or"XY",
+Size=UDim2.new(
+af.Justify=="Between"and 1 or 0,
+af.Justify=="Between"and(al and-aj-af.UIPadding or-aj)or 0,
+1,
+0
+),
+Name="TitleFrame",
+},{
+ab("UIPadding",{
+PaddingTop=UDim.new(0,ae.Window.NewElements and af.UIPadding/2 or 0),
+PaddingLeft=UDim.new(0,ae.Window.NewElements and af.UIPadding/2 or 0),
+PaddingRight=UDim.new(0,ae.Window.NewElements and af.UIPadding/2 or 0),
+PaddingBottom=UDim.new(0,ae.Window.NewElements and af.UIPadding/2 or 0),
+}),
+ab("UIListLayout",{
+Padding=UDim.new(0,6),
+FillDirection="Vertical",
+VerticalAlignment="Center",
+HorizontalAlignment="Left",
+}),
+am,
+an
+}),
+})
+})
+
+
+
+
+
+
+local ao=aa.Image(
+"lock",
+"lock",
+0,
+ae.Window.Folder,
+"Lock",
+false
+)
+ao.Size=UDim2.new(0,20,0,20)
+ao.ImageLabel.ImageColor3=Color3.new(1,1,1)
+ao.ImageLabel.ImageTransparency=.4
+
+local ap=ab("TextLabel",{
+Text="Locked",
+TextSize=18,
+FontFace=Font.new(aa.Font,Enum.FontWeight.Medium),
+AutomaticSize="XY",
+BackgroundTransparency=1,
+TextColor3=Color3.new(1,1,1),
+TextTransparency=.05,
+})
+
+local aq=ab("Frame",{
+Size=UDim2.new(1,af.UIPadding*2,1,af.UIPadding*2),
+BackgroundTransparency=1,
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+ZIndex=9999999,
+})
+
+local ar,as=ac(af.UICorner,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.25,
+ImageColor3=Color3.new(0,0,0),
+Visible=false,
+Active=false,
+Parent=aq,
+},{
+ab("UIListLayout",{
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+HorizontalAlignment="Center",
+Padding=UDim.new(0,8)
+}),
+ao,ap
+},nil,true)
+
+local at,au=ac(af.UICorner,"Squircle-Outline",{
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=1,
+Active=false,
+ThemeTag={
+ImageColor3="Text",
+},
+Parent=aq,
+},{
+ab("UIListLayout",{
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+HorizontalAlignment="Center",
+Padding=UDim.new(0,8)
+}),
+},nil,true)
+
+local av,aw=ac(af.UICorner,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=1,
+Active=false,
+ThemeTag={
+ImageColor3="Text",
+},
+Parent=aq,
+},{
+ab("UIListLayout",{
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+HorizontalAlignment="Center",
+Padding=UDim.new(0,8)
+}),
+},nil,true)
+
+local ax,ay=ac(af.UICorner,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+ImageTransparency=af.Color and.05 or.93,
+
+
+
+Parent=ae.Parent,
+ThemeTag={
+ImageColor3=not af.Color and"Text"or nil
+},
+ImageColor3=af.Color and
+(
+typeof(af.Color)=="string"
+and Color3.fromHex(aa.Colors[af.Color])
+or typeof(af.Color)=="Color3"
+and af.Color
+)or nil
+},{
+af.UIElements.Container,
+aq,
+ab("UIPadding",{
+PaddingTop=UDim.new(0,af.UIPadding),
+PaddingLeft=UDim.new(0,af.UIPadding),
+PaddingRight=UDim.new(0,af.UIPadding),
+PaddingBottom=UDim.new(0,af.UIPadding),
+}),
+},true,true)
+
+af.UIElements.Main=ax
+af.UIElements.Locked=ar
+
+if af.Hover then
+aa.AddSignal(ax.MouseEnter,function()
+if ai then
+ad(ax,.05,{ImageTransparency=af.Color and.15 or.9}):Play()
+end
+end)
+aa.AddSignal(ax.InputEnded,function()
+if ai then
+ad(ax,.05,{ImageTransparency=af.Color and.05 or.93}):Play()
+end
+end)
+end
+
+function af.SetTitle(az,aA)
+af.Title=aA
+am.Text=aA
+end
+
+function af.SetDesc(az,aA)
+af.Desc=aA
+an.Text=aA or""
+if not aA then
+an.Visible=false
+elseif not an.Visible then
+an.Visible=true
+end
+end
+
+
+function af.Colorize(az,aA,aB)
+if af.Color then
+aA[aB]=typeof(af.Color)=="string"
+and GetTextColorForHSB(Color3.fromHex(aa.Colors[af.Color]))
+or typeof(af.Color)=="Color3"
+and GetTextColorForHSB(af.Color)
+or nil
+end
+end
+
+if ae.ElementTable then
+aa.AddSignal(am:GetPropertyChangedSignal"Text",function()
+if af.Title~=am.Text then
+af:SetTitle(am.Text)
+ae.ElementTable.Title=am.Text
+end
+end)
+aa.AddSignal(an:GetPropertyChangedSignal"Text",function()
+if af.Desc~=an.Text then
+af:SetDesc(an.Text)
+ae.ElementTable.Desc=an.Text
+end
+end)
+end
+
+
+
+
+
+function af.SetThumbnail(az,aA,aB)
+af.Thumbnail=aA
+if aB then
+af.ThumbnailSize=aB
+ah=aB
+end
+
+if ak then
+if aA then
+ak:Destroy()
+ak=aa.Image(
+aA,
+af.Title,
+af.UICorner-3,
+ae.Window.Folder,
+"Thumbnail",
+false,
+af.IconThemed
+)
+ak.Size=UDim2.new(1,0,0,ah)
+ak.Parent=af.UIElements.Container
+local aC=af.UIElements.Container:FindFirstChild"UIListLayout"
+if aC then
+ak.LayoutOrder=-1
+end
+else
+ak.Visible=false
+end
+else
+if aA then
+ak=aa.Image(
+aA,
+af.Title,
+af.UICorner-3,
+ae.Window.Folder,
+"Thumbnail",
+false,
+af.IconThemed
+)
+ak.Size=UDim2.new(1,0,0,ah)
+ak.Parent=af.UIElements.Container
+local aC=af.UIElements.Container:FindFirstChild"UIListLayout"
+if aC then
+ak.LayoutOrder=-1
+end
+end
+end
+end
+
+function af.SetImage(az,aA,aB,aC,aD)
+af.Image=aA
+if aB then
+af.ImageSize=aB
+ag=aB
+end
+if aC~=nil then
+af.Color=aC
+end
+if aD~=nil then
+af.IconThemed=aD
+end
+
+if al then
+if aA then
+al.Size=UDim2.new(0,ag,0,ag)
+aa.UpdateImage(al,aA,af.Title)
+
+if typeof(af.Color)=="string"then
+al.ImageLabel.ImageColor3=GetTextColorForHSB(Color3.fromHex(aa.Colors[af.Color]))
+elseif typeof(af.Color)=="Color3"then
+al.ImageLabel.ImageColor3=GetTextColorForHSB(af.Color)
+elseif not af.Color then
+al.ImageLabel.ImageColor3=Color3.new(1,1,1)
+end
+
+al.Visible=true
+aj=ag
+else
+al.Visible=false
+aj=0
+end
+else
+if aA then
+al=aa.Image(
+aA,
+af.Title,
+af.UICorner-3,
+ae.Window.Folder,
+"Image",
+not af.Color and true or false
+)
+
+if typeof(af.Color)=="string"then
+al.ImageLabel.ImageColor3=GetTextColorForHSB(Color3.fromHex(aa.Colors[af.Color]))
+elseif typeof(af.Color)=="Color3"then
+al.ImageLabel.ImageColor3=GetTextColorForHSB(af.Color)
+end
+
+al.Size=UDim2.new(0,ag,0,ag)
+aj=ag
+
+local aE=af.UIElements.Container:FindFirstChild"Frame"
+if aE then
+al.Parent=aE
+local b=aE:FindFirstChild"UIListLayout"
+if b then
+al.LayoutOrder=0
+end
+end
+end
+end
+
+
+
+
+
+
+
+
+end
+
+function af.Destroy(az)
+ax:Destroy()
+end
+
+
+function af.Lock(az)
+ai=false
+ar.Active=true
+ar.Visible=true
+end
+
+function af.Unlock(az)
+ai=true
+ar.Active=false
+ar.Visible=false
+end
+
+function af.Highlight(az)
+local aA=ab("UIGradient",{
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0,Color3.new(1,1,1)),
+ColorSequenceKeypoint.new(0.5,Color3.new(1,1,1)),
+ColorSequenceKeypoint.new(1,Color3.new(1,1,1))
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,1),
+NumberSequenceKeypoint.new(0.1,0.9),
+NumberSequenceKeypoint.new(0.5,0.3),
+NumberSequenceKeypoint.new(0.9,0.9),
+NumberSequenceKeypoint.new(1,1)
+},
+Rotation=0,
+Offset=Vector2.new(-1,0),
+Parent=at
+})
+
+local aB=ab("UIGradient",{
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0,Color3.new(1,1,1)),
+ColorSequenceKeypoint.new(0.5,Color3.new(1,1,1)),
+ColorSequenceKeypoint.new(1,Color3.new(1,1,1))
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,1),
+NumberSequenceKeypoint.new(0.15,0.8),
+NumberSequenceKeypoint.new(0.5,0.1),
+NumberSequenceKeypoint.new(0.85,0.8),
+NumberSequenceKeypoint.new(1,1)
+},
+Rotation=0,
+Offset=Vector2.new(-1,0),
+Parent=av
+})
+
+at.ImageTransparency=0.25
+av.ImageTransparency=0.88
+
+ad(aA,0.75,{
+Offset=Vector2.new(1,0)
+}):Play()
+
+ad(aB,0.75,{
+Offset=Vector2.new(1,0)
+}):Play()
+
+
+task.spawn(function()
+task.wait(.75)
+at.ImageTransparency=1
+av.ImageTransparency=1
+aA:Destroy()
+aB:Destroy()
+end)
+end
+
+
+function af.UpdateShape(az)
+if ae.Window.NewElements then
+local aA=getElementPosition(az.Elements,af.Index)
+if aA and ax then
+ay:SetType(aA)
+as:SetType(aA)
+aw:SetType(aA)
+au:SetType(aA.."-Outline")
+end
+end
+end
+
+
+
+
+
+return af
+end end function a.z()
+local aa=a.load'a'
+local ab=aa.New
+
+local ac={}
+
+local ad=a.load'i'.New
+
+function ac.New(ae,af)
+af.Hover=false
+af.TextOffset=0
+af.IsButtons=af.Buttons and#af.Buttons>0 and true or false
+
+local ag={
+__type="Paragraph",
+Title=af.Title or"Paragraph",
+Desc=af.Desc or nil,
+
+Locked=af.Locked or false,
+}
+local ah=a.load'y'(af)
+
+ag.ParagraphFrame=ah
+if af.Buttons and#af.Buttons>0 then
+local ai=ab("Frame",{
+Size=UDim2.new(1,0,0,38),
+BackgroundTransparency=1,
+AutomaticSize="Y",
+Parent=ah.UIElements.Container
+},{
+ab("UIListLayout",{
+Padding=UDim.new(0,10),
+FillDirection="Vertical",
+})
+})
+
+
+for aj,ak in next,af.Buttons do
+local al=ad(ak.Title,ak.Icon,ak.Callback,"White",ai,nil,nil,af.Window.NewElements and 12 or 10)
+al.Size=UDim2.new(1,0,0,38)
+
+end
+end
+
+return ag.__type,ag
+
+end
+
+return ac end function a.A()
+local aa=a.load'a'local ab=
+aa.New
+
+local ac={}
+
+function ac.New(ad,ae)
+local af={
+__type="Button",
+Title=ae.Title or"Button",
+Desc=ae.Desc or nil,
+Icon=ae.Icon or"mouse-pointer-click",
+IconThemed=ae.IconThemed or false,
+Color=ae.Color,
+Justify=ae.Justify or"Between",
+IconAlign=ae.IconAlign or"Right",
+Locked=ae.Locked or false,
+Callback=ae.Callback or function()end,
+UIElements={}
+}
+
+local ag=true
+
+af.ButtonFrame=a.load'y'{
+Title=af.Title,
+Desc=af.Desc,
+Parent=ae.Parent,
+
+
+
+
+Window=ae.Window,
+Color=af.Color,
+Justify=af.Justify,
+TextOffset=20,
+Hover=true,
+Scalable=true,
+Tab=ae.Tab,
+Index=ae.Index,
+ElementTable=af,
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+af.UIElements.ButtonIcon=aa.Image(
+af.Icon,
+af.Icon,
+0,
+ae.Window.Folder,
+"Button",
+not af.Color and true or nil,
+af.IconThemed
+)
+
+af.UIElements.ButtonIcon.Size=UDim2.new(0,20,0,20)
+af.UIElements.ButtonIcon.Parent=af.Justify=="Between"and af.ButtonFrame.UIElements.Main or af.ButtonFrame.UIElements.Container.TitleFrame
+af.UIElements.ButtonIcon.LayoutOrder=af.IconAlign=="Left"and-99999 or 99999
+af.UIElements.ButtonIcon.AnchorPoint=Vector2.new(1,0.5)
+af.UIElements.ButtonIcon.Position=UDim2.new(1,0,0.5,0)
+
+af.ButtonFrame:Colorize(af.UIElements.ButtonIcon.ImageLabel,"ImageColor3")
+
+function af.Lock(ah)
+af.Locked=true
+ag=false
+return af.ButtonFrame:Lock()
+end
+function af.Unlock(ah)
+af.Locked=false
+ag=true
+return af.ButtonFrame:Unlock()
+end
+
+if af.Locked then
+af:Lock()
+end
+
+aa.AddSignal(af.ButtonFrame.UIElements.Main.MouseButton1Click,function()
+if ag then
+task.spawn(function()
+aa.SafeCallback(af.Callback)
+end)
+end
+end)
+return af.__type,af
+end
+
+return ac end function a.B()
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New
+local ad=ab.Tween
+
+
+function aa.New(ae,af,ag,ah)
+local ai={}
+
+
+local aj=13
+local ak
+if af and af~=""then
+ak=ac("ImageLabel",{
+Size=UDim2.new(1,-7,1,-7),
+BackgroundTransparency=1,
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Image=ab.Icon(af)[1],
+ImageRectOffset=ab.Icon(af)[2].ImageRectPosition,
+ImageRectSize=ab.Icon(af)[2].ImageRectSize,
+ImageTransparency=1,
+ImageColor3=Color3.new(0,0,0),
+})
+end
+
+local al=ab.NewRoundFrame(aj,"Squircle",{
+ImageTransparency=.93,
+ThemeTag={
+ImageColor3="Text"
+},
+Parent=ag,
+Size=UDim2.new(0,41.6,0,26),
+},{
+ab.NewRoundFrame(aj,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+Name="Layer",
+ThemeTag={
+ImageColor3="Button",
+},
+ImageTransparency=1,
+}),
+ab.NewRoundFrame(aj,"SquircleOutline",{
+Size=UDim2.new(1,0,1,0),
+Name="Stroke",
+ImageColor3=Color3.new(1,1,1),
+ImageTransparency=1,
+},{
+ac("UIGradient",{
+Rotation=90,
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,0),
+NumberSequenceKeypoint.new(1,1),
+}
+})
+}),
+
+
+ab.NewRoundFrame(aj,"Squircle",{
+Size=UDim2.new(0,18,0,18),
+Position=UDim2.new(0,3,0.5,0),
+AnchorPoint=Vector2.new(0,0.5),
+ImageTransparency=0,
+ImageColor3=Color3.new(1,1,1),
+
+
+
+Name="Frame",
+},{
+ak,
+})
+})
+
+
+function ai.Set(am,an,ao)
+if an then
+ad(al.Frame,0.15,{
+Position=UDim2.new(1,-22,0.5,0),
+
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(al.Layer,0.1,{
+ImageTransparency=0,
+}):Play()
+ad(al.Stroke,0.1,{
+ImageTransparency=0.95,
+}):Play()
+
+if ak then
+ad(ak,0.1,{
+ImageTransparency=0,
+}):Play()
+end
+else
+ad(al.Frame,0.15,{
+Position=UDim2.new(0,4,0.5,0),
+Size=UDim2.new(0,18,0,18),
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ad(al.Layer,0.1,{
+ImageTransparency=1,
+}):Play()
+ad(al.Stroke,0.1,{
+ImageTransparency=1,
+}):Play()
+
+if ak then
+ad(ak,0.1,{
+ImageTransparency=1,
+}):Play()
+end
+end
+
+if ao~=false then ao=true end
+
+task.spawn(function()
+if ah and ao then
+ab.SafeCallback(ah,an)
+end
+end)
+
+
+end
+
+return al,ai
+end
+
+
+return aa end function a.C()
+local aa={}
+
+local ab=a.load'a'
+local ac=ab.New
+local ad=ab.Tween
+
+
+function aa.New(ae,af,ag,ah)
+local ai={}
+
+af=af or"check"
+
+local aj=10
+local ak=ac("ImageLabel",{
+Size=UDim2.new(1,-10,1,-10),
+BackgroundTransparency=1,
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Image=ab.Icon(af)[1],
+ImageRectOffset=ab.Icon(af)[2].ImageRectPosition,
+ImageRectSize=ab.Icon(af)[2].ImageRectSize,
+ImageTransparency=1,
+ImageColor3=Color3.new(1,1,1),
+})
+
+local al=ab.NewRoundFrame(aj,"Squircle",{
+ImageTransparency=.95,
+ThemeTag={
+ImageColor3="Text"
+},
+Parent=ag,
+Size=UDim2.new(0,27,0,27),
+},{
+ab.NewRoundFrame(aj,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+Name="Layer",
+ThemeTag={
+ImageColor3="Button",
+},
+ImageTransparency=1,
+}),
+ab.NewRoundFrame(aj,"SquircleOutline",{
+Size=UDim2.new(1,0,1,0),
+Name="Stroke",
+ImageColor3=Color3.new(1,1,1),
+ImageTransparency=1,
+},{
+ac("UIGradient",{
+Rotation=90,
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,0),
+NumberSequenceKeypoint.new(1,1),
+}
+})
+}),
+
+ak,
+})
+
+function ai.Set(am,an)
+if an then
+ad(al.Layer,0.06,{
+ImageTransparency=0,
+}):Play()
+ad(al.Stroke,0.06,{
+ImageTransparency=0.95,
+}):Play()
+ad(ak,0.06,{
+ImageTransparency=0,
+}):Play()
+else
+ad(al.Layer,0.05,{
+ImageTransparency=1,
+}):Play()
+ad(al.Stroke,0.05,{
+ImageTransparency=1,
+}):Play()
+ad(ak,0.06,{
+ImageTransparency=1,
+}):Play()
+end
+
+task.spawn(function()
+if ah then
+ab.SafeCallback(ah,an)
+end
+end)
+end
+
+return al,ai
+end
+
+
+return aa end function a.D()
+local aa=a.load'a'local ab=
+aa.New local ac=
+aa.Tween
+
+local ad=a.load'B'.New
+local ae=a.load'C'.New
+
+local af={}
+
+function af.New(ag,ah)
+local ai={
+__type="Toggle",
+Title=ah.Title or"Toggle",
+Desc=ah.Desc or nil,
+Locked=ah.Locked or false,
+Value=ah.Value,
+Icon=ah.Icon or nil,
+Type=ah.Type or"Toggle",
+Callback=ah.Callback or function()end,
+UIElements={}
+}
+ai.ToggleFrame=a.load'y'{
+Title=ai.Title,
+Desc=ai.Desc,
+
+
+
+
+Window=ah.Window,
+Parent=ah.Parent,
+TextOffset=44,
+Hover=false,
+Tab=ah.Tab,
+Index=ah.Index,
+ElementTable=ai,
+}
+
+local aj=true
+
+if ai.Value==nil then
+ai.Value=false
+end
+
+
+
+function ai.Lock(ak)
+ai.Locked=true
+aj=false
+return ai.ToggleFrame:Lock()
+end
+function ai.Unlock(ak)
+ai.Locked=false
+aj=true
+return ai.ToggleFrame:Unlock()
+end
+
+if ai.Locked then
+ai:Lock()
+end
+
+local ak=ai.Value
+
+local al,am
+if ai.Type=="Toggle"then
+al,am=ad(ak,ai.Icon,ai.ToggleFrame.UIElements.Main,ai.Callback)
+elseif ai.Type=="Checkbox"then
+al,am=ae(ak,ai.Icon,ai.ToggleFrame.UIElements.Main,ai.Callback)
+else
+error("Unknown Toggle Type: "..tostring(ai.Type))
+end
+
+al.AnchorPoint=Vector2.new(1,ah.Window.NewElements and 0 or 0.5)
+al.Position=UDim2.new(1,0,ah.Window.NewElements and 0 or 0.5,0)
+
+function ai.Set(an,ao,ap)
+if aj then
+am:Set(ao,ap)
+ak=ao
+ai.Value=ao
+end
+end
+
+ai:Set(ak,false)
+
+aa.AddSignal(ai.ToggleFrame.UIElements.Main.MouseButton1Click,function()
+ai:Set(not ak)
+end)
+
+return ai.__type,ai
+end
+
+return af end function a.E()
+local aa=a.load'a'
+local ac=aa.New
+local ad=aa.Tween
+
+local ae={}
+
+local af=false
+
+function ae.New(ag,ah)
+local ai={
+__type="Slider",
+Title=ah.Title or"Slider",
+Desc=ah.Desc or nil,
+Locked=ah.Locked or nil,
+Value=ah.Value or{},
+Step=ah.Step or 1,
+Callback=ah.Callback or function()end,
+UIElements={},
+IsFocusing=false,
+
+Width=130,
+TextBoxWidth=30,
+ThumbSize=13,
+}
+local aj
+local ak
+local al
+local am=ai.Value.Default or ai.Value.Min or 0
+
+local an=am
+local ao=(am-(ai.Value.Min or 0))/((ai.Value.Max or 100)-(ai.Value.Min or 0))
+
+local ap=true
+local aq=ai.Step%1~=0
+
+local function FormatValue(ar)
+if aq then
+return string.format("%.2f",ar)
+else
+return tostring(math.floor(ar+0.5))
+end
+end
+
+local function CalculateValue(ar)
+if aq then
+return math.floor(ar/ai.Step+0.5)*ai.Step
+else
+return math.floor(ar/ai.Step+0.5)*ai.Step
+end
+end
+
+ai.SliderFrame=a.load'y'{
+Title=ai.Title,
+Desc=ai.Desc,
+Parent=ah.Parent,
+TextOffset=ai.Width,
+Hover=false,
+Tab=ah.Tab,
+Index=ah.Index,
+Window=ah.Window,
+ElementTable=ai,
+}
+
+ai.UIElements.SliderIcon=aa.NewRoundFrame(99,"Squircle",{
+ImageTransparency=.95,
+Size=UDim2.new(1,-ai.TextBoxWidth-8,0,4),
+Name="Frame",
+ThemeTag={
+ImageColor3="Text",
+},
+},{
+aa.NewRoundFrame(99,"Squircle",{
+Name="Frame",
+Size=UDim2.new(ao,0,1,0),
+ImageTransparency=.1,
+ThemeTag={
+ImageColor3="Button",
+},
+},{
+aa.NewRoundFrame(99,"Squircle",{
+Size=UDim2.new(0,ai.ThumbSize,0,ai.ThumbSize),
+Position=UDim2.new(1,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+ThemeTag={
+ImageColor3="Text",
+},
+Name="Thumb",
+})
+})
+})
+
+ai.UIElements.SliderContainer=ac("Frame",{
+Size=UDim2.new(0,ai.Width,0,0),
+AutomaticSize="Y",
+Position=UDim2.new(1,ah.Window.NewElements and-12 or 0,0.5,0),
+AnchorPoint=Vector2.new(1,0.5),
+BackgroundTransparency=1,
+Parent=ai.SliderFrame.UIElements.Main,
+},{
+ac("UIListLayout",{
+Padding=UDim.new(0,8),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+ai.UIElements.SliderIcon,
+ac("TextBox",{
+Size=UDim2.new(0,ai.TextBoxWidth,0,0),
+TextXAlignment="Left",
+Text=FormatValue(am),
+ThemeTag={
+TextColor3="Text"
+},
+TextTransparency=.4,
+AutomaticSize="Y",
+TextSize=15,
+FontFace=Font.new(aa.Font,Enum.FontWeight.Medium),
+BackgroundTransparency=1,
+LayoutOrder=-1,
+})
+})
+
+function ai.Lock(ar)
+ai.Locked=true
+ap=false
+return ai.SliderFrame:Lock()
+end
+function ai.Unlock(ar)
+ai.Locked=false
+ap=true
+return ai.SliderFrame:Unlock()
+end
+
+if ai.Locked then
+ai:Lock()
+end
+
+local ar=ai.SliderFrame.Parent:IsA"ScrollingFrame"and ai.SliderFrame.Parent or ai.SliderFrame.Parent.Parent.Parent
+
+function ai.Set(as,at,au)
+if ap then
+if not ai.IsFocusing and not af and(not au or(au.UserInputType==Enum.UserInputType.MouseButton1 or au.UserInputType==Enum.UserInputType.Touch))then
+at=math.clamp(at,ai.Value.Min or 0,ai.Value.Max or 100)
+
+local av=math.clamp((at-(ai.Value.Min or 0))/((ai.Value.Max or 100)-(ai.Value.Min or 0)),0,1)
+at=CalculateValue(ai.Value.Min+av*(ai.Value.Max-ai.Value.Min))
+
+if at~=an then
+ad(ai.UIElements.SliderIcon.Frame,0.05,{Size=UDim2.new(av,0,1,0)}):Play()
+ai.UIElements.SliderContainer.TextBox.Text=FormatValue(at)
+ai.Value.Default=FormatValue(at)
+an=at
+aa.SafeCallback(ai.Callback,FormatValue(at))
+end
+
+if au then
+aj=(au.UserInputType==Enum.UserInputType.Touch)
+ar.ScrollingEnabled=false
+af=true
+ak=game:GetService"RunService".RenderStepped:Connect(function()
+local aw=aj and au.Position.X or game:GetService"UserInputService":GetMouseLocation().X
+local ax=math.clamp((aw-ai.UIElements.SliderIcon.AbsolutePosition.X)/ai.UIElements.SliderIcon.AbsoluteSize.X,0,1)
+at=CalculateValue(ai.Value.Min+ax*(ai.Value.Max-ai.Value.Min))
+
+if at~=an then
+ad(ai.UIElements.SliderIcon.Frame,0.05,{Size=UDim2.new(ax,0,1,0)}):Play()
+ai.UIElements.SliderContainer.TextBox.Text=FormatValue(at)
+ai.Value.Default=FormatValue(at)
+an=at
+aa.SafeCallback(ai.Callback,FormatValue(at))
+end
+end)
+al=game:GetService"UserInputService".InputEnded:Connect(function(aw)
+if(aw.UserInputType==Enum.UserInputType.MouseButton1 or aw.UserInputType==Enum.UserInputType.Touch)and au==aw then
+ak:Disconnect()
+al:Disconnect()
+af=false
+ar.ScrollingEnabled=true
+
+ad(ai.UIElements.SliderIcon.Frame.Thumb,.12,{Size=UDim2.new(0,ai.ThumbSize,0,ai.ThumbSize)},Enum.EasingStyle.Quint,Enum.EasingDirection.InOut):Play()
+end
+end)
+end
+end
+end
+end
+
+function ai.SetMax(as,at)
+ai.Value.Max=at
+
+local au=tonumber(ai.Value.Default)or an
+if au>at then
+ai:Set(at)
+else
+local av=math.clamp((au-(ai.Value.Min or 0))/(at-(ai.Value.Min or 0)),0,1)
+ad(ai.UIElements.SliderIcon.Frame,0.1,{Size=UDim2.new(av,0,1,0)}):Play()
+end
+end
+
+function ai.SetMin(as,at)
+ai.Value.Min=at
+
+local au=tonumber(ai.Value.Default)or an
+if au<at then
+ai:Set(at)
+else
+local av=math.clamp((au-at)/((ai.Value.Max or 100)-at),0,1)
+ad(ai.UIElements.SliderIcon.Frame,0.1,{Size=UDim2.new(av,0,1,0)}):Play()
+end
+end
+
+aa.AddSignal(ai.UIElements.SliderContainer.TextBox.FocusLost,function(as)
+if as then
+local at=tonumber(ai.UIElements.SliderContainer.TextBox.Text)
+if at then
+ai:Set(at)
+else
+ai.UIElements.SliderContainer.TextBox.Text=FormatValue(an)
+end
+end
+end)
+
+aa.AddSignal(ai.UIElements.SliderContainer.InputBegan,function(as)
+ai:Set(am,as)
+
+if as.UserInputType==Enum.UserInputType.MouseButton1 or as.UserInputType==Enum.UserInputType.Touch then
+ad(ai.UIElements.SliderIcon.Frame.Thumb,.12,{Size=UDim2.new(0,ai.ThumbSize+8,0,ai.ThumbSize+8)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end)
+
+return ai.__type,ai
+end
+
+return ae end function a.F()
+local aa=game:GetService"UserInputService"
+
+local ac=a.load'a'
+local ad=ac.New local ae=
+ac.Tween
+
+local af={
+UICorner=6,
+UIPadding=8,
+}
+
+local ag=a.load's'.New
+
+function af.New(ah,ai)
+local aj={
+__type="Keybind",
+Title=ai.Title or"Keybind",
+Desc=ai.Desc or nil,
+Locked=ai.Locked or false,
+Value=ai.Value or"F",
+Callback=ai.Callback or function()end,
+CanChange=ai.CanChange or true,
+Picking=false,
+UIElements={},
+}
+
+local ak=true
+
+aj.KeybindFrame=a.load'y'{
+Title=aj.Title,
+Desc=aj.Desc,
+Parent=ai.Parent,
+TextOffset=85,
+Hover=aj.CanChange,
+Tab=ai.Tab,
+Index=ai.Index,
+Window=ai.Window,
+ElementTable=aj,
+}
+
+aj.UIElements.Keybind=ag(aj.Value,nil,aj.KeybindFrame.UIElements.Main)
+
+aj.UIElements.Keybind.Size=UDim2.new(
+0,24
++aj.UIElements.Keybind.Frame.Frame.TextLabel.TextBounds.X,
+0,
+42
+)
+aj.UIElements.Keybind.AnchorPoint=Vector2.new(1,0.5)
+aj.UIElements.Keybind.Position=UDim2.new(1,0,0.5,0)
+
+ad("UIScale",{
+Parent=aj.UIElements.Keybind,
+Scale=.85,
+})
+
+ac.AddSignal(aj.UIElements.Keybind.Frame.Frame.TextLabel:GetPropertyChangedSignal"TextBounds",function()
+aj.UIElements.Keybind.Size=UDim2.new(
+0,24
++aj.UIElements.Keybind.Frame.Frame.TextLabel.TextBounds.X,
+0,
+42
+)
+end)
+
+function aj.Lock(al)
+aj.Locked=true
+ak=false
+return aj.KeybindtrueFrame:Lock()
+end
+function aj.Unlock(al)
+aj.Locked=false
+ak=true
+return aj.KeybindFrame:Unlock()
+end
+
+function aj.Set(al,am)
+aj.Value=am
+aj.UIElements.Keybind.Frame.Frame.TextLabel.Text=am
+end
+
+if aj.Locked then
+aj:Lock()
+end
+
+ac.AddSignal(aj.KeybindFrame.UIElements.Main.MouseButton1Click,function()
+if ak then
+if aj.CanChange then
+aj.Picking=true
+aj.UIElements.Keybind.Frame.Frame.TextLabel.Text="..."
+
+task.wait(0.2)
+
+local al
+al=aa.InputBegan:Connect(function(am)
+local an
+
+if am.UserInputType==Enum.UserInputType.Keyboard then
+an=am.KeyCode.Name
+elseif am.UserInputType==Enum.UserInputType.MouseButton1 then
+an="MouseLeft"
+elseif am.UserInputType==Enum.UserInputType.MouseButton2 then
+an="MouseRight"
+end
+
+local ao
+ao=aa.InputEnded:Connect(function(ap)
+if ap.KeyCode.Name==an or an=="MouseLeft"and ap.UserInputType==Enum.UserInputType.MouseButton1 or an=="MouseRight"and ap.UserInputType==Enum.UserInputType.MouseButton2 then
+aj.Picking=false
+
+aj.UIElements.Keybind.Frame.Frame.TextLabel.Text=an
+aj.Value=an
+
+al:Disconnect()
+ao:Disconnect()
+end
+end)
+end)
+end
+end
+end)
+
+ac.AddSignal(aa.InputBegan,function(al,am)
+if aa:GetFocusedTextBox()then
+return
+end
+
+if not ak then
+return
+end
+
+if al.UserInputType==Enum.UserInputType.Keyboard then
+if al.KeyCode.Name==aj.Value then
+ac.SafeCallback(aj.Callback,al.KeyCode.Name)
+end
+elseif al.UserInputType==Enum.UserInputType.MouseButton1 and aj.Value=="MouseLeft"then
+ac.SafeCallback(aj.Callback,"MouseLeft")
+elseif al.UserInputType==Enum.UserInputType.MouseButton2 and aj.Value=="MouseRight"then
+ac.SafeCallback(aj.Callback,"MouseRight")
+end
+end)
+
+return aj.__type,aj
+end
+
+return af end function a.G()
+local aa=a.load'a'
+local ac=aa.New local ad=
+aa.Tween
+
+local ae={
+UICorner=8,
+UIPadding=8,
+}local af=a.load'i'
+
+
+.New
+local ag=a.load'j'.New
+
+function ae.New(ah,ai)
+local aj={
+__type="Input",
+Title=ai.Title or"Input",
+Desc=ai.Desc or nil,
+Type=ai.Type or"Input",
+Locked=ai.Locked or false,
+InputIcon=ai.InputIcon or false,
+Placeholder=ai.Placeholder or"Enter Text...",
+Value=ai.Value or"",
+Callback=ai.Callback or function()end,
+ClearTextOnFocus=ai.ClearTextOnFocus or false,
+UIElements={},
+
+Width=150,
+}
+
+local ak=true
+
+aj.InputFrame=a.load'y'{
+Title=aj.Title,
+Desc=aj.Desc,
+Parent=ai.Parent,
+TextOffset=aj.Width,
+Hover=false,
+Tab=ai.Tab,
+Index=ai.Index,
+Window=ai.Window,
+ElementTable=aj,
+}
+
+local al=ag(
+aj.Placeholder,
+aj.InputIcon,
+aj.Type=="Textarea"and aj.InputFrame.UIElements.Container or aj.InputFrame.UIElements.Main,
+aj.Type,
+function(al)
+aj:Set(al,true)
+end,
+nil,
+ai.Window.NewElements and 12 or 10,
+aj.ClearTextOnFocus
+)
+
+if aj.Type=="Input"then
+al.Size=UDim2.new(0,aj.Width,0,36)
+al.Position=UDim2.new(1,0,ai.Window.NewElements and 0 or 0.5,0)
+al.AnchorPoint=Vector2.new(1,ai.Window.NewElements and 0 or 0.5)
+else
+al.Size=UDim2.new(1,0,0,148)
+end
+
+ac("UIScale",{
+Parent=al,
+Scale=1,
+})
+
+function aj.Lock(am)
+aj.Locked=true
+ak=false
+return aj.InputFrame:Lock()
+end
+function aj.Unlock(am)
+aj.Locked=false
+ak=true
+return aj.InputFrame:Unlock()
+end
+
+
+function aj.Set(am,an,ao)
+if ak then
+aj.Value=an
+aa.SafeCallback(aj.Callback,an)
+
+if not ao then
+al.Frame.Frame.TextBox.Text=an
+end
+end
+end
+
+function aj.SetPlaceholder(am,an)
+al.Frame.Frame.TextBox.PlaceholderText=an
+aj.Placeholder=an
+end
+
+aj:Set(aj.Value)
+
+if aj.Locked then
+aj:Lock()
+end
+
+return aj.__type,aj
+end
+
+return ae end function a.H()
+local aa={}
+
+local ac=game:GetService"UserInputService"
+local ae=game:GetService"Players".LocalPlayer:GetMouse()
+local af=game:GetService"Workspace".CurrentCamera
+
+local ag=workspace.CurrentCamera
+
+local ah=a.load'j'.New
+
+
+local ai=a.load'a'
+local aj=ai.New
+local ak=ai.Tween
+
+function aa.New(al,am,an,ao,ap)
+local aq={}
+
+
+am.UIElements.UIListLayout=aj("UIListLayout",{
+Padding=UDim.new(0,an.MenuPadding),
+FillDirection="Vertical"
+})
+
+am.UIElements.Menu=ai.NewRoundFrame(an.MenuCorner,"Squircle",{
+ThemeTag={
+ImageColor3="Background",
+},
+ImageTransparency=1,
+Size=UDim2.new(1,0,1,0),
+AnchorPoint=Vector2.new(1,0),
+Position=UDim2.new(1,0,0,0),
+},{
+aj("UIPadding",{
+PaddingTop=UDim.new(0,an.MenuPadding),
+PaddingLeft=UDim.new(0,an.MenuPadding),
+PaddingRight=UDim.new(0,an.MenuPadding),
+PaddingBottom=UDim.new(0,an.MenuPadding),
+}),
+aj("UIListLayout",{
+FillDirection="Vertical",
+Padding=UDim.new(0,an.MenuPadding)
+}),
+aj("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,1,am.SearchBarEnabled and-an.MenuPadding-an.SearchBarHeight),
+
+ClipsDescendants=true,
+LayoutOrder=999,
+},{
+aj("UICorner",{
+CornerRadius=UDim.new(0,an.MenuCorner-an.MenuPadding),
+}),
+aj("ScrollingFrame",{
+Size=UDim2.new(1,0,1,0),
+ScrollBarThickness=0,
+ScrollingDirection="Y",
+AutomaticCanvasSize="Y",
+CanvasSize=UDim2.new(0,0,0,0),
+BackgroundTransparency=1,
+ScrollBarImageTransparency=1,
+},{
+am.UIElements.UIListLayout,
+})
+})
+})
+
+am.UIElements.MenuCanvas=aj("Frame",{
+Size=UDim2.new(0,am.MenuWidth,0,300),
+BackgroundTransparency=1,
+Position=UDim2.new(-10,0,-10,0),
+Visible=false,
+Active=false,
+
+Parent=al.WindUI.DropdownGui,
+AnchorPoint=Vector2.new(1,0),
+},{
+am.UIElements.Menu,
+
+
+
+
+
+
+aj("UISizeConstraint",{
+MinSize=Vector2.new(170,0),
+MaxSize=Vector2.new(300,400),
+})
+})
+
+
+
+local function RecalculateCanvasSize()
+am.UIElements.Menu.Frame.ScrollingFrame.CanvasSize=UDim2.fromOffset(0,am.UIElements.UIListLayout.AbsoluteContentSize.Y)
+
+end
+
+local function RecalculateListSize()
+local ar=ag.ViewportSize.Y*0.6
+
+local as=am.UIElements.UIListLayout.AbsoluteContentSize.Y
+local at=am.SearchBarEnabled and(an.SearchBarHeight+(an.MenuPadding*3))or(an.MenuPadding*2)
+local au=(as)+at
+
+if au>ar then
+am.UIElements.MenuCanvas.Size=UDim2.fromOffset(
+am.UIElements.MenuCanvas.AbsoluteSize.X,
+ar
+)
+else
+am.UIElements.MenuCanvas.Size=UDim2.fromOffset(
+am.UIElements.MenuCanvas.AbsoluteSize.X,
+au
+)
+end
+end
+
+function UpdatePosition()
+local ar=am.UIElements.Dropdown
+local as=am.UIElements.MenuCanvas
+
+local at=af.ViewportSize.Y-(ar.AbsolutePosition.Y+ar.AbsoluteSize.Y)-an.MenuPadding-54
+local au=as.AbsoluteSize.Y+an.MenuPadding
+
+local av=-54
+if at<au then
+av=au-at-54
+end
+
+as.Position=UDim2.new(
+0,
+ar.AbsolutePosition.X+ar.AbsoluteSize.X,
+0,
+ar.AbsolutePosition.Y+ar.AbsoluteSize.Y-av+an.MenuPadding
+)
+end
+
+local ar
+
+
+function aq.Display(as)
+local at=am.Values
+local au=""
+
+if am.Multi then
+for av,aw in next,at do
+local ax=typeof(aw)=="table"and aw.Title or aw
+if table.find(am.Value,ax)then
+au=au..ax..", "
+end
+end
+au=au:sub(1,#au-2)
+else
+au=typeof(am.Value)=="table"and am.Value.Title or am.Value or""
+end
+
+am.UIElements.Dropdown.Frame.Frame.TextLabel.Text=(au==""and"--"or au)
+end
+
+function aq.Refresh(as,at)
+for au,av in next,am.UIElements.Menu.Frame.ScrollingFrame:GetChildren()do
+if not av:IsA"UIListLayout"then
+av:Destroy()
+end
+end
+
+am.Tabs={}
+
+if am.SearchBarEnabled then
+if not ar then
+ar=ah("Search...","search",am.UIElements.Menu,nil,function(aw)
+for ax,ay in next,am.Tabs do
+if string.find(string.lower(ay.Name),string.lower(aw),1,true)then
+ay.UIElements.TabItem.Visible=true
+else
+ay.UIElements.TabItem.Visible=false
+end
+RecalculateListSize()
+RecalculateCanvasSize()
+end
+end,true)
+ar.Size=UDim2.new(1,0,0,an.SearchBarHeight)
+ar.Position=UDim2.new(0,0,0,0)
+ar.Name="SearchBar"
+end
+end
+
+for aw,ax in next,at do
+
+local ay={
+Name=typeof(ax)=="table"and ax.Title or ax,
+Icon=typeof(ax)=="table"and ax.Icon or nil,
+Original=ax,
+Selected=false,
+UIElements={},
+}
+local az
+if ay.Icon then
+az=ai.Image(
+ay.Icon,
+ay.Icon,
+0,
+al.Window.Folder,
+"Dropdown",
+true
+)
+az.Size=UDim2.new(0,an.TabIcon,0,an.TabIcon)
+az.ImageLabel.ImageTransparency=.2
+ay.UIElements.TabIcon=az
+end
+ay.UIElements.TabItem=ai.NewRoundFrame(an.MenuCorner-an.MenuPadding,"Squircle",{
+Size=UDim2.new(1,0,0,36),
+
+ImageTransparency=1,
+Parent=am.UIElements.Menu.Frame.ScrollingFrame,
+
+ImageColor3=Color3.new(1,1,1),
+
+},{
+ai.NewRoundFrame(an.MenuCorner-an.MenuPadding,"SquircleOutline",{
+Size=UDim2.new(1,0,1,0),
+ImageColor3=Color3.new(1,1,1),
+ImageTransparency=1,
+Name="Highlight",
+},{
+aj("UIGradient",{
+Rotation=80,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+}),
+}),
+aj("Frame",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+},{
+aj("UIListLayout",{
+Padding=UDim.new(0,an.TabPadding),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+aj("UIPadding",{
+
+PaddingLeft=UDim.new(0,an.TabPadding),
+PaddingRight=UDim.new(0,an.TabPadding),
+
+}),
+aj("UICorner",{
+CornerRadius=UDim.new(0,an.MenuCorner-an.MenuPadding)
+}),
+
+
+
+
+
+
+
+
+
+
+
+
+
+az,
+aj("TextLabel",{
+Text=ay.Name,
+TextXAlignment="Left",
+FontFace=Font.new(ai.Font,Enum.FontWeight.Regular),
+ThemeTag={
+TextColor3="Text",
+BackgroundColor3="Text"
+},
+TextSize=15,
+BackgroundTransparency=1,
+TextTransparency=.4,
+LayoutOrder=999,
+AutomaticSize="Y",
+
+Size=UDim2.new(1,az and-an.TabPadding-an.TabIcon or 0,0,0),
+AnchorPoint=Vector2.new(0,0.5),
+Position=UDim2.new(0,0,0.5,0),
+})
+})
+},true)
+
+
+if am.Multi then
+ay.Selected=table.find(am.Value or{},ay.Name)
+else
+ay.Selected=typeof(am.Value)=="table"and am.Value.Title==ay.Name
+or am.Value==ay.Name
+end
+
+if ay.Selected then
+ay.UIElements.TabItem.ImageTransparency=.95
+ay.UIElements.TabItem.Highlight.ImageTransparency=.75
+
+
+ay.UIElements.TabItem.Frame.TextLabel.TextTransparency=0
+if ay.UIElements.TabIcon then
+ay.UIElements.TabIcon.ImageLabel.ImageTransparency=0
+end
+end
+
+am.Tabs[aw]=ay
+
+aq:Display()
+
+local function Callback()
+aq:Display()
+task.spawn(function()
+ai.SafeCallback(am.Callback,am.Value)
+end)
+end
+
+
+ai.AddSignal(ay.UIElements.TabItem.MouseButton1Click,function()
+if ap=="Dropdown"then
+if am.Multi then
+if not ay.Selected then
+ay.Selected=true
+ak(ay.UIElements.TabItem,0.1,{ImageTransparency=.95}):Play()
+ak(ay.UIElements.TabItem.Highlight,0.1,{ImageTransparency=.75}):Play()
+
+ak(ay.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=0}):Play()
+if ay.UIElements.TabIcon then
+ak(ay.UIElements.TabIcon.ImageLabel,0.1,{ImageTransparency=0}):Play()
+end
+table.insert(am.Value,ay.Original)
+else
+if not am.AllowNone and#am.Value==1 then
+return
+end
+ay.Selected=false
+ak(ay.UIElements.TabItem,0.1,{ImageTransparency=1}):Play()
+ak(ay.UIElements.TabItem.Highlight,0.1,{ImageTransparency=1}):Play()
+
+ak(ay.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=.4}):Play()
+if ay.UIElements.TabIcon then
+ak(ay.UIElements.TabIcon.ImageLabel,0.1,{ImageTransparency=.2}):Play()
+end
+
+for aA,aB in ipairs(am.Value)do
+if typeof(aB)=="table"and(aB.Title==ay.Name)or(aB==ay.Name)then
+table.remove(am.Value,aA)
+break
+end
+end
+end
+else
+for aA,aB in next,am.Tabs do
+
+ak(aB.UIElements.TabItem,0.1,{ImageTransparency=1}):Play()
+ak(aB.UIElements.TabItem.Highlight,0.1,{ImageTransparency=1}):Play()
+
+ak(aB.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=.4}):Play()
+if aB.UIElements.TabIcon then
+ak(aB.UIElements.TabIcon.ImageLabel,0.1,{ImageTransparency=.2}):Play()
+end
+aB.Selected=false
+end
+ay.Selected=true
+ak(ay.UIElements.TabItem,0.1,{ImageTransparency=.95}):Play()
+ak(ay.UIElements.TabItem.Highlight,0.1,{ImageTransparency=.75}):Play()
+
+ak(ay.UIElements.TabItem.Frame.TextLabel,0.1,{TextTransparency=0}):Play()
+if ay.UIElements.TabIcon then
+ak(ay.UIElements.TabIcon.ImageLabel,0.1,{ImageTransparency=0}):Play()
+end
+am.Value=ay.Original
+end
+Callback()
+end
+end)
+
+RecalculateCanvasSize()
+RecalculateListSize()
+end
+
+local ay=0
+for az,aA in next,am.Tabs do
+if aA.UIElements.TabItem.Frame.TextLabel then
+
+local aB=aA.UIElements.TabItem.Frame.TextLabel.TextBounds.X
+ay=math.max(ay,aB)
+end
+end
+
+am.UIElements.MenuCanvas.Size=UDim2.new(0,ay+6+6+5+5+18+6+6,am.UIElements.MenuCanvas.Size.Y.Scale,am.UIElements.MenuCanvas.Size.Y.Offset)
+
+
+end
+
+
+aq:Refresh(am.Values)
+
+function aq.Select(as,at)
+if at then
+am.Value=at
+else
+if am.Multi then
+am.Value={}
+else
+am.Value=nil
+
+end
+end
+aq:Refresh(am.Values)
+end
+
+
+
+
+
+
+RecalculateListSize()
+RecalculateCanvasSize()
+
+function aq.Open(as)
+if ao then
+am.UIElements.Menu.Visible=true
+am.UIElements.MenuCanvas.Visible=true
+am.UIElements.MenuCanvas.Active=true
+am.UIElements.Menu.Size=UDim2.new(
+1,0,
+0,0
+)
+ak(am.UIElements.Menu,0.1,{
+Size=UDim2.new(
+1,0,
+1,0
+),
+ImageTransparency=0.05
+},Enum.EasingStyle.Quart,Enum.EasingDirection.Out):Play()
+
+task.spawn(function()
+task.wait(.1)
+am.Opened=true
+end)
+
+
+
+
+UpdatePosition()
+end
+end
+function aq.Close(as)
+am.Opened=false
+
+ak(am.UIElements.Menu,0.25,{
+Size=UDim2.new(
+1,0,
+0,0
+),
+ImageTransparency=1,
+},Enum.EasingStyle.Quart,Enum.EasingDirection.Out):Play()
+
+
+task.spawn(function()
+task.wait(.1)
+am.UIElements.Menu.Visible=false
+end)
+
+task.spawn(function()
+task.wait(.25)
+am.UIElements.MenuCanvas.Visible=false
+am.UIElements.MenuCanvas.Active=false
+end)
+end
+
+ai.AddSignal(am.UIElements.Dropdown.MouseButton1Click,function()
+aq:Open()
+end)
+
+ai.AddSignal(ac.InputBegan,function(as)
+if as.UserInputType==Enum.UserInputType.MouseButton1 or as.UserInputType==Enum.UserInputType.Touch then
+local at=am.UIElements.MenuCanvas
+local av,aw=at.AbsolutePosition,at.AbsoluteSize
+
+local ax=am.UIElements.Dropdown
+local ay=ax.AbsolutePosition
+local az=ax.AbsoluteSize
+
+local aA=
+ae.X>=ay.X and
+ae.X<=ay.X+az.X and
+ae.Y>=ay.Y and
+ae.Y<=ay.Y+az.Y
+
+local aB=
+ae.X>=av.X and
+ae.X<=av.X+aw.X and
+ae.Y>=av.Y and
+ae.Y<=av.Y+aw.Y
+
+if al.Window.CanDropdown and am.Opened and not aA and not aB then
+aq:Close()
+end
+end
+end)
+
+ai.AddSignal(am.UIElements.Dropdown:GetPropertyChangedSignal"AbsolutePosition",UpdatePosition)
+
+
+return aq
+end
+
+
+return aa end function a.I()
+game:GetService"UserInputService"
+game:GetService"Players".LocalPlayer:GetMouse()local aa=
+game:GetService"Workspace".CurrentCamera
+
+local ac=a.load'a'
+local ae=ac.New local af=
+ac.Tween
+
+local ag=a.load's'.New local ah=a.load'j'
+.New
+local ai=a.load'H'.New local aj=
+
+workspace.CurrentCamera
+
+local ak={
+UICorner=10,
+UIPadding=12,
+MenuCorner=15,
+MenuPadding=5,
+TabPadding=10,
+SearchBarHeight=39,
+TabIcon=18,
+}
+
+function ak.New(al,am)
+local an={
+__type="Dropdown",
+Title=am.Title or"Dropdown",
+Desc=am.Desc or nil,
+Locked=am.Locked or false,
+Values=am.Values or{},
+MenuWidth=am.MenuWidth or 170,
+Value=am.Value,
+AllowNone=am.AllowNone,
+SearchBarEnabled=am.SearchBarEnabled or false,
+Multi=am.Multi,
+Callback=am.Callback or function()end,
+
+UIElements={},
+
+Opened=false,
+Tabs={},
+
+Width=150,
+}
+
+if an.Multi and not an.Value then
+an.Value={}
+end
+
+local ao=true
+
+an.DropdownFrame=a.load'y'{
+Title=an.Title,
+Desc=an.Desc,
+Parent=am.Parent,
+TextOffset=an.Width,
+Hover=false,
+Tab=am.Tab,
+Index=am.Index,
+Window=am.Window,
+ElementTable=an,
+}
+
+
+an.UIElements.Dropdown=ag("",nil,an.DropdownFrame.UIElements.Main,nil,am.Window.NewElements and 12 or 10)
+
+an.UIElements.Dropdown.Frame.Frame.TextLabel.TextTruncate="AtEnd"
+an.UIElements.Dropdown.Frame.Frame.TextLabel.Size=UDim2.new(1,an.UIElements.Dropdown.Frame.Frame.TextLabel.Size.X.Offset-18-12-12,0,0)
+
+an.UIElements.Dropdown.Size=UDim2.new(0,an.Width,0,36)
+an.UIElements.Dropdown.Position=UDim2.new(1,0,am.Window.NewElements and 0 or 0.5,0)
+an.UIElements.Dropdown.AnchorPoint=Vector2.new(1,am.Window.NewElements and 0 or 0.5)
+
+
+
+
+
+
+ae("ImageLabel",{
+Image=ac.Icon"chevrons-up-down"[1],
+ImageRectOffset=ac.Icon"chevrons-up-down"[2].ImageRectPosition,
+ImageRectSize=ac.Icon"chevrons-up-down"[2].ImageRectSize,
+Size=UDim2.new(0,18,0,18),
+Position=UDim2.new(1,-12,0.5,0),
+ThemeTag={
+ImageColor3="Icon"
+},
+AnchorPoint=Vector2.new(1,0.5),
+Parent=an.UIElements.Dropdown.Frame
+})
+
+
+an.DropdownMenu=ai(am,an,ak,ao,"Dropdown")
+
+an.Display=an.DropdownMenu.Display
+an.Refresh=an.DropdownMenu.Refresh
+an.Select=an.DropdownMenu.Select
+an.Open=an.DropdownMenu.Open
+an.Close=an.DropdownMenu.Close
+
+function an.Lock(ap)
+an.Locked=true
+ao=false
+return an.DropdownFrame:Lock()
+end
+function an.Unlock(ap)
+an.Locked=false
+ao=true
+return an.DropdownFrame:Unlock()
+end
+
+if an.Locked then
+an:Lock()
+end
+
+
+return an.__type,an
+end
+
+return ak end function a.J()
+
+
+
+
+
+
+local ac={}
+local ae={
+lua={
+"and","break","or","else","elseif","if","then","until","repeat","while","do","for","in","end",
+"local","return","function","export",
+},
+rbx={
+"game","workspace","script","math","string","table","task","wait","select","next","Enum",
+"tick","assert","shared","loadstring","tonumber","tostring","type",
+"typeof","unpack","Instance","CFrame","Vector3","Vector2","Color3","UDim","UDim2","Ray","BrickColor",
+"OverlapParams","RaycastParams","Axes","Random","Region3","Rect","TweenInfo",
+"collectgarbage","not","utf8","pcall","xpcall","_G","setmetatable","getmetatable","os","pairs","ipairs"
+},
+operators={
+"#","+","-","*","%","/","^","=","~","=","<",">",
+}
+}
+
+local ag={
+numbers=Color3.fromHex"#FAB387",
+boolean=Color3.fromHex"#FAB387",
+operator=Color3.fromHex"#94E2D5",
+lua=Color3.fromHex"#CBA6F7",
+rbx=Color3.fromHex"#F38BA8",
+str=Color3.fromHex"#A6E3A1",
+comment=Color3.fromHex"#9399B2",
+null=Color3.fromHex"#F38BA8",
+call=Color3.fromHex"#89B4FA",
+self_call=Color3.fromHex"#89B4FA",
+local_property=Color3.fromHex"#CBA6F7",
+}
+
+local function createKeywordSet(ai)
+local aj={}
+for ak,al in ipairs(ai)do
+aj[al]=true
+end
+return aj
+end
+
+local ai=createKeywordSet(ae.lua)
+local aj=createKeywordSet(ae.rbx)
+local ak=createKeywordSet(ae.operators)
+
+local function getHighlight(al,am)
+local an=al[am]
+
+if ag[an.."_color"]then
+return ag[an.."_color"]
+end
+
+if tonumber(an)then
+return ag.numbers
+elseif an=="nil"then
+return ag.null
+elseif an:sub(1,2)=="--"then
+return ag.comment
+elseif ak[an]then
+return ag.operator
+elseif ai[an]then
+return ag.lua
+elseif aj[an]then
+return ag.rbx
+elseif an:sub(1,1)=="\""or an:sub(1,1)=="\'"then
+return ag.str
+elseif an=="true"or an=="false"then
+return ag.boolean
+end
+
+if al[am+1]=="("then
+if al[am-1]==":"then
+return ag.self_call
+end
+
+return ag.call
+end
+
+if al[am-1]=="."then
+if al[am-2]=="Enum"then
+return ag.rbx
+end
+
+return ag.local_property
+end
+end
+
+function ac.run(al)
+local am={}
+local an=""
+
+local ao=false
+local ap=false
+local aq=false
+
+for ar=1,#al do
+local as=al:sub(ar,ar)
+
+if ap then
+if as=="\n"and not aq then
+table.insert(am,an)
+table.insert(am,as)
+an=""
+
+ap=false
+elseif al:sub(ar-1,ar)=="]]"and aq then
+an=an.."]"
+
+table.insert(am,an)
+an=""
+
+ap=false
+aq=false
+else
+an=an..as
+end
+elseif ao then
+if as==ao and al:sub(ar-1,ar-1)~="\\"or as=="\n"then
+an=an..as
+ao=false
+else
+an=an..as
+end
+else
+if al:sub(ar,ar+1)=="--"then
+table.insert(am,an)
+an="-"
+ap=true
+aq=al:sub(ar+2,ar+3)=="[["
+elseif as=="\""or as=="\'"then
+table.insert(am,an)
+an=as
+ao=as
+elseif ak[as]then
+table.insert(am,an)
+table.insert(am,as)
+an=""
+elseif as:match"[%w_]"then
+an=an..as
+else
+table.insert(am,an)
+table.insert(am,as)
+an=""
+end
+end
+end
+
+table.insert(am,an)
+
+local ar={}
+
+for as,at in ipairs(am)do
+local av=getHighlight(am,as)
+
+if av then
+local aw=string.format("<font color = \"#%s\">%s</font>",av:ToHex(),at:gsub("<","&lt;"):gsub(">","&gt;"))
+
+table.insert(ar,aw)
+else
+table.insert(ar,at)
+end
+end
+
+return table.concat(ar)
+end
+
+return ac end function a.K()
+local ac={}
+
+local ae=a.load'a'
+local ag=ae.New
+local ai=ae.Tween
+
+local aj=a.load'J'
+
+function ac.New(ak,al,am,an,ao)
+local ap={
+Radius=12,
+Padding=10
+}
+
+local aq=ag("TextLabel",{
+Text="",
+TextColor3=Color3.fromHex"#CDD6F4",
+TextTransparency=0,
+TextSize=14,
+TextWrapped=false,
+LineHeight=1.15,
+RichText=true,
+TextXAlignment="Left",
+Size=UDim2.new(0,0,0,0),
+BackgroundTransparency=1,
+AutomaticSize="XY",
+},{
+ag("UIPadding",{
+PaddingTop=UDim.new(0,ap.Padding+3),
+PaddingLeft=UDim.new(0,ap.Padding+3),
+PaddingRight=UDim.new(0,ap.Padding+3),
+PaddingBottom=UDim.new(0,ap.Padding+3),
+})
+})
+aq.Font="Code"
+
+local ar=ag("ScrollingFrame",{
+Size=UDim2.new(1,0,0,0),
+BackgroundTransparency=1,
+AutomaticCanvasSize="X",
+ScrollingDirection="X",
+ElasticBehavior="Never",
+CanvasSize=UDim2.new(0,0,0,0),
+ScrollBarThickness=0,
+},{
+aq
+})
+
+local as=ag("TextButton",{
+BackgroundTransparency=1,
+Size=UDim2.new(0,30,0,30),
+Position=UDim2.new(1,-ap.Padding/2,0,ap.Padding/2),
+AnchorPoint=Vector2.new(1,0),
+Visible=an and true or false,
+},{
+ae.NewRoundFrame(ap.Radius-4,"Squircle",{
+
+
+
+ImageColor3=Color3.fromHex"#ffffff",
+ImageTransparency=1,
+Size=UDim2.new(1,0,1,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Name="Button",
+},{
+ag("UIScale",{
+Scale=1,
+}),
+ag("ImageLabel",{
+Image=ae.Icon"copy"[1],
+ImageRectSize=ae.Icon"copy"[2].ImageRectSize,
+ImageRectOffset=ae.Icon"copy"[2].ImageRectPosition,
+BackgroundTransparency=1,
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Size=UDim2.new(0,12,0,12),
+
+
+
+ImageColor3=Color3.fromHex"#ffffff",
+ImageTransparency=.1,
+})
+})
+})
+
+ae.AddSignal(as.MouseEnter,function()
+ai(as.Button,.05,{ImageTransparency=.95}):Play()
+ai(as.Button.UIScale,.05,{Scale=.9}):Play()
+end)
+ae.AddSignal(as.InputEnded,function()
+ai(as.Button,.08,{ImageTransparency=1}):Play()
+ai(as.Button.UIScale,.08,{Scale=1}):Play()
+end)
+
+local at=ae.NewRoundFrame(ap.Radius,"Squircle",{
+
+
+
+ImageColor3=Color3.fromHex"#212121",
+ImageTransparency=.035,
+Size=UDim2.new(1,0,0,20+(ap.Padding*2)),
+AutomaticSize="Y",
+Parent=am,
+},{
+ae.NewRoundFrame(ap.Radius,"SquircleOutline",{
+Size=UDim2.new(1,0,1,0),
+
+
+
+ImageColor3=Color3.fromHex"#ffffff",
+ImageTransparency=.955,
+}),
+ag("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+},{
+ae.NewRoundFrame(ap.Radius,"Squircle-TL-TR",{
+
+
+
+ImageColor3=Color3.fromHex"#ffffff",
+ImageTransparency=.96,
+Size=UDim2.new(1,0,0,20+(ap.Padding*2)),
+Visible=al and true or false
+},{
+ag("ImageLabel",{
+Size=UDim2.new(0,18,0,18),
+BackgroundTransparency=1,
+Image="rbxassetid://132464694294269",
+
+
+
+ImageColor3=Color3.fromHex"#ffffff",
+ImageTransparency=.2,
+}),
+ag("TextLabel",{
+Text=al,
+
+
+
+TextColor3=Color3.fromHex"#ffffff",
+TextTransparency=.2,
+TextSize=16,
+AutomaticSize="Y",
+FontFace=Font.new(ae.Font,Enum.FontWeight.Medium),
+TextXAlignment="Left",
+BackgroundTransparency=1,
+TextTruncate="AtEnd",
+Size=UDim2.new(1,as and-20-(ap.Padding*2),0,0)
+}),
+ag("UIPadding",{
+
+PaddingLeft=UDim.new(0,ap.Padding+3),
+PaddingRight=UDim.new(0,ap.Padding+3),
+
+}),
+ag("UIListLayout",{
+Padding=UDim.new(0,ap.Padding),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+})
+}),
+ar,
+ag("UIListLayout",{
+Padding=UDim.new(0,0),
+FillDirection="Vertical",
+})
+}),
+as,
+})
+
+ap.CodeFrame=at
+
+ae.AddSignal(aq:GetPropertyChangedSignal"TextBounds",function()
+ar.Size=UDim2.new(1,0,0,(aq.TextBounds.Y/(ao or 1))+((ap.Padding+3)*2))
+end)
+
+function ap.Set(av)
+aq.Text=aj.run(av)
+end
+
+function ap.Destroy()
+at:Destroy()
+ap=nil
+end
+
+ap.Set(ak)
+
+ae.AddSignal(as.MouseButton1Click,function()
+if an then
+an()
+local av=ae.Icon"check"
+as.Button.ImageLabel.Image=av[1]
+as.Button.ImageLabel.ImageRectSize=av[2].ImageRectSize
+as.Button.ImageLabel.ImageRectOffset=av[2].ImageRectPosition
+
+task.wait(1)
+local aw=ae.Icon"copy"
+as.Button.ImageLabel.Image=aw[1]
+as.Button.ImageLabel.ImageRectSize=aw[2].ImageRectSize
+as.Button.ImageLabel.ImageRectOffset=aw[2].ImageRectPosition
+end
+end)
+return ap
+end
+
+
+return ac end function a.L()
+local ac=a.load'a'local ae=
+ac.New
+
+
+local ag=a.load'K'
+
+local ai={}
+
+function ai.New(aj,ak)
+local al={
+__type="Code",
+Title=ak.Title,
+Code=ak.Code,
+OnCopy=ak.OnCopy,
+}
+
+local am=not al.Locked
+
+
+
+
+
+
+
+
+
+
+
+local an=ag.New(al.Code,al.Title,ak.Parent,function()
+if am then
+local an=al.Title or"code"
+local ao,ap=pcall(function()
+toclipboard(al.Code)
+
+if al.OnCopy then al.OnCopy()end
+end)
+if not ao then
+ak.WindUI:Notify{
+Title="Error",
+Content="The "..an.." is not copied. Error: "..ap,
+Icon="x",
+Duration=5,
+}
+end
+end
+end,ak.WindUI.UIScale,al)
+
+function al.SetCode(ao,ap)
+an.Set(ap)
+end
+
+function al.Destroy(ao)
+an.Destroy()
+al=nil
+end
+
+al.ElementFrame=an.CodeFrame
+
+return al.__type,al
+end
+
+return ai end function a.M()
+local ac=a.load'a'
+local ae=ac.New local ag=
+ac.Tween
+
+local ai=game:GetService"UserInputService"
+game:GetService"TouchInputService"
+local aj=game:GetService"RunService"
+local ak=game:GetService"Players"
+
+local al=aj.RenderStepped
+local am=ak.LocalPlayer
+local an=am:GetMouse()
+
+local ao=a.load'i'.New
+local ap=a.load'j'.New
+
+local aq={
+UICorner=8,
+UIPadding=8
+}
+
+function aq.Colorpicker(ar,as,at,av)
+local aw={
+__type="Colorpicker",
+Title=as.Title,
+Desc=as.Desc,
+Default=as.Default,
+Callback=as.Callback,
+Transparency=as.Transparency,
+UIElements=as.UIElements,
+
+TextPadding=10,
+}
+
+function aw.SetHSVFromRGB(ax,ay)
+local az,aA,aB=Color3.toHSV(ay)
+aw.Hue=az
+aw.Sat=aA
+aw.Vib=aB
+end
+
+aw:SetHSVFromRGB(aw.Default)
+
+local ax=a.load'k'.Init(at)
+local ay=ax.Create()
+
+aw.ColorpickerFrame=ay
+
+ay.UIElements.Main.Size=UDim2.new(1,0,0,0)
+
+
+
+local az,aA,aB=aw.Hue,aw.Sat,aw.Vib
+
+aw.UIElements.Title=ae("TextLabel",{
+Text=aw.Title,
+TextSize=20,
+FontFace=Font.new(ac.Font,Enum.FontWeight.SemiBold),
+TextXAlignment="Left",
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+ThemeTag={
+TextColor3="Text"
+},
+BackgroundTransparency=1,
+Parent=ay.UIElements.Main
+},{
+ae("UIPadding",{
+PaddingTop=UDim.new(0,aw.TextPadding/2),
+PaddingLeft=UDim.new(0,aw.TextPadding/2),
+PaddingRight=UDim.new(0,aw.TextPadding/2),
+PaddingBottom=UDim.new(0,aw.TextPadding/2),
+})
+})
+
+
+
+
+
+local aC=ae("Frame",{
+Size=UDim2.new(0,14,0,14),
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0,0),
+Parent=HueDragHolder,
+BackgroundColor3=aw.Default
+},{
+ae("UIStroke",{
+Thickness=2,
+Transparency=.1,
+ThemeTag={
+Color="Text",
+},
+}),
+ae("UICorner",{
+CornerRadius=UDim.new(1,0),
+})
+})
+
+aw.UIElements.SatVibMap=ae("ImageLabel",{
+Size=UDim2.fromOffset(160,158),
+Position=UDim2.fromOffset(0,40+aw.TextPadding),
+Image="rbxassetid://4155801252",
+BackgroundColor3=Color3.fromHSV(az,1,1),
+BackgroundTransparency=0,
+Parent=ay.UIElements.Main,
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+ac.NewRoundFrame(8,"SquircleOutline",{
+ThemeTag={
+ImageColor3="Outline",
+},
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.85,
+ZIndex=99999,
+},{
+ae("UIGradient",{
+Rotation=45,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+})
+}),
+
+aC,
+})
+
+aw.UIElements.Inputs=ae("Frame",{
+AutomaticSize="XY",
+Size=UDim2.new(0,0,0,0),
+Position=UDim2.fromOffset(aw.Transparency and 240 or 210,40+aw.TextPadding),
+BackgroundTransparency=1,
+Parent=ay.UIElements.Main
+},{
+ae("UIListLayout",{
+Padding=UDim.new(0,4),
+FillDirection="Vertical",
+})
+})
+
+
+
+
+
+local aD=ae("Frame",{
+BackgroundColor3=aw.Default,
+Size=UDim2.fromScale(1,1),
+BackgroundTransparency=aw.Transparency,
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+})
+
+ae("ImageLabel",{
+Image="http://www.roblox.com/asset/?id=14204231522",
+ImageTransparency=0.45,
+ScaleType=Enum.ScaleType.Tile,
+TileSize=UDim2.fromOffset(40,40),
+BackgroundTransparency=1,
+Position=UDim2.fromOffset(85,208+aw.TextPadding),
+Size=UDim2.fromOffset(75,24),
+Parent=ay.UIElements.Main,
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+ac.NewRoundFrame(8,"SquircleOutline",{
+ThemeTag={
+ImageColor3="Outline",
+},
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.85,
+ZIndex=99999,
+},{
+ae("UIGradient",{
+Rotation=60,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+})
+}),
+
+
+
+
+
+
+
+aD,
+})
+
+local aE=ae("Frame",{
+BackgroundColor3=aw.Default,
+Size=UDim2.fromScale(1,1),
+BackgroundTransparency=0,
+ZIndex=9,
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+})
+
+ae("ImageLabel",{
+Image="http://www.roblox.com/asset/?id=14204231522",
+ImageTransparency=0.45,
+ScaleType=Enum.ScaleType.Tile,
+TileSize=UDim2.fromOffset(40,40),
+BackgroundTransparency=1,
+Position=UDim2.fromOffset(0,208+aw.TextPadding),
+Size=UDim2.fromOffset(75,24),
+Parent=ay.UIElements.Main,
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(0,8),
+}),
+
+
+
+
+
+
+
+ac.NewRoundFrame(8,"SquircleOutline",{
+ThemeTag={
+ImageColor3="Outline",
+},
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=.85,
+ZIndex=99999,
+},{
+ae("UIGradient",{
+Rotation=60,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+})
+}),
+aE,
+})
+
+local b={}
+
+for e=0,1,0.1 do
+table.insert(b,ColorSequenceKeypoint.new(e,Color3.fromHSV(e,1,1)))
+end
+
+local e=ae("UIGradient",{
+Color=ColorSequence.new(b),
+Rotation=90,
+})
+
+local g=ae("Frame",{
+Size=UDim2.new(1,0,1,0),
+Position=UDim2.new(0,0,0,0),
+BackgroundTransparency=1,
+})
+
+local h=ae("Frame",{
+Size=UDim2.new(0,14,0,14),
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0,0),
+Parent=g,
+
+
+BackgroundColor3=aw.Default
+},{
+ae("UIStroke",{
+Thickness=2,
+Transparency=.1,
+ThemeTag={
+Color="Text",
+},
+}),
+ae("UICorner",{
+CornerRadius=UDim.new(1,0),
+})
+})
+
+local i=ae("Frame",{
+Size=UDim2.fromOffset(6,192),
+Position=UDim2.fromOffset(180,40+aw.TextPadding),
+Parent=ay.UIElements.Main,
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(1,0),
+}),
+e,
+g,
+})
+
+
+function CreateNewInput(j,l)
+local m=ap(j,nil,aw.UIElements.Inputs)
+
+ae("TextLabel",{
+BackgroundTransparency=1,
+TextTransparency=.4,
+TextSize=17,
+FontFace=Font.new(ac.Font,Enum.FontWeight.Regular),
+AutomaticSize="XY",
+ThemeTag={
+TextColor3="Placeholder",
+},
+AnchorPoint=Vector2.new(1,0.5),
+Position=UDim2.new(1,-12,0.5,0),
+Parent=m.Frame,
+Text=j,
+})
+
+ae("UIScale",{
+Parent=m,
+Scale=.85,
+})
+
+m.Frame.Frame.TextBox.Text=l
+m.Size=UDim2.new(0,150,0,42)
+
+return m
+end
+
+local function ToRGB(j)
+return{
+R=math.floor(j.R*255),
+G=math.floor(j.G*255),
+B=math.floor(j.B*255)
+}
+end
+
+local j=CreateNewInput("Hex","#"..aw.Default:ToHex())
+
+local l=CreateNewInput("Red",ToRGB(aw.Default).R)
+local m=CreateNewInput("Green",ToRGB(aw.Default).G)
+local p=CreateNewInput("Blue",ToRGB(aw.Default).B)
+local r
+if aw.Transparency then
+r=CreateNewInput("Alpha",((1-aw.Transparency)*100).."%")
+end
+
+local u=ae("Frame",{
+Size=UDim2.new(1,0,0,40),
+AutomaticSize="Y",
+Position=UDim2.new(0,0,0,254+aw.TextPadding),
+BackgroundTransparency=1,
+Parent=ay.UIElements.Main,
+LayoutOrder=4,
+},{
+ae("UIListLayout",{
+Padding=UDim.new(0,6),
+FillDirection="Horizontal",
+HorizontalAlignment="Right",
+}),
+
+
+
+
+
+
+})
+
+local v={
+{
+Title="Cancel",
+Variant="Secondary",
+Callback=function()end
+},
+{
+Title="Apply",
+Icon="chevron-right",
+Variant="Primary",
+Callback=function()av(Color3.fromHSV(aw.Hue,aw.Sat,aw.Vib),aw.Transparency)end
+}
+}
+
+for A,B in next,v do
+local C=ao(B.Title,B.Icon,B.Callback,B.Variant,u,ay,false)
+C.Size=UDim2.new(0.5,-3,0,40)
+C.AutomaticSize="None"
+end
+
+
+
+local C,F,G
+if aw.Transparency then
+local H=ae("Frame",{
+Size=UDim2.new(1,0,1,0),
+Position=UDim2.fromOffset(0,0),
+BackgroundTransparency=1,
+})
+
+F=ae("ImageLabel",{
+Size=UDim2.new(0,14,0,14),
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0,0),
+ThemeTag={
+BackgroundColor3="Text",
+},
+Parent=H,
+
+},{
+ae("UIStroke",{
+Thickness=2,
+Transparency=.1,
+ThemeTag={
+Color="Text",
+},
+}),
+ae("UICorner",{
+CornerRadius=UDim.new(1,0),
+})
+
+})
+
+G=ae("Frame",{
+Size=UDim2.fromScale(1,1),
+},{
+ae("UIGradient",{
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,0),
+NumberSequenceKeypoint.new(1,1),
+},
+Rotation=270,
+}),
+ae("UICorner",{
+CornerRadius=UDim.new(0,6),
+}),
+})
+
+C=ae("Frame",{
+Size=UDim2.fromOffset(6,192),
+Position=UDim2.fromOffset(210,40+aw.TextPadding),
+Parent=ay.UIElements.Main,
+BackgroundTransparency=1,
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(1,0),
+}),
+ae("ImageLabel",{
+Image="rbxassetid://14204231522",
+ImageTransparency=0.45,
+ScaleType=Enum.ScaleType.Tile,
+TileSize=UDim2.fromOffset(40,40),
+BackgroundTransparency=1,
+Size=UDim2.fromScale(1,1),
+},{
+ae("UICorner",{
+CornerRadius=UDim.new(1,0),
+}),
+}),
+G,
+H,
+})
+end
+
+function aw.Round(H,J,L)
+if L==0 then
+return math.floor(J)
+end
+J=tostring(J)
+return J:find"%."and tonumber(J:sub(1,J:find"%."+L))or J
+end
+
+
+function aw.Update(H,J,L)
+if J then az,aA,aB=Color3.toHSV(J)else az,aA,aB=aw.Hue,aw.Sat,aw.Vib end
+
+aw.UIElements.SatVibMap.BackgroundColor3=Color3.fromHSV(az,1,1)
+aC.Position=UDim2.new(aA,0,1-aB,0)
+aC.BackgroundColor3=Color3.fromHSV(az,aA,aB)
+aE.BackgroundColor3=Color3.fromHSV(az,aA,aB)
+h.BackgroundColor3=Color3.fromHSV(az,1,1)
+h.Position=UDim2.new(0.5,0,az,0)
+
+j.Frame.Frame.TextBox.Text="#"..Color3.fromHSV(az,aA,aB):ToHex()
+l.Frame.Frame.TextBox.Text=ToRGB(Color3.fromHSV(az,aA,aB)).R
+m.Frame.Frame.TextBox.Text=ToRGB(Color3.fromHSV(az,aA,aB)).G
+p.Frame.Frame.TextBox.Text=ToRGB(Color3.fromHSV(az,aA,aB)).B
+
+if L or aw.Transparency then
+aE.BackgroundTransparency=aw.Transparency or L
+G.BackgroundColor3=Color3.fromHSV(az,aA,aB)
+F.BackgroundColor3=Color3.fromHSV(az,aA,aB)
+F.BackgroundTransparency=aw.Transparency or L
+F.Position=UDim2.new(0.5,0,1-aw.Transparency or L,0)
+r.Frame.Frame.TextBox.Text=aw:Round((1-aw.Transparency or L)*100,0).."%"
+end
+end
+
+aw:Update(aw.Default,aw.Transparency)
+
+
+
+
+local function GetRGB()
+local H=Color3.fromHSV(aw.Hue,aw.Sat,aw.Vib)
+return{R=math.floor(H.r*255),G=math.floor(H.g*255),B=math.floor(H.b*255)}
+end
+
+
+
+local function clamp(H,J,L)
+return math.clamp(tonumber(H)or 0,J,L)
+end
+
+ac.AddSignal(j.Frame.Frame.TextBox.FocusLost,function(H)
+if H then
+local J=j.Frame.Frame.TextBox.Text:gsub("#","")
+local L,M=pcall(Color3.fromHex,J)
+if L and typeof(M)=="Color3"then
+aw.Hue,aw.Sat,aw.Vib=Color3.toHSV(M)
+aw:Update()
+aw.Default=M
+end
+end
+end)
+
+local function updateColorFromInput(H,J)
+ac.AddSignal(H.Frame.Frame.TextBox.FocusLost,function(L)
+if L then
+local M=H.Frame.Frame.TextBox
+local N=GetRGB()
+local O=clamp(M.Text,0,255)
+M.Text=tostring(O)
+
+N[J]=O
+local P=Color3.fromRGB(N.R,N.G,N.B)
+aw.Hue,aw.Sat,aw.Vib=Color3.toHSV(P)
+aw:Update()
+end
+end)
+end
+
+updateColorFromInput(l,"R")
+updateColorFromInput(m,"G")
+updateColorFromInput(p,"B")
+
+if aw.Transparency then
+ac.AddSignal(r.Frame.Frame.TextBox.FocusLost,function(H)
+if H then
+local J=r.Frame.Frame.TextBox
+local L=clamp(J.Text,0,100)
+J.Text=tostring(L)
+
+aw.Transparency=1-L*0.01
+aw:Update(nil,aw.Transparency)
+end
+end)
+end
+
+
+
+local H=aw.UIElements.SatVibMap
+ac.AddSignal(H.InputBegan,function(J)
+if J.UserInputType==Enum.UserInputType.MouseButton1 or J.UserInputType==Enum.UserInputType.Touch then
+while ai:IsMouseButtonPressed(Enum.UserInputType.MouseButton1)do
+local L=H.AbsolutePosition.X
+local M=L+H.AbsoluteSize.X
+local N=math.clamp(an.X,L,M)
+
+local O=H.AbsolutePosition.Y
+local P=O+H.AbsoluteSize.Y
+local Q=math.clamp(an.Y,O,P)
+
+aw.Sat=(N-L)/(M-L)
+aw.Vib=1-((Q-O)/(P-O))
+aw:Update()
+
+al:Wait()
+end
+end
+end)
+
+ac.AddSignal(i.InputBegan,function(J)
+if J.UserInputType==Enum.UserInputType.MouseButton1 or J.UserInputType==Enum.UserInputType.Touch then
+while ai:IsMouseButtonPressed(Enum.UserInputType.MouseButton1)do
+local L=i.AbsolutePosition.Y
+local M=L+i.AbsoluteSize.Y
+local N=math.clamp(an.Y,L,M)
+
+aw.Hue=((N-L)/(M-L))
+aw:Update()
+
+al:Wait()
+end
+end
+end)
+
+if aw.Transparency then
+ac.AddSignal(C.InputBegan,function(J)
+if J.UserInputType==Enum.UserInputType.MouseButton1 or J.UserInputType==Enum.UserInputType.Touch then
+while ai:IsMouseButtonPressed(Enum.UserInputType.MouseButton1)do
+local L=C.AbsolutePosition.Y
+local M=L+C.AbsoluteSize.Y
+local N=math.clamp(an.Y,L,M)
+
+aw.Transparency=1-((N-L)/(M-L))
+aw:Update()
+
+al:Wait()
+end
+end
+end)
+end
+
+return aw
+end
+
+function aq.New(ar,as)
+local at={
+__type="Colorpicker",
+Title=as.Title or"Colorpicker",
+Desc=as.Desc or nil,
+Locked=as.Locked or false,
+Default=as.Default or Color3.new(1,1,1),
+Callback=as.Callback or function()end,
+
+UIScale=as.UIScale,
+Transparency=as.Transparency,
+UIElements={}
+}
+
+local av=true
+
+if as.Window.NewElements then aq.UICorner=14 end
+
+at.ColorpickerFrame=a.load'y'{
+Title=at.Title,
+Desc=at.Desc,
+Parent=as.Parent,
+TextOffset=40,
+Hover=false,
+Tab=as.Tab,
+Index=as.Index,
+Window=as.Window,
+ElementTable=at,
+}
+
+at.UIElements.Colorpicker=ac.NewRoundFrame(aq.UICorner,"Squircle",{
+ImageTransparency=0,
+Active=true,
+ImageColor3=at.Default,
+Parent=at.ColorpickerFrame.UIElements.Main,
+Size=UDim2.new(0,30,0,30),
+AnchorPoint=Vector2.new(1,0),
+Position=UDim2.new(1,0,0,0),
+ZIndex=2
+},nil,true)
+
+
+function at.Lock(aw)
+at.Locked=true
+av=false
+return at.ColorpickerFrame:Lock()
+end
+function at.Unlock(aw)
+at.Locked=false
+av=true
+return at.ColorpickerFrame:Unlock()
+end
+
+if at.Locked then
+at:Lock()
+end
+
+
+function at.Update(aw,ax,ay)
+at.UIElements.Colorpicker.ImageTransparency=ay or 0
+at.UIElements.Colorpicker.ImageColor3=ax
+at.Default=ax
+if ay then
+at.Transparency=ay
+end
+end
+
+function at.Set(aw,ax,ay)
+return at:Update(ax,ay)
+end
+
+ac.AddSignal(at.UIElements.Colorpicker.MouseButton1Click,function()
+if av then
+aq:Colorpicker(at,as.Window,function(aw,ax)
+at:Update(aw,ax)
+at.Default=aw
+at.Transparency=ax
+ac.SafeCallback(at.Callback,aw,ax)
+end).ColorpickerFrame:Open()
+end
+end)
+
+return at.__type,at
+end
+
+return aq end function a.N()
+local ac=a.load'a'
+local ae=ac.New
+local ag=ac.Tween
+
+local ai={}
+
+function ai.New(aj,ak)
+local al={
+__type="Section",
+Title=ak.Title or"Section",
+Icon=ak.Icon,
+TextXAlignment=ak.TextXAlignment or"Left",
+TextSize=ak.TextSize or 19,
+Box=ak.Box or false,
+FontWeight=ak.FontWeight or Enum.FontWeight.SemiBold,
+TextTransparency=ak.TextTransparency or 0.05,
+Opened=ak.Opened or false,
+UIElements={},
+
+HeaderSize=42,
+IconSize=20,
+Padding=10,
+
+Elements={},
+
+Expandable=false,
+}
+
+local am
+
+
+function al.SetIcon(an,ao)
+al.Icon=ao or nil
+if am then am:Destroy()end
+if ao then
+am=ac.Image(
+ao,
+ao..":"..al.Title,
+0,
+ak.Window.Folder,
+al.__type,
+true
+)
+am.Size=UDim2.new(0,al.IconSize,0,al.IconSize)
+end
+end
+
+local an=ae("Frame",{
+Size=UDim2.new(0,al.IconSize,0,al.IconSize),
+BackgroundTransparency=1,
+Visible=false
+},{
+ae("ImageLabel",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+Image=ac.Icon"chevron-down"[1],
+ImageRectSize=ac.Icon"chevron-down"[2].ImageRectSize,
+ImageRectOffset=ac.Icon"chevron-down"[2].ImageRectPosition,
+ThemeTag={
+ImageColor3="Icon",
+},
+ImageTransparency=.7,
+})
+})
+
+
+if al.Icon then
+al:SetIcon(al.Icon)
+end
+
+local ao=ae("TextLabel",{
+BackgroundTransparency=1,
+TextXAlignment=al.TextXAlignment,
+AutomaticSize="Y",
+TextSize=al.TextSize,
+TextTransparency=al.TextTransparency,
+ThemeTag={
+TextColor3="Text",
+},
+FontFace=Font.new(ac.Font,al.FontWeight),
+
+
+Text=al.Title,
+Size=UDim2.new(
+1,
+0,
+0,
+0
+),
+TextWrapped=true,
+})
+
+
+local function UpdateTitleSize()
+local ap=0
+if am then
+ap=ap-(al.IconSize+8)
+end
+if an.Visible then
+ap=ap-(al.IconSize+8)
+end
+ao.Size=UDim2.new(1,ap,0,0)
+end
+
+
+local ap=ac.NewRoundFrame(ak.Window.ElementConfig.UICorner,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+BackgroundTransparency=1,
+Parent=ak.Parent,
+ClipsDescendants=true,
+AutomaticSize="Y",
+ImageTransparency=al.Box and.93 or 1,
+ThemeTag={
+ImageColor3="Text",
+},
+},{
+ae("TextButton",{
+Size=UDim2.new(1,0,0,Expandable and 0 or al.HeaderSize),
+BackgroundTransparency=1,
+AutomaticSize=Expandable and nil or"Y",
+Text="",
+Name="Top",
+},{
+al.Box and ae("UIPadding",{
+PaddingLeft=UDim.new(0,ak.Window.ElementConfig.UIPadding),
+PaddingRight=UDim.new(0,ak.Window.ElementConfig.UIPadding),
+})or nil,
+am,
+ao,
+ae("UIListLayout",{
+Padding=UDim.new(0,8),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+HorizontalAlignment="Left",
+}),
+an,
+}),
+ae("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+Name="Content",
+Visible=false,
+Position=UDim2.new(0,0,0,al.HeaderSize)
+},{
+al.Box and ae("UIPadding",{
+PaddingLeft=UDim.new(0,ak.Window.ElementConfig.UIPadding),
+PaddingRight=UDim.new(0,ak.Window.ElementConfig.UIPadding),
+PaddingBottom=UDim.new(0,ak.Window.ElementConfig.UIPadding),
+})or nil,
+ae("UIListLayout",{
+FillDirection="Vertical",
+Padding=UDim.new(0,ak.Tab.Gap),
+VerticalAlignment="Top",
+}),
+})
+})
+
+
+
+
+
+
+
+local aq=ak.ElementsModule
+
+aq.Load(al,ap.Content,aq.Elements,ak.Window,ak.WindUI,function()
+if not al.Expandable then
+al.Expandable=true
+an.Visible=true
+UpdateTitleSize()
+end
+end,aq,ak.UIScale,ak.Tab)
+
+
+UpdateTitleSize()
+
+function al.SetTitle(ar,as)
+ao.Text=as
+end
+
+function al.Destroy(ar)
+for as,at in next,al.Elements do
+at:Destroy()
+end
+
+
+
+
+
+
+
+
+ap:Destroy()
+end
+
+function al.Open(ar)
+if al.Expandable then
+al.Opened=true
+ag(ap,0.33,{
+Size=UDim2.new(1,0,0,al.HeaderSize+(ap.Content.AbsoluteSize.Y/ak.UIScale))
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+ag(an.ImageLabel,0.1,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end
+function al.Close(ar)
+if al.Expandable then
+al.Opened=false
+ag(ap,0.26,{
+Size=UDim2.new(1,0,0,al.HeaderSize)
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ag(an.ImageLabel,0.1,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end
+
+ac.AddSignal(ap.Top.MouseButton1Click,function()
+if al.Expandable then
+if al.Opened then
+al:Close()
+else
+al:Open()
+end
+end
+end)
+
+task.spawn(function()
+task.wait(0.02)
+if al.Expandable then
+
+
+
+
+
+
+
+
+ap.Size=UDim2.new(1,0,0,al.HeaderSize)
+ap.AutomaticSize="None"
+ap.Top.Size=UDim2.new(1,0,0,al.HeaderSize)
+ap.Top.AutomaticSize="None"
+ap.Content.Visible=true
+end
+if al.Opened then
+al:Open()
+end
+
+end)
+
+return al.__type,al
+end
+
+return ai end function a.O()
+local ac=a.load'a'
+local ae=ac.New
+
+local ag={}
+
+function ag.New(ai,aj)
+local ak=ae("Frame",{
+Size=UDim2.new(1,0,0,1),
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+BackgroundTransparency=.9,
+ThemeTag={
+BackgroundColor3="Text"
+}
+})
+local al=ae("Frame",{
+Parent=aj.Parent,
+Size=UDim2.new(1,-7,0,7),
+BackgroundTransparency=1,
+},{
+ak
+})
+
+return"Divider",{__type="Divider",ElementFrame=al}
+end
+
+return ag end function a.P()
+local ac=a.load'a'
+local ae=ac.New
+
+local ag={}
+
+function ag.New(ai,aj)
+local ak=ae("Frame",{
+Parent=aj.Parent,
+Size=UDim2.new(1,-7,0,7*(aj.Columns or 1)),
+BackgroundTransparency=1,
+})
+
+return"Space",{__type="Space",ElementFrame=ak}
+end
+
+return ag end function a.Q()
+local ac=a.load'a'
+local ae=ac.New
+
+local ag={}
+
+local function ParseAspectRatio(ai)
+if type(ai)=="string"then
+local aj,ak=ai:match"(%d+):(%d+)"
+if aj and ak then
+return tonumber(aj)/tonumber(ak)
+end
+elseif type(ai)=="number"then
+return ai
+end
+return nil
+end
+
+function ag.New(ai,aj)
+local ak={
+__type="Image",
+Image=aj.Image or"",
+AspectRatio=aj.AspectRatio or"16:9",
+Radius=aj.Radius or aj.Window.ElementConfig.UICorner,
+}
+local al=ac.Image(
+ak.Image,
+ak.Image,
+ak.Radius,
+aj.Window.Folder,
+"Image",
+false
+)
+al.Parent=aj.Parent
+al.Size=UDim2.new(1,0,0,0)
+al.BackgroundTransparency=1
+
+
+
+
+
+
+
+
+
+
+
+
+local am=ParseAspectRatio(aj.AspectRatio)
+local an
+
+if am then
+an=ae("UIAspectRatioConstraint",{
+Parent=al,
+AspectRatio=am,
+AspectType="ScaleWithParentSize",
+DominantAxis="Width"
+})
+end
+
+function ak.Destroy(ao)
+al:Destroy()
+end
+
+return ak.__type,ak
+end
+
+return ag end function a.R()
+return{
+Elements={
+Paragraph=a.load'z',
+Button=a.load'A',
+Toggle=a.load'D',
+Slider=a.load'E',
+Keybind=a.load'F',
+Input=a.load'G',
+Dropdown=a.load'I',
+Code=a.load'L',
+Colorpicker=a.load'M',
+Section=a.load'N',
+Divider=a.load'O',
+Space=a.load'P',
+Image=a.load'Q',
+},
+Load=function(ac,ae,ag,ai,aj,ak,al,am,an)
+for ao,ap in next,ag do
+ac[ao]=function(aq,ar)
+ar=ar or{}
+ar.Tab=an or ac
+ar.ParentTable=ac
+ar.Index=#ac.Elements+1
+ar.GlobalIndex=#ai.AllElements+1
+ar.Parent=ae
+ar.Window=ai
+ar.WindUI=aj
+ar.UIScale=am
+ar.ElementsModule=al local
+
+as, at=ap:New(ar)
+
+if ar.Flag and typeof(ar.Flag)=="string"then
+if ai.CurrentConfig then
+ai.CurrentConfig:Register(ar.Flag,at)
+
+if ai.PendingConfigData and ai.PendingConfigData[ar.Flag]then
+local av=ai.PendingConfigData[ar.Flag]
+
+local aw=ai.ConfigManager
+if aw.Parser[av.__type]then
+task.defer(function()
+local ax,ay=pcall(function()
+aw.Parser[av.__type].Load(at,av)
+end)
+
+if ax then
+ai.PendingConfigData[ar.Flag]=nil
+else
+warn("[ WindUI ] Failed to apply pending config for '"..ar.Flag.."': "..tostring(ay))
+end
+end)
+end
+end
+else
+ai.PendingFlags=ai.PendingFlags or{}
+ai.PendingFlags[ar.Flag]=at
+end
+end
+
+local av
+for aw,ax in pairs(at)do
+if typeof(ax)=="table"and aw:match"Frame$"then
+av=ax
+break
+end
+end
+
+if av then
+at.ElementFrame=av.UIElements.Main
+function at.SetTitle(ay,az)
+av:SetTitle(az)
+end
+function at.SetDesc(ay,az)
+av:SetDesc(az)
+end
+function at.Highlight(ay)
+av:Highlight()
+end
+function at.Destroy(ay)
+
+table.remove(ai.AllElements,ar.GlobalIndex)
+table.remove(ac.Elements,ar.Index)
+table.remove(an.Elements,ar.Index)
+ac:UpdateAllElementShapes(ac)
+
+av:Destroy()
+end
+end
+
+
+
+ai.AllElements[ar.Index]=at
+ac.Elements[ar.Index]=at
+if an then an.Elements[ar.Index]=at end
+
+if ai.NewElements then
+ac:UpdateAllElementShapes(ac)
+end
+
+if ak then
+ak()
+end
+return at
+end
+end
+function ac.UpdateAllElementShapes(aq,ar)
+for as,at in next,ar.Elements do
+local av
+for aw,ax in pairs(at)do
+if typeof(ax)=="table"and aw:match"Frame$"then
+av=ax
+break
+end
+end
+
+if av then
+
+av.Index=as
+if av.UpdateShape then
+
+av.UpdateShape(ar)
+end
+end
+end
+end
+end,
+
+}end function a.S()
+game:GetService"UserInputService"
+local ac=game.Players.LocalPlayer:GetMouse()
+
+local ae=a.load'a'
+local ag=ae.New
+local ai=ae.Tween
+
+local aj=a.load'x'.New
+local ak=a.load't'.New
+
+
+
+
+
+local al={
+
+
+Tabs={},
+Containers={},
+SelectedTab=nil,
+TabCount=0,
+ToolTipParent=nil,
+TabHighlight=nil,
+
+OnChangeFunc=function(al)end
+}
+
+function al.Init(am,an,ao,ap)
+Window=am
+WindUI=an
+al.ToolTipParent=ao
+al.TabHighlight=ap
+return al
+end
+
+function al.New(am,an)
+local ao={
+__type="Tab",
+Title=am.Title or"Tab",
+Desc=am.Desc,
+Icon=am.Icon,
+IconThemed=am.IconThemed,
+Locked=am.Locked,
+ShowTabTitle=am.ShowTabTitle,
+Selected=false,
+Index=nil,
+Parent=am.Parent,
+UIElements={},
+Elements={},
+ContainerFrame=nil,
+UICorner=Window.UICorner-(Window.UIPadding/2),
+
+Gap=Window.NewElements and 1 or 6,
+}
+
+al.TabCount=al.TabCount+1
+
+local ap=al.TabCount
+ao.Index=ap
+
+ao.UIElements.Main=ae.NewRoundFrame(ao.UICorner,"Squircle",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,-7,0,0),
+AutomaticSize="Y",
+Parent=am.Parent,
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=1,
+},{
+ae.NewRoundFrame(ao.UICorner,"SquircleOutline",{
+Size=UDim2.new(1,0,1,0),
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=1,
+Name="Outline"
+},{
+ag("UIGradient",{
+Rotation=80,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+}),
+}),
+ae.NewRoundFrame(ao.UICorner,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=1,
+Name="Frame",
+},{
+ag("UIListLayout",{
+SortOrder="LayoutOrder",
+Padding=UDim.new(0,10),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+ag("TextLabel",{
+Text=ao.Title,
+ThemeTag={
+TextColor3="Text"
+},
+TextTransparency=not ao.Locked and 0.4 or.7,
+TextSize=15,
+Size=UDim2.new(1,0,0,0),
+FontFace=Font.new(ae.Font,Enum.FontWeight.Medium),
+TextWrapped=true,
+RichText=true,
+AutomaticSize="Y",
+LayoutOrder=2,
+TextXAlignment="Left",
+BackgroundTransparency=1,
+}),
+ag("UIPadding",{
+PaddingTop=UDim.new(0,2+(Window.UIPadding/2)),
+PaddingLeft=UDim.new(0,4+(Window.UIPadding/2)),
+PaddingRight=UDim.new(0,4+(Window.UIPadding/2)),
+PaddingBottom=UDim.new(0,2+(Window.UIPadding/2)),
+})
+}),
+},true)
+
+local aq=0
+local ar
+local as
+
+if ao.Icon then
+ar=ae.Image(
+ao.Icon,
+ao.Icon..":"..ao.Title,
+0,
+Window.Folder,
+ao.__type,
+true,
+ao.IconThemed
+)
+ar.Size=UDim2.new(0,16,0,16)
+ar.Parent=ao.UIElements.Main.Frame
+ar.ImageLabel.ImageTransparency=not ao.Locked and 0 or.7
+ao.UIElements.Main.Frame.TextLabel.Size=UDim2.new(1,-30,0,0)
+aq=-30
+
+ao.UIElements.Icon=ar
+
+
+as=ae.Image(
+ao.Icon,
+ao.Icon..":"..ao.Title,
+0,
+Window.Folder,
+ao.__type,
+true,
+ao.IconThemed
+)
+as.Size=UDim2.new(0,16,0,16)
+as.ImageLabel.ImageTransparency=not ao.Locked and 0 or.7
+aq=-30
+
+
+
+
+end
+
+ao.UIElements.ContainerFrame=ag("ScrollingFrame",{
+Size=UDim2.new(1,0,1,ao.ShowTabTitle and-((Window.UIPadding*2.4)+12)or 0),
+BackgroundTransparency=1,
+ScrollBarThickness=0,
+ElasticBehavior="Never",
+CanvasSize=UDim2.new(0,0,0,0),
+AnchorPoint=Vector2.new(0,1),
+Position=UDim2.new(0,0,1,0),
+AutomaticCanvasSize="Y",
+
+ScrollingDirection="Y",
+},{
+ag("UIPadding",{
+PaddingTop=UDim.new(0,not Window.HidePanelBackground and 20 or 10),
+PaddingLeft=UDim.new(0,not Window.HidePanelBackground and 20 or 10),
+PaddingRight=UDim.new(0,not Window.HidePanelBackground and 20 or 10),
+PaddingBottom=UDim.new(0,not Window.HidePanelBackground and 20 or 10),
+}),
+ag("UIListLayout",{
+SortOrder="LayoutOrder",
+Padding=UDim.new(0,ao.Gap),
+HorizontalAlignment="Center",
+})
+})
+
+
+
+
+
+ao.UIElements.ContainerFrameCanvas=ag("Frame",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+Visible=false,
+Parent=Window.UIElements.MainBar,
+ZIndex=5,
+},{
+ao.UIElements.ContainerFrame,
+ag("Frame",{
+Size=UDim2.new(1,0,0,((Window.UIPadding*2.4)+12)),
+BackgroundTransparency=1,
+Visible=ao.ShowTabTitle or false,
+Name="TabTitle"
+},{
+as,
+ag("TextLabel",{
+Text=ao.Title,
+ThemeTag={
+TextColor3="Text"
+},
+TextSize=20,
+TextTransparency=.1,
+Size=UDim2.new(1,-aq,1,0),
+FontFace=Font.new(ae.Font,Enum.FontWeight.SemiBold),
+TextTruncate="AtEnd",
+RichText=true,
+LayoutOrder=2,
+TextXAlignment="Left",
+BackgroundTransparency=1,
+}),
+ag("UIPadding",{
+PaddingTop=UDim.new(0,20),
+PaddingLeft=UDim.new(0,20),
+PaddingRight=UDim.new(0,20),
+PaddingBottom=UDim.new(0,20),
+}),
+ag("UIListLayout",{
+SortOrder="LayoutOrder",
+Padding=UDim.new(0,10),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+})
+}),
+ag("Frame",{
+Size=UDim2.new(1,0,0,1),
+BackgroundTransparency=.9,
+ThemeTag={
+BackgroundColor3="Text"
+},
+Position=UDim2.new(0,0,0,((Window.UIPadding*2.4)+12)),
+Visible=ao.ShowTabTitle or false,
+})
+})
+
+al.Containers[ap]=ao.UIElements.ContainerFrameCanvas
+al.Tabs[ap]=ao
+
+ao.ContainerFrame=ContainerFrameCanvas
+
+ae.AddSignal(ao.UIElements.Main.MouseButton1Click,function()
+if not ao.Locked then
+al:SelectTab(ap)
+end
+end)
+
+if Window.ScrollBarEnabled then
+ak(ao.UIElements.ContainerFrame,ao.UIElements.ContainerFrameCanvas,Window,3)
+end
+
+local at
+local av
+local aw
+local ax=false
+
+
+
+if ao.Desc then
+
+
+ae.AddSignal(ao.UIElements.Main.InputBegan,function()
+ax=true
+av=task.spawn(function()
+task.wait(0.35)
+if ax and not at then
+at=aj(ao.Desc,al.ToolTipParent)
+
+local function updatePosition()
+if at then
+at.Container.Position=UDim2.new(0,ac.X,0,ac.Y-20)
+end
+end
+
+updatePosition()
+aw=ac.Move:Connect(updatePosition)
+at:Open()
+end
+end)
+end)
+
+end
+
+ae.AddSignal(ao.UIElements.Main.MouseEnter,function()
+if not ao.Locked then
+ai(ao.UIElements.Main.Frame,0.08,{ImageTransparency=.97}):Play()
+end
+end)
+ae.AddSignal(ao.UIElements.Main.InputEnded,function()
+if ao.Desc then
+ax=false
+if av then
+task.cancel(av)
+av=nil
+end
+if aw then
+aw:Disconnect()
+aw=nil
+end
+if at then
+at:Close()
+at=nil
+end
+end
+
+if not ao.Locked then
+ai(ao.UIElements.Main.Frame,0.08,{ImageTransparency=1}):Play()
+end
+end)
+
+
+
+function ao.ScrollToTheElement(ay,az)
+ao.UIElements.ContainerFrame.ScrollingEnabled=false
+ai(ao.UIElements.ContainerFrame,.45,
+{
+CanvasPosition=Vector2.new(
+0,
+
+ao.Elements[az].ElementFrame.AbsolutePosition.Y
+-ao.UIElements.ContainerFrame.AbsolutePosition.Y
+-ao.UIElements.ContainerFrame.UIPadding.PaddingTop.Offset
+)
+},
+Enum.EasingStyle.Quint,Enum.EasingDirection.Out
+):Play()
+
+task.spawn(function()
+task.wait(.48)
+
+if ao.Elements[az].Highlight then
+ao.Elements[az]:Highlight()
+ao.UIElements.ContainerFrame.ScrollingEnabled=true
+end
+end)
+
+return ao
+end
+
+
+
+
+
+ao.ElementsModule=a.load'R'
+
+ao.ElementsModule.Load(ao,ao.UIElements.ContainerFrame,ao.ElementsModule.Elements,Window,WindUI,nil,ao.ElementsModule,an)
+
+
+
+function ao.LockAll(ay)
+
+for az,aA in next,Window.AllElements do
+if aA.Tab and aA.Tab.Index and aA.Tab.Index==ao.Index and aA.Lock then
+aA:Lock()
+end
+end
+end
+function ao.UnlockAll(ay)
+for az,aA in next,Window.AllElements do
+if aA.Tab and aA.Tab.Index and aA.Tab.Index==ao.Index and aA.Unlock then
+aA:Unlock()
+end
+end
+end
+function ao.GetLocked(ay)
+local az={}
+
+for aA,aB in next,Window.AllElements do
+if aB.Tab and aB.Tab.Index and aB.Tab.Index==ao.Index and aB.Locked==true then
+table.insert(az,aB)
+end
+end
+
+return az
+end
+function ao.GetUnlocked(ay)
+local az={}
+
+for aA,aB in next,Window.AllElements do
+if aB.Tab and aB.Tab.Index and aB.Tab.Index==ao.Index and aB.Locked==false then
+table.insert(az,aB)
+end
+end
+
+return az
+end
+
+function ao.Select(ay)
+return al:SelectTab(ao.Index)
+end
+
+task.spawn(function()
+local ay=ag("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,1,-Window.UIElements.Main.Main.Topbar.AbsoluteSize.Y),
+Parent=ao.UIElements.ContainerFrame
+},{
+ag("UIListLayout",{
+Padding=UDim.new(0,8),
+SortOrder="LayoutOrder",
+VerticalAlignment="Center",
+HorizontalAlignment="Center",
+FillDirection="Vertical",
+}),
+ag("ImageLabel",{
+Size=UDim2.new(0,48,0,48),
+Image=ae.Icon"frown"[1],
+ImageRectOffset=ae.Icon"frown"[2].ImageRectPosition,
+ImageRectSize=ae.Icon"frown"[2].ImageRectSize,
+ThemeTag={
+ImageColor3="Icon"
+},
+BackgroundTransparency=1,
+ImageTransparency=.6,
+}),
+ag("TextLabel",{
+AutomaticSize="XY",
+Text="This tab is empty",
+ThemeTag={
+TextColor3="Text"
+},
+TextSize=18,
+TextTransparency=.5,
+BackgroundTransparency=1,
+FontFace=Font.new(ae.Font,Enum.FontWeight.Medium),
+})
+})
+
+
+
+
+
+local az
+az=ae.AddSignal(ao.UIElements.ContainerFrame.ChildAdded,function()
+ay.Visible=false
+az:Disconnect()
+end)
+end)
+
+return ao
+end
+
+function al.OnChange(am,an)
+al.OnChangeFunc=an
+end
+
+function al.SelectTab(am,an)
+if not al.Tabs[an].Locked then
+al.SelectedTab=an
+
+for ao,ap in next,al.Tabs do
+if not ap.Locked then
+ai(ap.UIElements.Main,0.15,{ImageTransparency=1}):Play()
+ai(ap.UIElements.Main.Outline,0.15,{ImageTransparency=1}):Play()
+ai(ap.UIElements.Main.Frame.TextLabel,0.15,{TextTransparency=0.3}):Play()
+if ap.UIElements.Icon then
+ai(ap.UIElements.Icon.ImageLabel,0.15,{ImageTransparency=0.4}):Play()
+end
+ap.Selected=false
+end
+end
+ai(al.Tabs[an].UIElements.Main,0.15,{ImageTransparency=0.95}):Play()
+ai(al.Tabs[an].UIElements.Main.Outline,0.15,{ImageTransparency=0.85}):Play()
+ai(al.Tabs[an].UIElements.Main.Frame.TextLabel,0.15,{TextTransparency=0}):Play()
+if al.Tabs[an].UIElements.Icon then
+ai(al.Tabs[an].UIElements.Icon.ImageLabel,0.15,{ImageTransparency=0.1}):Play()
+end
+al.Tabs[an].Selected=true
+
+
+task.spawn(function()
+for aq,ar in next,al.Containers do
+ar.AnchorPoint=Vector2.new(0,0.05)
+ar.Visible=false
+end
+al.Containers[an].Visible=true
+ai(al.Containers[an],0.15,{AnchorPoint=Vector2.new(0,0)},Enum.EasingStyle.Quart,Enum.EasingDirection.Out):Play()
+end)
+
+al.OnChangeFunc(an)
+end
+end
+
+return al end function a.T()
+local ac={}
+
+
+local ae=a.load'a'
+local ag=ae.New
+local ai=ae.Tween
+
+local aj=a.load'S'
+
+function ac.New(ak,al,am,an,ao)
+local ap={
+Title=ak.Title or"Section",
+Icon=ak.Icon,
+IconThemed=ak.IconThemed,
+Opened=ak.Opened or false,
+
+HeaderSize=42,
+IconSize=18,
+
+Expandable=false,
+}
+
+local aq
+if ap.Icon then
+aq=ae.Image(
+ap.Icon,
+ap.Icon,
+0,
+am,
+"Section",
+true,
+ap.IconThemed
+)
+
+aq.Size=UDim2.new(0,ap.IconSize,0,ap.IconSize)
+aq.ImageLabel.ImageTransparency=.25
+end
+
+local ar=ag("Frame",{
+Size=UDim2.new(0,ap.IconSize,0,ap.IconSize),
+BackgroundTransparency=1,
+Visible=false
+},{
+ag("ImageLabel",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+Image=ae.Icon"chevron-down"[1],
+ImageRectSize=ae.Icon"chevron-down"[2].ImageRectSize,
+ImageRectOffset=ae.Icon"chevron-down"[2].ImageRectPosition,
+ThemeTag={
+ImageColor3="Icon",
+},
+ImageTransparency=.7,
+})
+})
+
+local as=ag("Frame",{
+Size=UDim2.new(1,0,0,ap.HeaderSize),
+BackgroundTransparency=1,
+Parent=al,
+ClipsDescendants=true,
+},{
+ag("TextButton",{
+Size=UDim2.new(1,0,0,ap.HeaderSize),
+BackgroundTransparency=1,
+Text="",
+},{
+aq,
+ag("TextLabel",{
+Text=ap.Title,
+TextXAlignment="Left",
+Size=UDim2.new(
+1,
+aq and(-ap.IconSize-10)*2
+or(-ap.IconSize-10),
+
+1,
+0
+),
+ThemeTag={
+TextColor3="Text",
+},
+FontFace=Font.new(ae.Font,Enum.FontWeight.SemiBold),
+TextSize=14,
+BackgroundTransparency=1,
+TextTransparency=.7,
+
+TextWrapped=true
+}),
+ag("UIListLayout",{
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+Padding=UDim.new(0,10)
+}),
+ar,
+ag("UIPadding",{
+PaddingLeft=UDim.new(0,11),
+PaddingRight=UDim.new(0,11),
+})
+}),
+ag("Frame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+Name="Content",
+Visible=true,
+Position=UDim2.new(0,0,0,ap.HeaderSize)
+},{
+ag("UIListLayout",{
+FillDirection="Vertical",
+Padding=UDim.new(0,ao.Gap),
+VerticalAlignment="Bottom",
+}),
+})
+})
+
+
+function ap.Tab(at,av)
+if not ap.Expandable then
+ap.Expandable=true
+ar.Visible=true
+end
+av.Parent=as.Content
+return aj.New(av,an)
+end
+
+function ap.Open(at)
+if ap.Expandable then
+ap.Opened=true
+ai(as,0.33,{
+Size=UDim2.new(1,0,0,ap.HeaderSize+(as.Content.AbsoluteSize.Y/an))
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+ai(ar.ImageLabel,0.1,{Rotation=180},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end
+function ap.Close(at)
+if ap.Expandable then
+ap.Opened=false
+ai(as,0.26,{
+Size=UDim2.new(1,0,0,ap.HeaderSize)
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+ai(ar.ImageLabel,0.1,{Rotation=0},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end
+
+ae.AddSignal(as.TextButton.MouseButton1Click,function()
+if ap.Expandable then
+if ap.Opened then
+ap:Close()
+else
+ap:Open()
+end
+end
+end)
+
+if ap.Opened then
+task.spawn(function()
+task.wait()
+ap:Open()
+end)
+end
+
+
+
+return ap
+end
+
+
+return ac end function a.U()
+return{
+Tab="table-of-contents",
+Paragraph="type",
+Button="square-mouse-pointer",
+Toggle="toggle-right",
+Slider="sliders-horizontal",
+Keybind="command",
+Input="text-cursor-input",
+Dropdown="chevrons-up-down",
+Code="terminal",
+Colorpicker="palette",
+}end function a.V()
+game:GetService"UserInputService"
+
+local ac={
+Margin=8,
+Padding=9,
+}
+
+
+local ae=a.load'a'
+local ag=ae.New
+local ai=ae.Tween
+
+
+function ac.new(aj,ak,al)
+local am={
+IconSize=18,
+Padding=14,
+Radius=22,
+Width=400,
+MaxHeight=380,
+
+Icons=a.load'U'
+}
+
+
+local an=ag("TextBox",{
+Text="",
+PlaceholderText="Search...",
+ThemeTag={
+PlaceholderColor3="Placeholder",
+TextColor3="Text",
+},
+Size=UDim2.new(
+1,
+-((am.IconSize*2)+(am.Padding*2)),
+0,
+0
+),
+AutomaticSize="Y",
+ClipsDescendants=true,
+ClearTextOnFocus=false,
+BackgroundTransparency=1,
+TextXAlignment="Left",
+FontFace=Font.new(ae.Font,Enum.FontWeight.Regular),
+TextSize=18,
+})
+
+local ao=ag("ImageLabel",{
+Image=ae.Icon"x"[1],
+ImageRectSize=ae.Icon"x"[2].ImageRectSize,
+ImageRectOffset=ae.Icon"x"[2].ImageRectPosition,
+BackgroundTransparency=1,
+ThemeTag={
+ImageColor3="Icon",
+},
+ImageTransparency=.1,
+Size=UDim2.new(0,am.IconSize,0,am.IconSize)
+},{
+ag("TextButton",{
+Size=UDim2.new(1,8,1,8),
+BackgroundTransparency=1,
+Active=true,
+ZIndex=999999999,
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Text="",
+})
+})
+
+local ap=ag("ScrollingFrame",{
+Size=UDim2.new(1,0,0,0),
+AutomaticCanvasSize="Y",
+ScrollingDirection="Y",
+ElasticBehavior="Never",
+ScrollBarThickness=0,
+CanvasSize=UDim2.new(0,0,0,0),
+BackgroundTransparency=1,
+Visible=false
+},{
+ag("UIListLayout",{
+Padding=UDim.new(0,0),
+FillDirection="Vertical",
+}),
+ag("UIPadding",{
+PaddingTop=UDim.new(0,am.Padding),
+PaddingLeft=UDim.new(0,am.Padding),
+PaddingRight=UDim.new(0,am.Padding),
+PaddingBottom=UDim.new(0,am.Padding),
+})
+})
+
+local aq=ae.NewRoundFrame(am.Radius,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+ThemeTag={
+ImageColor3="Background",
+},
+ImageTransparency=0,
+},{
+ae.NewRoundFrame(am.Radius,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+
+Visible=false,
+ImageColor3=Color3.new(1,1,1),
+ImageTransparency=.98,
+Name="Frame",
+},{
+ag("Frame",{
+Size=UDim2.new(1,0,0,46),
+BackgroundTransparency=1,
+},{
+
+
+
+
+
+
+
+
+ag("Frame",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+},{
+ag("ImageLabel",{
+Image=ae.Icon"search"[1],
+ImageRectSize=ae.Icon"search"[2].ImageRectSize,
+ImageRectOffset=ae.Icon"search"[2].ImageRectPosition,
+BackgroundTransparency=1,
+ThemeTag={
+ImageColor3="Icon",
+},
+ImageTransparency=.1,
+Size=UDim2.new(0,am.IconSize,0,am.IconSize)
+}),
+an,
+ao,
+ag("UIListLayout",{
+Padding=UDim.new(0,am.Padding),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+ag("UIPadding",{
+PaddingLeft=UDim.new(0,am.Padding),
+PaddingRight=UDim.new(0,am.Padding),
+})
+})
+}),
+ag("Frame",{
+BackgroundTransparency=1,
+AutomaticSize="Y",
+Size=UDim2.new(1,0,0,0),
+Name="Results",
+},{
+ag("Frame",{
+Size=UDim2.new(1,0,0,1),
+ThemeTag={
+BackgroundColor3="Outline",
+},
+BackgroundTransparency=.9,
+Visible=false,
+}),
+ap,
+ag("UISizeConstraint",{
+MaxSize=Vector2.new(am.Width,am.MaxHeight),
+}),
+}),
+ag("UIListLayout",{
+Padding=UDim.new(0,0),
+FillDirection="Vertical",
+}),
+})
+})
+
+local ar=ag("Frame",{
+Size=UDim2.new(0,am.Width,0,0),
+AutomaticSize="Y",
+Parent=ak,
+BackgroundTransparency=1,
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+Visible=false,
+
+ZIndex=99999999,
+},{
+ag("UIScale",{
+Scale=.9,
+}),
+aq,
+ae.NewRoundFrame(am.Radius,"SquircleOutline2",{
+Size=UDim2.new(1,0,1,0),
+ThemeTag={
+ImageColor3="Outline",
+},
+ImageTransparency=1,
+},{
+ag("UIGradient",{
+Rotation=45,
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,0.55),
+NumberSequenceKeypoint.new(0.5,0.8),
+NumberSequenceKeypoint.new(1,0.6)
+}
+})
+})
+})
+
+local function CreateSearchTab(as,at,av,aw,ax,ay)
+local az=ag("TextButton",{
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+BackgroundTransparency=1,
+Parent=aw or nil
+},{
+ae.NewRoundFrame(am.Radius-11,"Squircle",{
+Size=UDim2.new(1,0,0,0),
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=1,
+Name="Main"
+},{
+ae.NewRoundFrame(am.Radius-11,"SquircleOutline2",{
+Size=UDim2.new(1,0,1,0),
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+ThemeTag={
+ImageColor3="Outline",
+},
+ImageTransparency=1,
+Name="Outline",
+},{
+ag("UIGradient",{
+Rotation=65,
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0,0.55),
+NumberSequenceKeypoint.new(0.5,0.8),
+NumberSequenceKeypoint.new(1,0.6)
+}
+}),
+ag("UIPadding",{
+PaddingTop=UDim.new(0,am.Padding-2),
+PaddingLeft=UDim.new(0,am.Padding),
+PaddingRight=UDim.new(0,am.Padding),
+PaddingBottom=UDim.new(0,am.Padding-2),
+}),
+ag("ImageLabel",{
+Image=ae.Icon(av)[1],
+ImageRectSize=ae.Icon(av)[2].ImageRectSize,
+ImageRectOffset=ae.Icon(av)[2].ImageRectPosition,
+BackgroundTransparency=1,
+ThemeTag={
+ImageColor3="Icon",
+},
+ImageTransparency=.1,
+Size=UDim2.new(0,am.IconSize,0,am.IconSize)
+}),
+ag("Frame",{
+Size=UDim2.new(1,-am.IconSize-am.Padding,0,0),
+BackgroundTransparency=1,
+},{
+ag("TextLabel",{
+Text=as,
+ThemeTag={
+TextColor3="Text",
+},
+TextSize=17,
+BackgroundTransparency=1,
+TextXAlignment="Left",
+FontFace=Font.new(ae.Font,Enum.FontWeight.Medium),
+Size=UDim2.new(1,0,0,0),
+TextTruncate="AtEnd",
+AutomaticSize="Y",
+Name="Title"
+}),
+ag("TextLabel",{
+Text=at or"",
+Visible=at and true or false,
+ThemeTag={
+TextColor3="Text",
+},
+TextSize=15,
+TextTransparency=.3,
+BackgroundTransparency=1,
+TextXAlignment="Left",
+FontFace=Font.new(ae.Font,Enum.FontWeight.Medium),
+Size=UDim2.new(1,0,0,0),
+TextTruncate="AtEnd",
+AutomaticSize="Y",
+Name="Desc"
+})or nil,
+ag("UIListLayout",{
+Padding=UDim.new(0,6),
+FillDirection="Vertical",
+})
+}),
+ag("UIListLayout",{
+Padding=UDim.new(0,am.Padding),
+FillDirection="Horizontal",
+})
+}),
+},true),
+ag("Frame",{
+Name="ParentContainer",
+Size=UDim2.new(1,-am.Padding,0,0),
+AutomaticSize="Y",
+BackgroundTransparency=1,
+Visible=ax,
+
+},{
+ae.NewRoundFrame(99,"Squircle",{
+Size=UDim2.new(0,2,1,0),
+BackgroundTransparency=1,
+ThemeTag={
+ImageColor3="Text"
+},
+ImageTransparency=.9,
+}),
+ag("Frame",{
+Size=UDim2.new(1,-am.Padding-2,0,0),
+Position=UDim2.new(0,am.Padding+2,0,0),
+BackgroundTransparency=1,
+},{
+ag("UIListLayout",{
+Padding=UDim.new(0,0),
+FillDirection="Vertical",
+}),
+}),
+}),
+ag("UIListLayout",{
+Padding=UDim.new(0,0),
+FillDirection="Vertical",
+HorizontalAlignment="Right"
+})
+})
+
+
+
+az.Main.Size=UDim2.new(
+1,
+0,
+0,
+az.Main.Outline.Frame.Desc.Visible and(((am.Padding-2)*2)+az.Main.Outline.Frame.Title.TextBounds.Y+6+az.Main.Outline.Frame.Desc.TextBounds.Y)
+or(((am.Padding-2)*2)+az.Main.Outline.Frame.Title.TextBounds.Y)
+)
+
+ae.AddSignal(az.Main.MouseEnter,function()
+ai(az.Main,.04,{ImageTransparency=.95}):Play()
+ai(az.Main.Outline,.04,{ImageTransparency=.7}):Play()
+end)
+ae.AddSignal(az.Main.InputEnded,function()
+ai(az.Main,.08,{ImageTransparency=1}):Play()
+ai(az.Main.Outline,.08,{ImageTransparency=1}):Play()
+end)
+ae.AddSignal(az.Main.MouseButton1Click,function()
+if ay then
+ay()
+end
+end)
+
+return az
+end
+
+local function ContainsText(as,at)
+if not at or at==""then
+return false
+end
+
+if not as or as==""then
+return false
+end
+
+local av=string.lower(as)
+local aw=string.lower(at)
+
+return string.find(av,aw,1,true)~=nil
+end
+
+local function Search(as)
+if not as or as==""then
+return{}
+end
+
+local at={}
+for av,aw in next,aj.Tabs do
+local ax=ContainsText(aw.Title or"",as)
+local ay={}
+
+for az,aA in next,aw.Elements do
+if aA.__type~="Section"then
+local aB=ContainsText(aA.Title or"",as)
+local aC=ContainsText(aA.Desc or"",as)
+
+if aB or aC then
+ay[az]={
+Title=aA.Title,
+Desc=aA.Desc,
+Original=aA,
+__type=aA.__type,
+Index=az,
+}
+end
+end
+end
+
+if ax or next(ay)~=nil then
+at[av]={
+Tab=aw,
+Title=aw.Title,
+Icon=aw.Icon,
+Elements=ay,
+}
+end
+end
+return at
+end
+
+function am.Search(as,at)
+at=at or""
+
+local av=Search(at)
+
+ap.Visible=true
+aq.Frame.Results.Frame.Visible=true
+for aw,ax in next,ap:GetChildren()do
+if ax.ClassName~="UIListLayout"and ax.ClassName~="UIPadding"then
+ax:Destroy()
+end
+end
+
+if av and next(av)~=nil then
+for ay,az in next,av do
+local aA=am.Icons.Tab
+local aB=CreateSearchTab(az.Title,nil,aA,ap,true,function()
+am:Close()
+aj:SelectTab(ay)
+end)
+if az.Elements and next(az.Elements)~=nil then
+for aC,aD in next,az.Elements do
+local aE=am.Icons[aD.__type]
+CreateSearchTab(aD.Title,aD.Desc,aE,aB:FindFirstChild"ParentContainer"and aB.ParentContainer.Frame or nil,false,function()
+am:Close()
+aj:SelectTab(ay)
+if az.Tab.ScrollToTheElement then
+
+az.Tab:ScrollToTheElement(aD.Index)
+end
+
+end)
+
+end
+end
+end
+elseif at~=""then
+ag("TextLabel",{
+Size=UDim2.new(1,0,0,70),
+BackgroundTransparency=1,
+Text="No results found",
+TextSize=16,
+ThemeTag={
+TextColor3="Text",
+},
+TextTransparency=.2,
+BackgroundTransparency=1,
+FontFace=Font.new(ae.Font,Enum.FontWeight.Medium),
+Parent=ap,
+Name="NotFound",
+})
+else
+ap.Visible=false
+aq.Frame.Results.Frame.Visible=false
+end
+end
+
+ae.AddSignal(an:GetPropertyChangedSignal"Text",function()
+am:Search(an.Text)
+end)
+
+ae.AddSignal(ap.UIListLayout:GetPropertyChangedSignal"AbsoluteContentSize",function()
+
+ai(ap,.06,{Size=UDim2.new(
+1,
+0,
+0,
+math.clamp(ap.UIListLayout.AbsoluteContentSize.Y+(am.Padding*2),0,am.MaxHeight)
+)},Enum.EasingStyle.Quint,Enum.EasingDirection.InOut):Play()
+
+
+
+
+
+
+end)
+
+function am.Open(as)
+task.spawn(function()
+aq.Frame.Visible=true
+ar.Visible=true
+ai(ar.UIScale,.12,{Scale=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end)
+end
+
+function am.Close(as)
+task.spawn(function()
+al()
+aq.Frame.Visible=false
+ai(ar.UIScale,.12,{Scale=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+task.wait(.12)
+ar.Visible=false
+end)
+end
+
+ae.AddSignal(ao.TextButton.MouseButton1Click,function()
+am:Close()
+end)
+
+am:Open()
+
+return am
+end
+
+return ac end function a.W()
+
+local ac=game:GetService"UserInputService"
+game:GetService"RunService"
+
+local ae=workspace.CurrentCamera
+
+local ag=a.load'p'
+
+local ai=a.load'a'
+local aj=ai.New
+local ak=ai.Tween
+
+
+local al=a.load's'.New
+local am=a.load'i'.New
+local an=a.load't'.New
+local ao=a.load'u'
+
+local ap=a.load'v'
+
+
+
+return function(aq)
+local ar={
+Title=aq.Title or"UI Library",
+Author=aq.Author,
+Icon=aq.Icon,
+IconThemed=aq.IconThemed,
+Folder=aq.Folder,
+Resizable=aq.Resizable,
+Background=aq.Background,
+BackgroundImageTransparency=aq.BackgroundImageTransparency or 0,
+User=aq.User or{},
+
+Size=aq.Size,
+
+MinSize=aq.MinSize or Vector2.new(560,350),
+MaxSize=aq.MaxSize or Vector2.new(850,560),
+
+ToggleKey=aq.ToggleKey,
+Transparent=aq.Transparent or false,
+HideSearchBar=aq.HideSearchBar,
+ScrollBarEnabled=aq.ScrollBarEnabled or false,
+SideBarWidth=aq.SideBarWidth or 200,
+Acrylic=aq.Acrylic or false,
+NewElements=aq.NewElements or false,
+IgnoreAlerts=aq.IgnoreAlerts or false,
+HidePanelBackground=aq.HidePanelBackground or false,
+AutoScale=aq.AutoScale,
+OpenButton=aq.OpenButton,
+
+Position=UDim2.new(0.5,0,0.5,0),
+IconSize=aq.IconSize or 22,
+UICorner=16,
+UIPadding=14,
+UIElements={},
+CanDropdown=true,
+Closed=false,
+Parent=aq.Parent,
+Destroyed=false,
+IsFullscreen=false,
+CanResize=false,
+IsOpenButtonEnabled=true,
+
+CurrentConfig=nil,
+ConfigManager=nil,
+AcrylicPaint=nil,
+CurrentTab=nil,
+TabModule=nil,
+
+OnOpenCallback=nil,
+OnCloseCallback=nil,
+OnDestroyCallback=nil,
+
+IsPC=false,
+
+Gap=5,
+
+TopBarButtons={},
+AllElements={},
+
+ElementConfig={},
+
+PendingFlags={},
+}
+
+
+ar.ElementConfig={
+UIPadding=ar.NewElements and 10 or 13,
+UICorner=ar.NewElements and 23 or 12,
+}
+
+local as=ar.Size or UDim2.new(0,580,0,460)
+ar.Size=UDim2.new(
+as.X.Scale,
+math.clamp(as.X.Offset,ar.MinSize.X,ar.MaxSize.X),
+as.Y.Scale,
+math.clamp(as.Y.Offset,ar.MinSize.Y,ar.MaxSize.Y)
+)
+
+if ar.HideSearchBar~=false then
+ar.HideSearchBar=true
+end
+if ar.AutoScale~=false then
+ar.AutoScale=true
+end
+if ar.Resizable~=false then
+ar.CanResize=true
+ar.Resizable=true
+end
+
+if ar.Folder then
+if not isfolder("H4xScripts/"..ar.Folder)then
+makefolder("H4xScripts/"..ar.Folder)
+end
+if not isfolder("H4xScripts/"..ar.Folder.."/assets")then
+makefolder("H4xScripts/"..ar.Folder.."/assets")
+end
+if not isfolder(ar.Folder)then
+makefolder(ar.Folder)
+end
+if not isfolder(ar.Folder.."/assets")then
+makefolder(ar.Folder.."/assets")
+end
+end
+
+local at=aj("UICorner",{
+CornerRadius=UDim.new(0,ar.UICorner)
+})
+
+if ar.Folder then
+ar.ConfigManager=ap:Init(ar)
+end
+
+
+if ar.Acrylic then local
+av, aw=ag.AcrylicPaint{UseAcrylic=ar.Acrylic}
+
+ar.AcrylicPaint=av
+end
+
+local av=aj("Frame",{
+Size=UDim2.new(0,32,0,32),
+Position=UDim2.new(1,0,1,0),
+AnchorPoint=Vector2.new(.5,.5),
+BackgroundTransparency=1,
+ZIndex=99,
+Active=true
+},{
+aj("ImageLabel",{
+Size=UDim2.new(0,96,0,96),
+BackgroundTransparency=1,
+Image="rbxassetid://120997033468887",
+Position=UDim2.new(0.5,-16,0.5,-16),
+AnchorPoint=Vector2.new(0.5,0.5),
+ImageTransparency=1,
+})
+})
+local aw=ai.NewRoundFrame(ar.UICorner,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=1,
+ImageColor3=Color3.new(0,0,0),
+ZIndex=98,
+Active=false,
+},{
+aj("ImageLabel",{
+Size=UDim2.new(0,70,0,70),
+Image=ai.Icon"expand"[1],
+ImageRectOffset=ai.Icon"expand"[2].ImageRectPosition,
+ImageRectSize=ai.Icon"expand"[2].ImageRectSize,
+BackgroundTransparency=1,
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+ImageTransparency=1,
+}),
+})
+
+local ax=ai.NewRoundFrame(ar.UICorner,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+ImageTransparency=1,
+ImageColor3=Color3.new(0,0,0),
+ZIndex=999,
+Active=false,
+})
+
+
+
+
+
+
+
+
+
+
+ar.UIElements.SideBar=aj("ScrollingFrame",{
+Size=UDim2.new(
+1,
+ar.ScrollBarEnabled and-3-(ar.UIPadding/2)or 0,
+1,
+not ar.HideSearchBar and-45 or 0
+),
+Position=UDim2.new(0,0,1,0),
+AnchorPoint=Vector2.new(0,1),
+BackgroundTransparency=1,
+ScrollBarThickness=0,
+ElasticBehavior="Never",
+CanvasSize=UDim2.new(0,0,0,0),
+AutomaticCanvasSize="Y",
+ScrollingDirection="Y",
+ClipsDescendants=true,
+VerticalScrollBarPosition="Left",
+},{
+aj("Frame",{
+BackgroundTransparency=1,
+AutomaticSize="Y",
+Size=UDim2.new(1,0,0,0),
+Name="Frame",
+},{
+aj("UIPadding",{
+PaddingTop=UDim.new(0,ar.UIPadding/2),
+
+
+PaddingBottom=UDim.new(0,ar.UIPadding/2),
+}),
+aj("UIListLayout",{
+SortOrder="LayoutOrder",
+Padding=UDim.new(0,ar.Gap)
+})
+}),
+aj("UIPadding",{
+
+PaddingLeft=UDim.new(0,ar.UIPadding/2),
+PaddingRight=UDim.new(0,ar.UIPadding/2),
+
+}),
+
+})
+
+ar.UIElements.SideBarContainer=aj("Frame",{
+Size=UDim2.new(0,ar.SideBarWidth,1,ar.User.Enabled and-94-(ar.UIPadding*2)or-52),
+Position=UDim2.new(0,0,0,52),
+BackgroundTransparency=1,
+Visible=true,
+},{
+aj("Frame",{
+Name="Content",
+BackgroundTransparency=1,
+Size=UDim2.new(
+1,
+0,
+1,
+not ar.HideSearchBar and-45-ar.UIPadding/2 or 0
+),
+Position=UDim2.new(0,0,1,0),
+AnchorPoint=Vector2.new(0,1),
+}),
+ar.UIElements.SideBar,
+})
+
+if ar.ScrollBarEnabled then
+an(ar.UIElements.SideBar,ar.UIElements.SideBarContainer.Content,ar,3)
+end
+
+
+ar.UIElements.MainBar=aj("Frame",{
+Size=UDim2.new(1,-ar.UIElements.SideBarContainer.AbsoluteSize.X,1,-52),
+Position=UDim2.new(1,0,1,0),
+AnchorPoint=Vector2.new(1,1),
+BackgroundTransparency=1,
+},{
+ai.NewRoundFrame(ar.UICorner-(ar.UIPadding/2),"Squircle",{
+Size=UDim2.new(1,0,1,0),
+ImageColor3=Color3.new(1,1,1),
+ZIndex=3,
+ImageTransparency=.95,
+Name="Background",
+Visible=not ar.HidePanelBackground
+}),
+aj("UIPadding",{
+PaddingTop=UDim.new(0,ar.UIPadding/2),
+PaddingLeft=UDim.new(0,ar.UIPadding/2),
+PaddingRight=UDim.new(0,ar.UIPadding/2),
+PaddingBottom=UDim.new(0,ar.UIPadding/2),
+})
+})
+
+local ay=aj("ImageLabel",{
+Image="rbxassetid://8992230677",
+ImageColor3=Color3.new(0,0,0),
+ImageTransparency=1,
+Size=UDim2.new(1,120,1,116),
+Position=UDim2.new(0,-60,0,-58),
+ScaleType="Slice",
+SliceCenter=Rect.new(99,99,99,99),
+BackgroundTransparency=1,
+ZIndex=-999999999999999,
+Name="Blur",
+})
+
+
+if ac.TouchEnabled and not ac.KeyboardEnabled then
+ar.IsPC=false
+elseif ac.KeyboardEnabled then
+ar.IsPC=true
+else
+ar.IsPC=nil
+end
+
+
+
+
+
+
+
+
+
+
+local az
+if ar.User then
+local function GetUserThumb()local
+aA, aB=game:GetService"Players":GetUserThumbnailAsync(
+ar.User.Anonymous and 1 or game.Players.LocalPlayer.UserId,
+Enum.ThumbnailType.HeadShot,
+Enum.ThumbnailSize.Size420x420
+)
+return aA
+end
+
+
+az=aj("TextButton",{
+Size=UDim2.new(0,
+(ar.UIElements.SideBarContainer.AbsoluteSize.X)-(ar.UIPadding/2),
+0,
+42+(ar.UIPadding)
+),
+Position=UDim2.new(0,ar.UIPadding/2,1,-(ar.UIPadding/2)),
+AnchorPoint=Vector2.new(0,1),
+BackgroundTransparency=1,
+Visible=ar.User.Enabled or false,
+},{
+ai.NewRoundFrame(ar.UICorner-(ar.UIPadding/2),"SquircleOutline",{
+Size=UDim2.new(1,0,1,0),
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=1,
+Name="Outline"
+},{
+aj("UIGradient",{
+Rotation=78,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+}),
+}),
+ai.NewRoundFrame(ar.UICorner-(ar.UIPadding/2),"Squircle",{
+Size=UDim2.new(1,0,1,0),
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=1,
+Name="UserIcon",
+},{
+aj("ImageLabel",{
+Image=GetUserThumb(),
+BackgroundTransparency=1,
+Size=UDim2.new(0,42,0,42),
+ThemeTag={
+BackgroundColor3="Text",
+},
+BackgroundTransparency=.93,
+},{
+aj("UICorner",{
+CornerRadius=UDim.new(1,0)
+})
+}),
+aj("Frame",{
+AutomaticSize="XY",
+BackgroundTransparency=1,
+},{
+aj("TextLabel",{
+Text=ar.User.Anonymous and"Anonymous"or game.Players.LocalPlayer.DisplayName,
+TextSize=17,
+ThemeTag={
+TextColor3="Text",
+},
+FontFace=Font.new(ai.Font,Enum.FontWeight.SemiBold),
+AutomaticSize="Y",
+BackgroundTransparency=1,
+Size=UDim2.new(1,-27,0,0),
+TextTruncate="AtEnd",
+TextXAlignment="Left",
+Name="DisplayName"
+}),
+aj("TextLabel",{
+Text=ar.User.Anonymous and"anonymous"or game.Players.LocalPlayer.Name,
+TextSize=15,
+TextTransparency=.6,
+ThemeTag={
+TextColor3="Text",
+},
+FontFace=Font.new(ai.Font,Enum.FontWeight.Medium),
+AutomaticSize="Y",
+BackgroundTransparency=1,
+Size=UDim2.new(1,-27,0,0),
+TextTruncate="AtEnd",
+TextXAlignment="Left",
+Name="UserName"
+}),
+aj("UIListLayout",{
+Padding=UDim.new(0,4),
+HorizontalAlignment="Left",
+})
+}),
+aj("UIListLayout",{
+Padding=UDim.new(0,ar.UIPadding),
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+aj("UIPadding",{
+PaddingLeft=UDim.new(0,ar.UIPadding/2),
+PaddingRight=UDim.new(0,ar.UIPadding/2),
+})
+})
+})
+
+
+function ar.User.Enable(aA)
+ar.User.Enabled=true
+ak(ar.UIElements.SideBarContainer,.25,{Size=UDim2.new(0,ar.SideBarWidth,1,-94-(ar.UIPadding*2))},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+az.Visible=true
+end
+function ar.User.Disable(aA)
+ar.User.Enabled=false
+ak(ar.UIElements.SideBarContainer,.25,{Size=UDim2.new(0,ar.SideBarWidth,1,-52)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+az.Visible=false
+end
+function ar.User.SetAnonymous(aA,aB)
+if aB~=false then aB=true end
+ar.User.Anonymous=aB
+az.UserIcon.ImageLabel.Image=GetUserThumb()
+az.UserIcon.Frame.DisplayName.Text=aB and"Anonymous"or game.Players.LocalPlayer.DisplayName
+az.UserIcon.Frame.UserName.Text=aB and"anonymous"or game.Players.LocalPlayer.Name
+end
+
+if ar.User.Enabled then
+ar.User:Enable()
+else
+ar.User:Disable()
+end
+
+if ar.User.Callback then
+ai.AddSignal(az.MouseButton1Click,function()
+ar.User.Callback()
+end)
+ai.AddSignal(az.MouseEnter,function()
+ak(az.UserIcon,0.04,{ImageTransparency=.95}):Play()
+ak(az.Outline,0.04,{ImageTransparency=.85}):Play()
+end)
+ai.AddSignal(az.InputEnded,function()
+ak(az.UserIcon,0.04,{ImageTransparency=1}):Play()
+ak(az.Outline,0.04,{ImageTransparency=1}):Play()
+end)
+end
+end
+
+local aA
+local aB
+
+
+local aC=false
+local aD
+
+local aE=typeof(ar.Background)=="string"and string.match(ar.Background,"^video:(.+)")or nil
+local b=typeof(ar.Background)=="string"and not aE and string.match(ar.Background,"^https?://.+")or nil
+
+local function SanitizeFilename(e)
+e=e:gsub("[%s/\\:*?\"<>|]+","-")
+e=e:gsub("[^%w%-_%.]","")
+return e
+end
+
+local function GetImageExtension(e)
+local g=e:match"%.(%w+)$"or e:match"%.(%w+)%?"
+if g then
+g=g:lower()
+if g=="jpg"or g=="jpeg"or g=="png"or g=="webp"then
+return"."..g
+end
+end
+return".png"
+end
+
+if typeof(ar.Background)=="string"and aE then
+aC=true
+
+if string.find(aE,"http")then
+local e=ar.Folder.."/assets/."..SanitizeFilename(aE)..".webm"
+if not isfile(e)then
+local g,h=pcall(function()
+local g=ai.Request{Url=aE,Method="GET",Headers={["User-Agent"]="Roblox/Exploit"}}
+writefile(e,g.Body)
+end)
+if not g then
+warn("[ Window.Background ] Failed to download video: "..tostring(h))
+return
+end
+end
+
+local g,h=pcall(function()
+return getcustomasset(e)
+end)
+if not g then
+warn("[ Window.Background ] Failed to load custom asset: "..tostring(h))
+return
+end
+aE=h
+end
+
+aD=aj("VideoFrame",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,1,0),
+Video=aE,
+Looped=true,
+Volume=0,
+},{
+aj("UICorner",{
+CornerRadius=UDim.new(0,ar.UICorner)
+}),
+})
+aD:Play()
+
+elseif b then
+local e=ar.Folder.."/assets/."..SanitizeFilename(b)..GetImageExtension(b)
+if not isfile(e)then
+local g,h=pcall(function()
+local g=ai.Request{Url=b,Method="GET",Headers={["User-Agent"]="Roblox/Exploit"}}
+writefile(e,g.Body)
+end)
+if not g then
+warn("[ Window.Background ] Failed to download image: "..tostring(h))
+return
+end
+end
+
+local g,h=pcall(function()
+return getcustomasset(e)
+end)
+if not g then
+warn("[ Window.Background ] Failed to load custom asset: "..tostring(h))
+return
+end
+
+aD=aj("ImageLabel",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,1,0),
+Image=h,
+ImageTransparency=0,
+ScaleType="Crop",
+},{
+aj("UICorner",{
+CornerRadius=UDim.new(0,ar.UICorner)
+}),
+})
+
+elseif ar.Background then
+aD=aj("ImageLabel",{
+BackgroundTransparency=1,
+Size=UDim2.new(1,0,1,0),
+Image=typeof(ar.Background)=="string"and ar.Background or"",
+ImageTransparency=1,
+ScaleType="Crop",
+},{
+aj("UICorner",{
+CornerRadius=UDim.new(0,ar.UICorner)
+}),
+})
+end
+
+
+local e=ai.NewRoundFrame(99,"Squircle",{
+ImageTransparency=.8,
+ImageColor3=Color3.new(1,1,1),
+Size=UDim2.new(0,0,0,4),
+Position=UDim2.new(0.5,0,1,4),
+AnchorPoint=Vector2.new(0.5,0),
+},{
+aj("TextButton",{
+Size=UDim2.new(1,12,1,12),
+BackgroundTransparency=1,
+Position=UDim2.new(0.5,0,0.5,0),
+AnchorPoint=Vector2.new(0.5,0.5),
+Active=true,
+ZIndex=99,
+Name="Frame",
+})
+})
+
+function createAuthor(g)
+return aj("TextLabel",{
+Text=g,
+FontFace=Font.new(ai.Font,Enum.FontWeight.Medium),
+BackgroundTransparency=1,
+TextTransparency=0.35,
+AutomaticSize="XY",
+Parent=ar.UIElements.Main and ar.UIElements.Main.Main.Topbar.Left.Title,
+TextXAlignment="Left",
+TextSize=13,
+LayoutOrder=2,
+ThemeTag={
+TextColor3="Text"
+},
+Name="Author",
+})
+end
+
+local g
+local h
+
+if ar.Author then
+g=createAuthor(ar.Author)
+end
+
+
+local i=aj("TextLabel",{
+Text=ar.Title,
+FontFace=Font.new(ai.Font,Enum.FontWeight.SemiBold),
+BackgroundTransparency=1,
+AutomaticSize="XY",
+Name="Title",
+TextXAlignment="Left",
+TextSize=16,
+ThemeTag={
+TextColor3="Text"
+}
+})
+
+ar.UIElements.Main=aj("Frame",{
+Size=ar.Size,
+Position=ar.Position,
+BackgroundTransparency=1,
+Parent=aq.Parent,
+AnchorPoint=Vector2.new(0.5,0.5),
+Active=true,
+},{
+ar.AcrylicPaint and ar.AcrylicPaint.Frame or nil,
+ay,
+ai.NewRoundFrame(ar.UICorner,"Squircle",{
+ImageTransparency=1,
+Size=UDim2.new(1,0,1,-240),
+AnchorPoint=Vector2.new(0.5,0.5),
+Position=UDim2.new(0.5,0,0.5,0),
+Name="Background",
+ThemeTag={
+ImageColor3="Background"
+},
+
+},{
+aD,
+e,
+av,
+
+
+
+}),
+UIStroke,
+at,
+aw,
+ax,
+aj("Frame",{
+Size=UDim2.new(1,0,1,0),
+BackgroundTransparency=1,
+Name="Main",
+
+Visible=false,
+ZIndex=97,
+},{
+aj("UICorner",{
+CornerRadius=UDim.new(0,ar.UICorner)
+}),
+ar.UIElements.SideBarContainer,
+ar.UIElements.MainBar,
+
+az,
+
+aB,
+aj("Frame",{
+Size=UDim2.new(1,0,0,52),
+BackgroundTransparency=1,
+BackgroundColor3=Color3.fromRGB(50,50,50),
+Name="Topbar"
+},{
+aA,
+
+
+
+
+
+
+aj("Frame",{
+AutomaticSize="X",
+Size=UDim2.new(0,0,1,0),
+BackgroundTransparency=1,
+Name="Left"
+},{
+aj("UIListLayout",{
+Padding=UDim.new(0,ar.UIPadding+4),
+SortOrder="LayoutOrder",
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+}),
+aj("Frame",{
+AutomaticSize="XY",
+BackgroundTransparency=1,
+Name="Title",
+Size=UDim2.new(0,0,1,0),
+LayoutOrder=2,
+},{
+aj("UIListLayout",{
+Padding=UDim.new(0,0),
+SortOrder="LayoutOrder",
+FillDirection="Vertical",
+VerticalAlignment="Center",
+}),
+i,
+g,
+}),
+aj("UIPadding",{
+PaddingLeft=UDim.new(0,4)
+})
+}),
+aj("ScrollingFrame",{
+Name="Center",
+BackgroundTransparency=1,
+AutomaticSize="Y",
+ScrollBarThickness=0,
+ScrollingDirection="X",
+AutomaticCanvasSize="X",
+CanvasSize=UDim2.new(0,0,0,0),
+Size=UDim2.new(0,0,1,0),
+AnchorPoint=Vector2.new(0,0.5),
+Position=UDim2.new(0,0,0.5,0),
+Visible=false,
+},{
+aj("UIListLayout",{
+FillDirection="Horizontal",
+VerticalAlignment="Center",
+HorizontalAlignment="Left",
+Padding=UDim.new(0,ar.UIPadding/2)
+})
+}),
+aj("Frame",{
+AutomaticSize="XY",
+BackgroundTransparency=1,
+Position=UDim2.new(1,0,0.5,0),
+AnchorPoint=Vector2.new(1,0.5),
+Name="Right",
+},{
+aj("UIListLayout",{
+Padding=UDim.new(0,9),
+FillDirection="Horizontal",
+SortOrder="LayoutOrder",
+}),
+
+}),
+aj("UIPadding",{
+PaddingTop=UDim.new(0,ar.UIPadding),
+PaddingLeft=UDim.new(0,ar.UIPadding),
+PaddingRight=UDim.new(0,8),
+PaddingBottom=UDim.new(0,ar.UIPadding),
+})
+})
+})
+})
+
+ai.AddSignal(ar.UIElements.Main.Main.Topbar.Left:GetPropertyChangedSignal"AbsoluteSize",function()
+local j=0
+local l=ar.UIElements.Main.Main.Topbar.Right.UIListLayout.AbsoluteContentSize.X
+if i and g then
+j=math.max(i.TextBounds.X,g.TextBounds.X)
+else
+j=i.TextBounds.X
+end
+if h then
+j=j+ar.IconSize+ar.UIPadding+4
+end
+ar.UIElements.Main.Main.Topbar.Center.Position=UDim2.new(0,j+ar.UIPadding,0.5,0)
+ar.UIElements.Main.Main.Topbar.Center.Size=UDim2.new(
+1,
+-j-l-(ar.UIPadding*2),
+1,
+0
+)
+end)
+
+function ar.CreateTopbarButton(j,l,m,p,r,u)
+local v=ai.Image(
+m,
+m,
+0,
+ar.Folder,
+"TopbarIcon",
+true,
+u
+)
+v.Size=UDim2.new(0,16,0,16)
+v.AnchorPoint=Vector2.new(0.5,0.5)
+v.Position=UDim2.new(0.5,0,0.5,0)
+
+local A=ai.NewRoundFrame(9,"Squircle",{
+Size=UDim2.new(0,36,0,36),
+LayoutOrder=r or 999,
+Parent=ar.UIElements.Main.Main.Topbar.Right,
+
+ZIndex=9999,
+ThemeTag={
+ImageColor3="Text"
+},
+ImageTransparency=1
+},{
+ai.NewRoundFrame(9,"SquircleOutline",{
+Size=UDim2.new(1,0,1,0),
+ThemeTag={
+ImageColor3="Text",
+},
+ImageTransparency=1,
+Name="Outline"
+},{
+aj("UIGradient",{
+Rotation=45,
+Color=ColorSequence.new{
+ColorSequenceKeypoint.new(0.0,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(0.5,Color3.fromRGB(255,255,255)),
+ColorSequenceKeypoint.new(1.0,Color3.fromRGB(255,255,255)),
+},
+Transparency=NumberSequence.new{
+NumberSequenceKeypoint.new(0.0,0.1),
+NumberSequenceKeypoint.new(0.5,1),
+NumberSequenceKeypoint.new(1.0,0.1),
+}
+}),
+}),
+v
+},true)
+
+
+
+ar.TopBarButtons[100-r]={
+Name=l,
+Object=A
+}
+
+ai.AddSignal(A.MouseButton1Click,function()
+p()
+end)
+ai.AddSignal(A.MouseEnter,function()
+ak(A,.15,{ImageTransparency=.93}):Play()
+ak(A.Outline,.15,{ImageTransparency=.75}):Play()
+
+end)
+ai.AddSignal(A.MouseLeave,function()
+ak(A,.1,{ImageTransparency=1}):Play()
+ak(A.Outline,.1,{ImageTransparency=1}):Play()
+
+end)
+
+return A
+end
+
+
+
+local j=ai.Drag(
+ar.UIElements.Main,
+{ar.UIElements.Main.Main.Topbar,e.Frame},
+function(j,l)
+if not ar.Closed then
+if j and l==e.Frame then
+ak(e,.1,{ImageTransparency=.35}):Play()
+else
+ak(e,.2,{ImageTransparency=.8}):Play()
+end
+ar.Position=ar.UIElements.Main.Position
+ar.Dragging=j
+end
+end
+)
+
+if not aC and ar.Background and typeof(ar.Background)=="table"then
+
+local l=aj"UIGradient"
+for m,p in next,ar.Background do
+l[m]=p
+end
+
+ar.UIElements.BackgroundGradient=ai.NewRoundFrame(ar.UICorner,"Squircle",{
+Size=UDim2.new(1,0,1,0),
+Parent=ar.UIElements.Main.Background,
+ImageTransparency=ar.Transparent and aq.WindUI.TransparencyValue or 0
+},{
+l
+})
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ar.OpenButtonMain=a.load'w'.New(ar)
+
+
+task.spawn(function()
+if ar.Icon then
+
+h=ai.Image(
+ar.Icon,
+ar.Title,
+0,
+ar.Folder,
+"Window",
+true,
+ar.IconThemed
+)
+h.Parent=ar.UIElements.Main.Main.Topbar.Left
+h.Size=UDim2.new(0,ar.IconSize,0,ar.IconSize)
+
+ar.OpenButtonMain:SetIcon(ar.Icon)
+
+
+
+
+
+
+
+
+
+
+
+else
+ar.OpenButtonMain:SetIcon(ar.Icon)
+
+end
+end)
+
+function ar.SetToggleKey(l,m)
+ar.ToggleKey=m
+end
+
+function ar.SetTitle(l,m)
+ar.Title=m
+i.Text=m
+end
+
+function ar.SetAuthor(l,m)
+ar.Author=m
+if not g then
+g=createAuthor(ar.Author)
+end
+
+g.Text=m
+end
+
+function ar.SetBackgroundImage(l,m)
+ar.UIElements.Main.Background.ImageLabel.Image=m
+end
+function ar.SetBackgroundImageTransparency(l,m)
+if aD and aD:IsA"ImageLabel"then
+aD.ImageTransparency=math.floor(m*10+0.5)/10
+end
+ar.BackgroundImageTransparency=math.floor(m*10+0.5)/10
+end
+
+function ar.SetBackgroundTransparency(l,m)
+local p=math.floor(tonumber(m)*10+0.5)/10
+aq.WindUI.TransparencyValue=p
+ar:ToggleTransparency(p>0)
+end
+
+local l
+local m
+ai.Icon"minimize"
+ai.Icon"maximize"
+
+ar:CreateTopbarButton("Fullscreen","maximize",function()
+ar:ToggleFullscreen()
+end,998)
+
+function ar.ToggleFullscreen(p)
+local r=ar.IsFullscreen
+
+j:Set(r)
+
+if not r then
+l=ar.UIElements.Main.Position
+m=ar.UIElements.Main.Size
+
+ar.CanResize=false
+else
+if ar.Resizable then
+ar.CanResize=true
+end
+end
+
+ak(ar.UIElements.Main,0.45,{Size=r and m or UDim2.new(1,-20,1,-72)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+ak(ar.UIElements.Main,0.45,{Position=r and l or UDim2.new(0.5,0,0.5,26)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+
+
+ar.IsFullscreen=not r
+end
+
+
+ar:CreateTopbarButton("Minimize","minus",function()
+ar:Close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end,997)
+
+function ar.OnOpen(p,r)
+ar.OnOpenCallback=r
+end
+function ar.OnClose(p,r)
+ar.OnCloseCallback=r
+end
+function ar.OnDestroy(p,r)
+ar.OnDestroyCallback=r
+end
+
+if aq.WindUI.UseAcrylic then
+ar.AcrylicPaint.AddParent(ar.UIElements.Main)
+end
+
+function ar.SetIconSize(p,r)
+local u
+if typeof(r)=="number"then
+u=UDim2.new(0,r,0,r)
+ar.IconSize=r
+elseif typeof(r)=="UDim2"then
+u=r
+ar.IconSize=r.X.Offset
+end
+
+if h then
+h.Size=u
+end
+end
+
+function ar.Open(p)
+task.spawn(function()
+if ar.OnOpenCallback then
+task.spawn(function()
+ai.SafeCallback(ar.OnOpenCallback)
+end)
+end
+
+
+task.wait(.06)
+ar.Closed=false
+
+ak(ar.UIElements.Main.Background,0.2,{
+ImageTransparency=ar.Transparent and aq.WindUI.TransparencyValue or 0,
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+
+if ar.UIElements.BackgroundGradient then
+ak(ar.UIElements.BackgroundGradient,0.2,{
+ImageTransparency=0,
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+
+ak(ar.UIElements.Main.Background,0.4,{
+Size=UDim2.new(1,0,1,0),
+},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play()
+
+if aD then
+if aD:IsA"VideoFrame"then
+aD.Visible=true
+else
+ak(aD,0.2,{
+ImageTransparency=ar.BackgroundImageTransparency,
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end
+
+if ar.OpenButtonMain then
+ar.OpenButtonMain:Visible(false)
+end
+
+
+ak(ay,0.25,{ImageTransparency=.7},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+if UIStroke then
+ak(UIStroke,0.25,{Transparency=.8},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+
+task.spawn(function()
+task.wait(.3)
+ak(e,.45,{Size=UDim2.new(0,200,0,4),ImageTransparency=.8},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play()
+j:Set(true)
+task.wait(.45)
+if ar.Resizable then
+ak(av.ImageLabel,.45,{ImageTransparency=.8},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play()
+ar.CanResize=true
+end
+end)
+
+
+ar.CanDropdown=true
+
+ar.UIElements.Main.Visible=true
+task.spawn(function()
+task.wait(.05)
+ar.UIElements.Main:WaitForChild"Main".Visible=true
+
+aq.WindUI:ToggleAcrylic(true)
+end)
+end)
+end
+function ar.Close(p)
+local r={}
+
+if ar.OnCloseCallback then
+task.spawn(function()
+ai.SafeCallback(ar.OnCloseCallback)
+end)
+end
+
+aq.WindUI:ToggleAcrylic(false)
+
+ar.UIElements.Main:WaitForChild"Main".Visible=false
+
+ar.CanDropdown=false
+ar.Closed=true
+
+ak(ar.UIElements.Main.Background,0.32,{
+ImageTransparency=1,
+},Enum.EasingStyle.Quint,Enum.EasingDirection.InOut):Play()
+if ar.UIElements.BackgroundGradient then
+ak(ar.UIElements.BackgroundGradient,0.32,{
+ImageTransparency=1,
+},Enum.EasingStyle.Quint,Enum.EasingDirection.InOut):Play()
+end
+
+ak(ar.UIElements.Main.Background,0.4,{
+Size=UDim2.new(1,0,1,-240),
+},Enum.EasingStyle.Exponential,Enum.EasingDirection.InOut):Play()
+
+
+if aD then
+if aD:IsA"VideoFrame"then
+aD.Visible=false
+else
+ak(aD,0.3,{
+ImageTransparency=1,
+},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+end
+ak(ay,0.25,{ImageTransparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+if UIStroke then
+ak(UIStroke,0.25,{Transparency=1},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+end
+
+ak(e,.3,{Size=UDim2.new(0,0,0,4),ImageTransparency=1},Enum.EasingStyle.Exponential,Enum.EasingDirection.InOut):Play()
+ak(av.ImageLabel,.3,{ImageTransparency=1},Enum.EasingStyle.Exponential,Enum.EasingDirection.Out):Play()
+j:Set(false)
+ar.CanResize=false
+
+task.spawn(function()
+task.wait(0.4)
+ar.UIElements.Main.Visible=false
+
+if ar.OpenButtonMain and not ar.Destroyed then
+ar.OpenButtonMain:Visible(true)
+end
+end)
+
+function r.Destroy(u)
+task.spawn(function()
+if ar.OnDestroyCallback then
+task.spawn(function()
+ai.SafeCallback(ar.OnDestroyCallback)
+end)
+end
+if ar.AcrylicPaint and ar.AcrylicPaint.Model then
+ar.AcrylicPaint.Model:Destroy()
+end
+ar.Destroyed=true
+task.wait(0.4)
+aq.WindUI.ScreenGui:Destroy()
+aq.WindUI.NotificationGui:Destroy()
+aq.WindUI.DropdownGui:Destroy()
+
+ai.DisconnectAll()
+
+return
+end)
+end
+
+return r
+end
+function ar.Destroy(p)
+return ar:Close():Destroy()
+end
+function ar.Toggle(p)
+if ar.Closed then
+ar:Open()
+else
+ar:Close()
+end
+end
+
+
+function ar.ToggleTransparency(p,r)
+
+ar.Transparent=r
+aq.WindUI.Transparent=r
+
+ar.UIElements.Main.Background.ImageTransparency=r and aq.WindUI.TransparencyValue or 0
+
+ar.UIElements.MainBar.Background.ImageTransparency=r and 0.97 or 0.95
+
+end
+
+function ar.LockAll(p)
+for r,u in next,ar.AllElements do
+if u.Lock then u:Lock()end
+end
+end
+function ar.UnlockAll(p)
+for r,u in next,ar.AllElements do
+if u.Unlock then u:Unlock()end
+end
+end
+function ar.GetLocked(p)
+local r={}
+
+for u,v in next,ar.AllElements do
+if v.Locked then table.insert(r,v)end
+end
+
+return r
+end
+function ar.GetUnlocked(p)
+local r={}
+
+for u,v in next,ar.AllElements do
+if v.Locked==false then table.insert(r,v)end
+end
+
+return r
+end
+
+function ar.GetUIScale(p,r)
+return aq.WindUI.UIScale
+end
+
+function ar.SetUIScale(p,r)
+aq.WindUI.UIScale=r
+ak(aq.WindUI.ScreenGui.UIScale,.2,{Scale=r},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+return ar
+end
+
+function ar.SetToTheCenter(p)
+ak(ar.UIElements.Main,0.45,{Position=UDim2.new(0.5,0,0.5,0)},Enum.EasingStyle.Quint,Enum.EasingDirection.Out):Play()
+return ar
+end
+
+function ar.SetCurrentConfig(p,r)
+ar.CurrentConfig=r
+end
+
+do
+local p=40
+local r=ae.ViewportSize
+local u=ar.UIElements.Main.AbsoluteSize
+
+if not ar.IsFullscreen and ar.AutoScale then
+local v=r.X-(p*2)
+local A=r.Y-(p*2)
+
+local B=v/u.X
+local C=A/u.Y
+
+local F=math.min(B,C)
+
+local G=0.3
+local H=1.0
+
+local J=math.clamp(F,G,H)
+
+local L=ar:GetUIScale()or 1
+local M=0.05
+
+if math.abs(J-L)>M then
+ar:SetUIScale(J)
+end
+end
+end
+
+
+if ar.OpenButtonMain and ar.OpenButtonMain.Button then
+ai.AddSignal(ar.OpenButtonMain.Button.TextButton.MouseButton1Click,function()
+
+
+ar:Open()
+end)
+end
+
+ai.AddSignal(ac.InputBegan,function(p,r)
+if r then return end
+
+if ar.ToggleKey then
+if p.KeyCode==ar.ToggleKey then
+ar:Toggle()
+end
+end
+end)
+
+task.spawn(function()
+
+ar:Open()
+end)
+
+function ar.EditOpenButton(p,r)
+return ar.OpenButtonMain:Edit(r)
+end
+
+if ar.OpenButton and typeof(ar.OpenButton)=="table"then
+ar:EditOpenButton(ar.OpenButton)
+end
+
+
+local p=a.load'S'
+local r=a.load'T'
+local u=p.Init(ar,aq.WindUI,aq.Parent.Parent.ToolTips)
+u:OnChange(function(v)ar.CurrentTab=v end)
+
+ar.TabModule=p
+
+function ar.Tab(v,A)
+A.Parent=ar.UIElements.SideBar.Frame
+return u.New(A,aq.WindUI.UIScale)
+end
+
+function ar.SelectTab(v,A)
+u:SelectTab(A)
+end
+
+function ar.Section(v,A)
+return r.New(A,ar.UIElements.SideBar.Frame,ar.Folder,aq.WindUI.UIScale,ar)
+end
+
+function ar.IsResizable(v,A)
+ar.Resizable=A
+ar.CanResize=A
+end
+
+function ar.Divider(v)
+local A=aj("Frame",{
+Size=UDim2.new(1,0,0,1),
+Position=UDim2.new(0.5,0,0,0),
+AnchorPoint=Vector2.new(0.5,0),
+BackgroundTransparency=.9,
+ThemeTag={
+BackgroundColor3="Text"
+}
+})
+local B=aj("Frame",{
+Parent=ar.UIElements.SideBar.Frame,
+
+Size=UDim2.new(1,-7,0,5),
+BackgroundTransparency=1,
+},{
+A
+})
+
+return B
+end
+
+local v=a.load'k'.Init(ar,nil)
+function ar.Dialog(A,B)
+local C={
+Title=B.Title or"Dialog",
+Width=B.Width or 320,
+Content=B.Content,
+Buttons=B.Buttons or{},
+
+TextPadding=10,
+}
+local F=v.Create(false)
+
+F.UIElements.Main.Size=UDim2.new(0,C.Width,0,0)
+
+local G=aj("Frame",{
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+BackgroundTransparency=1,
+Parent=F.UIElements.Main
+},{
+aj("UIListLayout",{
+FillDirection="Horizontal",
+Padding=UDim.new(0,F.UIPadding),
+VerticalAlignment="Center"
+}),
+aj("UIPadding",{
+PaddingTop=UDim.new(0,C.TextPadding/2),
+PaddingLeft=UDim.new(0,C.TextPadding/2),
+PaddingRight=UDim.new(0,C.TextPadding/2),
+})
+})
+
+local H
+if B.Icon then
+H=ai.Image(
+B.Icon,
+C.Title..":"..B.Icon,
+0,
+ar,
+"Dialog",
+true,
+B.IconThemed
+)
+H.Size=UDim2.new(0,22,0,22)
+H.Parent=G
+end
+
+F.UIElements.UIListLayout=aj("UIListLayout",{
+Padding=UDim.new(0,12),
+FillDirection="Vertical",
+HorizontalAlignment="Left",
+Parent=F.UIElements.Main
+})
+
+aj("UISizeConstraint",{
+MinSize=Vector2.new(180,20),
+MaxSize=Vector2.new(400,math.huge),
+Parent=F.UIElements.Main,
+})
+
+
+F.UIElements.Title=aj("TextLabel",{
+Text=C.Title,
+TextSize=20,
+FontFace=Font.new(ai.Font,Enum.FontWeight.SemiBold),
+TextXAlignment="Left",
+TextWrapped=true,
+RichText=true,
+Size=UDim2.new(1,H and-26-F.UIPadding or 0,0,0),
+AutomaticSize="Y",
+ThemeTag={
+TextColor3="Text"
+},
+BackgroundTransparency=1,
+Parent=G
+})
+if C.Content then
+aj("TextLabel",{
+Text=C.Content,
+TextSize=18,
+TextTransparency=.4,
+TextWrapped=true,
+RichText=true,
+FontFace=Font.new(ai.Font,Enum.FontWeight.Medium),
+TextXAlignment="Left",
+Size=UDim2.new(1,0,0,0),
+AutomaticSize="Y",
+LayoutOrder=2,
+ThemeTag={
+TextColor3="Text"
+},
+BackgroundTransparency=1,
+Parent=F.UIElements.Main
+},{
+aj("UIPadding",{
+PaddingLeft=UDim.new(0,C.TextPadding/2),
+PaddingRight=UDim.new(0,C.TextPadding/2),
+PaddingBottom=UDim.new(0,C.TextPadding/2),
+})
+})
+end
+
+local J=aj("UIListLayout",{
+Padding=UDim.new(0,6),
+FillDirection="Horizontal",
+HorizontalAlignment="Right",
+})
+
+local L=aj("Frame",{
+Size=UDim2.new(1,0,0,40),
+AutomaticSize="None",
+BackgroundTransparency=1,
+Parent=F.UIElements.Main,
+LayoutOrder=4,
+},{
+J,
+
+
+
+
+
+
+})
+
+
+local M={}
+
+for N,O in next,C.Buttons do
+local P=am(O.Title,O.Icon,O.Callback,O.Variant,L,F,false)
+table.insert(M,P)
+end
+
+local function CheckButtonsOverflow()
+J.FillDirection=Enum.FillDirection.Horizontal
+J.HorizontalAlignment=Enum.HorizontalAlignment.Right
+J.VerticalAlignment=Enum.VerticalAlignment.Center
+L.AutomaticSize=Enum.AutomaticSize.None
+
+for P,Q in ipairs(M)do
+Q.Size=UDim2.new(0,0,1,0)
+Q.AutomaticSize=Enum.AutomaticSize.X
+end
+
+wait()
+
+local R=J.AbsoluteContentSize.X/aq.WindUI.UIScale
+local S=L.AbsoluteSize.X/aq.WindUI.UIScale
+
+if R>S then
+J.FillDirection=Enum.FillDirection.Vertical
+J.HorizontalAlignment=Enum.HorizontalAlignment.Right
+J.VerticalAlignment=Enum.VerticalAlignment.Bottom
+L.AutomaticSize=Enum.AutomaticSize.Y
+
+for T,U in ipairs(M)do
+U.Size=UDim2.new(1,0,0,40)
+U.AutomaticSize=Enum.AutomaticSize.None
+end
+else
+local T=S-R
+if T>0 then
+local U
+local V=math.huge
+
+for W,X in ipairs(M)do
+local Y=X.AbsoluteSize.X/aq.WindUI.UIScale
+if Y<V then
+V=Y
+U=X
+end
+end
+
+if U then
+U.Size=UDim2.new(0,V+T,1,0)
+U.AutomaticSize=Enum.AutomaticSize.None
+end
+end
+end
+end
+
+ai.AddSignal(F.UIElements.Main:GetPropertyChangedSignal"AbsoluteSize",CheckButtonsOverflow)
+CheckButtonsOverflow()
+
+wait()
+F:Open()
+
+return F
+end
+
+
+ar:CreateTopbarButton("Close","x",function()
+if not ar.IgnoreAlerts then
+ar:SetToTheCenter()
+ar:Dialog{
+
+Title="Close Window",
+Content="Do you want to close this window? You will not be able to open it again.",
+Buttons={
+{
+Title="Cancel",
+
+Callback=function()end,
+Variant="Secondary",
+},
+{
+Title="Close Window",
+
+Callback=function()ar:Destroy()end,
+Variant="Primary",
+}
+}
+}
+else
+ar:Destroy()
+end
+end,999)
+
+function ar.Tag(A,B)
+if ar.UIElements.Main.Main.Topbar.Center.Visible==false then ar.UIElements.Main.Main.Topbar.Center.Visible=true end
+return ao:New(B,ar.UIElements.Main.Main.Topbar.Center)
+end
+
+
+local function startResizing(A)
+if ar.CanResize then
+isResizing=true
+aw.Active=true
+initialSize=ar.UIElements.Main.Size
+initialInputPosition=A.Position
+
+
+ak(av.ImageLabel,0.1,{ImageTransparency=.35}):Play()
+
+ai.AddSignal(A.Changed,function()
+if A.UserInputState==Enum.UserInputState.End then
+isResizing=false
+aw.Active=false
+
+
+ak(av.ImageLabel,0.17,{ImageTransparency=.8}):Play()
+end
+end)
+end
+end
+
+ai.AddSignal(av.InputBegan,function(A)
+if A.UserInputType==Enum.UserInputType.MouseButton1 or A.UserInputType==Enum.UserInputType.Touch then
+if ar.CanResize then
+startResizing(A)
+end
+end
+end)
+
+ai.AddSignal(ac.InputChanged,function(A)
+if A.UserInputType==Enum.UserInputType.MouseMovement or A.UserInputType==Enum.UserInputType.Touch then
+if isResizing and ar.CanResize then
+local B=A.Position-initialInputPosition
+local C=UDim2.new(0,initialSize.X.Offset+B.X*2,0,initialSize.Y.Offset+B.Y*2)
+
+C=UDim2.new(
+C.X.Scale,
+math.clamp(C.X.Offset,ar.MinSize.X,ar.MaxSize.X),
+C.Y.Scale,
+math.clamp(C.Y.Offset,ar.MinSize.Y,ar.MaxSize.Y)
+)
+
+ak(ar.UIElements.Main,0,{
+Size=C
+}):Play()
+
+ar.Size=C
+end
+end
+end)
+
+
+
+
+local A=0
+local B=0.4
+local C
+local F=0
+
+function onDoubleClick()
+ar:SetToTheCenter()
+end
+
+e.Frame.MouseButton1Up:Connect(function()
+local G=tick()
+local H=ar.Position
+
+F=F+1
+
+if F==1 then
+A=G
+C=H
+
+task.spawn(function()
+task.wait(B)
+if F==1 then
+F=0
+C=nil
+end
+end)
+
+elseif F==2 then
+if G-A<=B and H==C then
+onDoubleClick()
+end
+
+F=0
+C=nil
+A=0
+else
+F=1
+A=G
+C=H
+end
+end)
+
+
+
+
+
+if not ar.HideSearchBar then
+local G=a.load'V'
+local H=false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local J=al("Search","search",ar.UIElements.SideBarContainer,true)
+J.Size=UDim2.new(1,-ar.UIPadding/2,0,39)
+J.Position=UDim2.new(0,ar.UIPadding/2,0,ar.UIPadding/2)
+
+ai.AddSignal(J.MouseButton1Click,function()
+if H then return end
+
+G.new(ar.TabModule,ar.UIElements.Main,function()
+
+H=false
+if ar.Resizable then
+ar.CanResize=true
+end
+
+ak(ax,0.1,{ImageTransparency=1}):Play()
+ax.Active=false
+end)
+ak(ax,0.1,{ImageTransparency=.65}):Play()
+ax.Active=true
+
+H=true
+ar.CanResize=false
+end)
+end
+
+
+
+
+function ar.DisableTopbarButtons(G,H)
+for J,L in next,H do
+for M,N in next,ar.TopBarButtons do
+if N.Name==L then
+N.Object.Visible=false
+end
+end
+end
+end
+
+return ar
+end end end
+local ac={
+Window=nil,
+Theme=nil,
+Creator=a.load'a',
+LocalizationModule=a.load'b',
+NotificationModule=a.load'c',
+Themes=nil,
+Transparent=false,
+
+TransparencyValue=.15,
+
+UIScale=1,
+
+ConfigManager=nil,
+Version="0.0.0",
+
+Services=a.load'g',
+
+OnThemeChangeFunction=nil,
+}
+
+
+local ae=game:GetService"HttpService"
+
+
+local ag=ae:JSONDecode(a.load'h')
+if ag then
+ac.Version=ag.version
+end
+
+local ai=a.load'l'local aj=
+
+ac.Services
+
+local ak=ac.Creator
+
+local al=ak.New local am=
+ak.Tween
+
+
+local an=a.load'p'local ao=
+
+game:GetService"Players"and game:GetService"Players".LocalPlayer or nil
+
+local ap=protectgui or(syn and syn.protect_gui)or function()end
+
+local aq=gethui and gethui()or(game.CoreGui or game.Players.LocalPlayer:WaitForChild"PlayerGui")
+
+
+ac.ScreenGui=al("ScreenGui",{
+Name="WindUI",
+Parent=aq,
+IgnoreGuiInset=true,
+ScreenInsets="None",
+},{
+al("UIScale",{
+Scale=ac.Scale,
+}),
+al("Folder",{
+Name="Window"
+}),
+
+
+
+
+
+
+al("Folder",{
+Name="KeySystem"
+}),
+al("Folder",{
+Name="Popups"
+}),
+al("Folder",{
+Name="ToolTips"
+})
+})
+
+ac.NotificationGui=al("ScreenGui",{
+Name="WindUI/Notifications",
+Parent=aq,
+IgnoreGuiInset=true,
+})
+ac.DropdownGui=al("ScreenGui",{
+Name="WindUI/Dropdowns",
+Parent=aq,
+IgnoreGuiInset=true,
+})
+ap(ac.ScreenGui)
+ap(ac.NotificationGui)
+ap(ac.DropdownGui)
+
+ak.Init(ac)
+
+math.clamp(ac.TransparencyValue,0,1)
+
+local ar=ac.NotificationModule.Init(ac.NotificationGui)
+
+function ac.Notify(as,at)
+at.Holder=ar.Frame
+at.Window=ac.Window
+
+return ac.NotificationModule.New(at)
+end
+
+function ac.SetNotificationLower(as,at)
+ar.SetLower(at)
+end
+
+function ac.SetFont(as,at)
+ak.UpdateFont(at)
+end
+
+function ac.OnThemeChange(as,at)
+ac.OnThemeChangeFunction=at
+end
+
+function ac.AddTheme(as,at)
+ac.Themes[at.Name]=at
+return at
+end
+
+function ac.SetTheme(as,at)
+if ac.Themes[at]then
+ac.Theme=ac.Themes[at]
+ak.SetTheme(ac.Themes[at])
+
+if ac.OnThemeChangeFunction then
+ac.OnThemeChangeFunction(at)
+end
+
+
+return ac.Themes[at]
+end
+return nil
+end
+
+function ac.GetThemes(as)
+return ac.Themes
+end
+function ac.GetCurrentTheme(as)
+return ac.Theme.Name
+end
+function ac.GetTransparency(as)
+return ac.Transparent or false
+end
+function ac.GetWindowSize(as)
+return Window.UIElements.Main.Size
+end
+function ac.Localization(as,at)
+return ac.LocalizationModule:New(at,ak)
+end
+
+function ac.SetLanguage(as,at)
+if ak.Localization then
+return ak.SetLanguage(at)
+end
+return false
+end
+
+function ac.ToggleAcrylic(as,at)
+if ac.Window and ac.Window.AcrylicPaint and ac.Window.AcrylicPaint.Model then
+ac.Window.Acrylic=at
+ac.Window.AcrylicPaint.Model.Transparency=at and 0.98 or 1
+if at then
+an.Enable()
+else
+an.Disable()
+end
+end
+end
+
+
+
+function ac.Gradient(as,at,av)
+local aw={}
+local ax={}
+
+for ay,az in next,at do
+local aA=tonumber(ay)
+if aA then
+aA=math.clamp(aA/100,0,1)
+table.insert(aw,ColorSequenceKeypoint.new(aA,az.Color))
+table.insert(ax,NumberSequenceKeypoint.new(aA,az.Transparency or 0))
+end
+end
+
+table.sort(aw,function(aA,aB)return aA.Time<aB.Time end)
+table.sort(ax,function(aA,aB)return aA.Time<aB.Time end)
+
+
+if#aw<2 then
+error"ColorSequence requires at least 2 keypoints"
+end
+
+
+local aA={
+Color=ColorSequence.new(aw),
+Transparency=NumberSequence.new(ax),
+}
+
+if av then
+for aB,aC in pairs(av)do
+aA[aB]=aC
+end
+end
+
+return aA
+end
+
+
+function ac.Popup(as,at)
+at.WindUI=ac
+return a.load'q'.new(at)
+end
+
+
+ac.Themes=a.load'r'(ac)
+
+ak.Themes=ac.Themes
+
+
+ac:SetTheme"Dark"
+ac:SetLanguage(ak.Language)
+
+
+function ac.CreateWindow(as,at)
+local av=a.load'W'
+
+if not isfolder"H4xScripts"then
+makefolder"H4xScripts"
+end
+if at.Folder then
+makefolder(at.Folder)
+else
+makefolder(at.Title)
+end
+
+at.WindUI=ac
+at.Parent=ac.ScreenGui.Window
+
+if ac.Window then
+warn"You cannot create more than one window"
+return
+end
+
+local aw=true
+
+local ax=ac.Themes[at.Theme or"Dark"]
+
+
+ak.SetTheme(ax)
+
+
+local ay=gethwid or function()
+return game:GetService"Players".LocalPlayer.UserId
+end
+
+local az=ay()
+
+if at.KeySystem then
+aw=false
+
+local function loadKeysystem()
+ai.new(at,az,function(aA)aw=aA end)
+end
+
+local aA=at.Folder.."/"..az..".key"
+
+if not at.KeySystem.API then
+if at.KeySystem.SaveKey and isfile(aA)then
+local aB=readfile(aA)
+local aC=(type(at.KeySystem.Key)=="table")
+and table.find(at.KeySystem.Key,aB)
+or tostring(at.KeySystem.Key)==tostring(aB)
+
+if aC then
+aw=true
+else
+loadKeysystem()
+end
+else
+loadKeysystem()
+end
+else
+if isfile(aA)then
+local aB=readfile(aA)
+local aC=false
+
+for aD,aE in next,at.KeySystem.API do
+local b=ac.Services[aE.Type]
+if b then
+local e={}
+for g,h in next,b.Args do
+table.insert(e,aE[h])
+end
+
+local i=b.New(table.unpack(e))
+local j=i.Verify(aB)
+if j then
+aC=true
+break
+end
+end
+end
+
+aw=aC
+if not aC then loadKeysystem()end
+else
+loadKeysystem()
+end
+end
+
+repeat task.wait()until aw
+end
+
+local aA=av(at)
+
+ac.Transparent=at.Transparent
+ac.Window=aA
+
+if at.Acrylic then
+an.init()
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+return aA
+end
+
+return ac
