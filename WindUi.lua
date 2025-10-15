@@ -3767,7 +3767,7 @@ if not listfiles then return{}end
 
 local ae={}
 if not isfolder(ac.Path)then
-makefolder("H4xScripts/"..ac.Path)
+makefolder(ac.Path)
 return ae
 end
 
@@ -9799,7 +9799,7 @@ if typeof(ar.Background)=="string"and aE then
 aC=true
 
 if string.find(aE,"http")then
-local e=ar.Folder.."/assets/."..SanitizeFilename(aE)..".webm"
+local e="H4xScripts/"..ar.Folder.."/assets/."..SanitizeFilename(aE)..".webm"
 if not isfile(e)then
 local g,h=pcall(function()
 local g=ai.Request{Url=aE,Method="GET",Headers={["User-Agent"]="Roblox/Exploit"}}
@@ -9835,7 +9835,7 @@ CornerRadius=UDim.new(0,ar.UICorner)
 aD:Play()
 
 elseif b then
-local e=ar.Folder.."/assets/."..SanitizeFilename(b)..GetImageExtension(b)
+local e="H4xScripts/"..ar.Folder.."/assets/."..SanitizeFilename(b)..GetImageExtension(b)
 if not isfile(e)then
 local g,h=pcall(function()
 local g=ai.Request{Url=b,Method="GET",Headers={["User-Agent"]="Roblox/Exploit"}}
@@ -11325,8 +11325,8 @@ ac:SetLanguage(ak.Language)
 function ac.CreateWindow(as,at)
 local av=a.load'W'
 
-if not isfolder("H4xScripts")then
-makefolder("H4xScripts")
+if not isfolder"H4xScripts"then
+makefolder"H4xScripts"
 end
 if at.Folder then
 makefolder("H4xScripts/"..at.Folder)
@@ -11363,7 +11363,7 @@ local function loadKeysystem()
 ai.new(at,az,function(aA)aw=aA end)
 end
 
-local aA=at.Folder.."/"..az..".key"
+local aA="H4xScripts/"..at.Folder.."/"..az..".key"
 
 if not at.KeySystem.API then
 if at.KeySystem.SaveKey and isfile(aA)then
