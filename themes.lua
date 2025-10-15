@@ -1,3 +1,4 @@
+wait(0.5)
 WindUI:AddTheme({
     Name = "Ocean Blue",
     Accent = Color3.fromHex("#0B5394"),
