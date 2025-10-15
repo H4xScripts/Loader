@@ -3767,7 +3767,7 @@ if not listfiles then return{}end
 
 local ae={}
 if not isfolder(ac.Path)then
-makefolder(ac.Path)
+makefolder("H4xScripts/"..ac.Path)
 return ae
 end
 
@@ -9419,12 +9419,6 @@ end
 if not isfolder("H4xScripts/"..ar.Folder.."/assets")then
 makefolder("H4xScripts/"..ar.Folder.."/assets")
 end
-if not isfolder(ar.Folder)then
-makefolder(ar.Folder)
-end
-if not isfolder(ar.Folder.."/assets")then
-makefolder(ar.Folder.."/assets")
-end
 end
 
 local at=aj("UICorner",{
@@ -11331,13 +11325,13 @@ ac:SetLanguage(ak.Language)
 function ac.CreateWindow(as,at)
 local av=a.load'W'
 
-if not isfolder"H4xScripts"then
-makefolder"H4xScripts"
+if not isfolder("H4xScripts")then
+makefolder("H4xScripts")
 end
 if at.Folder then
-makefolder(at.Folder)
+makefolder("H4xScripts/"..at.Folder)
 else
-makefolder(at.Title)
+makefolder("H4xScripts/"..at.Title)
 end
 
 at.WindUI=ac
