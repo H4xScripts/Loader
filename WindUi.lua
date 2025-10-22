@@ -4,7 +4,7 @@
     | |/ |/ / / _ \/ _  / /_/ // /  
     |__/|__/_/_//_/\_,_/\____/___/
     
-    v1.6.54  |  2025-10-09  |  Roblox UI Library for scripts
+    v1.6.56  |  2025-10-20  |  Roblox UI Library for scripts
     
     This script is NOT intended to be modified.
     To view the source code, see the `src/` folder on the official GitHub repository.
@@ -15,8 +15,29 @@
     License: MIT
 ]]
 
+local a a={cache={}, load=function(b)if not a.cache[b]then a.cache[b]={c=a[b]()}end return a.cache[b].c end}do function a.a()return{
+Dialog="Accent",
 
-local a a={cache={}, load=function(b)if not a.cache[b]then a.cache[b]={c=a[b]()}end return a.cache[b].c end}do function a.a()local b=game:GetService"RunService"local d=
+Background="Accent",
+Hover="Text",
+
+WindowBackground="Background",
+
+TopbarButtonIcon="Icon",
+TopbarTitle="Text",
+TopbarAuthor="Text",
+TopbarIcon="Text",
+
+TabBackground="Hover",
+TabTitle="Text",
+TabIcon="Icon",
+
+ElementBackground="Text",
+ElementTitle="Text",
+ElementDesc="Text",
+ElementIcon="Icon",
+}end function a.b()
+local b=game:GetService"RunService"local d=
 b.Heartbeat
 local e=game:GetService"UserInputService"
 local f=game:GetService"TweenService"
@@ -111,6 +132,7 @@ Blue="#039be5",
 White="#ffffff",
 Grey="#484848",
 },
+ThemeFallbacks=a.load'a'
 }
 
 function m.Init(p)
@@ -207,24 +229,53 @@ end
 end
 
 function m.GetThemeProperty(p,r)
-local u=r[p]or m.Themes.Dark[p]
+local function getValue(u,v)
+local x=v[u]
 
-if not u then return nil end
+if not x then return nil end
 
-if type(u)=="string"and string.sub(u,1,1)=="#"then
-return Color3.fromHex(u)
+if type(x)=="string"and string.sub(x,1,1)=="#"then
+return Color3.fromHex(x)
 end
 
-if typeof(u)=="Color3"then
+if typeof(x)=="Color3"then
+return x
+end
+
+if type(x)=="table"and x.Color and x.Transparency then
+return x
+end
+
+if type(x)=="function"then
+return x()
+end
+
+return nil
+end
+
+local u=getValue(p,r)
+if u then
 return u
 end
 
-if type(u)=="table"and u.Color and u.Transparency then
+local v=m.ThemeFallbacks[p]
+if v then
+u=getValue(v,r)
+if u then
+return u
+end
+end
+
+u=getValue(p,m.Themes.Dark)
+if u then
 return u
 end
 
-if type(u)=="function"then
-return u()
+if v then
+u=getValue(v,m.Themes.Dark)
+if u then
+return u
+end
 end
 
 return nil
@@ -500,10 +551,11 @@ m.CanDraggable=u
 end
 
 
+
 function m.Drag(u,v,A)
 local B
-local C,F,G,H
-local J={
+local C,F,G
+local H={
 CanDraggable=true
 }
 
@@ -511,34 +563,36 @@ if not v or type(v)~="table"then
 v={u}
 end
 
-local function update(L)
-local M=L.Position-G
+local function update(J)
+if not C or not H.CanDraggable then return end
+
+local L=J.Position-F
 m.Tween(u,0.02,{Position=UDim2.new(
-H.X.Scale,H.X.Offset+M.X,
-H.Y.Scale,H.Y.Offset+M.Y
+G.X.Scale,G.X.Offset+L.X,
+G.Y.Scale,G.Y.Offset+L.Y
 )}):Play()
 end
 
-for L,M in pairs(v)do
-M.InputBegan:Connect(function(N)
-if(N.UserInputType==Enum.UserInputType.MouseButton1 or N.UserInputType==Enum.UserInputType.Touch)and J.CanDraggable then
+for J,L in pairs(v)do
+L.InputBegan:Connect(function(M)
+if(M.UserInputType==Enum.UserInputType.MouseButton1 or M.UserInputType==Enum.UserInputType.Touch)and H.CanDraggable then
 if B==nil then
-B=M
+B=L
 C=true
-G=N.Position
-H=u.Position
+F=M.Position
+G=u.Position
 
 if A and type(A)=="function"then
 A(true,B)
 end
 
-N.Changed:Connect(function()
-if N.UserInputState==Enum.UserInputState.End then
+M.Changed:Connect(function()
+if M.UserInputState==Enum.UserInputState.End then
 C=false
 B=nil
 
 if A and type(A)=="function"then
-A(false,B)
+A(false,nil)
 end
 end
 end)
@@ -546,45 +600,45 @@ end
 end
 end)
 
-M.InputChanged:Connect(function(N)
-if B==M and C then
-if N.UserInputType==Enum.UserInputType.MouseMovement or N.UserInputType==Enum.UserInputType.Touch then
-F=N
+L.InputChanged:Connect(function(M)
+if C and B==L then
+if M.UserInputType==Enum.UserInputType.MouseMovement or M.UserInputType==Enum.UserInputType.Touch then
+update(M)
 end
 end
 end)
 end
 
-e.InputChanged:Connect(function(N)
-if N==F and C and B~=nil then
-if J.CanDraggable then
-update(N)
+e.InputChanged:Connect(function(M)
+if C and B~=nil then
+if M.UserInputType==Enum.UserInputType.MouseMovement or M.UserInputType==Enum.UserInputType.Touch then
+update(M)
 end
 end
 end)
 
-function J.Set(N,O)
-J.CanDraggable=O
+function H.Set(M,N)
+H.CanDraggable=N
 end
 
-return J
+return H
 end
 
 
 j.Init(p,"Icon")
 
 
-function m.Image(u,v,A,B,C,F,G)
-local function SanitizeFilename(H)
-H=H:gsub("[%s/\\:*?\"<>|]+","-")
-H=H:gsub("[^%w%-_%.]","")
-return H
+function m.Image(u,v,A,B,C,F,G,H)
+local function SanitizeFilename(J)
+J=J:gsub("[%s/\\:*?\"<>|]+","-")
+J=J:gsub("[^%w%-_%.]","")
+return J
 end
 
 B=B or"Temp"
 v=SanitizeFilename(v)
 
-local H=p("Frame",{
+local J=p("Frame",{
 Size=UDim2.new(0,0,0,0),
 BackgroundTransparency=1,
 },{
@@ -593,7 +647,7 @@ Size=UDim2.new(1,0,1,0),
 BackgroundTransparency=1,
 ScaleType="Crop",
 ThemeTag=(m.Icon(u)or G)and{
-ImageColor3=F and"Icon"or nil
+ImageColor3=F and(H or"Icon")or nil
 }or nil,
 },{
 p("UICorner",{
@@ -602,9 +656,9 @@ CornerRadius=UDim.new(0,A)
 })
 })
 if m.Icon(u)then
-H.ImageLabel:Destroy()
+J.ImageLabel:Destroy()
 
-local J=j.Image{
+local L=j.Image{
 Icon=u,
 Size=UDim2.new(1,0,1,0),
 Colors={
@@ -612,47 +666,48 @@ Colors={
 "Button"
 }
 }.IconFrame
-J.Parent=H
+L.Parent=J
 elseif string.find(u,"http")then
-local J="H4xScripts/"..B.."/assets/."..C.."-"..v..".png"
-local L,M=pcall(function()
+local L="H4xScripts/"..B.."/assets/."..C.."-"..v..".png"
+local M,N=pcall(function()
 task.spawn(function()
-if not isfile(J)then
-local L=m.Request{
+if not isfile(L)then
+local M=m.Request{
 Url=u,
 Method="GET",
 }.Body
 
-writefile(J,L)
+writefile(L,M)
 end
 
 
-local L,M=pcall(getcustomasset,J)
-if L then
-H.ImageLabel.Image=M
+local M,N=pcall(getcustomasset,L)
+if M then
+J.ImageLabel.Image=N
 else
-warn(string.format("[ WindUI.Creator ] Failed to load custom asset '%s': %s",J,tostring(M)))
-H:Destroy()
+warn(string.format("[ WindUI.Creator ] Failed to load custom asset '%s': %s",L,tostring(N)))
+J:Destroy()
 
 return
 end
 end)
 end)
-if not L then
-warn("[ WindUI.Creator ]  '"..identifyexecutor().."' doesnt support the URL Images. Error: "..M)
+if not M then
+warn("[ WindUI.Creator ]  '"..identifyexecutor().."' doesnt support the URL Images. Error: "..N)
 
-H:Destroy()
+J:Destroy()
 end
 elseif u==""then
-H.Visible=false
+J.Visible=false
 else
-H.ImageLabel.Image=u
+J.ImageLabel.Image=u
 end
 
-return H
+return J
 end
 
-return m end function a.b()
+return m end function a.c()
+
 local b={}
 
 
@@ -676,8 +731,8 @@ end
 
 
 
-return b end function a.c()
-local b=a.load'a'
+return b end function a.d()
+local b=a.load'b'
 local e=b.New
 local f=b.Tween
 
@@ -962,7 +1017,7 @@ end
 return i
 end
 
-return g end function a.d()
+return g end function a.e()
 
 
 
@@ -1002,12 +1057,12 @@ local aj,ak,al,am,an,ao,ap,aq,ar=setclipboard or toclipboard,request or http_req
 local as,at="",0;
 
 
-local au="https://api.platoboost.com";
+local au="https://api.platoboost.app";
 local av=ak{
 Url=au.."/public/connectivity",
 Method="GET"
 };
-if av.StatusCode~=200 or av.StatusCode~=429 then
+if av.StatusCode~=200 and av.StatusCode~=429 then
 au="https://api.platoboost.net";
 end
 
@@ -1242,7 +1297,7 @@ Copy=ax,
 end
 
 
-return ab end function a.e()
+return ab end function a.f()
 
 
 
@@ -1314,7 +1369,7 @@ Copy=CopyLink
 }
 end
 
-return ab end function a.f()
+return ab end function a.g()
 
 
 
@@ -1365,7 +1420,7 @@ Copy=CopyLink
 end
 
 
-return aa end function a.g()
+return aa end function a.h()
 return{
 platoboost={
 Name="Platoboost",
@@ -1373,7 +1428,7 @@ Icon="rbxassetid://75920162824531",
 Args={"ServiceId","Secret"},
 
 
-New=a.load'd'.New
+New=a.load'e'.New
 },
 pandadevelopment={
 Name="Panda Development",
@@ -1381,7 +1436,7 @@ Icon="panda",
 Args={"ServiceId"},
 
 
-New=a.load'e'.New
+New=a.load'f'.New
 },
 luarmor={
 Name="Luarmor",
@@ -1389,16 +1444,16 @@ Icon="rbxassetid://130918283130165",
 Args={"ScriptId","Discord"},
 
 
-New=a.load'f'.New
+New=a.load'g'.New
 },
 
-}end function a.h()
+}end function a.i()
 
 
 return[[
 {
     "name": "windui",
-    "version": "1.6.54",
+    "version": "1.6.56",
     "main": "./dist/main.lua",
     "repository": "https://github.com/Footagesus/WindUI",
     "discord": "https://discord.gg/ftgs-development-hub-1300692552005189632",
@@ -1406,8 +1461,8 @@ return[[
     "description": "Roblox UI Library for scripts",
     "license": "MIT",
     "scripts": {
-        "dev": "sh build/build.sh dev $INPUT_FILE",
-        "build": "sh build/build.sh build $INPUT_FILE",
+        "dev": "bash build/build.sh dev $INPUT_FILE",
+        "build": "bash build/build.sh build $INPUT_FILE",
         "live": "python -m http.server 8642",
         "watch": "chokidar . -i 'node_modules' -i 'dist' -i 'build' -c 'npm run dev --'",
         "live-build": "concurrently \"npm run live\" \"npm run watch --\"",
@@ -1424,11 +1479,11 @@ return[[
         "chokidar-cli": "^3.0.0",
         "concurrently": "^9.2.0"
     }
-}]]end function a.i()
+}]]end function a.j()
 
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New
 local ad=ab.Tween
 
@@ -1569,10 +1624,10 @@ return ao
 end
 
 
-return aa end function a.j()
+return aa end function a.k()
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New local ad=
 ab.Tween
 
@@ -1703,8 +1758,8 @@ return aq
 end
 
 
-return aa end function a.k()
-local aa=a.load'a'
+return aa end function a.l()
+local aa=a.load'b'
 local ab=aa.New
 local ac=aa.Tween
 
@@ -1858,19 +1913,19 @@ end
 return af
 end
 
-return ad end function a.l()
+return ad end function a.m()
 local aa={}
 
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New
 local ad=ab.Tween
 
-local ae=a.load'i'.New
-local af=a.load'j'.New
+local ae=a.load'j'.New
+local af=a.load'k'.New
 
 function aa.new(ag,ah,ai)
-local aj=a.load'k'.Init(nil,ag.WindUI.ScreenGui.KeySystem)
+local aj=a.load'l'.Init(nil,ag.WindUI.ScreenGui.KeySystem)
 local ak=aj.Create(true)
 
 local al={}
@@ -2289,7 +2344,7 @@ end
 
 local function handleSuccess(az)
 ak:Close()()
-writefile((ag.Folder or ag.Title).."/"..ah..".key",tostring(az))
+writefile((ag.Folder or"Temp").."/"..ah..".key",tostring(az))
 task.wait(.4)
 ai(true)
 end
@@ -2350,7 +2405,7 @@ az.Position=UDim2.new(1,0,0.5,0)
 ak:Open()
 end
 
-return aa end function a.m()
+return aa end function a.n()
 
 
 local function map(aa,ab,ac,ad,ae)
@@ -2367,15 +2422,15 @@ local aa=game:GetService"Workspace".CurrentCamera.ViewportSize.Y
 return map(aa,0,2560,8,56)
 end
 
-return{viewportPointToWorld,getOffset}end function a.n()
+return{viewportPointToWorld,getOffset}end function a.o()
 
 
 
-local aa=a.load'a'
+local aa=a.load'b'
 local ab=aa.New
 
 
-local ac,ad=unpack(a.load'm')
+local ac,ad=unpack(a.load'n')
 local ae=Instance.new("Folder",game:GetService"Workspace".CurrentCamera)
 
 
@@ -2511,12 +2566,12 @@ ag.Frame=aj
 ag.Model=ai
 
 return ag
-end end function a.o()
+end end function a.p()
 
 
 
-local aa=a.load'a'
-local ab=a.load'n'
+local aa=a.load'b'
+local ab=a.load'o'
 
 local ac=aa.New
 
@@ -2636,14 +2691,14 @@ ae.SetVisibility=af.SetVisibility
 end
 
 return ae,af
-end end function a.p()
+end end function a.q()
 
 
 
 local aa={
-AcrylicBlur=a.load'n',
+AcrylicBlur=a.load'o',
 
-AcrylicPaint=a.load'o',
+AcrylicPaint=a.load'p',
 }
 
 function aa.init()
@@ -2690,11 +2745,11 @@ registerDefaults()
 aa.Enable()
 end
 
-return aa end function a.q()
+return aa end function a.r()
 
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New local ad=
 ab.Tween
 
@@ -2711,7 +2766,7 @@ Buttons=ae.Buttons,
 IconSize=22,
 }
 
-local ag=a.load'k'.Init(nil,ae.WindUI.ScreenGui.Popups)
+local ag=a.load'l'.Init(nil,ae.WindUI.ScreenGui.Popups)
 local ah=ag.Create(true)
 
 local ai=200
@@ -2871,7 +2926,7 @@ PaddingBottom=UDim.new(0,16),
 }),
 })
 
-local ar=a.load'i'.New
+local ar=a.load'j'.New
 
 for as,at in next,af.Buttons do
 ar(at.Title,at.Icon,at.Callback,at.Variant,ap,ah)
@@ -2883,7 +2938,7 @@ ah:Open()
 return af
 end
 
-return aa end function a.r()
+return aa end function a.s()
 return function(aa)
 return{
 Dark={
@@ -3103,12 +3158,12 @@ Rotation=60,
 }),
 
 Icon=Color3.fromHex"#ffffff",
+},
 }
-}
-end end function a.s()
+end end function a.t()
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New local ad=
 ab.Tween
 
@@ -3205,12 +3260,12 @@ return am
 end
 
 
-return aa end function a.t()
+return aa end function a.u()
 local aa={}
 
 local ab=game:GetService"UserInputService"
 
-local ac=a.load'a'
+local ac=a.load'b'
 local ad=ac.New local ae=
 ac.Tween
 
@@ -3378,11 +3433,11 @@ return aj
 end
 
 
-return aa end function a.u()
+return aa end function a.v()
 local aa={}
 
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New
 local ad=ab.Tween
 
@@ -3528,8 +3583,7 @@ return ah
 end
 
 
-return aa end function a.v()
-
+return aa end function a.w()
 local aa=game:GetService"HttpService"
 
 local ab
@@ -3750,6 +3804,32 @@ af.CustomData=ai.__custom or{}
 return af.CustomData
 end
 
+function af.Delete(ag)
+if not delfile then
+return false,"delfile function is not available"
+end
+
+if not isfile(af.Path)then
+return false,"Config file does not exist"
+end
+
+local ah,ai=pcall(function()
+delfile(af.Path)
+end)
+
+if not ah then
+return false,"Failed to delete config file: "..tostring(ai)
+end
+
+ac.Configs[ae]=nil
+
+if ab.CurrentConfig==af then
+ab.CurrentConfig=nil
+end
+
+return true,"Config deleted successfully"
+end
+
 function af.GetData(ag)
 return{
 elements=af.Elements,
@@ -3760,6 +3840,34 @@ end
 af:SetAsCurrent()
 ac.Configs[ae]=af
 return af
+end
+
+function ac.DeleteConfig(ad,ae)
+if not delfile then
+return false,"delfile function is not available"
+end
+
+local af=ac.Path..ae..".json"
+
+if not isfile(af)then
+return false,"Config file does not exist"
+end
+
+local ag,ah=pcall(function()
+delfile(af)
+end)
+
+if not ag then
+return false,"Failed to delete config file: "..tostring(ah)
+end
+
+ac.Configs[ae]=nil
+
+if ab.CurrentConfig and ab.CurrentConfig.Path==af then
+ab.CurrentConfig=nil
+end
+
+return true,"Config deleted successfully"
 end
 
 function ac.AllConfigs(ad)
@@ -3785,10 +3893,10 @@ function ac.GetConfig(ad,ae)
 return ac.Configs[ae]
 end
 
-return ac end function a.w()
+return ac end function a.x()
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New
 local ad=ab.Tween
 
@@ -4055,10 +4163,10 @@ end
 
 
 
-return aa end function a.x()
+return aa end function a.y()
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New
 local ad=ab.Tween
 
@@ -4196,8 +4304,8 @@ end
 
 
 
-return aa end function a.y()
-local aa=a.load'a'
+return aa end function a.z()
+local aa=a.load'b'
 local ab=aa.New
 local ac=aa.NewRoundFrame
 local ad=aa.Tween
@@ -4348,7 +4456,7 @@ if af.Thumbnail then
 ak=aa.Image(
 af.Thumbnail,
 af.Title,
-ae.Window.NewElements and af.UICorner-12 or(af.UICorner-4),
+ae.Window.NewElements and af.UICorner-11 or(af.UICorner-4),
 ae.Window.Folder,
 "Thumbnail",
 false,
@@ -4360,10 +4468,11 @@ if af.Image then
 al=aa.Image(
 af.Image,
 af.Title,
-ae.Window.NewElements and af.UICorner-12 or(af.UICorner-4),
+ae.Window.NewElements and af.UICorner-11 or(af.UICorner-4),
 ae.Window.Folder,
 "Image",
-not af.Color and true or false
+not af.Color and true or false,
+"ElementIcon"
 )
 if typeof(af.Color)=="string"then
 al.ImageLabel.ImageColor3=GetTextColorForHSB(Color3.fromHex(aa.Colors[af.Color]))
@@ -4388,7 +4497,7 @@ Text=am or"",
 TextSize=an=="Desc"and 15 or 17,
 TextXAlignment="Left",
 ThemeTag={
-TextColor3=not af.Color and"Text"or nil,
+TextColor3=not af.Color and("Element"..an)or nil,
 },
 TextColor3=af.Color and ao or nil,
 TextTransparency=an=="Desc"and.3 or 0,
@@ -4559,7 +4668,7 @@ ImageTransparency=af.Color and.05 or.93,
 
 Parent=ae.Parent,
 ThemeTag={
-ImageColor3=not af.Color and"Text"or nil
+ImageColor3=not af.Color and"ElementBackground"or nil
 },
 ImageColor3=af.Color and
 (
@@ -4854,13 +4963,13 @@ end
 
 
 return af
-end end function a.z()
-local aa=a.load'a'
+end end function a.A()
+local aa=a.load'b'
 local ab=aa.New
 
 local ac={}
 
-local ad=a.load'i'.New
+local ad=a.load'j'.New
 
 function ac.New(ae,af)
 af.Hover=false
@@ -4874,7 +4983,7 @@ Desc=af.Desc or nil,
 
 Locked=af.Locked or false,
 }
-local ah=a.load'y'(af)
+local ah=a.load'z'(af)
 
 ag.ParagraphFrame=ah
 if af.Buttons and#af.Buttons>0 then
@@ -4902,8 +5011,8 @@ return ag.__type,ag
 
 end
 
-return ac end function a.A()
-local aa=a.load'a'local ab=
+return ac end function a.B()
+local aa=a.load'b'local ab=
 aa.New
 
 local ac={}
@@ -4925,7 +5034,7 @@ UIElements={}
 
 local ag=true
 
-af.ButtonFrame=a.load'y'{
+af.ButtonFrame=a.load'z'{
 Title=af.Title,
 Desc=af.Desc,
 Parent=ae.Parent,
@@ -5000,10 +5109,10 @@ end)
 return af.__type,af
 end
 
-return ac end function a.B()
+return ac end function a.C()
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New
 local ad=ab.Tween
 
@@ -5128,10 +5237,10 @@ return al,ai
 end
 
 
-return aa end function a.C()
+return aa end function a.D()
 local aa={}
 
-local ab=a.load'a'
+local ab=a.load'b'
 local ac=ab.New
 local ad=ab.Tween
 
@@ -5222,13 +5331,13 @@ return al,ai
 end
 
 
-return aa end function a.D()
-local aa=a.load'a'local ab=
+return aa end function a.E()
+local aa=a.load'b'local ab=
 aa.New local ac=
 aa.Tween
 
-local ad=a.load'B'.New
-local ae=a.load'C'.New
+local ad=a.load'C'.New
+local ae=a.load'D'.New
 
 local af={}
 
@@ -5244,7 +5353,7 @@ Type=ah.Type or"Toggle",
 Callback=ah.Callback or function()end,
 UIElements={}
 }
-ai.ToggleFrame=a.load'y'{
+ai.ToggleFrame=a.load'z'{
 Title=ai.Title,
 Desc=ai.Desc,
 
@@ -5314,8 +5423,8 @@ end)
 return ai.__type,ai
 end
 
-return af end function a.E()
-local aa=a.load'a'
+return af end function a.F()
+local aa=a.load'b'
 local ac=aa.New
 local ad=aa.Tween
 
@@ -5366,7 +5475,7 @@ return math.floor(ar/ai.Step+0.5)*ai.Step
 end
 end
 
-ai.SliderFrame=a.load'y'{
+ai.SliderFrame=a.load'z'{
 Title=ai.Title,
 Desc=ai.Desc,
 Parent=ah.Parent,
@@ -5547,10 +5656,10 @@ end)
 return ai.__type,ai
 end
 
-return ae end function a.F()
+return ae end function a.G()
 local aa=game:GetService"UserInputService"
 
-local ac=a.load'a'
+local ac=a.load'b'
 local ad=ac.New local ae=
 ac.Tween
 
@@ -5559,7 +5668,7 @@ UICorner=6,
 UIPadding=8,
 }
 
-local ag=a.load's'.New
+local ag=a.load't'.New
 
 function af.New(ah,ai)
 local aj={
@@ -5576,7 +5685,7 @@ UIElements={},
 
 local ak=true
 
-aj.KeybindFrame=a.load'y'{
+aj.KeybindFrame=a.load'z'{
 Title=aj.Title,
 Desc=aj.Desc,
 Parent=ai.Parent,
@@ -5693,19 +5802,19 @@ end)
 return aj.__type,aj
 end
 
-return af end function a.G()
-local aa=a.load'a'
+return af end function a.H()
+local aa=a.load'b'
 local ac=aa.New local ad=
 aa.Tween
 
 local ae={
 UICorner=8,
 UIPadding=8,
-}local af=a.load'i'
+}local af=a.load'j'
 
 
 .New
-local ag=a.load'j'.New
+local ag=a.load'k'.New
 
 function ae.New(ah,ai)
 local aj={
@@ -5726,7 +5835,7 @@ Width=150,
 
 local ak=true
 
-aj.InputFrame=a.load'y'{
+aj.InputFrame=a.load'z'{
 Title=aj.Title,
 Desc=aj.Desc,
 Parent=ai.Parent,
@@ -5801,7 +5910,7 @@ end
 return aj.__type,aj
 end
 
-return ae end function a.H()
+return ae end function a.I()
 local aa={}
 
 local ac=game:GetService"UserInputService"
@@ -5810,10 +5919,10 @@ local af=game:GetService"Workspace".CurrentCamera
 
 local ag=workspace.CurrentCamera
 
-local ah=a.load'j'.New
+local ah=a.load'k'.New
 
 
-local ai=a.load'a'
+local ai=a.load'b'
 local aj=ai.New
 local ak=ai.Tween
 
@@ -5960,6 +6069,14 @@ end
 
 am.UIElements.Dropdown.Frame.Frame.TextLabel.Text=(au==""and"--"or au)
 end
+
+local function Callback()
+aq:Display()
+task.spawn(function()
+ai.SafeCallback(am.Callback,am.Value)
+end)
+end
+
 
 function aq.Refresh(as,at)
 for au,av in next,am.UIElements.Menu.Frame.ScrollingFrame:GetChildren()do
@@ -6117,12 +6234,6 @@ am.Tabs[aw]=ay
 
 aq:Display()
 
-local function Callback()
-aq:Display()
-task.spawn(function()
-ai.SafeCallback(am.Callback,am.Value)
-end)
-end
 
 
 ai.AddSignal(ay.UIElements.TabItem.MouseButton1Click,function()
@@ -6199,7 +6310,7 @@ end
 
 am.UIElements.MenuCanvas.Size=UDim2.new(0,ay+6+6+5+5+18+6+6,am.UIElements.MenuCanvas.Size.Y.Scale,am.UIElements.MenuCanvas.Size.Y.Offset)
 
-
+Callback()
 end
 
 
@@ -6317,18 +6428,18 @@ return aq
 end
 
 
-return aa end function a.I()
+return aa end function a.J()
 game:GetService"UserInputService"
 game:GetService"Players".LocalPlayer:GetMouse()local aa=
 game:GetService"Workspace".CurrentCamera
 
-local ac=a.load'a'
+local ac=a.load'b'
 local ae=ac.New local af=
 ac.Tween
 
-local ag=a.load's'.New local ah=a.load'j'
+local ag=a.load't'.New local ah=a.load'k'
 .New
-local ai=a.load'H'.New local aj=
+local ai=a.load'I'.New local aj=
 
 workspace.CurrentCamera
 
@@ -6370,7 +6481,7 @@ end
 
 local ao=true
 
-an.DropdownFrame=a.load'y'{
+an.DropdownFrame=a.load'z'{
 Title=an.Title,
 Desc=an.Desc,
 Parent=am.Parent,
@@ -6438,7 +6549,7 @@ end
 return an.__type,an
 end
 
-return ak end function a.J()
+return ak end function a.K()
 
 
 
@@ -6610,14 +6721,14 @@ end
 return table.concat(ar)
 end
 
-return ac end function a.K()
+return ac end function a.L()
 local ac={}
 
-local ae=a.load'a'
+local ae=a.load'b'
 local ag=ae.New
 local ai=ae.Tween
 
-local aj=a.load'J'
+local aj=a.load'K'
 
 function ac.New(ak,al,am,an,ao)
 local ap={
@@ -6820,12 +6931,12 @@ return ap
 end
 
 
-return ac end function a.L()
-local ac=a.load'a'local ae=
+return ac end function a.M()
+local ac=a.load'b'local ae=
 ac.New
 
 
-local ag=a.load'K'
+local ag=a.load'L'
 
 local ai={}
 
@@ -6882,8 +6993,8 @@ al.ElementFrame=an.CodeFrame
 return al.__type,al
 end
 
-return ai end function a.M()
-local ac=a.load'a'
+return ai end function a.N()
+local ac=a.load'b'
 local ae=ac.New local ag=
 ac.Tween
 
@@ -6896,8 +7007,8 @@ local al=aj.RenderStepped
 local am=ak.LocalPlayer
 local an=am:GetMouse()
 
-local ao=a.load'i'.New
-local ap=a.load'j'.New
+local ao=a.load'j'.New
+local ap=a.load'k'.New
 
 local aq={
 UICorner=8,
@@ -6926,7 +7037,7 @@ end
 
 aw:SetHSVFromRGB(aw.Default)
 
-local ax=a.load'k'.Init(at)
+local ax=a.load'l'.Init(at)
 local ay=ax.Create()
 
 aw.ColorpickerFrame=ay
@@ -7530,7 +7641,7 @@ local av=true
 
 if as.Window.NewElements then aq.UICorner=14 end
 
-at.ColorpickerFrame=a.load'y'{
+at.ColorpickerFrame=a.load'z'{
 Title=at.Title,
 Desc=at.Desc,
 Parent=as.Parent,
@@ -7597,8 +7708,8 @@ end)
 return at.__type,at
 end
 
-return aq end function a.N()
-local ac=a.load'a'
+return aq end function a.O()
+local ac=a.load'b'
 local ae=ac.New
 local ag=ac.Tween
 
@@ -7850,8 +7961,8 @@ end)
 return al.__type,al
 end
 
-return ai end function a.O()
-local ac=a.load'a'
+return ai end function a.P()
+local ac=a.load'b'
 local ae=ac.New
 
 local ag={}
@@ -7877,8 +7988,8 @@ ak
 return"Divider",{__type="Divider",ElementFrame=al}
 end
 
-return ag end function a.P()
-local ac=a.load'a'
+return ag end function a.Q()
+local ac=a.load'b'
 local ae=ac.New
 
 local ag={}
@@ -7893,8 +8004,8 @@ BackgroundTransparency=1,
 return"Space",{__type="Space",ElementFrame=ak}
 end
 
-return ag end function a.Q()
-local ac=a.load'a'
+return ag end function a.R()
+local ac=a.load'b'
 local ae=ac.New
 
 local ag={}
@@ -7960,22 +8071,22 @@ end
 return ak.__type,ak
 end
 
-return ag end function a.R()
+return ag end function a.S()
 return{
 Elements={
-Paragraph=a.load'z',
-Button=a.load'A',
-Toggle=a.load'D',
-Slider=a.load'E',
-Keybind=a.load'F',
-Input=a.load'G',
-Dropdown=a.load'I',
-Code=a.load'L',
-Colorpicker=a.load'M',
-Section=a.load'N',
-Divider=a.load'O',
-Space=a.load'P',
-Image=a.load'Q',
+Paragraph=a.load'A',
+Button=a.load'B',
+Toggle=a.load'E',
+Slider=a.load'F',
+Keybind=a.load'G',
+Input=a.load'H',
+Dropdown=a.load'J',
+Code=a.load'M',
+Colorpicker=a.load'N',
+Section=a.load'O',
+Divider=a.load'P',
+Space=a.load'Q',
+Image=a.load'R',
 },
 Load=function(ac,ae,ag,ai,aj,ak,al,am,an)
 for ao,ap in next,ag do
@@ -8089,16 +8200,16 @@ end
 end
 end,
 
-}end function a.S()
+}end function a.T()
 game:GetService"UserInputService"
 local ac=game.Players.LocalPlayer:GetMouse()
 
-local ae=a.load'a'
+local ae=a.load'b'
 local ag=ae.New
 local ai=ae.Tween
 
-local aj=a.load'x'.New
-local ak=a.load't'.New
+local aj=a.load'y'.New
+local ak=a.load'u'.New
 
 
 
@@ -8156,7 +8267,7 @@ Size=UDim2.new(1,-7,0,0),
 AutomaticSize="Y",
 Parent=am.Parent,
 ThemeTag={
-ImageColor3="Text",
+ImageColor3="TabBackground",
 },
 ImageTransparency=1,
 },{
@@ -8200,7 +8311,7 @@ VerticalAlignment="Center",
 ag("TextLabel",{
 Text=ao.Title,
 ThemeTag={
-TextColor3="Text"
+TextColor3="TabTitle"
 },
 TextTransparency=not ao.Locked and 0.4 or.7,
 TextSize=15,
@@ -8234,7 +8345,8 @@ ao.Icon..":"..ao.Title,
 Window.Folder,
 ao.__type,
 true,
-ao.IconThemed
+ao.IconThemed,
+"TabIcon"
 )
 ar.Size=UDim2.new(0,16,0,16)
 ar.Parent=ao.UIElements.Main.Frame
@@ -8453,7 +8565,7 @@ end
 
 
 
-ao.ElementsModule=a.load'R'
+ao.ElementsModule=a.load'S'
 
 ao.ElementsModule.Load(ao,ao.UIElements.ContainerFrame,ao.ElementsModule.Elements,Window,WindUI,nil,ao.ElementsModule,an)
 
@@ -8593,15 +8705,15 @@ al.OnChangeFunc(an)
 end
 end
 
-return al end function a.T()
+return al end function a.U()
 local ac={}
 
 
-local ae=a.load'a'
+local ae=a.load'b'
 local ag=ae.New
 local ai=ae.Tween
 
-local aj=a.load'S'
+local aj=a.load'T'
 
 function ac.New(ak,al,am,an,ao)
 local ap={
@@ -8763,7 +8875,7 @@ return ap
 end
 
 
-return ac end function a.U()
+return ac end function a.V()
 return{
 Tab="table-of-contents",
 Paragraph="type",
@@ -8775,7 +8887,7 @@ Input="text-cursor-input",
 Dropdown="chevrons-up-down",
 Code="terminal",
 Colorpicker="palette",
-}end function a.V()
+}end function a.W()
 game:GetService"UserInputService"
 
 local ac={
@@ -8784,7 +8896,7 @@ Padding=9,
 }
 
 
-local ae=a.load'a'
+local ae=a.load'b'
 local ag=ae.New
 local ai=ae.Tween
 
@@ -8797,7 +8909,7 @@ Radius=22,
 Width=400,
 MaxHeight=380,
 
-Icons=a.load'U'
+Icons=a.load'V'
 }
 
 
@@ -9300,26 +9412,26 @@ am:Open()
 return am
 end
 
-return ac end function a.W()
+return ac end function a.X()
 
 local ac=game:GetService"UserInputService"
 game:GetService"RunService"
 
 local ae=workspace.CurrentCamera
 
-local ag=a.load'p'
+local ag=a.load'q'
 
-local ai=a.load'a'
+local ai=a.load'b'
 local aj=ai.New
 local ak=ai.Tween
 
 
-local al=a.load's'.New
-local am=a.load'i'.New
-local an=a.load't'.New
-local ao=a.load'u'
+local al=a.load't'.New
+local am=a.load'j'.New
+local an=a.load'u'.New
+local ao=a.load'v'
 
-local ap=a.load'v'
+local ap=a.load'w'
 
 
 
@@ -9328,9 +9440,10 @@ local ar={
 Title=aq.Title or"UI Library",
 Author=aq.Author,
 Icon=aq.Icon,
+IconSize=aq.IconSize or 22,
 IconThemed=aq.IconThemed,
 Folder=aq.Folder,
-Resizable=aq.Resizable,
+Resizable=aq.Resizable~=false,
 Background=aq.Background,
 BackgroundImageTransparency=aq.BackgroundImageTransparency or 0,
 User=aq.User or{},
@@ -9340,20 +9453,21 @@ Size=aq.Size,
 MinSize=aq.MinSize or Vector2.new(560,350),
 MaxSize=aq.MaxSize or Vector2.new(850,560),
 
+TopBarButtonIconSize=aq.TopBarButtonIconSize or 16,
+
 ToggleKey=aq.ToggleKey,
 Transparent=aq.Transparent or false,
-HideSearchBar=aq.HideSearchBar,
+HideSearchBar=aq.HideSearchBar~=false,
 ScrollBarEnabled=aq.ScrollBarEnabled or false,
 SideBarWidth=aq.SideBarWidth or 200,
 Acrylic=aq.Acrylic or false,
 NewElements=aq.NewElements or false,
 IgnoreAlerts=aq.IgnoreAlerts or false,
 HidePanelBackground=aq.HidePanelBackground or false,
-AutoScale=aq.AutoScale,
+AutoScale=aq.AutoScale~=false,
 OpenButton=aq.OpenButton,
 
 Position=UDim2.new(0.5,0,0.5,0),
-IconSize=aq.IconSize or 22,
 UICorner=16,
 UIPadding=14,
 UIElements={},
@@ -9362,7 +9476,7 @@ Closed=false,
 Parent=aq.Parent,
 Destroyed=false,
 IsFullscreen=false,
-CanResize=false,
+CanResize=aq.Resizable~=false,
 IsOpenButtonEnabled=true,
 
 CurrentConfig=nil,
@@ -9400,17 +9514,6 @@ math.clamp(as.X.Offset,ar.MinSize.X,ar.MaxSize.X),
 as.Y.Scale,
 math.clamp(as.Y.Offset,ar.MinSize.Y,ar.MaxSize.Y)
 )
-
-if ar.HideSearchBar~=false then
-ar.HideSearchBar=true
-end
-if ar.AutoScale~=false then
-ar.AutoScale=true
-end
-if ar.Resizable~=false then
-ar.CanResize=true
-ar.Resizable=true
-end
 
 if ar.Folder then
 if not isfolder("H4xScripts/"..ar.Folder)then
@@ -9912,7 +10015,7 @@ TextXAlignment="Left",
 TextSize=13,
 LayoutOrder=2,
 ThemeTag={
-TextColor3="Text"
+TextColor3="TopbarAuthor"
 },
 Name="Author",
 })
@@ -9935,7 +10038,7 @@ Name="Title",
 TextXAlignment="Left",
 TextSize=16,
 ThemeTag={
-TextColor3="Text"
+TextColor3="TopbarTitle"
 }
 })
 
@@ -9956,7 +10059,7 @@ AnchorPoint=Vector2.new(0.5,0.5),
 Position=UDim2.new(0.5,0,0.5,0),
 Name="Background",
 ThemeTag={
-ImageColor3="Background"
+ImageColor3="WindowBackground"
 },
 
 },{
@@ -10079,19 +10182,24 @@ PaddingBottom=UDim.new(0,ar.UIPadding),
 
 ai.AddSignal(ar.UIElements.Main.Main.Topbar.Left:GetPropertyChangedSignal"AbsoluteSize",function()
 local j=0
-local l=ar.UIElements.Main.Main.Topbar.Right.UIListLayout.AbsoluteContentSize.X
+local l=ar.UIElements.Main.Main.Topbar.Right.UIListLayout.AbsoluteContentSize.X/aq.WindUI.UIScale
 if i and g then
-j=math.max(i.TextBounds.X,g.TextBounds.X)
+j=math.max(i.TextBounds.X/aq.WindUI.UIScale,g.TextBounds.X/aq.WindUI.UIScale)
 else
-j=i.TextBounds.X
+j=i.TextBounds.X/aq.WindUI.UIScale
 end
 if h then
-j=j+ar.IconSize+ar.UIPadding+4
+j=j+(ar.IconSize/aq.WindUI.UIScale)+(ar.UIPadding/aq.WindUI.UIScale)+(4/aq.WindUI.UIScale)
 end
-ar.UIElements.Main.Main.Topbar.Center.Position=UDim2.new(0,j+ar.UIPadding,0.5,0)
+ar.UIElements.Main.Main.Topbar.Center.Position=UDim2.new(
+0,
+j+(ar.UIPadding/aq.WindUI.UIScale),
+0.5,
+0
+)
 ar.UIElements.Main.Main.Topbar.Center.Size=UDim2.new(
 1,
--j-l-(ar.UIPadding*2),
+-j-l-((ar.UIPadding*2)/aq.WindUI.UIScale),
 1,
 0
 )
@@ -10105,9 +10213,10 @@ m,
 ar.Folder,
 "TopbarIcon",
 true,
-u
+u,
+"TopbarButtonIcon"
 )
-v.Size=UDim2.new(0,16,0,16)
+v.Size=UDim2.new(0,ar.TopBarButtonIconSize,0,ar.TopBarButtonIconSize)
 v.AnchorPoint=Vector2.new(0.5,0.5)
 v.Position=UDim2.new(0.5,0,0.5,0)
 
@@ -10218,7 +10327,7 @@ end
 
 
 
-ar.OpenButtonMain=a.load'w'.New(ar)
+ar.OpenButtonMain=a.load'x'.New(ar)
 
 
 task.spawn(function()
@@ -10231,7 +10340,8 @@ ar.Title,
 ar.Folder,
 "Window",
 true,
-ar.IconThemed
+ar.IconThemed,
+"TopbarIcon"
 )
 h.Parent=ar.UIElements.Main.Main.Topbar.Left
 h.Size=UDim2.new(0,ar.IconSize,0,ar.IconSize)
@@ -10414,7 +10524,7 @@ ImageTransparency=ar.BackgroundImageTransparency,
 end
 end
 
-if ar.OpenButtonMain then
+if ar.OpenButtonMain and ar.IsOpenButtonEnabled then
 ar.OpenButtonMain:Visible(false)
 end
 
@@ -10500,7 +10610,7 @@ task.spawn(function()
 task.wait(0.4)
 ar.UIElements.Main.Visible=false
 
-if ar.OpenButtonMain and not ar.Destroyed then
+if ar.OpenButtonMain and not ar.Destroyed and not ar.IsPC and ar.IsOpenButtonEnabled then
 ar.OpenButtonMain:Visible(true)
 end
 end)
@@ -10661,8 +10771,8 @@ ar:EditOpenButton(ar.OpenButton)
 end
 
 
-local p=a.load'S'
-local r=a.load'T'
+local p=a.load'T'
+local r=a.load'U'
 local u=p.Init(ar,aq.WindUI,aq.Parent.Parent.ToolTips)
 u:OnChange(function(v)ar.CurrentTab=v end)
 
@@ -10708,7 +10818,7 @@ A
 return B
 end
 
-local v=a.load'k'.Init(ar,nil)
+local v=a.load'l'.Init(ar,nil)
 function ar.Dialog(A,B)
 local C={
 Title=B.Title or"Dialog",
@@ -11033,7 +11143,7 @@ end)
 
 
 if not ar.HideSearchBar then
-local G=a.load'V'
+local G=a.load'W'
 local H=false
 
 
@@ -11099,9 +11209,9 @@ end end end
 local ac={
 Window=nil,
 Theme=nil,
-Creator=a.load'a',
-LocalizationModule=a.load'b',
-NotificationModule=a.load'c',
+Creator=a.load'b',
+LocalizationModule=a.load'c',
+NotificationModule=a.load'd',
 Themes=nil,
 Transparent=false,
 
@@ -11112,7 +11222,7 @@ UIScale=1,
 ConfigManager=nil,
 Version="0.0.0",
 
-Services=a.load'g',
+Services=a.load'h',
 
 OnThemeChangeFunction=nil,
 }
@@ -11121,14 +11231,15 @@ OnThemeChangeFunction=nil,
 local ae=game:GetService"HttpService"
 
 
-local ag=ae:JSONDecode(a.load'h')
+local ag=ae:JSONDecode(a.load'i')
 if ag then
 ac.Version=ag.version
 end
 
-local ai=a.load'l'local aj=
+local ai=a.load'm'local aj=
 
 ac.Services
+
 
 local ak=ac.Creator
 
@@ -11136,7 +11247,7 @@ local al=ak.New local am=
 ak.Tween
 
 
-local an=a.load'p'local ao=
+local an=a.load'q'local ao=
 
 game:GetService"Players"and game:GetService"Players".LocalPlayer or nil
 
@@ -11309,11 +11420,11 @@ end
 
 function ac.Popup(as,at)
 at.WindUI=ac
-return a.load'q'.new(at)
+return a.load'r'.new(at)
 end
 
 
-ac.Themes=a.load'r'(ac)
+ac.Themes=a.load's'(ac)
 
 ak.Themes=ac.Themes
 
@@ -11323,16 +11434,17 @@ ac:SetLanguage(ak.Language)
 
 
 function ac.CreateWindow(as,at)
-local av=a.load'W'
+local av=a.load'X'
 
-if not isfolder"H4xScripts"then
-makefolder"H4xScripts"
+if not isfolder"WindUI"then
+makefolder"WindUI"
 end
 if at.Folder then
 makefolder("H4xScripts/"..at.Folder)
 else
 makefolder("H4xScripts/"..at.Title)
 end
+
 
 at.WindUI=ac
 at.Parent=ac.ScreenGui.Window
@@ -11363,7 +11475,7 @@ local function loadKeysystem()
 ai.new(at,az,function(aA)aw=aA end)
 end
 
-local aA="H4xScripts/"..at.Folder.."/"..az..".key"
+local aA=(at.Folder or"Temp").."/"..az..".key"
 
 if not at.KeySystem.API then
 if at.KeySystem.SaveKey and isfile(aA)then
